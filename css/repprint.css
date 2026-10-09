@@ -1,0 +1,142 @@
+/*
+CSS Credit: http://www.templatemo.com/
+*/
+
+body {
+	margin:0;
+	padding:0;
+	width:auto;
+	line-height: 1.5em;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 11px;
+	color: #666666;
+	
+}
+
+p {
+	margin: 2px 0px;
+	font-size: 11px;
+	text-align: justify;
+}
+
+h2 {
+	margin:0 0 5px 0px;
+	padding: 5px 0px;
+	font-size: 20px;
+	font-weight: bold;
+	color:#10504F;
+}
+
+h3 {
+	margin: 0px;
+	padding: 10px 0;
+	font-size: 25px;
+	font-weight: bold;
+	color:#ffb21e;
+}
+
+h4 {
+	clear: both;
+	margin: 0px;
+	padding: 15px 0px 5px 10px;
+	font-size: 14px;
+	font-weight: bold;
+	color: var(--color-danger, #DC2626);
+}
+
+h5 {
+	clear: both;
+	margin: 0px;
+	padding: 5px 0px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #10504F;
+}
+h6 {
+	clear: both;
+	margin: 0px;
+	padding: 5px 0px;
+	font-size: 13px;
+	font-weight: bold;
+	color: #10504F;
+}
+
+
+.cleaner { clear: both; width: 100%; height: 0px; font-size: 0px;  }
+
+.cleaner_h10 { clear: both; width:100%; height: 10px; }
+.cleaner_h20 { clear: both; width:100%; height: 20px; }
+.cleaner_h30 { clear: both; width:100%; height: 30px; }
+.cleaner_h40 { clear: both; width:100%; height: 40px; }
+.cleaner_h50 { clear: both; width:100%; height: 50px; }
+.cleaner_h60 { clear: both; width:100%; height: 60px; }
+
+#wrap {
+	margin:10px 10px 150px 10px;
+	padding: 10px 10px;
+	width:auto; background:#fff; height:960px ; border:1px solid #000; border-bottom:1.5px solid #000;
+}
+
+
+#headed {
+	width:auto;
+	height: 150px;
+	background:#fff;
+	border-radius:5px;
+}
+
+#logoq{ display: block; width: 100px; height: 100px; float:left; margin:25px 0 0 25px }
+#schtit{ display: block; min-width: 350px; height: 100px; margin-left:100px;float:left  }
+
+.hir {
+	margin: 10px 10px 10px 10px;
+	padding: 5px 0px 0px 0px;
+	font-size: 24px;
+	font-weight: normal;
+	color:#000000;
+}
+.titlep{color:#000000;font-size: 8px; margin-bottom:0px; margin-left:50px
+}
+.hia {
+	text-align:center;
+	margin:10px;
+	padding: 5px 0px 0px 0px;
+	font-size: 15px;
+	font-weight: normal;
+	color:#000000;
+}
+.hib {
+	text-align:center;
+	margin:10px;
+	padding: 5px 0px 0px 0px;
+	font-size: 20px;
+	font-weight:bold;
+	color:#000000;
+}
+.hic {
+
+	margin:0px 0px 0 10px;
+	padding: 5px 0px 5px 0px;
+	font-size: 15px;
+	font-weight: bold;
+	color:#000000; border-bottom:0px dotted #000;
+}
+
+.bord{width:auto; border-bottom:1.5px solid #000; margin-top:10px}
+#container{margin-top:10px;padding:0;width:auto; border:1.5px solid #000; border-bottom:0;}
+#reptit{padding:0;width:auto;height:30px; border-right:0px solid #000; border-bottom:1.5px solid #000; font-size:12px; color:#000}
+#figa{width:100px; border-right:1px solid #000;text-align:center; height:20px; float:left; font-size:10px; font-weight:bold; padding-top:10px} 
+#figb{width:60px; border-right:1.5px solid #000;text-align:center; height:20px; float:left; font-size:10px; font-weight:bold; padding-top:10px} 
+#figc{width:148px; border-right:1.5px solid #000;text-align:center; height:20px; float:left; font-size:10px; font-weight:bold; padding-top:10px} 
+#figd{width:80px; text-align:center; height:20px; float:left; font-size:10px; font-weight:bold; padding-top:10px;} 
+.rmks {
+
+	margin:10px 0px 0 0px;
+	padding: 5px 0px 5px 0px;
+	font-size: 11px;
+	font-weight: normal;
+	color:#000000; border-bottom:0px dotted #000;
+}
+.comme1{width:500px; height:100px;  float:left;}
+.comme2{width:100px; height:100px;  float:left}
+.comme3{width:100px; height:100px; float:left}

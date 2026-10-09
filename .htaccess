@@ -1,0 +1,4 @@
+# LAISAMIS P4 hardening - sensitive file types are never served
+<FilesMatch "(?i)(^Thumbs\.db$|^composer\.(json|lock|phar)$)|\.(sql|log|bak)$">
+    Require all denied
+</FilesMatch>

@@ -1,0 +1,2 @@
+# includes/ holds runtime PHP libraries - not web content
+Require all denied
