@@ -477,6 +477,8 @@ var area1,area2,area3,area4,area5,area6,area7,area8,area9,area10,area11,area12,a
 </script>	
 
 	
+<link rel="stylesheet" href="css/shell.css">
+<script type="text/javascript" src="js/bh-shell.js"></script>
 </head>
 <body id="body" onmousemove="reset_interval()" onclick="reset_interval()" onkeypress="reset_interval()" onscroll="reset_interval()">
 	<a class="bh-skip" href="#mainp">Skip to main content</a>
@@ -484,11 +486,16 @@ var area1,area2,area3,area4,area5,area6,area7,area8,area9,area10,area11,area12,a
 <div id="templatemo_container"  class="site">
  <div id="header">
     	<div class="site" id="sitename_panel"><img alt="AppCo Systems" src="images/applogo.png" style="width:200px;height:50px" title="AppCo Systems"/></div>
+      <div class="bh-topbar-search">
+        <label for="bh-globalsearch">Find a screen</label>
+        <input type="search" id="bh-globalsearch" name="bh-globalsearch" autocomplete="off" placeholder="Search modules, quick access, reports" aria-describedby="bh-search-status" />
+        <span class="bh-search-count" id="bh-search-status" role="status" aria-live="polite"></span>
+      </div>
         
-<div id="templatemo_menu" class="ddsmoothmenu">
+<nav id="templatemo_menu" class="ddsmoothmenu" aria-label="Modules">
             <ul>
                
-          	<li><a aria-label="patients" class="patients"></a>
+          	<li class="bh-nav-top"><a class="patients bh-nav-item" href="#" aria-haspopup="true" aria-expanded="false"><span class="bh-nav-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="3"/><path d="M2.5 16.5c0-3 2.4-4.6 5.5-4.6s5.5 1.6 5.5 4.6"/><path d="M14 6.5h4M16 4.5v4"/></svg></span><span class="bh-nav-text">Patients</span></a>
              <ul>
              <?php 
 			 
@@ -537,7 +544,7 @@ var area1,area2,area3,area4,area5,area6,area7,area8,area9,area10,area11,area12,a
               ?>
              </ul> 
             </li>
-              <li><a aria-label="consultations" class="consultations"></a>
+              <li class="bh-nav-top"><a class="consultations bh-nav-item" href="#" aria-haspopup="true" aria-expanded="false"><span class="bh-nav-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.5" width="12" height="14" rx="1.5"/><path d="M7.5 3.5V2.5h5v1"/><path d="M7 8.5h6M7 12h6"/></svg></span><span class="bh-nav-text">Consultations</span></a>
                  <ul style="width:494px">
              <li style="width:164px; border-right:2px  dashed #000; float:left">
                 <?php
@@ -716,7 +723,7 @@ var area1,area2,area3,area4,area5,area6,area7,area8,area9,area10,area11,area12,a
 						 ?>
                 </ul>
               </li>
-             <li><a aria-label="finance" class="finance"></a>
+             <li class="bh-nav-top"><a class="finance bh-nav-item" href="#" aria-haspopup="true" aria-expanded="false"><span class="bh-nav-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7"/><path d="M10 6v8M12.2 8H9.2a1.6 1.6 0 0 0 0 3.2h1.6a1.6 1.6 0 0 1 0 3.2H7.8"/></svg></span><span class="bh-nav-text">Finance</span></a>
                     <ul>
                      <?php
 				 if($arr[126]=='YES'){
@@ -757,7 +764,7 @@ var area1,area2,area3,area4,area5,area6,area7,area8,area9,area10,area11,area12,a
 				?>
              	 </ul>
                </li>
-              <li><a aria-label="inventory" class="inventory"></a>
+              <li class="bh-nav-top"><a class="inventory bh-nav-item" href="#" aria-haspopup="true" aria-expanded="false"><span class="bh-nav-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l7-4 7 4v6.5l-7 4-7-4z"/><path d="M3 7l7 4 7-4M10 11v6.5"/></svg></span><span class="bh-nav-text">Inventory</span></a>
                 <ul style="width:328px">
              	<li style="width:164px; border-right:2px  dashed #000; float:left">
              	 <p style="color:#0085B2; text-decoration:underline">Stock Management</p>
@@ -839,7 +846,7 @@ var area1,area2,area3,area4,area5,area6,area7,area8,area9,area10,area11,area12,a
                      </ul> 
             
               
-              <li><a aria-label="reports" class="reports"></a> 
+              <li class="bh-nav-top"><a class="reports bh-nav-item" href="#" aria-haspopup="true" aria-expanded="false"><span class="bh-nav-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2.5h6l4 4v11H5z"/><path d="M11 2.5v4h4"/><path d="M7.5 10.5h5M7.5 13.5h5"/></svg></span><span class="bh-nav-text">Reports</span></a> 
             <ul style="width:824px">
              <li style="width:164px; border-right:2px  dashed #000; float:left">
               <?php
@@ -1111,7 +1118,7 @@ echo'</li>';
 				?>
       </ul>
       </li>
-      <li><a aria-label="employees" class="employees"></a>
+      <li class="bh-nav-top"><a class="employees bh-nav-item" href="#" aria-haspopup="true" aria-expanded="false"><span class="bh-nav-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="7" r="2.8"/><path d="M2.5 16.5c0-2.8 2.2-4.4 5-4.4s5 1.6 5 4.4"/><circle cx="14.6" cy="7.6" r="2.2"/><path d="M13.2 12.4c2.6-.5 4.3 1 4.3 3.9"/></svg></span><span class="bh-nav-text">Employees</span></a>
     <ul style="width:495px">
    	<li style="width:164px; border-right:2px  dashed #000; float:left">
    <?php
@@ -1189,7 +1196,7 @@ echo'</li>';
                </li>
               	</ul>
               </li>
-             <li><a aria-label="settings" class="settings"></a>
+             <li class="bh-nav-top"><a class="settings bh-nav-item" href="#" aria-haspopup="true" aria-expanded="false"><span class="bh-nav-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="3"/><path d="M10 2.6v2.1M10 15.3v2.1M2.6 10h2.1M15.3 10h2.1M4.75 4.75l1.5 1.5M13.75 13.75l1.5 1.5M15.25 4.75l-1.5 1.5M6.25 13.75l-1.5 1.5"/></svg></span><span class="bh-nav-text">Settings</span></a>
               <ul>
                <?php
 			  	if($arr[198]=='YES'){
@@ -1263,12 +1270,29 @@ echo'</li>';
 
           <div class="cleaner"></div>  	
           
-        </div>
+        </nav>
         
 
   </div><!--end header-->
   <div class="cleaner"></div> 
  <div id="sidep" style="overflow:hidden" title="">
+	<?php
+	if (isset($arr) && is_array($arr)) {
+		$bh_favs = array();
+		if (isset($arr[101]) && $arr[101] == 'YES') $bh_favs[] = array('newcustomtpatient();', 'Add new patient');
+		if (isset($arr[103]) && $arr[103] == 'YES') $bh_favs[] = array('editpatient(114);', 'Patient chart');
+		if (isset($arr[104]) && $arr[104] == 'YES') $bh_favs[] = array('findpatient();', 'Find OPD patient');
+		if (isset($arr[106]) && $arr[106] == 'YES') $bh_favs[] = array('reception();', 'Reception');
+		if (isset($arr[112]) && $arr[112] == 'YES') $bh_favs[] = array('paymentsTesting();', 'Receive payment');
+		if (!empty($bh_favs)) {
+			echo '<div class="bh-favourites"><h3>My shortcuts</h3><ul>';
+			foreach ($bh_favs as $bh_f) {
+				echo '<li><a href="#" onclick="' . $bh_f[0] . ' return false;">' . $bh_f[1] . '</a></li>';
+			}
+			echo '</ul></div>';
+		}
+	}
+	?>
   <div class="demo">
   <div style="width:auto; height:40px; border:1px solid #0085B2; background:#fff; padding:0 0px; border-radius:0px">
   <?php 
@@ -1398,24 +1422,24 @@ echo'<div id="chata" style="height:90px; padding-bottom:5px;" ondblclick="refres
                 
     <div class="cleaner"></div> 
      <div id="bottomp" class="site">
-            <div id="footer_menul" class="ddsmoothmenu" title="Better Health Hospital Management Information System">
+            <nav id="footer_menul" class="ddsmoothmenu" aria-label="Session menu">
                     <ul>
                         <li><a onclick="logout()" class="logout" title="Better Health Hospital Management Information System"></a></li>  
                     
                      </ul>
-             </div>
+             </nav>
              <div id="footer_menuc" class="ddsmoothmenu">
              <div id="clock">
              </div>
              </div>
-             <div id="footer_menur" class="ddsmoothmenu">
+             <nav id="footer_menur" class="ddsmoothmenu" aria-label="Calendar and date picker">
                     <ul>
                   <li><input type="button"  id="datepickermain" class="datepick" style="font-size:0px"/></li>
                 	
                          
                          
                     </ul>
-             </div>
+             </nav>
   	</div>
     <div class="cleaner"></div>
     
