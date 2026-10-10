@@ -1,5 +1,6 @@
 images/*
 !images/.htaccess
+!images/fav.png
 upload/*
 !upload/.htaccess
 hrmdocs/
