@@ -54,17 +54,17 @@
 
 /**** advanced input styling ****/
 /* placeholder */
-::-webkit-input-placeholder  { 
+::-webkit-input-placeholder {
 	color: rgb(190, 188, 188); 
 
 }
 input:-moz-placeholder,
-textarea:-moz-placeholder{ 
+textarea:-moz-placeholder{
 	color: rgb(190, 188, 188);
 
 } 
 input {
-  outline: none;font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
 /* all the input except submit and checkbox */
@@ -186,7 +186,7 @@ p.signin.button{
   display: block;
 }
 
-#comments label:after { 
+#comments label:after {
   content:" *";
 }
 

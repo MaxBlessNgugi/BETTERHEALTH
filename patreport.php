@@ -1,4 +1,5 @@
 <script type="text/javascript" src="js/jquery.js"></script> 
+<script type="text/javascript" src="js/bh-feedback.js"></script>
 <script type="text/javascript" src="js/jquery.custom.alerts.js"></script>
 <?php include(__DIR__ . '/includes/db_fns.php');
 bh_authz_note('patreport', isset($_GET['id']) ? $_GET['id'] : (isset($_GET['ser']) ? $_GET['ser'] : ''));
@@ -21,19 +22,14 @@ $id=$_GET['id'];?>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="css/tokens.css" />
+<link rel="stylesheet" href="css/components.css" />
 <title>Better Health Patient Chart</title>
 <link id="favicon" href="images/fav.png" rel="icon" type="image/png"/>
+<link type="text/css" rel="stylesheet" href="css/feedback.css">
 <link type="text/css" rel="stylesheet" href="css/jquery.custom.alerts.css"/>
 <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
 <link type="text/css" rel="stylesheet" href="css/blue.css" />
 <link type="text/css" rel="stylesheet" href="css/blue.css" media="print" />
-
-<!--[if IE 7]>
-<link href="css/ie7.css" rel="stylesheet" type="text/css" />
-<![endif]-->
-<!--[if IE 6]>
-<link href="css/ie6.css" rel="stylesheet" type="text/css" />
-<![endif]-->
 
 <script src="assets/vendor/ui/jquery.ui.position.js"></script>
 <script type="text/javascript">
@@ -49,6 +45,8 @@ function doPrint(delay){
 </script>
 </head>
 <body>
+	<a class="bh-skip" href="#bh-main">Skip to main content</a>
+	<div id="bh-main" tabindex="-1"></div>
 
 <?php
 

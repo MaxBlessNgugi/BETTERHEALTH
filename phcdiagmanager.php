@@ -49,16 +49,16 @@ if($request == 1){
     while ($row = mysqli_fetch_assoc($empRecords)) {
 
         // Add New PHC Diagnosis Button |
-        #$addNewPhcDButton = "<button class='btn btn-sm btn-primary updateUser' data-id='".$row['PHCDiagnosisId']."' data-toggle='modal' data-target='#updateModal' ><i class='fa fa-plus'></i></button>";
+        #$addNewPhcDButton = "<button aria-label="btn" class='btn btn-sm btn-primary updateUser' data-id='".$row['PHCDiagnosisId']."' data-toggle='modal' data-target='#updateModal'  type="button"><i class='fa fa-plus'></i></button>";
 
         // save/add New Patient Diagnosis Button
-        $addNewButton = "<button class='btn btn-success btn-sm nwPacientePHCDiag' data-id='".$row['PHCDiagnosisId']."' data-toggle='modal' data-target='#updateModal' ><i class='fa fa-plus'></i></button>";
+        $addNewButton = "<button aria-label=\"btn\" class='btn btn-success btn-sm nwPacientePHCDiag' data-id='".$row['PHCDiagnosisId']."' data-toggle='modal' data-target='#updateModal'  type=\"button\"><i class='fa fa-plus'></i></button>";
 
         // Update Button
-        $updateButton = "<button class='btn btn-sm btn-info updateUser' data-id='".$row['PHCDiagnosisId']."' data-toggle='modal' data-target='#updateModal' ><i class='fa fa-plus'></i></button>";
+        $updateButton = "<button aria-label=\"btn\" class='btn btn-sm btn-info updateUser' data-id='".$row['PHCDiagnosisId']."' data-toggle='modal' data-target='#updateModal'  type=\"button\"><i class='fa fa-plus'></i></button>";
 
         // Delete Button
-        $deleteButton = "<button class='btn btn-sm btn-danger deleteUser' data-id='".$row['PHCDiagnosisId']."'><i class='fa fa-trash-o'></i></button>";
+        $deleteButton = "<button aria-label=\"btn\" class='btn btn-sm btn-danger deleteUser' data-id='".$row['PHCDiagnosisId']."' type=\"button\"><i class='fa fa-trash-o'></i></button>";
         
         
         $action = $updateButton;

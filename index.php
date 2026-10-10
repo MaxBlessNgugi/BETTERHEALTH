@@ -27,6 +27,7 @@ $result_dest = session_destroy();
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="css/tokens.css" />
+<link rel="stylesheet" href="css/components.css" />
 <title>Better Health User Authentication</title>
 <meta name="keywords" content="Better Health Hospital Management Information System" />
 <meta name="description" content="Better-Health Hospital Management Information System" />
@@ -35,81 +36,68 @@ $result_dest = session_destroy();
 <link href="css/page.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="css/style2.css" />
 <script type='text/javascript' src='js/jquery.min.js'></script>
+<link type="text/css" rel="stylesheet" href="css/feedback.css">
 <link type="text/css" rel="stylesheet" href="css/jquery.custom.alerts.css">
+<script type="text/javascript" src="js/bh-feedback.js"></script>
 <script type="text/javascript" src="js/jquery.custom.alerts.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 $('#username').focus();
 });
-document.onkeydown = keydown;
-    	function keydown(evt){
-      	if (!evt) evt = event;
-     	 if (evt.keyCode==13){ //enter
-		 if($('#username').val()!=''&& $('#passwd').val()!=''){
-        	login();
-		 }else{
-			$('#passwd').focus();
-		 }
-      	}
-	}
-
-function login(){
-	var username=$('#username').val();
-	var passwd=$('#passwd').val();
-	 if(username==''){
-		$().customAlert();
-		alert('Error!', '<p>Enter your Username!</p>');
-		e.preventDefault();
-		}
-		else  if(passwd==''){
-		$().customAlert();
-		alert('Error!', '<p>Enter your password!</p>');
-		e.preventDefault();
-		}
-		else {
-	 $('#message').html('<img id="img-spinner" src="images/load.gif" style="margin-top:20px" alt="Loading"/>');
-	$.ajax({
-	type:'POST',
-	url:'login.php',
-	data:{username:username, passwd:passwd},
-	success:function(data){
-		if(data==0){
-			$('#message').html('');
-	
-		}else $('#message').html(data);
-			
-				if(data==0){
-				window.location.href = "loading.php";
-			  	}
-		}
-		});
-		}
-}
+$(function () {
+    var form = document.getElementById('loginform');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var msg = document.getElementById('message');
+        msg.setAttribute('aria-busy', 'true');
+        msg.innerHTML = '<span id="img-spinner" class="bh-spinner" role="status" aria-label="Signing in, please wait"></span>';
+        $.ajax({
+            type: 'POST',
+            url: 'login.php',
+            data: { username: form.username.value, passwd: form.passwd.value },
+            success: function (data) {
+                msg.setAttribute('aria-busy', 'false');
+                if (data == 0) {
+                    msg.innerHTML = '';
+                    window.location.href = 'loading.php';
+                } else {
+                    msg.innerHTML = data;
+                }
+            },
+            error: function () {
+                msg.setAttribute('aria-busy', 'false');
+                msg.innerHTML = 'Sign-in failed. Please try again.';
+            }
+        });
+    });
+});
 
 
 </script>
 
 </head>   
 <body id="bod">
+	<a class="bh-skip" href="#templatemo_main">Skip to main content</a>
 
 <div id="templatemo_wrapper">
 	<div id="templatemo_header">
 <div class="cleaner"></div>
 
 
-    		<div id="site_title"><img src="images/wlogo.png" style="display:block; margin:0 auto; max-height:250px; max-width:100%; height:auto" title="Better Health Hospital Management Information System"/></div>
+    		<div id="site_title"><img alt="Better Health Hospital Management Information System" src="images/wlogo.png" style="display:block; margin:0 auto; max-height:250px; max-width:100%; height:auto" title="Better Health Hospital Management Information System"/></div>
 <div class="cleaner_h10"></div>
 <p style="font-size:20px; text-align:center; color:#125d30;text-transform:uppercase;">Better Health Hospital Management Information System</p>
     </div>
     
-    <div id="templatemo_main" style="border:0">
+    <div id="templatemo_main" style="border:0" tabindex="-1">
     
     	
           <div id="wrapper">
           <div class="cleaner_h20"></div>
  
                         <div id="login" class="animate form">
-                            <form  action="" autocomplete="on"> 
+                            <form id="loginform" action="login.php" method="post" autocomplete="on"> 
                  
                                 <p> 
                                     <label for="username" class="uname">Username </label>
@@ -117,15 +105,15 @@ function login(){
                                 </p>
                                  <div class="cleaner_h20"></div>
                                 <p> 
-                                    <label for="password" class="youpasswd">Password </label>
+                                    <label for="passwd" class="youpasswd">Password </label>
                                     <input id="passwd" name="passwd" required type="password"/> 
                                 </p>
                              
                                 <p class="login button"> 
                                  
-                                    <input type="button" id="create" value="Login" onclick="login()" />
+                                    <input type="submit" id="create" value="Login" />
                                 </p>
-                                   <div id="message" style="height:40px; width:40px; float:right; margin:10px"></div>
+                                   <div id="message" role="status" aria-live="polite" style="height:40px; width:40px; float:right; margin:10px"></div>
                             </form>
                         </div>
                         <div class="cleaner h10"></div>

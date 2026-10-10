@@ -28,7 +28,7 @@
 	text-align: center;
 	text-decoration: none;
 	font-weight: 400;
-	outline: none;
+	
 	border: none;
 }
 .ddsmoothmenu ul li p {
@@ -40,15 +40,15 @@
 	text-align: center;
 	text-decoration: none;
 	font-weight: 400;
-	outline: none;
+	
 	border: none;
 }
 
-* html .ddsmoothmenu ul li a{ /*IE6 hack to get sub menu links to behave correctly*/
+* html .ddsmoothmenu ul li a{/*IE6 hack to get sub menu links to behave correctly*/
 display: inline-block;
 }
 
-.ddsmoothmenu ul li a.selected, .ddsmoothmenu ul li a:hover { /*CSS class that's dynamically added to the currently active menu items' LI A element*/
+.ddsmoothmenu ul li a.selected, .ddsmoothmenu ul li a:hover {/*CSS class that's dynamically added to the currently active menu items' LI A element*/
 	color: #fff;
 	background: none;
 	
@@ -74,10 +74,7 @@ float: none;color:#333;
 
 }
 
-/*All subsequent sub menu levels vertical offset after 1st level sub menu */
-.ddsmoothmenu ul li ul li ul li ul,.ddsmoothmenu ul li ul li ul {
 
-}
 
 /* Sub level menu links style */
 .ddsmoothmenu ul li ul li a,.ddsmoothmenu ul li ul li ul li a,.ddsmoothmenu ul li ul li ul li ul li a{
@@ -134,7 +131,7 @@ height: 0;
 background:none;
 }
 
-.toplevelshadow{ /*shadow opacity. Doesn't work in IE*/
+.toplevelshadow{/*shadow opacity. Doesn't work in IE*/
 opacity: 0.5;
 }
 

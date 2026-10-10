@@ -95,14 +95,14 @@ function bh_login_failed($username = '')
         // Randomised stall so a scripted run cannot measure how fast guesses fail.
         usleep(300000 + mt_rand(0, 400000));
     }
-    echo "<img src=\"images/delete.png\" style=\"margin-top:10px\"  width=\"30\" height=\"30\"/>";
+    echo "<img alt=\"\" src=\"images/delete.png\" style=\"margin-top:10px\"  width=\"30\" height=\"30\"/>";
     exit;
 }
 
 function bh_login_locked($username = '')
 {
     bh_record_attempt($username, false);
-    echo "<img src=\"images/delete.png\" style=\"margin-top:10px\"  width=\"30\" height=\"30\"/>";
+    echo "<img alt=\"\" src=\"images/delete.png\" style=\"margin-top:10px\"  width=\"30\" height=\"30\"/>";
     echo "<p>Too many failed sign-in attempts. Please wait "
         . BH_LOGIN_LOCKOUT_MINUTES . " minutes and try again.</p>";
     exit;

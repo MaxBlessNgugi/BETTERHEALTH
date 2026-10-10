@@ -228,7 +228,7 @@ function cartitems($max){
 										<div id=\"figure2t\" style=\"width:60px\">".$_SESSION['cart'][$row][6]."</div>
 										<div id=\"figure2t\" style=\"width:77px\">".$_SESSION['cart'][$row][7]."</div>
 				<div id=\"del".$row."\" class=\"figure2t\" onclick=\"delitem(".$row.")\" style=\"height:16px;width:50px; border-right:1px solid #333\">
-										<img src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>
+										<img alt=\"\" src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>
 										</div>";
 										}
 									
@@ -293,7 +293,7 @@ function cartbill($max,$a){
 							<div id=\"figure2t\" style=\"width:70px\">".$_SESSION[$a][$row][4]."</div>
 							<div id=\"figure2t\" style=\"width:70px\">".$_SESSION[$a][$row][9]."</div>
 							<div id=\"figure2t\" style=\"width:70px\">".$_SESSION[$a][$row][10]."</div>";
-						echo"<div id=\"del".$row."\" class=\"figure2t\" onclick=\"delbill(".$row.",'".$a."')\" style=\"height:16px;width:56px;border-right:1px solid #333\"><img src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
+						echo"<div id=\"del".$row."\" class=\"figure2t\" onclick=\"delbill(".$row.",'".$a."')\" style=\"height:16px;width:56px;border-right:1px solid #333\"><img alt=\"\" src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
 
 					echo"</div>";
 					 }			
@@ -303,7 +303,7 @@ function cartbill($max,$a){
 }
 function cartbill2($max,$a){
 	echo'<div id="chati" style="width:400px; height:200px; overflow-y:auto">
-				<div id="inside" style="">
+				<div id="inside">
 									<div id="title">
 									<div id="figure1" style="margin-left:0px; width:240px">ItemName</div>
 								    <div id="figure1"  style="width:70px">Unit Price</div>
@@ -315,7 +315,7 @@ function cartbill2($max,$a){
 									echo'<div id="normal">';
 								echo"<div id=\"figure2t\" style=\"width:240px;height:16px; overflow:hidden\" title=\"".$_SESSION[$a][$row][1]."\">".$_SESSION[$a][$row][1]."</div>
 									 <div id=\"figure2t\" style=\"width:70px\">".$_SESSION[$a][$row][3]."</div>";
-									echo"<div id=\"del".$row."\" class=\"figure2t\" onclick=\"delbill2(".$row.",'".$a."',".$_SESSION[$a][$row][17].",".$_SESSION[$a][$row][3].")\" style=\"height:16px;width:42px; border-right:1px solid #333\"><img src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
+									echo"<div id=\"del".$row."\" class=\"figure2t\" onclick=\"delbill2(".$row.",'".$a."',".$_SESSION[$a][$row][17].",".$_SESSION[$a][$row][3].")\" style=\"height:16px;width:42px; border-right:1px solid #333\"><img alt=\"\" src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
 									
 				echo"</div>";	}
 									
@@ -323,7 +323,7 @@ function cartbill2($max,$a){
 }
 function cartbill3($max,$a){
 	echo'<div id="chati" style="width:400px; height:200px; overflow-y:auto">
-				<div id="inside" style="">
+				<div id="inside">
 									<div id="title">
 									<div id="figure1" style="margin-left:0px; width:240px">ItemName</div>
 								    <div id="figure1"  style="width:68px">Unit Price</div>
@@ -335,7 +335,7 @@ function cartbill3($max,$a){
 									echo'<div id="normal">';
 								echo"<div id=\"figure2t\" style=\"width:240px;height:16px; overflow:hidden\" title=\"".$_SESSION[$a][$row][1]."\">".$_SESSION[$a][$row][1]."</div>
 									 <div id=\"figure2t\" style=\"width:70px\">".$_SESSION[$a][$row][3]."</div>";
-									echo"<div id=\"delrad".$row."\" class=\"figure2t\" onclick=\"delbill3(".$row.",'".$a."',".$_SESSION[$a][$row][16].",".$_SESSION[$a][$row][3].")\" style=\"height:16px;width:56px; border-right:1px solid #333\"><img src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
+									echo"<div id=\"delrad".$row."\" class=\"figure2t\" onclick=\"delbill3(".$row.",'".$a."',".$_SESSION[$a][$row][16].",".$_SESSION[$a][$row][3].")\" style=\"height:16px;width:56px; border-right:1px solid #333\"><img alt=\"\" src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
 									
 				echo"</div>";	}
 									
@@ -343,7 +343,7 @@ function cartbill3($max,$a){
 }
 function theatcartbill5($max,$a){
 	echo'<div id="chati" style="width:350px; height:200px; overflow-y:auto">
-				<div id="inside" style="">
+				<div id="inside">
 									<div id="title">
 									<div id="figure1" style="margin-left:0px; width:240px">ItemName</div>
 									<div id="figure1"  style="width:55px">Remove</div>';	
@@ -353,7 +353,7 @@ function theatcartbill5($max,$a){
 									{
 									echo'<div id="normal">';
 								echo"<div id=\"figure2t\" style=\"width:240px;height:16px; overflow:hidden\" title=\"".$_SESSION[$a][$row][1]."\">".$_SESSION[$a][$row][1]."</div>";
-									echo"<div id=\"del".$row."\" class=\"figure2t\" onclick=\"delbill5(".$row.",".$_SESSION[$a][$row][13].",".$_SESSION[$a][$row][16].",'".$a."')\" style=\"height:16px;width:56px; border-right:1px solid #333\"><img src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
+									echo"<div id=\"del".$row."\" class=\"figure2t\" onclick=\"delbill5(".$row.",".$_SESSION[$a][$row][13].",".$_SESSION[$a][$row][16].",'".$a."')\" style=\"height:16px;width:56px; border-right:1px solid #333\"><img alt=\"\" src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
 									
 				echo"</div>";	}
 									
@@ -378,9 +378,9 @@ function pharmcartbillWidthAuto($max,$a){
 					echo"<div id=\"figure2t\" style=\"width:50px\">".$_SESSION[$a][$row][10]."</div>";
 						
 					if($_SESSION[$a][$row][16]==1){
-						echo"<div id=\"delpharmcart".$row."\" class=\"figure2t\" onclick=\"checkItemPaidStatus(".$_SESSION[$a][$row][17].")\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img src=\"images/redarrow.png\" width=\"20\" height=\"22\" /></div>";		
+						echo"<div id=\"delpharmcart".$row."\" class=\"figure2t\" onclick=\"checkItemPaidStatus(".$_SESSION[$a][$row][17].")\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img alt=\"\" src=\"images/redarrow.png\" width=\"20\" height=\"22\" /></div>";		
 					}else{
-						echo"<div id=\"del".$row."\" class=\"figure2t\" onclick=\"delpharmcartbill44(".$row.",".$_SESSION[$a][$row][18].",".$_SESSION[$a][$row][19].",'".$a."')\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
+						echo"<div id=\"del".$row."\" class=\"figure2t\" onclick=\"delpharmcartbill44(".$row.",".$_SESSION[$a][$row][18].",".$_SESSION[$a][$row][19].",'".$a."')\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img alt=\"\" src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
 					}	
 					echo'<input type="hidden" disabled="disabled" id="old_rcpt_no" value="'.$_SESSION[$a][$row][17].'"/>';
 		   echo"</div>";
@@ -408,9 +408,9 @@ function pharmcartbill($max,$a){
 					echo"<div id=\"figure2t\" style=\"width:50px\">".$_SESSION[$a][$row][10]."</div>";
 						
 					if($_SESSION[$a][$row][16]==1){
-						echo"<div id=\"delpharmcart".$row."\" class=\"figure2t\" onclick=\"checkItemPaidStatus(".$_SESSION[$a][$row][17].")\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img src=\"images/redarrow.png\" width=\"20\" height=\"22\" /></div>";		
+						echo"<div id=\"delpharmcart".$row."\" class=\"figure2t\" onclick=\"checkItemPaidStatus(".$_SESSION[$a][$row][17].")\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img alt=\"\" src=\"images/redarrow.png\" width=\"20\" height=\"22\" /></div>";		
 					}else{
-						echo"<div id=\"del".$row."\" class=\"figure2t\" onclick=\"delpharmcartbill44(".$row.",".$_SESSION[$a][$row][18].",".$_SESSION[$a][$row][19].",'".$a."')\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
+						echo"<div id=\"del".$row."\" class=\"figure2t\" onclick=\"delpharmcartbill44(".$row.",".$_SESSION[$a][$row][18].",".$_SESSION[$a][$row][19].",'".$a."')\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img alt=\"\" src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
 					}	
 					echo'<input type="hidden" disabled="disabled" id="old_rcpt_no" value="'.$_SESSION[$a][$row][17].'"/>';
 		   echo"</div>";
@@ -437,9 +437,9 @@ function pharmcartIPDbill($max,$a){
 					echo"<div id=\"figure2t\" style=\"width:50px\">".$_SESSION[$a][$row][10]."</div>";
 						
 					if($_SESSION[$a][$row][16]==1){
-						echo"<div id=\"delpharmcart".$row."\" class=\"figure2t\" onclick=\"checkItemPaidStatus(".$_SESSION[$a][$row][17].")\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img src=\"images/redarrow.png\" width=\"20\" height=\"22\" /></div>";		
+						echo"<div id=\"delpharmcart".$row."\" class=\"figure2t\" onclick=\"checkItemPaidStatus(".$_SESSION[$a][$row][17].")\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img alt=\"\" src=\"images/redarrow.png\" width=\"20\" height=\"22\" /></div>";		
 					}else{
-						echo"<div id=\"del".$row."\" class=\"figure2t\" onclick=\"delpharmcartIPDbill44(".$row.",".$_SESSION[$a][$row][18].",".$_SESSION[$a][$row][19].",'".$a."')\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
+						echo"<div id=\"del".$row."\" class=\"figure2t\" onclick=\"delpharmcartIPDbill44(".$row.",".$_SESSION[$a][$row][18].",".$_SESSION[$a][$row][19].",'".$a."')\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img alt=\"\" src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
 					}	
 					echo'<input type="hidden" disabled="disabled" id="old_rcpt_no" value="'.$_SESSION[$a][$row][17].'"/>';
 		   echo"</div>";
@@ -465,7 +465,7 @@ function pharmcartbill2($max,$a){
 					echo"<div id=\"figure2t\" style=\"width:50px\">".$_SESSION[$a][$row][3]."</div>";
 					echo"<div id=\"figure2t\" style=\"width:50px\">".$_SESSION[$a][$row][10]."</div>";
 						
-							echo"<div id=\"delpharmcart".$row."\" class=\"figure2t\" onclick=\"delpharmcartbill(".$row.",'".$a."',".$_SESSION[$a][$row][15].",".$_SESSION[$a][$row][3].")\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
+							echo"<div id=\"delpharmcart".$row."\" class=\"figure2t\" onclick=\"delpharmcartbill(".$row.",'".$a."',".$_SESSION[$a][$row][15].",".$_SESSION[$a][$row][3].")\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img alt=\"\" src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
 						
 					#echo'<input type="hidden" disabled="disabled" id="old_rcpt_no" value="'.$_SESSION[$a][$row][17].'"/>';
 		   echo"</div>";
@@ -488,9 +488,9 @@ function maabaracartbill($max,$a){
 					echo"<div id=\"figure2t\" style=\"width:20px\">".$_SESSION[$a][$row][2]."</div>";
 						
 					if($_SESSION[$a][$row][17]==1){
-						echo"<div id=\"delmaabara".$row."\" class=\"figure2t\" onclick=\"checkItemPaidStatus2(".$_SESSION[$a][$row][14].")\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img src=\"images/redarrow.png\" width=\"20\" height=\"22\" /></div>";		
+						echo"<div id=\"delmaabara".$row."\" class=\"figure2t\" onclick=\"checkItemPaidStatus2(".$_SESSION[$a][$row][14].")\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img alt=\"\" src=\"images/redarrow.png\" width=\"20\" height=\"22\" /></div>";		
 					}else{
-						echo"<div id=\"delmaabara".$row."\" class=\"figure2t\" onclick=\"delmaabarabill44(".$row.",".$_SESSION[$a][$row][15].",".$_SESSION[$a][$row][16].",'".$a."')\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
+						echo"<div id=\"delmaabara".$row."\" class=\"figure2t\" onclick=\"delmaabarabill44(".$row.",".$_SESSION[$a][$row][15].",".$_SESSION[$a][$row][16].",'".$a."')\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img alt=\"\" src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
 					}	
 					echo'<input type="hidden" disabled="disabled" id="old_lab_rcpt_no" value="'.$_SESSION[$a][$row][14].'" style="width:70px;"/>';
 		   echo"</div>";
@@ -513,9 +513,9 @@ function maabaracartIPDBill($max,$a){
 					echo"<div id=\"figure2t\" style=\"width:20px\">".$_SESSION[$a][$row][2]."</div>";
 						
 					if($_SESSION[$a][$row][17]==1){
-						echo"<div id=\"delmaabara".$row."\" class=\"figure2t\" onclick=\"checkItemPaidStatus2(".$_SESSION[$a][$row][14].")\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img src=\"images/redarrow.png\" width=\"20\" height=\"22\" /></div>";		
+						echo"<div id=\"delmaabara".$row."\" class=\"figure2t\" onclick=\"checkItemPaidStatus2(".$_SESSION[$a][$row][14].")\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img alt=\"\" src=\"images/redarrow.png\" width=\"20\" height=\"22\" /></div>";		
 					}else{
-						echo"<div id=\"delmaabara".$row."\" class=\"figure2t\" onclick=\"delmaabaraIPDBill44(".$row.",".$_SESSION[$a][$row][15].",".$_SESSION[$a][$row][16].",'".$a."')\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
+						echo"<div id=\"delmaabara".$row."\" class=\"figure2t\" onclick=\"delmaabaraIPDBill44(".$row.",".$_SESSION[$a][$row][15].",".$_SESSION[$a][$row][16].",'".$a."')\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img alt=\"\" src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
 					}	
 					echo'<input type="hidden" disabled="disabled" id="old_lab_rcpt_no" value="'.$_SESSION[$a][$row][14].'" style="width:70px;"/>';
 		   echo"</div>";
@@ -526,7 +526,7 @@ function maabaracartIPDBill($max,$a){
 }
 function drecartbill2($max,$a){
 	echo'<div id="chati" style="width:350px; height:200px;">
-				<div id="inside" style="">
+				<div id="inside">
 									<div id="title">
 									<div id="figure1" style="margin-left:0px; width:240px">ItemName</div>
 									<div id="figure1"  style="width:55px">Remove</div>';	
@@ -536,7 +536,7 @@ function drecartbill2($max,$a){
 									{
 									echo'<div id="normal">';
 								echo"<div id=\"figure2t\" style=\"width:240px;height:16px; overflow:hidden\" title=\"".$_SESSION[$a][$row][1]."\">".$_SESSION[$a][$row][1]."</div>";
-									echo"<div id=\"deldre".$row."\" class=\"figure2t\" onclick=\"delbill4(".$row.",'".$a."',".$_SESSION[$a][$row][17].",".$_SESSION[$a][$row][3].")\" style=\"height:16px;width:56px; border-right:1px solid #333\"><img src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
+									echo"<div id=\"deldre".$row."\" class=\"figure2t\" onclick=\"delbill4(".$row.",'".$a."',".$_SESSION[$a][$row][17].",".$_SESSION[$a][$row][3].")\" style=\"height:16px;width:56px; border-right:1px solid #333\"><img alt=\"\" src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
 									
 				echo"</div>";	}
 									
@@ -556,9 +556,9 @@ function dressercartbill($max,$a){
 					echo"<div id=\"figure2t\" style=\"width:20px\">".$_SESSION[$a][$row][2]."</div>";
 						
 					if($_SESSION[$a][$row][17]==1){
-						echo"<div id=\"deldresser".$row."\" class=\"figure2t\" onclick=\"checkItemPaidStatus3(".$_SESSION[$a][$row][14].")\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img src=\"images/redarrow.png\" width=\"20\" height=\"22\" /></div>";		
+						echo"<div id=\"deldresser".$row."\" class=\"figure2t\" onclick=\"checkItemPaidStatus3(".$_SESSION[$a][$row][14].")\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img alt=\"\" src=\"images/redarrow.png\" width=\"20\" height=\"22\" /></div>";		
 					}else{
-						echo"<div id=\"deldresser".$row."\" class=\"figure2t\" onclick=\"deldresserbill606(".$row.",".$_SESSION[$a][$row][15].",".$_SESSION[$a][$row][16].",'".$a."')\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
+						echo"<div id=\"deldresser".$row."\" class=\"figure2t\" onclick=\"deldresserbill606(".$row.",".$_SESSION[$a][$row][15].",".$_SESSION[$a][$row][16].",'".$a."')\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img alt=\"\" src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
 					}	
 					echo'<input type="hidden" disabled="disabled" id="old_dresser_rcptno" value="'.$_SESSION[$a][$row][14].'" style="width:70px;"/>';
 		   echo"</div>";
@@ -581,9 +581,9 @@ function radiolojiacartbill($max,$a){
 					echo"<div id=\"figure2t\" style=\"width:20px\">".$_SESSION[$a][$row][2]."</div>";
 						
 					if($_SESSION[$a][$row][17]==1){
-						echo"<div id=\"delradiolojia".$row."\" class=\"figure2t\" onclick=\"checkItemPaidStatus4(".$_SESSION[$a][$row][14].")\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img src=\"images/redarrow.png\" width=\"20\" height=\"22\" /></div>";		
+						echo"<div id=\"delradiolojia".$row."\" class=\"figure2t\" onclick=\"checkItemPaidStatus4(".$_SESSION[$a][$row][14].")\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img alt=\"\" src=\"images/redarrow.png\" width=\"20\" height=\"22\" /></div>";		
 					}else{
-						echo"<div id=\"delradiolojia".$row."\" class=\"figure2t\" onclick=\"delRadiolojiaBill834(".$row.",".$_SESSION[$a][$row][15].",".$_SESSION[$a][$row][16].",'".$a."')\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
+						echo"<div id=\"delradiolojia".$row."\" class=\"figure2t\" onclick=\"delRadiolojiaBill834(".$row.",".$_SESSION[$a][$row][15].",".$_SESSION[$a][$row][16].",'".$a."')\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img alt=\"\" src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
 					}	
 					echo'<input type="hidden" disabled="disabled" id="old_rad_rcptno" value="'.$_SESSION[$a][$row][14].'" style="width:70px;"/>';
 		   echo"</div>";
@@ -605,9 +605,9 @@ function radiolojiacartIPDBill($max,$a){
 					echo"<div id=\"figure2t\" style=\"width:20px\">".$_SESSION[$a][$row][2]."</div>";
 						
 					if($_SESSION[$a][$row][17]==1){
-						echo"<div id=\"delradiolojia".$row."\" class=\"figure2t\" onclick=\"checkItemPaidStatus4(".$_SESSION[$a][$row][14].")\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img src=\"images/redarrow.png\" width=\"20\" height=\"22\" /></div>";		
+						echo"<div id=\"delradiolojia".$row."\" class=\"figure2t\" onclick=\"checkItemPaidStatus4(".$_SESSION[$a][$row][14].")\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img alt=\"\" src=\"images/redarrow.png\" width=\"20\" height=\"22\" /></div>";		
 					}else{
-						echo"<div id=\"delradiolojia".$row."\" class=\"figure2t\" onclick=\"delRadiolojiaIPDBill834(".$row.",".$_SESSION[$a][$row][15].",".$_SESSION[$a][$row][16].",'".$a."')\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
+						echo"<div id=\"delradiolojia".$row."\" class=\"figure2t\" onclick=\"delRadiolojiaIPDBill834(".$row.",".$_SESSION[$a][$row][15].",".$_SESSION[$a][$row][16].",'".$a."')\" style=\"height:16px;width:37px; border-right:1px solid #333\"><img alt=\"\" src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>";
 					}	
 					echo'<input type="hidden" disabled="disabled" id="old_rad_rcptno" value="'.$_SESSION[$a][$row][14].'" style="width:70px;"/>';
 		   echo"</div>";
@@ -640,7 +640,7 @@ function cartitemsquot($max){
 										<div id=\"figure2t\" style=\"width:60px\">".$_SESSION['quot'][$row][6]."</div>
 										<div id=\"figure2t\" style=\"width:77px\">".$_SESSION['quot'][$row][7]."</div>
 				<div id=\"del".$row."\" class=\"figure2t\" onclick=\"delitemquot(".$row.")\" style=\"height:16px;width:50px; border-right:1px solid #333\">
-										<img src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>
+										<img alt=\"\" src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>
 										</div>";
 										}
 									
@@ -672,7 +672,7 @@ function cartitemspur($max){
 										<div id=\"figure2t\" style=\"width:60px\">".$_SESSION['pur'][$row][4]."</div>
 										
 				<div id=\"del".$row."\" class=\"figure2t\" onclick=\"delitempur(".$row.")\" style=\"height:16px;width:50px; border-right:1px solid #333\">
-										<img src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>
+										<img alt=\"\" src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>
 										</div>";
 										}
 									
@@ -698,7 +698,7 @@ function cartitemsret($max){
 										<div id=\"figure2t\" style=\"width:100px\">".$_SESSION['ret'][$row][3]."</div>
 										<div id=\"figure2t\" style=\"width:100px\">".$_SESSION['ret'][$row][6]."</div>
 										<div id=\"del".$row."\" class=\"figure2t\" onclick=\"delitemret(".$row.")\" style=\"height:16px;width:55px; border-right:1px solid #333\">
-										<img src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>
+										<img alt=\"\" src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>
 										</div>";
 										}
 									
@@ -724,7 +724,7 @@ function cartitemslpo($max){
 										<div id=\"figure2t\" style=\"width:100px\">".$_SESSION['lpo'][$row][4]."</div>
 										<div id=\"figure2t\" style=\"width:100px\">".$_SESSION['lpo'][$row][6]."</div>
 										<div id=\"del".$row."\" class=\"figure2t\" onclick=\"delitemlpo(".$row.")\" style=\"height:16px;width:55px; border-right:1px solid #333\">
-										<img src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>
+										<img alt=\"\" src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>
 										</div>";
 										}
 									
@@ -753,7 +753,7 @@ function cartitemspay($max){
 										#echo"<div id=\"figure2t\" style=\"width:100px\">".$_SESSION['pay'][$row][6]."</div>";
 										echo"<div id=\"figure2t\" style=\"width:100px\">".$_SESSION['pay'][$row][7]."</div>
 										<div id=\"del".$row."\" class=\"figure2t\" onclick=\"delpaymode(".$row.")\" style=\"height:16px;width:55px; border-right:1px solid #333\">
-										<img src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>
+										<img alt=\"\" src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>
 										</div>";
 										}
 									
@@ -777,7 +777,7 @@ echo'<div id="chati" style="width:760px; height:250px; overflow-y:scroll">
 										<div id=\"figure2t\" style=\"width:50px\">".$_SESSION['stock'][$row][3]."</div>
 										<div id=\"figure2t\" style=\"width:200px\">".$_SESSION['stock'][$row][9]."</div>
 					<div id=\"del".$row."\" class=\"figure2t\" onclick=\"delitemstock(".$row.")\" style=\"height:16px;width:50px; border-right:1px solid #333\">
-										<img src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>
+										<img alt=\"\" src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>
 										</div>";
 										}
 									
@@ -803,7 +803,7 @@ echo'<div id="chati" style="width:760px; height:250px; overflow-y:scroll">
 										<div id=\"figure2t\" style=\"width:120px\">".$_SESSION['expense'][$row][3]."</div>
 										
 				<div id=\"del".$row."\" class=\"figure2t\" onclick=\"deleteexpense(".$row.")\" style=\"height:16px;width:74px; border-right:1px solid #333\">
-										<img src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>
+										<img alt=\"\" src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>
 										</div>";
 										}
 									
@@ -826,7 +826,7 @@ echo'<div id="chati" style="width:760px; height:250px; overflow-y:scroll">
 										<div id=\"figure2t\" style=\"width:100px\">".$_SESSION['issue'][$row][3]."</div>
 										<div id=\"figure2t\" style=\"width:103px\">".$_SESSION['issue'][$row][4]."</div>
 					<div id=\"del".$row."\" class=\"figure2t\" onclick=\"delissue(".$row.")\" style=\"height:16px;width:50px; border-right:1px solid #333\">
-										<img src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>
+										<img alt=\"\" src=\"images/discard.png\" width=\"20\" height=\"22\" /></div>
 										</div>";
 										}
 									
@@ -1232,7 +1232,7 @@ function heading($logo,$comname,$email,$patname,$patid,$date,$Add,$tel,$web,$rcp
 	include_once(__DIR__ . '/../r/init.php');
 echo'<div style="width:100%;min-height:300px; border:2px solid #333; margin-bottom:10px; border-bottom:2px solid #333">';
 echo'<div style="clear:both; margin-bottom:10px"></div>';
-echo'<img src="'.$logo.'" style="max-height:70px; margin:0px 10px 0 10px; position:absolute;"/>';
+echo'<img alt="Logo" src="'.$logo.'" style="max-height:70px; margin:0px 10px 0 10px; position:absolute;"/>';
 echo'<p style="text-align:center;font-size:25px;margin:0 0 0 0px">'.$comname2.'</p>';
 echo'<div style="clear:both"></div>';
 echo'<p style="text-align:center;font-size:25px;margin:0 0 0 0px">'.$comname.'</p>';
@@ -1241,12 +1241,12 @@ echo'<p style="text-align:center;margin:0 0 0 0px">P.O Box '.$Add.'<br/>Tel: '.$
 echo'<div style="clear:both"></div>';
 echo'<p style="text-align:center;margin:0 0 0 0px;">OFFICIAL INVOICE</p>';
 //echo'<div id="barcode" style="font-family: Merchant; font-size:18px; font-weight:normal; text-transform:uppercase">'.$rcptno.'</div>';
-echo'<p style="text-align:center;    margin:0px 0 0 0px;border-bottom:1px dashed #333;border-top:1px dashed #333; padding:5px 0">Date:<input type="text" id="datepick2" value="'.$date.'" style="border-style: none;"/> &nbsp; &nbsp;&nbsp;&nbsp;Time:'.convtime($time).' &nbsp; &nbsp;&nbsp;&nbsp;Invoice No: '.$rcptno.' &nbsp; &nbsp;&nbsp;&nbsp &nbsp;&nbsp;&nbsp; Patient Name: '.$patname.'&nbsp; &nbsp;&nbsp;&nbsp;Patient No: '.$patid.'</p>';
+echo'<p style="text-align:center;    margin:0px 0 0 0px;border-bottom:1px dashed #333;border-top:1px dashed #333; padding:5px 0">Date:<label for="datepick2" class="bh-visually-hidden">OFFICIAL INVOICE</label><input type="text" id="datepick2" value="'.$date.'" style="border-style: none;"/> &nbsp; &nbsp;&nbsp;&nbsp;Time:'.convtime($time).' &nbsp; &nbsp;&nbsp;&nbsp;Invoice No: '.$rcptno.' &nbsp; &nbsp;&nbsp;&nbsp &nbsp;&nbsp;&nbsp; Patient Name: '.$patname.'&nbsp; &nbsp;&nbsp;&nbsp;Patient No: '.$patid.'</p>';
 		$resultx =mysqli_query($db, "select auto,pntno,company from patients where pntno='".$patid."'");
 		$rowx=mysqli_fetch_array($resultx);
 echo '<p style="text-align:center; margin:0px 0 0 0px;border-bottom:1px dashed #333; padding:5px 0">Insurance:'.$cname.'&nbsp;&nbsp;&nbsp;Company:'.stripslashes($rowx['company']).' &nbsp; &nbsp;&nbsp;&nbsp;Card No: '.$cardno.'</p>';
 echo'<div style="clear:both; margin-bottom:10px"></div>';
-echo'<img src="images/adobe.png" style="height:30px; float:right; margin-right:10px;  margin-top:-43px; cursor:pointer" onclick="window.print()" title="Convert to Pdf"/>';
+echo'<img alt="Convert to Pdf" src="images/adobe.png" style="height:30px; float:right; margin-right:10px;  margin-top:-43px; cursor:pointer" onclick="window.print()" title="Convert to Pdf"/>';
 echo'<div style="width:auto;  height:25px; border-bottom:1.5px solid #333;  border-top:1.5px solid #333">';echo'
 <div style="width:300px;  height:25px;border-right:1.5px solid #333; float:left; overflow:hidden">';echo'
 <p style="padding-top:4px;text-align:center;    margin:0 0 0 0px">Item name</p>';echo'
@@ -1293,7 +1293,7 @@ function footing($qty,$b,$d){
 <p style="padding-top:4px;text-align:center;    margin:0 0 0 0px"></p>';echo'
 </div>';echo'
 <div>';echo'
-<p style="padding-top:4px;text-align:center;    margin:0 -40px 0 0px">&nbsp;&nbsp;<input type="text" id="companybill" value="'.$b.'" style="border-style: none;width:80px;"/></a>';echo'
+<p style="padding-top:4px;text-align:center;    margin:0 -40px 0 0px">&nbsp;&nbsp;<label for="companybill" class="bh-visually-hidden">qty</label><input type="text" id="companybill" value="'.$b.'" style="border-style: none;width:80px;"/></a>';echo'
 </div>';echo'
 </div>';
 }
@@ -1316,7 +1316,7 @@ function finalhead($tam,$fullname,$comam,$com2am,$sign_image){
 <p style="padding-top:4px;text-align:center;    margin:0 0 0 0px"></p>';echo'
 </div>';echo'
 <div>';echo'
-<p style="padding-top:4px;text-align:center;    margin:0 -40px 0 0px">&nbsp;&nbsp;<input type="text" id="companybill" value="'.$tam.'" style="border-style: none;width:80px;"/></p>';echo'
+<p style="padding-top:4px;text-align:center;    margin:0 -40px 0 0px">&nbsp;&nbsp;<label for="companybill" class="bh-visually-hidden">Text field</label><input type="text" id="companybill" value="'.$tam.'" style="border-style: none;width:80px;"/></p>';echo'
 </div>';echo'
 </div>';
 
@@ -1334,7 +1334,7 @@ echo'
 <p style="padding-top:4px;text-align:center;    margin:0 0 0 0px"></p>';echo'
 </div>';echo'
 <div>';echo'
-<p style="padding-top:4px;text-align:center;    margin:0 -40px 0 0px">&nbsp;&nbsp;<input type="text" id="companybill" value="'.$nwvalue.'" style="border-style: none;width:80px;"/></p>';echo'
+<p style="padding-top:4px;text-align:center;    margin:0 -40px 0 0px">&nbsp;&nbsp;<label for="companybill" class="bh-visually-hidden">Text field</label><input type="text" id="companybill" value="'.$nwvalue.'" style="border-style: none;width:80px;"/></p>';echo'
 </div>';echo'
 </div>';
 
@@ -1353,7 +1353,7 @@ echo'
 <div>';
 $companyamnt=$comam-$com2am;
 echo'
-<p style="padding-top:4px;text-align:center;    margin:0 -40px 0 0px">&nbsp;&nbsp;<input type="text" id="companybill" value="'.$companyamnt.'" style="border-style: none;width:80px;"/></p>';echo'
+<p style="padding-top:4px;text-align:center;    margin:0 -40px 0 0px">&nbsp;&nbsp;<label for="companybill" class="bh-visually-hidden">Text field</label><input type="text" id="companybill" value="'.$companyamnt.'" style="border-style: none;width:80px;"/></p>';echo'
 </div>';echo'
 </div>';
 
@@ -1371,36 +1371,36 @@ echo'
 <div>';
 #$companyam=$comam-$com2am;
 echo'
-<p style="padding-top:4px;text-align:center;    margin:0 -40px 0 0px">&nbsp;&nbsp;<input type="text" id="companybill" value="'.$com2am.'" style="border-style: none;width:80px;"/></p>';echo'
+<p style="padding-top:4px;text-align:center;    margin:0 -40px 0 0px">&nbsp;&nbsp;<label for="companybill" class="bh-visually-hidden">Text field</label><input type="text" id="companybill" value="'.$com2am.'" style="border-style: none;width:80px;"/></p>';echo'
 </div>';
 echo'</div>';
 
 
-echo'<div style="float:right; margin:0 5px 0 0px;"><img src="images/IMG-20240206-WA0003.png" style="width:250px; height:40px; margin-right:100px;" /></div>';
+echo'<div style="float:right; margin:0 5px 0 0px;"><img alt="IMG 20240206 WA0003" src="images/IMG-20240206-WA0003.png" style="width:250px; height:40px; margin-right:100px;" /></div>';
 echo'<div style="clear:both; margin-bottom:80px"></div>';
 
 if($username='MC001'){
-echo'<img src="'.$sign_image.'" style="width:150px; height:80px;float:right;margin:-60px 200px 5px 5px" />';
+echo'<img alt="Sign Image" src="'.$sign_image.'" style="width:150px; height:80px;float:right;margin:-60px 200px 5px 5px" />';
 echo'<p style="float:right;margin:25px -280px 0 0px"> Signature..................................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>';
 }
 else if($username='TL006'){
-echo'<img src="'.$sign_image.'" style="width:150px; height:80px;float:right;margin:-60px 200px 5px 5px" />';
+echo'<img alt="Sign Image" src="'.$sign_image.'" style="width:150px; height:80px;float:right;margin:-60px 200px 5px 5px" />';
 echo'<p style="float:right;margin:25px -280px 0 0px"> Signature..................................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>';
 }
 else if($username='MC001'){
-echo'<img src="images/IMG-20240206-Lucy-Muthara.png" style="width:150px; height:80px;float:right;margin:-60px 200px 5px 5px" />';
+echo'<img alt="IMG 20240206 Lucy Muthara" src="images/IMG-20240206-Lucy-Muthara.png" style="width:150px; height:80px;float:right;margin:-60px 200px 5px 5px" />';
 echo'<p style="float:right;margin:25px -280px 0 0px"> Signature..................................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>';
 }
 else if($username='LW009'){
-echo'<img src="'.$sign_image.'" style="width:150px; height:80px;float:right;margin:-60px 200px 5px 5px" />';
+echo'<img alt="Sign Image" src="'.$sign_image.'" style="width:150px; height:80px;float:right;margin:-60px 200px 5px 5px" />';
 echo'<p style="float:right;margin:25px -280px 0 0px"> Signature..................................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>';
 }
 else if($username='JM036'){
-echo'<img src="'.$sign_image.'" style="width:150px; height:80px;float:right;margin:-60px 200px 5px 5px" />';
+echo'<img alt="Sign Image" src="'.$sign_image.'" style="width:150px; height:80px;float:right;margin:-60px 200px 5px 5px" />';
 echo'<p style="float:right;margin:25px -280px 0 0px"> Signature..................................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>';
 }
 else if($username='AW043'){
-echo'<img src="'.$sign_image.'" style="width:150px; height:80px;float:right;margin:-60px 200px 5px 5px" />';
+echo'<img alt="Sign Image" src="'.$sign_image.'" style="width:150px; height:80px;float:right;margin:-60px 200px 5px 5px" />';
 echo'<p style="float:right;margin:25px -280px 0 0px"> Signature..................................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>';
 }
 else{
@@ -1427,7 +1427,7 @@ function headinop($logo,$comname,$email,$patname,$patid,$date,$Add,$tel,$web,$rc
 	echo'<div style="width:816px;min-height:300px; border:2px solid #333; margin-bottom:10px; border-bottom:1px solid #333">
 
 <div style="width:60.0%; border-right:1px DASHED #333; float:left">
-<img src="'.$logo.'" style="float:left;max-height:107px; width:90px; margin:0px 10px 0 10px; "/>
+<img alt="Logo" src="'.$logo.'" style="float:left;max-height:107px; width:90px; margin:0px 10px 0 10px; "/>
 <p style="text-align:left;font-size:16px; font-weight:bold;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;margin:0 0 0 10px">'.$comname.'<br/>'.$comname2.'<br/>P.O Box '.$Add.'<br/>Tel:'.$tel.'<br/>E: '.$email.'</p>
 </div>
 
@@ -1438,7 +1438,7 @@ function headinop($logo,$comname,$email,$patname,$patid,$date,$Add,$tel,$web,$rc
 <div style="width:39.0%; float:left; margin-left:5px;">
 <p style="text-align:left;font-size:16px; margin-right:50px; text-transform:uppercase;font-weight:bold;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;margin:0 0 0 10px">Patient: '.$patname.' <br/>Invoice No: '.$rcptno.'<br/> Date:'.date('d/m/Y').'<br/>Time:'.convtime($time).' <br/>OPD No: '.$patid.'</p>';
 //echo'<div style="clear:both; margin-bottom:10px" ></div>';
-echo'<img src="images/adobe.png" style="height:30px; float:right; margin-right:10px;  margin-top:-33px; cursor:pointer" onclick="window.print() " title="Convert to Pdf"/>';
+echo'<img alt="Convert to Pdf" src="images/adobe.png" style="height:30px; float:right; margin-right:10px;  margin-top:-33px; cursor:pointer" onclick="window.print() " title="Convert to Pdf"/>';
 echo'</div>';
 
 echo'<div style="clear:both; margin-bottom:0px; border-bottom:2px solid #333"></div>';
@@ -1482,7 +1482,7 @@ echo'<div style="clear:both; margin-bottom:0px; border-bottom:2px solid #333"></
 function bh_header($db,$logo,$comname,$email,$patname,$patid,$date,$Add,$tel,$web,$rcptno,$cname,$cardno,$time,$comname2){
 echo'<div style="width:100%;min-height:300px; border:2px solid #333; margin-bottom:10px; border-bottom:2px solid #333">';
 echo'<div style="clear:both; margin-bottom:10px"></div>';
-echo'<img src="'.$logo.'" style="max-height:70px; margin:0px 10px 0 10px; position:absolute;"/>';
+echo'<img alt="Logo" src="'.$logo.'" style="max-height:70px; margin:0px 10px 0 10px; position:absolute;"/>';
 echo'<p style="text-align:center;font-size:25px;margin:0 0 0 0px">'.$comname2.'</p>';
 echo'<div style="clear:both"></div>';
 echo'<p style="text-align:center;font-size:25px;margin:0 0 0 0px">'.$comname.'</p>';
@@ -1491,12 +1491,12 @@ echo'<p style="text-align:center;margin:0 0 0 0px">P.O Box '.$Add.'<br/>Tel: '.$
 echo'<div style="clear:both"></div>';
 echo'<p style="text-align:center;margin:0 0 0 0px;">OFFICIAL INVOICE</p>';
 //echo'<div id="barcode" style="font-family: Merchant; font-size:18px; font-weight:normal; text-transform:uppercase">'.$rcptno.'</div>';
-echo'<p style="text-align:center;    margin:0px 0 0 0px;border-bottom:1px dashed #333;border-top:1px dashed #333; padding:5px 0">Date:<input type="text" id="datepick2" value="'.$date.'" style="border-style: none;"/> &nbsp; &nbsp;&nbsp;&nbsp;Time:'.convtime($time).' &nbsp; &nbsp;&nbsp;&nbsp;Invoice No: '.$rcptno.' &nbsp; &nbsp;&nbsp;&nbsp &nbsp;&nbsp;&nbsp; Patient Name: '.$patname.'&nbsp; &nbsp;&nbsp;&nbsp;Patient No: '.$patid.'</p>';
+echo'<p style="text-align:center;    margin:0px 0 0 0px;border-bottom:1px dashed #333;border-top:1px dashed #333; padding:5px 0">Date:<label for="datepick2" class="bh-visually-hidden">OFFICIAL INVOICE</label><input type="text" id="datepick2" value="'.$date.'" style="border-style: none;"/> &nbsp; &nbsp;&nbsp;&nbsp;Time:'.convtime($time).' &nbsp; &nbsp;&nbsp;&nbsp;Invoice No: '.$rcptno.' &nbsp; &nbsp;&nbsp;&nbsp &nbsp;&nbsp;&nbsp; Patient Name: '.$patname.'&nbsp; &nbsp;&nbsp;&nbsp;Patient No: '.$patid.'</p>';
 		$resultx =mysqli_query($db, "select * from patients where pntno='".$patid."'");
 		$rowx=mysqli_fetch_array($resultx);
 echo '<p style="text-align:center; margin:0px 0 0 0px;border-bottom:1px dashed #333; padding:5px 0">Insurance:'.$cname.'&nbsp;&nbsp;&nbsp;Company:'.stripslashes($rowx['company']).' &nbsp; &nbsp;&nbsp;&nbsp;Card No: '.$cardno.'</p>';
 echo'<div style="clear:both; margin-bottom:10px"></div>';
-echo'<img src="images/adobe.png" style="height:30px; float:right; margin-right:10px;  margin-top:-43px; cursor:pointer" onclick="window.print()" title="Convert to Pdf"/>';
+echo'<img alt="Convert to Pdf" src="images/adobe.png" style="height:30px; float:right; margin-right:10px;  margin-top:-43px; cursor:pointer" onclick="window.print()" title="Convert to Pdf"/>';
 echo'<div style="width:auto;  height:25px; border-bottom:1.5px solid #333;  border-top:1.5px solid #333">';echo'
 <div style="width:300px;  height:25px;border-right:1.5px solid #333; float:left; overflow:hidden">';echo'
 <p style="padding-top:4px;text-align:center;    margin:0 0 0 0px">Item name</p>';echo'
@@ -1543,7 +1543,7 @@ function bh_footer($qty,$b,$d){
 <p style="padding-top:4px;text-align:center;    margin:0 0 0 0px"></p>';echo'
 </div>';echo'
 <div>';echo'
-<p style="padding-top:4px;text-align:center;    margin:0 -40px 0 0px">&nbsp;&nbsp;<input type="text" id="companybill" value="'.$b.'" style="border-style: none;width:80px;"/></a>';echo'
+<p style="padding-top:4px;text-align:center;    margin:0 -40px 0 0px">&nbsp;&nbsp;<label for="companybill" class="bh-visually-hidden">qty</label><input type="text" id="companybill" value="'.$b.'" style="border-style: none;width:80px;"/></a>';echo'
 </div>';echo'
 </div>';
 }
@@ -1561,7 +1561,7 @@ function bh_finalhead($tam,$fullname,$comam,$sign_image){
 <p style="padding-top:4px;text-align:center;    margin:0 0 0 0px"></p>';echo'
 </div>';echo'
 <div>';echo'
-<p style="padding-top:4px;text-align:center;    margin:0 -40px 0 0px">&nbsp;&nbsp;<input type="text" id="companybill" value="'.$tam.'" style="border-style: none;width:80px;"/></p>';echo'
+<p style="padding-top:4px;text-align:center;    margin:0 -40px 0 0px">&nbsp;&nbsp;<label for="companybill" class="bh-visually-hidden">Text field</label><input type="text" id="companybill" value="'.$tam.'" style="border-style: none;width:80px;"/></p>';echo'
 </div>';echo'
 </div>';
 
@@ -1579,7 +1579,7 @@ echo'
 <p style="padding-top:4px;text-align:center;    margin:0 0 0 0px"></p>';echo'
 </div>';echo'
 <div>';echo'
-<p style="padding-top:4px;text-align:center;    margin:0 -40px 0 0px">&nbsp;&nbsp;<input type="text" id="companybill" value="'.$nwvalue.'" style="border-style: none;width:80px;"/></p>';echo'
+<p style="padding-top:4px;text-align:center;    margin:0 -40px 0 0px">&nbsp;&nbsp;<label for="companybill" class="bh-visually-hidden">Text field</label><input type="text" id="companybill" value="'.$nwvalue.'" style="border-style: none;width:80px;"/></p>';echo'
 </div>';echo'
 </div>';
 
@@ -1596,7 +1596,7 @@ echo'
 <p style="padding-top:4px;text-align:center;    margin:0 0 0 0px"></p>';echo'
 </div>';echo'
 <div>';echo'
-<p style="padding-top:4px;text-align:center;    margin:0 -40px 0 0px">&nbsp;&nbsp;<input type="text" id="companybill" value="'.$comam.'" style="border-style: none;width:80px;"/></p>';echo'
+<p style="padding-top:4px;text-align:center;    margin:0 -40px 0 0px">&nbsp;&nbsp;<label for="companybill" class="bh-visually-hidden">Text field</label><input type="text" id="companybill" value="'.$comam.'" style="border-style: none;width:80px;"/></p>';echo'
 </div>';
 echo'</div>';
 
@@ -1612,31 +1612,31 @@ echo'
 <p style="padding-top:4px;text-align:center;    margin:0 0 0 0px"></p>';echo'
 </div>';echo'
 <div>';echo'
-<p style="padding-top:4px;text-align:center;    margin:0 -40px 0 0px">&nbsp;&nbsp;<input type="text" id="companybill" value="'.$comam.'" style="border-style: none;width:80px;"/></p>';echo'
+<p style="padding-top:4px;text-align:center;    margin:0 -40px 0 0px">&nbsp;&nbsp;<label for="companybill" class="bh-visually-hidden">Text field</label><input type="text" id="companybill" value="'.$comam.'" style="border-style: none;width:80px;"/></p>';echo'
 </div>';
 echo'</div>';
 
-echo'<div style="float:right; margin:0 5px 0 0px;"><img src="images/IMG-20240206-WA0003.png" style="width:250px; height:40px; margin-right:100px;" /></div>';
+echo'<div style="float:right; margin:0 5px 0 0px;"><img alt="IMG 20240206 WA0003" src="images/IMG-20240206-WA0003.png" style="width:250px; height:40px; margin-right:100px;" /></div>';
 echo'<div style="clear:both; margin-bottom:80px"></div>';
 
 if($username='MC001'){
-echo'<img src="'.$sign_image.'" style="width:150px; height:80px;float:right;margin:-60px 200px 5px 5px" />';
+echo'<img alt="Sign Image" src="'.$sign_image.'" style="width:150px; height:80px;float:right;margin:-60px 200px 5px 5px" />';
 echo'<p style="float:right;margin:25px -280px 0 0px"> Signature..................................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>';
 }
 else if($username='TL006'){
-echo'<img src="'.$sign_image.'" style="width:150px; height:80px;float:right;margin:-60px 200px 5px 5px" />';
+echo'<img alt="Sign Image" src="'.$sign_image.'" style="width:150px; height:80px;float:right;margin:-60px 200px 5px 5px" />';
 echo'<p style="float:right;margin:25px -280px 0 0px"> Signature..................................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>';
 }
 else if($username='MC001'){
-echo'<img src="images/IMG-20240206-Lucy-Muthara.png" style="width:150px; height:80px;float:right;margin:-60px 200px 5px 5px" />';
+echo'<img alt="IMG 20240206 Lucy Muthara" src="images/IMG-20240206-Lucy-Muthara.png" style="width:150px; height:80px;float:right;margin:-60px 200px 5px 5px" />';
 echo'<p style="float:right;margin:25px -280px 0 0px"> Signature..................................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>';
 }
 else if($username='LW009'){
-echo'<img src="'.$sign_image.'" style="width:150px; height:80px;float:right;margin:-60px 200px 5px 5px" />';
+echo'<img alt="Sign Image" src="'.$sign_image.'" style="width:150px; height:80px;float:right;margin:-60px 200px 5px 5px" />';
 echo'<p style="float:right;margin:25px -280px 0 0px"> Signature..................................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>';
 }
 else if($username='JM036'){
-echo'<img src="'.$sign_image.'" style="width:150px; height:80px;float:right;margin:-60px 200px 5px 5px" />';
+echo'<img alt="Sign Image" src="'.$sign_image.'" style="width:150px; height:80px;float:right;margin:-60px 200px 5px 5px" />';
 echo'<p style="float:right;margin:25px -280px 0 0px"> Signature..................................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>';
 }
 else{
@@ -1758,11 +1758,11 @@ function tasks($uid,$userid,$username){
 			<div style="width:auto; height:25px; background:#f0f0f0; border-radius:5px 5px 0 0">
 							<h5 style="text-align:center">Personal Manager</h5>
 							</div>
-							<img src="images/refresh.png" style="width:20px; height:20px; float:right; margin:-22px 10px 0 0; cursor:pointer" onclick="refreshmytasks()"  title="Refresh"/>		
+							<img alt="Refresh" src="images/refresh.png" style="width:20px; height:20px; float:right; margin:-22px 10px 0 0; cursor:pointer" onclick="refreshmytasks()"  title="Refresh"/>		
 				<div id="tabs2" style="width:493px; height:200px; float:left; margin:0px 5px 0 0px">
 				<ul>
-				<li><a href="#tabs-4">Messages</a><img src="images/plus.png" style="width:20px; height:20px; float:right; margin:4px 10px 0 0; cursor:pointer" onclick="createnewmess()"  title="Create Message"/></li>
-				<li><a href="#tabs-5">My To do List</a><img src="images/plus.png" style="width:20px; height:20px; float:right; margin:4px 10px 0 0; cursor:pointer" onclick="createbigtask()"  title="Create Task" id="newcalendar"/></li>
+				<li><a href="#tabs-4">Messages</a><img alt="Create Message" src="images/plus.png" style="width:20px; height:20px; float:right; margin:4px 10px 0 0; cursor:pointer" onclick="createnewmess()"  title="Create Message"/></li>
+				<li><a href="#tabs-5">My To do List</a><img alt="Create Task" src="images/plus.png" style="width:20px; height:20px; float:right; margin:4px 10px 0 0; cursor:pointer" onclick="createbigtask()"  title="Create Task" id="newcalendar"/></li>
 				</ul>
 			
 			<div id="tabs-5">
@@ -1774,7 +1774,7 @@ function tasks($uid,$userid,$username){
 								$eid=stripslashes($row['Event_id']);
 								$reason=stripslashes($row['Reason']);
 				echo"<div id=\"task".$i."\">";
-				echo'<input type="checkbox" style="float:left; margin:8px 0px 0 10px" onclick="checktask('.$i.','.$eid.');"/>';
+				echo'<input aria-label="Checkbox" type="checkbox" style="float:left; margin:8px 0px 0 10px" onclick="checktask('.$i.','.$eid.');"/>';
 				echo"<a class=\"leb\" style=\"margin-left:10px; cursor:pointer\" 
 				onclick=\"viewtask(".stripslashes($row['Event_id']).",'".stripslashes($row['Reason'])."','".stripslashes($row['Category'])."','".stripslashes($row['Location'])."'
 				,'".stripslashes($row['TaskStatus'])."','".stripslashes($row['Priority'])."','".stripslashes($row['Complete'])."','".stripslashes($row['StartDate'])."','".stripslashes($row['StartTime'])."'
@@ -1788,8 +1788,8 @@ function tasks($uid,$userid,$username){
 			<form action="#" method="get">
 		<div id="taskadd" class="input_field" style="display:none;float:left;margin:5px 10px 10px 0px;width:460px; padding:0; background:#fff">
 		<input type="text" placeholder="Type a task and press Enter..." name="keyword" id="taskfield"  class="input_field" style="border:0; float:left;width:400px; font-size:11px;background:#fff"';echo"/>";
-		echo'<input type="text"  id="" class="" style="font-size:12px; display:none; width:50px"/>';
-				echo"<img src=\"images/back2.png\" onclick=\"posttask('".$userid."')\" height=\"24\" width=\"24\" id=\"searchbutton\" style=\"margin:3px 5px 0 0; float:right; cursor:pointer\">
+		echo'<input aria-label="Text field" type="text"  id="" class="" style="font-size:12px; display:none; width:50px"/>';
+				echo"<img alt=\"\" src=\"images/back2.png\" onclick=\"posttask('".$userid."')\" height=\"24\" width=\"24\" id=\"searchbutton\" style=\"margin:3px 5px 0 0; float:right; cursor:pointer\">
 				</div></form>";
 			echo'</div>
 			<div id="tabs-4">
@@ -1807,10 +1807,10 @@ function tasks($uid,$userid,$username){
 									$im="images/redarrow.png";$in=$name;
 								}else {$im="images/right3green.png";$in=$from;}
 				echo"<div id=\"mes".$i."\">";
-				echo"<div class=\"cleaner\"></div><img src=\"".$im."\" style=\"width:20px; height:20px; float:left; margin-top:2px\"/>";
+				echo"<div class=\"cleaner\"></div><img alt=\"Im\" src=\"".$im."\" style=\"width:20px; height:20px; float:left; margin-top:2px\"/>";
 				if($sta==0&&$name==$username){echo"
 				<a class=\"leb\" id=\"lebo".$i."\" style=\"margin-left:10px; cursor:pointer; font-weight:bold; background:#3f9; padding:2px\" >".$message."";
-				echo'<br/><input id="check'.$i.'" type="checkbox" style="float:right; margin:0px 0px 0 10px" onclick="checkmess('.$i.','.$id.');" title="Mark as Read"/><small style="float:right; font-weight:normal">['.stripslashes($row['date']).']-<b style="color:var(--color-danger, #DC2626)">'.$in.'</b></small></a>';
+				echo'<br/><label for="check'.$i.'" class="bh-visually-hidden">Mark as Read</label><input id="check'.$i.'" type="checkbox" style="float:right; margin:0px 0px 0 10px" onclick="checkmess('.$i.','.$id.');" title="Mark as Read"/><small style="float:right; font-weight:normal">['.stripslashes($row['date']).']-<b style="color:var(--color-danger, #DC2626)">'.$in.'</b></small></a>';
 				}else{echo"<a class=\"leb\" style=\"margin-left:10px; cursor:pointer\" >".$message."";echo'<br/><small style="float:right; font-weight:normal">['.stripslashes($row['date']).']-<b style="color:var(--color-danger, #DC2626)">'.$in.'</b></small></a>';}
 				echo'</div><div class=\"cleaner_h5\"></div>';
 							}
@@ -1926,7 +1926,7 @@ function recent($a,$b){
 									if($des==$a){  
 									echo"
 <p style=\"font-size:11px; color:#333; margin-left:10px; cursor:pointer;\" onclick=\"paginate('".$b."','".$regn."')\">";
-				echo"<img src=\"images/bullet.png\" style=\"width:12px; height:12px; margin:0 3px -2px 0\" onclick=\"paginate('".$b."','".$regn."')\">".$param."</p>";
+				echo"<img alt=\"\" src=\"images/bullet.png\" style=\"width:12px; height:12px; margin:0 3px -2px 0\" onclick=\"paginate('".$b."','".$regn."')\">".$param."</p>";
 									
 										}
 									}
@@ -1962,7 +1962,7 @@ function studreport($result,$result2,$server,$usertype){
 <div class="cleaner_h20"></div>
 </div>        
           <!-- Begin Image -->
-          <img class="portrait" src="<?php echo stripslashes($row['image']) ?>" alt="Photo" style="margin-left:0px" />
+          <img alt="" class="portrait" src="<?php echo stripslashes($row['image']) ?>" alt="Photo" style="margin-left:0px" />
           <!-- End Image -->
           <!-- Begin Personal Information -->
           <div class="self">
@@ -2030,7 +2030,7 @@ function studreport($result,$result2,$server,$usertype){
           <div class="cleaner_h20"></div> 
         <div class="detaill" style="float:left;width:auto; min-height:100px; margin-left:20px;">
         <h>Documents</h>
-        <img style="float:right; width:30px; height:30px; cursor:pointer" src="images/plus.png" title="Add Document" onclick="addoc();" />
+        <img alt="Add Document" style="float:right; width:30px; height:30px; cursor:pointer" src="images/plus.png" title="Add Document" onclick="addoc();" />
          <div class="cleaner_h10"></div> 
          <?php 
 		$num_results2 = mysqli_num_rows($result2);
@@ -2039,7 +2039,7 @@ function studreport($result,$result2,$server,$usertype){
 		if(stripslashes($row2['Type'])=='Image'){
 		?>
         <div class="pot" title="click to Open">
-        <img class="portrait2" src="<?php echo stripslashes($row2['Link']) ?>" alt="Photo"  onclick="window.open('http://<?php echo $server ?>/Better-Health/<?php echo stripslashes($row2['Link']) ?>')" style="max-width:100px; max-height:100px" />
+        <img alt="" class="portrait2" src="<?php echo stripslashes($row2['Link']) ?>" alt="Photo"  onclick="window.open('http://<?php echo $server ?>/Better-Health/<?php echo stripslashes($row2['Link']) ?>')" style="max-width:100px; max-height:100px" />
         <p><?php echo stripslashes($row2['Name']) ?></p>
         </div>
 		<?php } 
@@ -2056,24 +2056,24 @@ function studreport($result,$result2,$server,$usertype){
         </div>
             <div class="cleaner_h20"></div> 
             <div id="dok" style="width:auto; height:340px; border:1px solid #ccc; padding:10px; display:none">
-            <img style="float:right; width:30px; height:30px; cursor:pointer" src="images/delete.png" title="Hide" onclick="hidedoc();" />
+            <img alt="Hide" style="float:right; width:30px; height:30px; cursor:pointer" src="images/delete.png" title="Hide" onclick="hidedoc();" />
         	
             <div class="cleaner_h10"></div>
             <form method="post" action="upload.php" enctype="multipart/form-data" target="leiframe">
       					<a class="labels">File Name:</a>
-        	<input type="text" id="fname" required="required" name="fname" class="in_field" style="height:30px; margin-left:10px; float:left; width:150px"/>
+        	<label for="fname" class="bh-visually-hidden">Fname</label><input type="text" id="fname" required="required" name="fname" class="in_field" style="height:30px; margin-left:10px; float:left; width:150px"/>
             <div class="cleaner_h10"></div>
              <a class="labels">Type:</a>
-            <select class="select" id="type" name="type" style="float:left; padding:5px; margin-left:10px">
+            <label for="type" class="bh-visually-hidden">Type</label><select class="select" id="type" name="type" style="float:left; padding:5px; margin-left:10px">
             <option value="Image">Image</option>
             <option value="Document">Document</option>
             </select>	
             <div class="cleaner_h10"></div>	
             <a class="labels">Details:</a>
-            <textarea name="details" style="width:300px; font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; height:120px; border:1px solid #10504F; float:left; margin-left:10px; border-radius:5px"></textarea>
+            <textarea aria-label="Details" name="details" style="width:300px; font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; height:120px; border:1px solid #10504F; float:left; margin-left:10px; border-radius:5px"></textarea>
 								
 								 <dd class="custuploadblock_js">
-								<input style="opacity:0; float:left;" name="image" id="photoupload"  
+								<label for="photoupload" class="bh-visually-hidden">Image</label><input style="opacity:0; float:left;" name="image" id="photoupload"  
 								class="transfileform_js" type="file">
 								</dd>
 								<iframe name="leiframe" id="leiframe" class="leiframe" style="float:right">
@@ -2196,7 +2196,7 @@ function studreport($result,$result2,$server,$usertype){
 		?>
    		<td  style="width:135px;"><?php echo dateprint(stripslashes($row['TransDate'])); ?></td>
         <td  style="width:160px"><?php echo stripslashes($row['Doctor'])?></td>
-        <td  style=""><?php echo stripslashes($row['AdmNotes'])?></td>
+        <td><?php echo stripslashes($row['AdmNotes'])?></td>
           </tr>
 <?php } ?>
 
@@ -2232,7 +2232,7 @@ function employreport($result,$resulta){
       <div id="paper-mid">
         <div class="entry">
           <!-- Begin Image -->
-          <img class="portrait" src="<?php echo stripslashes($row['image']) ?>" alt="Photo" />
+          <img alt="" class="portrait" src="<?php echo stripslashes($row['image']) ?>" alt="Photo" />
           <!-- End Image -->
           <!-- Begin Personal Information -->
           <div class="self">

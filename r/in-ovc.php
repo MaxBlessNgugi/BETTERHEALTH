@@ -34,9 +34,12 @@ $logo=stripslashes($row['Logo']);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="../css/tokens.css" />
+<link rel="stylesheet" href="../css/components.css" />
 <title>Better Health OPD Visits Comparision Report</title>
 <link id="favicon" href="../images/fav.png" rel="icon" type="image/png"/>
 <script type="text/javascript" src="../js/jquery.js"></script>
+<link type="text/css" rel="stylesheet" href="../css/feedback.css">
+<script type="text/javascript" src="../js/bh-feedback.js"></script>
 <script src="../js/functions.js"></script>
 <script type="text/javascript" src="../js/connectcode-javascript-code39.js"></script>
 <script src="../js/excellentexport.js"></script>
@@ -45,6 +48,7 @@ $logo=stripslashes($row['Logo']);
 </head>
 
 <body>
+	<a class="bh-skip" href="#bh-main">Skip to main content</a>
 
 <?php 
 
@@ -65,9 +69,9 @@ $fname=strtolower($date).'_by_department_custom_patients_report';
 
 #$rcptno = $_GET['rcptno'];Category:'.$catname.'
 echo '
-<div style="width:100%;min-height:260px; border:2px solid #333">
+<div style="width:100%;min-height:260px; border:2px solid #333" id="bh-main" tabindex="-1">
 <div style="clear:both; margin-bottom:10px"></div>
-<img src="../'.$logo.'" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
+<img alt="Logo" src="../'.$logo.'" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
 <p style="text-align:center;font-size:14px;; text-transform:uppercase; font-weight:bold;font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;margin:0 0 0 0px">'.$comname.'<br/>P.O Box '.$Add.'<br/>Tel: '.$tel.'<br/>Website: '.$web.'<br/>Email: '.htmlspecialchars($email).'<br/>'.$pgheadtitle.'<br/>';
 echo ' <strong style="font-size:14px">Date:'.date('d/m/Y').'</strong><br/><strong style="font-size:14px">Category:'.htmlspecialchars($catname).'</strong></p>';
 

@@ -19,6 +19,12 @@ else{echo"<script>window.location.href = \"index.php\";</script>";exit;}
 <script src="js/functions.js"></script>
 <script src="js/websters.js"></script>
 <script src="js/func.js"></script>
+<link type="text/css" rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/components.css" />
+<link type="text/css" rel="stylesheet" href="css/feedback.css">
+<link type="text/css" rel="stylesheet" href="css/jquery.custom.alerts.css">
+<script type="text/javascript" src="js/bh-feedback.js"></script>
+<script type="text/javascript" src="js/jquery.custom.alerts.js"></script>
 <script src="js/ajax.js"></script>
 <script>window.onload = setupRefresh</script> 
 
@@ -94,7 +100,7 @@ switch($id){
        
 
               if($resulta){
-                echo"<img src=\"images/tick.png\" style=\"margin-top:0px\"  width=\"30\" height=\"30\"/>
+                echo"<img alt=\"\" src=\"images/tick.png\" style=\"margin-top:0px\"  width=\"30\" height=\"30\"/>
                 <input type=\"hidden\" id=\"paramid\" value=\"".$regn."\"/>";
                 echo"<script>var param=".$regn."</script>";
                 echo"<script>
@@ -119,7 +125,7 @@ switch($id){
                     exit;
                   }
                   else {
-                    echo"<img src=\"images/delete.png\" style=\"margin-top:0px\"  width=\"30\" height=\"30\"/>";
+                    echo"<img alt=\"\" src=\"images/delete.png\" style=\"margin-top:0px\"  width=\"30\" height=\"30\"/>";
                     }
               
               break;
@@ -151,19 +157,19 @@ switch($id){
                  $resulta = mysqli_query($db, "update ledgers set status=2 where ledgerid='".$code."' "); 
                 
                if($result){
-                  #echo'<p><img src="images/tick.png" style="width:16px; height:16px; margin-top:-10px; margin-left:20px"></p>';
+                  #echo'<p><img alt="Tick" src="images/tick.png" style="width:16px; height:16px; margin-top:-10px; margin-left:20px"></p>';
                   echo"<script>
                     $().customAlert();
                     alert('Success!', '<p>Record Updated.<br/>Debtor:<b>".$CustomerName."</b><br/>DebtNo:<b>".$CustomerId."</b><br/>New Bal:<b>".$bal3."</b></p>');
                     </script>"; 
                   }
                   else{
-                    echo'<p><img src="images/delete.png" style="width:16px; height:16px; margin-top:0px"></p>';
+                    echo'<p><img alt="Delete" src="images/delete.png" style="width:16px; height:16px; margin-top:0px"></p>';
                   }
               break;
               case '1.3':
 
-                  #echo'<p><img src="images/caution-spinner.gif" style="width:16px; height:16px; margin-top:-10px; margin-left:20px"></p>';
+                  #echo'<p><img alt="Caution Spinner" src="images/caution-spinner.gif" style="width:16px; height:16px; margin-top:-10px; margin-left:20px"></p>';
                   echo"<script>
                     $().customAlert();
                     alert('Nice Try!', '<p><b> Finish with debtors balances first :)</b></p>');
@@ -301,7 +307,7 @@ switch($id){
           
           
   $result = mysqli_query($db, "CALL GetUserLogs('".$username." starts a new Review consultation-NAME:".$fullnames."-COMPUTER IP ADDRESS:".$_SERVER['REMOTE_ADDR']."','".$username."','".date('YmdHi')."', '".date('H:i')."','".date('d/m/Y')."','1')");
-          echo'<img src="images/up.jpg" style="width:40px; height:40px;">
+          echo'<img alt="Up" src="images/up.jpg" style="width:40px; height:40px;">
                     <script>
                     setTimeout(function() {
                       reception();},500); 
@@ -310,7 +316,7 @@ switch($id){
                     
                   }
                   else{
-                    echo'<img src="images/down.jpg" style="width:40px; height:40px;">
+                    echo'<img alt="Down" src="images/down.jpg" style="width:40px; height:40px;">
                     
                     ';
                   }
@@ -435,7 +441,7 @@ switch($id){
 
 
               if($resulta){
-                echo"<img src=\"images/tick.png\" style=\"margin-top:0px\"  width=\"30\" height=\"30\"/>
+                echo"<img alt=\"\" src=\"images/tick.png\" style=\"margin-top:0px\"  width=\"30\" height=\"30\"/>
                 <input type=\"hidden\" id=\"paramid\" value=\"".$regn."\"/>
                 <input type=\"hidden\" id=\"old_patient_id\" value=\"".$old_patient_id."\"/>";
                 echo"<script>var param=".$regn."</script>";
@@ -463,7 +469,7 @@ switch($id){
                     exit;
                   }
                   else {
-                    echo"<img src=\"images/delete.png\" style=\"margin-top:0px\"  width=\"30\" height=\"30\"/>";
+                    echo"<img alt=\"\" src=\"images/delete.png\" style=\"margin-top:0px\"  width=\"30\" height=\"30\"/>";
                     }
 
               break;
@@ -560,11 +566,11 @@ switch($id){
                   }
                 });
                 },500);</script>";
-              echo'<img src="images/tick.png" style="width:30px; height:30px;">';
+              echo'<img alt="Tick" src="images/tick.png" style="width:30px; height:30px;">';
 
               }
               else{
-                echo'<img src="images/delete.png" style="width:30px; height:30px;">';
+                echo'<img alt="Delete" src="images/delete.png" style="width:30px; height:30px;">';
               }
             
             break;
@@ -673,11 +679,11 @@ switch($id){
             }
           });
           },500);</script>";
-        echo'<img src="images/tick.png" style="width:30px; height:30px;">';
+        echo'<img alt="Tick" src="images/tick.png" style="width:30px; height:30px;">';
 
         }
         else{
-          echo'<img src="images/delete.png" style="width:30px; height:30px;">';
+          echo'<img alt="Delete" src="images/delete.png" style="width:30px; height:30px;">';
         }
             
             break;
@@ -690,7 +696,7 @@ switch($id){
 
             if($resulta){
             $resulta = mysqli_query($db, "insert into log values('0','".$username." makes order item confirmation[order item ready state].Order No:".$rcptno."','".$username."','".date('YmdHi')."','".date('H:i')."','".date('d/m/Y')."','1')");  
-            echo'<img src="images/tick.png" style="width:30px; height:30px;">';
+            echo'<img alt="Tick" src="images/tick.png" style="width:30px; height:30px;">';
 
                   exit;
                     ?>
@@ -708,7 +714,7 @@ switch($id){
                     exit;
                 }
                 else{
-                  echo'<img src="images/delete.png" style="width:30px; height:30px;">';
+                  echo'<img alt="Delete" src="images/delete.png" style="width:30px; height:30px;">';
                 }
         break;      
         
@@ -765,7 +771,7 @@ if($resulta&&$resultb){
 // $resultm = mysqli_query($db, "update ledgers set bal='".$invbal."' where ledgerid='630'");
 // $resultn = mysqli_query($db, "update ledgers set bal='".$supbal."' where ledgerid='701'");
 $resulta = mysqli_query($db, "insert into log values('0','".$username." makes an entry in the stock expiry database.','".$username."','".date('YmdHi')."','".date('H:i')."','".date('d/m/Y')."','1')"); 
-         echo"<img src=\"images/tick.png\" style=\"margin-top:30px\"  width=\"30\" height=\"30\"/>";
+         echo"<img alt=\"\" src=\"images/tick.png\" style=\"margin-top:30px\"  width=\"30\" height=\"30\"/>";
          echo"<script>
             setTimeout(function() {
             abouttoexpiry2();},500);
@@ -1169,7 +1175,7 @@ $resulta = mysqli_query($db, "insert into log values('0','".$username." makes an
               if($resulta){
       $resulta = mysqli_query($db, "insert into log values('0','".$username." accesses obstetrics database.Patient No:".$patid."','".$username."','".date('YmdHi')."','".date('H:i')."','".date('d/m/Y')."','1')");  
 
-              echo"<img src=\"images/tick.png\" style=\"margin-top:0px\"  width=\"30\" height=\"30\"/>";
+              echo"<img alt=\"\" src=\"images/tick.png\" style=\"margin-top:0px\"  width=\"30\" height=\"30\"/>";
               if($a==1){
               echo"<script>setTimeout(function() {treatchart();},500);</script>";
               }else{echo"<script>setTimeout(function() {
@@ -1183,7 +1189,7 @@ $resulta = mysqli_query($db, "insert into log values('0','".$username." makes an
                 },500);</script>";}
               
               }
-              else echo"<img src=\"images/delete.png\" style=\"margin-top:0px\"  width=\"30\" height=\"30\"/>";
+              else echo"<img alt=\"\" src=\"images/delete.png\" style=\"margin-top:0px\"  width=\"30\" height=\"30\"/>";
           break;
 
           
@@ -1519,7 +1525,7 @@ $resulta = mysqli_query($db, "insert into log values('0','".$username." makes an
         }
        
       $resulta = mysqli_query($db, "CALL GetUserLogs('".$username." updates consultations.Presc No:".$pid."-COMPUTER IP ADDRESS:".$_SERVER['REMOTE_ADDR']."','".$username."','".date('YmdHi')."', '".date('H:i')."','".date('d/m/Y')."','1')");  
-              echo"<img src=\"images/tick.png\" style=\"width:30px; height:30px;\">
+              echo"<img alt=\"Tick\" src=\"images/tick.png\" style=\"width:30px; height:30px;\">
                     <script>
                       setTimeout(function() {
                       docexam('".$sendto."');},500);
@@ -1527,7 +1533,7 @@ $resulta = mysqli_query($db, "insert into log values('0','".$username." makes an
                     exit;
                   }
                   else{
-                    echo'<img src="images/delete.png" style="width:30px; height:30px;">';
+                    echo'<img alt="Delete" src="images/delete.png" style="width:30px; height:30px;">';
                   }
             
               break;
@@ -1785,7 +1791,7 @@ $resulta = mysqli_query($db, "insert into log values('0','".$username." makes an
         }
        
       $resulta = mysqli_query($db, "CALL GetUserLogs('".$username." updates consultations.Presc No:".$pid."-COMPUTER IP ADDRESS:".$_SERVER['REMOTE_ADDR']."','".$username."','".date('YmdHi')."', '".date('H:i')."','".date('d/m/Y')."','1')");  
-              echo"<img src=\"images/tick.png\" style=\"width:30px; height:30px;\">
+              echo"<img alt=\"Tick\" src=\"images/tick.png\" style=\"width:30px; height:30px;\">
                     <script>
                       setTimeout(function() {
                       docexam('".$sendto."');},500);
@@ -1793,7 +1799,7 @@ $resulta = mysqli_query($db, "insert into log values('0','".$username." makes an
                     exit;
                   }
                   else{
-                    echo'<img src="images/delete.png" style="width:30px; height:30px;">';
+                    echo'<img alt="Delete" src="images/delete.png" style="width:30px; height:30px;">';
                   }
             
               break;
@@ -1829,7 +1835,7 @@ $resulta = mysqli_query($db, "insert into log values('0','".$username." makes an
               if($resultz){      
 $resulta = mysqli_query($db, "CALL GetUserLogs('".$username." adds blood transfussion for PatientNo:".$clientno." PatientName:".$name."-COMPUTER IP ADDRESS:".$_SERVER['REMOTE_ADDR']."','".$username."','".date('YmdHi')."', '".date('H:i')."','".date('d/m/Y')."','1')");
 
-              echo"<img src=\"images/tick.png\" style=\"margin-top:0px\"  width=\"30\" height=\"30\"/>";
+              echo"<img alt=\"\" src=\"images/tick.png\" style=\"margin-top:0px\"  width=\"30\" height=\"30\"/>";
               if($a==1){
               echo"<script>setTimeout(function() {treatchart();},500);</script>";
               }else{echo"<script>setTimeout(function() {
@@ -1843,7 +1849,7 @@ $resulta = mysqli_query($db, "CALL GetUserLogs('".$username." adds blood transfu
                 },500);</script>";}
               
               }
-              else echo"<img src=\"images/delete.png\" style=\"margin-top:0px\"  width=\"30\" height=\"30\"/>";
+              else echo"<img alt=\"\" src=\"images/delete.png\" style=\"margin-top:0px\"  width=\"30\" height=\"30\"/>";
               break;
           
           case 15:

@@ -1,4 +1,9 @@
-images/
+images/*
+!images/.htaccess
+upload/*
+!upload/.htaccess
+hrmdocs/
+database_backup/
+*.sql
 *.log
 Thumbs.db
-

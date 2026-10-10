@@ -1,0 +1,391 @@
+/* ==========================================================================
+   BETTER-HEALTH HMIS — Component Layer (Roadmap R-09 §4.4)
+   Depends on: css/tokens.css (all values are var() references)
+   Companion : css/feedback.css (toast / banner / field-error / spinner)
+
+   Every selector is .bh-* prefixed and scoped, so this sheet can be linked on
+   every page without colliding with legacy inline styles or plugin themes.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Buttons — primary / secondary / ghost / destructive. Height 40–44 px.
+   -------------------------------------------------------------------------- */
+.bh-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2, 8px);
+  min-height: 44px;
+  padding: 0 var(--space-5, 20px);
+  font-family: var(--font-sans, inherit);
+  font-size: var(--text-base, 15px);
+  font-weight: var(--weight-medium, 500);
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md, 8px);
+  cursor: pointer;
+  background: transparent;
+  color: var(--color-text, #1e293b);
+  transition: background-color var(--transition-fast, 120ms ease),
+              border-color var(--transition-fast, 120ms ease),
+              color var(--transition-fast, 120ms ease);
+}
+
+.bh-btn--primary {
+  background: var(--color-action, #0f766e);
+  border-color: var(--color-action, #0f766e);
+  color: #fff;
+}
+.bh-btn--primary:hover { background: var(--color-action-hover, #115e59); border-color: var(--color-action-hover, #115e59); }
+
+.bh-btn--secondary {
+  background: var(--color-surface, #fff);
+  border-color: var(--color-border-control, #64748b);
+  color: var(--color-text, #1e293b);
+}
+.bh-btn--secondary:hover { background: var(--color-bg, #f8fafc); }
+
+.bh-btn--ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--color-link, #0f766e);
+}
+.bh-btn--ghost:hover { background: var(--primary-50, #f0fdfa); }
+
+.bh-btn--danger {
+  background: var(--color-danger, #dc2626);
+  border-color: var(--color-danger, #dc2626);
+  color: #fff;
+}
+.bh-btn--danger:hover { filter: brightness(0.92); }
+
+.bh-btn--sm { min-height: 32px; padding: 0 var(--space-3, 12px); font-size: var(--text-sm, 13px); }
+.bh-btn--lg { min-height: 48px; padding: 0 var(--space-6, 24px); font-size: var(--text-md, 16px); }
+
+.bh-btn[disabled],
+.bh-btn[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   Forms — visible label above the control, 40–44 px height, inline validation
+   -------------------------------------------------------------------------- */
+.bh-field { display: block; margin-bottom: var(--space-4, 16px); }
+
+.bh-label {
+  display: block;
+  margin-bottom: var(--space-1, 4px);
+  font-size: var(--text-sm, 13px);
+  font-weight: var(--weight-medium, 500);
+  color: var(--color-text-muted, #64748b);
+}
+.bh-label .bh-required { color: var(--color-danger, #dc2626); margin-left: 2px; }
+
+.bh-input,
+.bh-select,
+.bh-textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px var(--space-3, 12px);
+  font-family: var(--font-sans, inherit);
+  font-size: var(--text-base, 15px);
+  color: var(--color-text, #1e293b);
+  background: var(--color-surface, #fff);
+  border: 1px solid var(--color-border-control, #64748b);
+  border-radius: var(--radius-md, 8px);
+  transition: border-color var(--transition-fast, 120ms ease),
+              box-shadow var(--transition-fast, 120ms ease);
+}
+.bh-textarea { min-height: 96px; line-height: var(--leading-body, 1.5); resize: vertical; }
+
+.bh-input:hover,
+.bh-select:hover,
+.bh-textarea:hover { border-color: var(--color-text-muted, #64748b); }
+
+.bh-input:focus,
+.bh-select:focus,
+.bh-textarea:focus {
+  border-color: var(--color-action, #0f766e);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.20);
+}
+.bh-input:focus-visible,
+.bh-select:focus-visible,
+.bh-textarea:focus-visible { outline: var(--focus-ring, 2px solid #0f766e); outline-offset: 1px; }
+
+.bh-input[aria-invalid="true"],
+.bh-select[aria-invalid="true"],
+.bh-textarea[aria-invalid="true"] { border-color: var(--color-danger, #dc2626); }
+
+.bh-help {
+  display: block;
+  margin-top: var(--space-1, 4px);
+  font-size: var(--text-xs, 12px);
+  color: var(--color-text-muted, #64748b);
+}
+
+/* Checkbox / radio — 20 px control inside a 44 px row (tap target) */
+.bh-choice {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 8px);
+  min-height: var(--tap-target, 44px);
+  font-size: var(--text-base, 15px);
+  color: var(--color-text, #1e293b);
+  cursor: pointer;
+}
+.bh-choice input[type="checkbox"],
+.bh-choice input[type="radio"] {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--color-action, #0f766e);
+  cursor: pointer;
+}
+.bh-choice input:focus-visible { outline: var(--focus-ring, 2px solid #0f766e); outline-offset: 2px; }
+
+/* --------------------------------------------------------------------------
+   Card
+   -------------------------------------------------------------------------- */
+.bh-card {
+  background: var(--color-surface, #fff);
+  border: 1px solid var(--color-border, #94a3b8);
+  border-radius: var(--radius-lg, 12px);
+  box-shadow: var(--shadow-2);
+  overflow: hidden;
+}
+.bh-card__header {
+  padding: var(--space-5, 20px) var(--space-6, 24px);
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+}
+.bh-card__title {
+  margin: 0;
+  font-size: var(--text-lg, 18px);
+  font-weight: var(--weight-semibold, 600);
+  color: var(--color-heading, #0f172a);
+}
+.bh-card__body { padding: var(--space-5, 20px) var(--space-6, 24px); }
+.bh-card__footer {
+  padding: var(--space-4, 16px) var(--space-6, 24px);
+  border-top: 1px solid var(--color-border, #e2e8f0);
+  background: var(--color-bg, #f8fafc);
+}
+
+/* --------------------------------------------------------------------------
+   Modal — role="dialog" is set on the element in markup.
+   -------------------------------------------------------------------------- */
+.bh-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10080;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4, 16px);
+  background: rgba(15, 23, 42, 0.55);
+}
+.bh-modal__panel {
+  width: min(560px, 100%);
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+  background: var(--color-surface, #fff);
+  border-radius: var(--radius-xl, 16px);
+  box-shadow: var(--shadow-4);
+}
+.bh-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3, 12px);
+  padding: var(--space-5, 20px) var(--space-6, 24px);
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+}
+.bh-modal__title {
+  margin: 0;
+  font-size: var(--text-xl, 20px);
+  font-weight: var(--weight-semibold, 600);
+  color: var(--color-heading, #0f172a);
+}
+.bh-modal__body { padding: var(--space-6, 24px); }
+.bh-modal__footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-3, 12px);
+  padding: var(--space-5, 20px) var(--space-6, 24px);
+  border-top: 1px solid var(--color-border, #e2e8f0);
+  background: var(--color-bg, #f8fafc);
+}
+
+/* --------------------------------------------------------------------------
+   Badge / status pill — colour is never the only cue (pair with text)
+   -------------------------------------------------------------------------- */
+.bh-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  font-size: var(--text-xs, 12px);
+  font-weight: var(--weight-medium, 500);
+  line-height: 1.5;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.bh-badge::before {
+  content: "";
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.bh-badge--neutral { color: var(--color-text-muted, #64748b); background: var(--neutral-50, #f8fafc); border-color: var(--color-border, #e2e8f0); }
+.bh-badge--info    { color: var(--color-info, #0369a1);    background: #F0F9FF; border-color: #BAE6FD; }
+.bh-badge--success { color: var(--color-success, #047857); background: #ECFDF5; border-color: #A7F3D0; }
+.bh-badge--warning { color: var(--color-warning, #b45309); background: #FFFBEB; border-color: #FDE68A; }
+.bh-badge--danger  { color: var(--color-danger, #dc2626);  background: #FEF2F2; border-color: #FECACA; }
+
+/* --------------------------------------------------------------------------
+   Table / data grid — 48–52 px rows, subtle hover, sticky header
+   -------------------------------------------------------------------------- */
+.bh-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: var(--radius-lg, 12px);
+  background: var(--color-surface, #fff);
+}
+.bh-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-base, 15px);
+  color: var(--color-text, #1e293b);
+}
+.bh-table caption {
+  padding: var(--space-3, 12px) var(--space-4, 16px);
+  text-align: left;
+  font-size: var(--text-sm, 13px);
+  font-weight: var(--weight-medium, 500);
+  color: var(--color-text-muted, #64748b);
+}
+.bh-table th,
+.bh-table td {
+  padding: var(--space-3, 12px) var(--space-4, 16px);
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+}
+.bh-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--color-bg, #f8fafc);
+  font-size: var(--text-sm, 13px);
+  font-weight: var(--weight-semibold, 600);
+  color: var(--color-heading, #0f172a);
+  white-space: nowrap;
+}
+.bh-table tbody tr { height: 50px; }
+.bh-table tbody tr:hover { background: var(--primary-50, #f0fdfa); }
+.bh-table tbody tr:last-child td { border-bottom: 0; }
+.bh-table--compact tbody tr { height: 40px; }
+.bh-table th[aria-sort] { cursor: pointer; }
+.bh-table th[aria-sort="ascending"]::after  { content: " \25B2"; font-size: 0.75em; }
+.bh-table th[aria-sort="descending"]::after { content: " \25BC"; font-size: 0.75em; }
+.bh-table th[aria-sort="none"]::after       { content: " \2195"; font-size: 0.75em; opacity: 0.5; }
+
+/* --------------------------------------------------------------------------
+   Alert (inline, persistent) — toasts/banner live in css/feedback.css
+   -------------------------------------------------------------------------- */
+.bh-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3, 12px);
+  padding: var(--space-4, 16px);
+  border: 1px solid transparent;
+  border-left-width: 4px;
+  border-radius: var(--radius-md, 8px);
+  font-size: var(--text-base, 15px);
+}
+.bh-alert__icon { flex: 0 0 auto; font-weight: var(--weight-semibold, 600); }
+.bh-alert--info    { color: #0C4A6E; background: #F0F9FF; border-color: #BAE6FD; border-left-color: var(--color-info, #0369a1); }
+.bh-alert--success { color: #064E3B; background: #ECFDF5; border-color: #A7F3D0; border-left-color: var(--color-success, #047857); }
+.bh-alert--warning { color: #78350F; background: #FFFBEB; border-color: #FDE68A; border-left-color: var(--color-warning, #b45309); }
+.bh-alert--danger  { color: #7F1D1D; background: #FEF2F2; border-color: #FECACA; border-left-color: var(--color-danger, #dc2626); }
+
+/* --------------------------------------------------------------------------
+   Layout helpers used by the shell and the style guide
+   -------------------------------------------------------------------------- */
+.bh-stack   { display: flex; flex-direction: column; gap: var(--space-4, 16px); }
+.bh-cluster { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3, 12px); }
+.bh-grid    { display: grid; gap: var(--space-5, 20px); grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+
+/* ==========================================================================
+   Utility layer  the landing zone for R-09's inline-style migration
+   ---------------------------------------------------------------------
+   Measured baseline (msplate/r09_dupes.cjs, r09_inline.cjs):
+     20,484 inline style="" occurrences in PHP, across 2,532 distinct strings.
+     99 exact-duplicate strings cover 10,573 occurrences (52%).
+   Those duplicates are eligible for mechanical replacement by utilities in
+   this block, but are DEFERRED: inline styles sit at specificity (1,0,0,0)
+   while a class sits at (0,1,0), so where an ID rule (#paper, #wrapper) or a
+   class rule sets the same property the layout could shift. This migration
+   cannot be visually verified (report screens are auth-gated / 403), so the
+   bulk move is recorded as a residual rather than performed blind.
+   163 empty style="" attributes WERE removed in this pass (zero visual effect).
+   Use these utilities for all new markup instead of inline style attributes.
+   ========================================================================== */
+
+/* -- box model / spacing (8-point grid) ---------------------------------- */
+.bh-mt-1 { margin-top: var(--space-1, 4px); }
+.bh-mt-2 { margin-top: var(--space-2, 8px); }
+.bh-mt-3 { margin-top: var(--space-3, 12px); }
+.bh-mt-4 { margin-top: var(--space-4, 16px); }
+.bh-mt-5 { margin-top: var(--space-5, 20px); }
+.bh-mb-1 { margin-bottom: var(--space-1, 4px); }
+.bh-mb-2 { margin-bottom: var(--space-2, 8px); }
+.bh-mb-3 { margin-bottom: var(--space-3, 12px); }
+.bh-mb-4 { margin-bottom: var(--space-4, 16px); }
+.bh-mb-5 { margin-bottom: var(--space-5, 20px); }
+.bh-ml-2 { margin-left: var(--space-2, 8px); }
+.bh-ml-3 { margin-left: var(--space-3, 12px); }
+.bh-ml-4 { margin-left: var(--space-4, 16px); }
+.bh-ml-5 { margin-left: var(--space-5, 20px); }
+.bh-mr-2 { margin-right: var(--space-2, 8px); }
+.bh-mr-3 { margin-right: var(--space-3, 12px); }
+.bh-mr-4 { margin-right: var(--space-4, 16px); }
+.bh-mr-auto { margin-right: auto; }
+.bh-ml-auto { margin-left: auto; }
+
+/* -- display & flow ------------------------------------------------------ */
+.bh-hidden { display: none; }
+.bh-block { display: block; }
+.bh-inline { display: inline; }
+.bh-inline-block { display: inline-block; }
+.bh-clear { clear: both; }
+.bh-nowrap { white-space: nowrap; }
+
+/* -- text ---------------------------------------------------------------- */
+.bh-text-left { text-align: left; }
+.bh-text-center { text-align: center; }
+.bh-text-right { text-align: right; }
+.bh-text-uppercase { text-transform: uppercase; letter-spacing: 0.04em; }
+.bh-text-muted { color: var(--color-text-muted, #64748B); }
+.bh-text-danger { color: var(--color-danger, #DC2626); }
+.bh-text-sm { font-size: var(--text-sm, 13px); }
+.bh-text-xs { font-size: var(--text-xs, 12px); }
+.bh-nowrap-bold { white-space: nowrap; font-weight: var(--weight-semibold, 600); }
+
+/* -- sizing -------------------------------------------------------------- */
+.bh-w-full { width: 100%; }
+.bh-h-100 { height: 100%; }
+.bh-overflow-x { overflow-x: auto; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bh-btn, .bh-input, .bh-select, .bh-textarea { transition: none !important; }
+}

@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-var loader = '<img id="img-spinner" src="images/load.gif" style="position:absolute; top:45%; left:50%" alt="Loading"/>';
+var loader = '<span id="img-spinner" class="bh-spinner" role="status" aria-label="Loading" style="position:absolute; top:45%; left:50%"></span>';
 
     // DataTable
     var phcdiaginoisDataTable = $('#phcdiaginoisTable').DataTable({
@@ -57,7 +57,7 @@ var loader = '<img id="img-spinner" src="images/load.gif" style="position:absolu
         // AJAX request
         //$('#disphcdiagtbl').html(loader);
         //$('#message').html(loader);
-        //$('#refresh_phc_diagnosis_ipd').html('<img id="img-spinner" src="images/load.gif" style="position:absolute; top:45%; left:50%" alt="Loading"/>');
+        //$('#refresh_phc_diagnosis_ipd').html('<span id="img-spinner" class="bh-spinner" role="status" aria-label="Loading" style="position:absolute; top:45%; left:50%"></span>');
         $("#refresh_phc_diagnosis_ipd").html(loader).delay(3000).fadeOut(9000);
         $.ajax({
             url: 'ipdphcdiagmanager.php',

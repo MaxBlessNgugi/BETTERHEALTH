@@ -15,6 +15,12 @@ if (isset($_SESSION['valid_user'])) {
 <script type='text/javascript' src='js/functions.js'></script>
 <link rel="stylesheet" type="text/css" href="assets/vendor/jquery.confirm/jquery.confirm.css" />
 <script src="assets/vendor/jquery.confirm/jquery.confirm.js"></script>
+<link type="text/css" rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/components.css" />
+<link type="text/css" rel="stylesheet" href="css/feedback.css">
+<link type="text/css" rel="stylesheet" href="css/jquery.custom.alerts.css">
+<script type="text/javascript" src="js/bh-feedback.js"></script>
+<script type="text/javascript" src="js/jquery.custom.alerts.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
 
 <script>
@@ -252,8 +258,8 @@ $result =mysqli_query($db, "SELECT * FROM patients WHERE pntno='".$param."'");
 										<div id=\"normal\" class=\"normal\">
 										<div onclick=\"revdis('" . $regn . "','" . $name . "')\" id=\"figure2\">" . $regn . "</div>
 										<div onclick=\"revdis('" . $regn . "','" . $name . "')\" id=\"figure2\" style=\"width:200px\">" . $name . "</div>
-										<div class=\"figure2\" style=\"width:72px\" title=\"Click to check attendance\" id=\"save1" . $regn . "\" onclick=\"checkemp(" . $regn . "," . $att . "," . $tot . ",1)\"><img src=\"images/4.png\" style=\"width:16px;height:16px\"/></div>
-										<div class=\"figure2\" style=\"width:70px\" title=\"Click to check attendance\" id=\"save0" . $regn . "\" onclick=\"checkemp(" . $regn . "," . $att . "," . $tot . ",0)\"><img src=\"images/delete.png\" style=\"width:16px;height:16px\"/></div>";
+										<div class=\"figure2\" style=\"width:72px\" title=\"Click to check attendance\" id=\"save1" . $regn . "\" onclick=\"checkemp(" . $regn . "," . $att . "," . $tot . ",1)\"><img alt=\"4\" src=\"images/4.png\" style=\"width:16px;height:16px\"/></div>
+										<div class=\"figure2\" style=\"width:70px\" title=\"Click to check attendance\" id=\"save0" . $regn . "\" onclick=\"checkemp(" . $regn . "," . $att . "," . $tot . ",0)\"><img alt=\"Delete\" src=\"images/delete.png\" style=\"width:16px;height:16px\"/></div>";
 			echo "</div><div class=\"cleaner\"></div>";
 		}
 
@@ -305,7 +311,7 @@ $result =mysqli_query($db, "SELECT * FROM patients WHERE pntno='".$param."'");
 										<div id=\"normal" . $code . "\" class=\"normal\" >
 										<div id=\"figure2\" onclick=\"window.open('rep.php?id=1&value=" . $code . "')\" style=\"width:60px\">" . $code . "</div>
 						<div id=\"figure2\" style=\"height:19px; padding-top:2px;width:302px\">
-								<input type=\"text\" class=\"put_field\" value=\"" . strtoupper($name) . "\"id=\"name" . $code . "\" style=\"background:#fff;width:290px;text-align:left;\" disabled/>
+								<label for=\"name" . $code . "\" class=\"bh-visually-hidden\">Text field</label><input type=\"text\" class=\"put_field\" value=\"" . strtoupper($name) . "\"id=\"name" . $code . "\" style=\"background:#fff;width:290px;text-align:left;\" disabled/>
 										</div>
 										<div id=\"figure2\" style=\"width:111px; margin-top:-4px; height:20px\">";
 			if (intval($row['ledgerid']) == 601) {
@@ -313,19 +319,19 @@ $result =mysqli_query($db, "SELECT * FROM patients WHERE pntno='".$param."'");
 			} else {
 				echo "
 									
-										<select class=\"select\" id=\"type" . $code . "\" style=\"width:110px; padding:0\">
+										<label for=\"type" . $code . "\" class=\"bh-visually-hidden\">General Ledger</label><select class=\"select\" id=\"type" . $code . "\" style=\"width:110px; padding:0\">
 										<option value=\"" . trim(stripslashes($row['type'])) . "\" selected=\"selected\">" . stripslashes($row['type']) . "</option>";
 				echo "</select>";
 			}
 			echo "</div>
 										
 										<div id=\"figure2\" style=\"width:111px; margin-top:-4px; height:20px\">
-										<select class=\"select\" id=\"cat" . $code . "\" style=\"width:110px; padding:0\">
+										<label for=\"cat" . $code . "\" class=\"bh-visually-hidden\">Text field</label><select class=\"select\" id=\"cat" . $code . "\" style=\"width:110px; padding:0\">
 										<option value=\"" . trim(stripslashes($row['category'])) . "\" selected=\"selected\">" . stripslashes($row['category']) . "</option>";
 			echo "</select></div>";
 
 			echo "<div id=\"figure2\" style=\"height:19px; padding-top:2px;width:141px\">
-											<input type=\"text\" class=\"put_field\" value=\"" . number_format(floatval($bal), 2, '.', ',') . "\" id=\"bal" . $code . "\" style=\"background:#fff;width:130px;text-align:left;padding-left:5px;\" disabled/>
+											<label for=\"bal" . $code . "\" class=\"bh-visually-hidden\">Text field</label><input type=\"text\" class=\"put_field\" value=\"" . number_format(floatval($bal), 2, '.', ',') . "\" id=\"bal" . $code . "\" style=\"background:#fff;width:130px;text-align:left;padding-left:5px;\" disabled/>
 										</div>";
 			if (strtolower($created_by) == 'system') {
 				echo "<div class=\"figure2\" style=\"width:51px\" id=\"figure2" . $code . "\" title=\"System Account\" > </div>";
@@ -333,9 +339,9 @@ $result =mysqli_query($db, "SELECT * FROM patients WHERE pntno='".$param."'");
 				echo "<div class=\"figure2\" style=\"width:51px\" id=\"figure2" . $code . "\" title=". $category." > </div>";
 			} else {
 				if (floatval($bal) == 0 && $nonZeroSubledgers==0) {
-					echo "<div class=\"figure2\" style=\"width:51px\" id=\"figure2" . $code . "\" title=\"Delete\" onclick=\"removeledger(" . $code . ",'" . $bal . "')\"><img src=\"images/discard.png\" style=\"width:20px;height:16.5px\"/></div>";
+					echo "<div class=\"figure2\" style=\"width:51px\" id=\"figure2" . $code . "\" title=\"Delete\" onclick=\"removeledger(" . $code . ",'" . $bal . "')\"><img alt=\"Discard\" src=\"images/discard.png\" style=\"width:20px;height:16.5px\"/></div>";
 				} else {
-					echo "<div class=\"figure2\" style=\"width:51px\" id=\"figure2" . $code . "\" title=\"Account should have zero balance to delete\" > <img src=\"images/discard.png\" style=\"width:20px;height:16.5px\"/> </div>";
+					echo "<div class=\"figure2\" style=\"width:51px\" id=\"figure2" . $code . "\" title=\"Account should have zero balance to delete\" > <img alt=\"Discard\" src=\"images/discard.png\" style=\"width:20px;height:16.5px\"/> </div>";
 				}
 			}
 
@@ -428,12 +434,12 @@ $result =mysqli_query($db, "SELECT * FROM patients WHERE pntno='".$param."'");
 				echo'<div id="normal'.stripslashes($row['serial']).'"  class="normal">
 				<div class="figure2x"  style="width:40px">'.$emp.'</div>
 				<div class="figure2x"  style="width:120px; overflow-x:hidden; ">'.$name.'</div>
-				<div class="figure2x" style="width:60px;padding:2.5px 1px"><input type="text" class="put_field" value="'.$sal.'" id="sal'.$emp.'" style="background:#fff;width:55px"/></div>
-				<div class="figure2x" style="width:50px;padding:2.5px 1px"><input type="text" class="put_field" value="'.$allow.'" id="allow'.$emp.'" style="background:#fff;width:45px"/></div>
-				<div class="figure2x" style="width:50px;padding:2.5px 1px"><input type="text" class="put_field" value="'.$adva.'"id="adva'.$emp.'" style="background:#fff;width:45px"/></div>
-				<div class="figure2x" style="width:50px;padding:2.5px 1px"><input type="text" class="put_field" value="'.$ins.'" id="ins'.$emp.'" style="background:#fff;width:45px"/></div>
-				<div class="figure2x" style="width:50px;padding:2.5px 1px"><input type="text" class="put_field" value="'.$ded.'" id="ded'.$emp.'" style="background:#fff;width:45px"/></div>
-				<div class="figure2x" style="width:50px;padding:2.5px 1px"><input type="text" class="put_field" value="'.$othrs.'" id="hrs'.$emp.'" style="background:#fff;width:45px"/></div>
+				<div class="figure2x" style="width:60px;padding:2.5px 1px"><label for="sal'.$emp.'" class="bh-visually-hidden">Text field</label><input type="text" class="put_field" value="'.$sal.'" id="sal'.$emp.'" style="background:#fff;width:55px"/></div>
+				<div class="figure2x" style="width:50px;padding:2.5px 1px"><label for="allow'.$emp.'" class="bh-visually-hidden">Text field</label><input type="text" class="put_field" value="'.$allow.'" id="allow'.$emp.'" style="background:#fff;width:45px"/></div>
+				<div class="figure2x" style="width:50px;padding:2.5px 1px"><label for="adva'.$emp.'" class="bh-visually-hidden">Text field</label><input type="text" class="put_field" value="'.$adva.'"id="adva'.$emp.'" style="background:#fff;width:45px"/></div>
+				<div class="figure2x" style="width:50px;padding:2.5px 1px"><label for="ins'.$emp.'" class="bh-visually-hidden">Text field</label><input type="text" class="put_field" value="'.$ins.'" id="ins'.$emp.'" style="background:#fff;width:45px"/></div>
+				<div class="figure2x" style="width:50px;padding:2.5px 1px"><label for="ded'.$emp.'" class="bh-visually-hidden">Text field</label><input type="text" class="put_field" value="'.$ded.'" id="ded'.$emp.'" style="background:#fff;width:45px"/></div>
+				<div class="figure2x" style="width:50px;padding:2.5px 1px"><label for="hrs'.$emp.'" class="bh-visually-hidden">Text field</label><input type="text" class="put_field" value="'.$othrs.'" id="hrs'.$emp.'" style="background:#fff;width:45px"/></div>
 				<div class="figure2x" style="width:50px;" id="nhif'.$emp.'">'.$nhif.'</div>
 				<div class="figure2x" style="width:50px;" id="nssf'.$emp.'">'.$nssf.'</div>
 				<div class="figure2x" style="width:50px;" id="tax'.$emp.'">'.$tax.'</div>
@@ -441,15 +447,15 @@ $result =mysqli_query($db, "SELECT * FROM patients WHERE pntno='".$param."'");
 				<div class="figure2x" style="width:40px;" id="ot'.$emp.'">'.$totalot.'</div>
 				<div class="figure2x" style="width:66px;" id="net'.$emp.'"><strong>'.$net.'</strong></div>';
 	echo"<div class=\"figure2x\" style=\"width:40px;padding:5.5px 5px\" id=\"rem".$emp."\"   onclick=\"deleteemp('".stripslashes($row['serial'])."')\">";		
-	echo"<img src=\"images/discard.png\" width=\"16\" height=\"16\"/></div>";
+	echo"<img alt=\"\" src=\"images/discard.png\" width=\"16\" height=\"16\"/></div>";
 	if($sta==0){
 	echo"<div class=\"figure2x\" style=\"width:40px;padding:5.5px 5px\" id=\"save".$emp."\"  onclick=\"saveemp('".$emp."',".$page.",'".$mon."')\">";
-	echo"<img src=\"images/save.jpg\" width=\"16\" height=\"16\"/>
+	echo"<img alt=\"\" src=\"images/save.jpg\" width=\"16\" height=\"16\"/>
 	</div>";
 	}
 	if($sta==1){
 	echo"<div class=\"figure2t\" style=\"width:40px;padding:5.5px 5px\" id=\"save".$emp."\"  onclick=\"saveemp('".$emp."',".$page.",'".$mon."')\">";
-	echo"<img src=\"images/tick.png\" width=\"16\" height=\"16\"/>
+	echo"<img alt=\"\" src=\"images/tick.png\" width=\"16\" height=\"16\"/>
 	</div>";
 	}
 				echo'
@@ -493,16 +499,16 @@ $result =mysqli_query($db, "SELECT * FROM patients WHERE pntno='".$param."'");
 										echo"
 										<div id=\"normal".$code."\" class=\"normal\">
 										<div id=\"figure2\">".$bedno."</div>
-										<div id=\"figure2x\"style=\"width:70px;height:22px; padding:2px 0\"><input type=\"text\" class=\"put_field\" value=\"".$roomno."\"id=\"roomno".$code."\" style=\"background:#fff;width:60px\"/></div>
+										<div id=\"figure2x\"style=\"width:70px;height:22px; padding:2px 0\"><label for=\"roomno".$code."\" class=\"bh-visually-hidden\">Text field</label><input type=\"text\" class=\"put_field\" value=\"".$roomno."\"id=\"roomno".$code."\" style=\"background:#fff;width:60px\"/></div>
 										<div id=\"figure2\" style=\"width:111px; margin-top:-4px; height:20px\">
-										<select class=\"select\" id=\"roomtype".$code."\" style=\"width:110px; padding:0\">
+										<label for=\"roomtype".$code."\" class=\"bh-visually-hidden\">Text field</label><select class=\"select\" id=\"roomtype".$code."\" style=\"width:110px; padding:0\">
 										<option value=\"".stripslashes($row['type'])."\" selected=\"selected\">".stripslashes($row['type'])."</option>
 										<option value=\"male\">male</option>
 										<option value=\"female\">female</option>
 											<option value=\"either\">Either</option>
 										</select></div>
 										<div id=\"figure2\" style=\"width:111px; margin-top:-4px; height:20px\">
-										<select class=\"select\" id=\"wardtype".$code."\" style=\"width:110px; padding:0\">
+										<label for=\"wardtype".$code."\" class=\"bh-visually-hidden\">Either</label><select class=\"select\" id=\"wardtype".$code."\" style=\"width:110px; padding:0\">
 										<option value=\"".stripslashes($row['wardtype'])."\" selected=\"selected\">".stripslashes($row['wardtype'])."</option>";
 										echo'<option value="MALE_WARD">MALE WARD</option>
 										<option value="FEMALE_WARD">FEMALE WARD</option>
@@ -510,8 +516,8 @@ $result =mysqli_query($db, "SELECT * FROM patients WHERE pntno='".$param."'");
 										<option value="MATERNITY">MATERNITY</option>
 										<option value="PAEDIATRICS">PAEDIATRICS</option>';
 											echo"</select></div>
-										<div class=\"figure2\" style=\"width:60px\" id=\"save".$code."\" onclick=\"savebed(".$code.")\"><img src=\"images/save.jpg\" style=\"width:16px;height:16px\"/></div>
-										<div class=\"figure2\" id=\"figure2".$code."\" onclick=\"removebed(".$code.")\"><img src=\"images/discard.png\" style=\"width:20px;height:16.5px\"/></div>";
+										<div class=\"figure2\" style=\"width:60px\" id=\"save".$code."\" onclick=\"savebed(".$code.")\"><img alt=\"Save\" src=\"images/save.jpg\" style=\"width:16px;height:16px\"/></div>
+										<div class=\"figure2\" id=\"figure2".$code."\" onclick=\"removebed(".$code.")\"><img alt=\"Discard\" src=\"images/discard.png\" style=\"width:20px;height:16.5px\"/></div>";
 										
 										echo"</div><div class=\"cleaner\"></div>";
 										}	
@@ -587,7 +593,7 @@ $result =mysqli_query($db, "SELECT * FROM patients WHERE pntno='".$param."'");
 										<div id=\"figure2\">".$code."</div>
 										
 										<div id=\"figure2\" style=\"width:200px; margin-top:-4px; height:20px\">
-										<select class=\"select\" id=\"deptt".$code."\" style=\"width:190px; padding:0\">
+										<label for=\"deptt".$code."\" class=\"bh-visually-hidden\">Text field</label><select class=\"select\" id=\"deptt".$code."\" style=\"width:190px; padding:0\">
 										<option value=\"".stripslashes($row['dept'])."\" selected=\"selected\">".stripslashes($row['dept'])."</option>
 										<option value=\"TRIAGE\">TRIAGE</option>
 										<option value=\"GENERAL CONSULTATIONS\">GENERAL CONSULTATIONS</option>";
@@ -597,13 +603,13 @@ $result =mysqli_query($db, "SELECT * FROM patients WHERE pntno='".$param."'");
 										</div>
 										
 										<div id=\"figure2x\" style=\"height:19px; padding-top:2px;width:150px\">
-										<input type=\"text\" class=\"put_field\" value=\"".$name."\"id=\"name".$code."\" style=\"background:#fff;width:135px\"/></div>
+										<label for=\"name".$code."\" class=\"bh-visually-hidden\">GENERAL CONSULTATIONS</label><input type=\"text\" class=\"put_field\" value=\"".$name."\"id=\"name".$code."\" style=\"background:#fff;width:135px\"/></div>
 										
 										<div id=\"figure2x\" style=\"height:19px; padding-top:2px;width:150px\">
-										<input type=\"text\" class=\"put_field\" value=\"".$ip."\"id=\"ip".$code."\" style=\"background:#fff;width:135px\"/></div>
+										<label for=\"ip".$code."\" class=\"bh-visually-hidden\">Text field</label><input type=\"text\" class=\"put_field\" value=\"".$ip."\"id=\"ip".$code."\" style=\"background:#fff;width:135px\"/></div>
 										
-										<div class=\"figure2\" style=\"width:64px\" id=\"save".$code."\" onclick=\"saveip(".$code.")\"><img src=\"images/save.jpg\" style=\"width:16px;height:16px\"/></div>
-										<div class=\"figure2\" id=\"figure2".$code."\" onclick=\"removeip(".$code.")\"><img src=\"images/discard.png\" style=\"width:20px;height:16.5px\"/></div>";
+										<div class=\"figure2\" style=\"width:64px\" id=\"save".$code."\" onclick=\"saveip(".$code.")\"><img alt=\"Save\" src=\"images/save.jpg\" style=\"width:16px;height:16px\"/></div>
+										<div class=\"figure2\" id=\"figure2".$code."\" onclick=\"removeip(".$code.")\"><img alt=\"Discard\" src=\"images/discard.png\" style=\"width:20px;height:16.5px\"/></div>";
 										
 										echo"</div><div class=\"cleaner\"></div>";
 										}	
@@ -642,9 +648,9 @@ $result =mysqli_query($db, "SELECT * FROM patients WHERE pntno='".$param."'");
 										<div id=\"normal".$code."\" class=\"normal\">
 										
 										<div id=\"figure2x\" style=\"height:19px; padding-top:2px;width:400px\">
-										<input type=\"text\" class=\"put_field\" value=\"".$name."\"id=\"name".$code."\" style=\"background:#fff;width:390px\"/></div>
-										<div class=\"figure2\" style=\"width:61px\" id=\"save".$code."\" onclick=\"savebank(".$code.")\"><img src=\"images/save.jpg\" style=\"width:16px;height:16px\"/></div>
-										<div class=\"figure2\" id=\"figure2".$code."\" onclick=\"removebank(".$code.")\"><img src=\"images/discard.png\" style=\"width:20px;height:16.5px\"/></div>";
+										<label for=\"name".$code."\" class=\"bh-visually-hidden\">Text field</label><input type=\"text\" class=\"put_field\" value=\"".$name."\"id=\"name".$code."\" style=\"background:#fff;width:390px\"/></div>
+										<div class=\"figure2\" style=\"width:61px\" id=\"save".$code."\" onclick=\"savebank(".$code.")\"><img alt=\"Save\" src=\"images/save.jpg\" style=\"width:16px;height:16px\"/></div>
+										<div class=\"figure2\" id=\"figure2".$code."\" onclick=\"removebank(".$code.")\"><img alt=\"Discard\" src=\"images/discard.png\" style=\"width:20px;height:16.5px\"/></div>";
 										
 										echo"</div>
 										<div class=\"cleaner\"></div>";

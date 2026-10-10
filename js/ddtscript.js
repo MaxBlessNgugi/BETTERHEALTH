@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-var loader = '<img id="img-spinner" src="images/load.gif" style="position:absolute; top:45%; left:50%" alt="Loading"/>';
+var loader = '<span id="img-spinner" class="bh-spinner" role="status" aria-label="Loading" style="position:absolute; top:45%; left:50%"></span>';
 
     // DataTable
     var phcdiaginoisDataTable = $('#phcdiaginoisTable').DataTable({

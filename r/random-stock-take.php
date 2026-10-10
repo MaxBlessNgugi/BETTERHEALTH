@@ -39,9 +39,12 @@ $logo=stripslashes($row['Logo']);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="../css/tokens.css" />
+<link rel="stylesheet" href="../css/components.css" />
 <title>Better Health Random Stock Take Report</title>
 <link id="favicon" href="../images/fav.png" rel="icon" type="image/png"/>
 <script type="text/javascript" src="../js/jquery.js"></script>
+<link type="text/css" rel="stylesheet" href="../css/feedback.css">
+<script type="text/javascript" src="../js/bh-feedback.js"></script>
 <script src="../js/functions.js"></script>
 <script type="text/javascript" src="../js/connectcode-javascript-code39.js"></script>
 <script src="../js/excellentexport.js"></script>
@@ -57,6 +60,7 @@ font-family: Merchant; font-size:18px; font-weight:normal; text-transform:upperc
 </head>
 
 <body>
+	<a class="bh-skip" href="#bh-main">Skip to main content</a>
 
 <?php 
 
@@ -64,9 +68,9 @@ $name=$_GET['name'];
 if($userdep=='PROCUREMENT'){$x='Bal';}else{$x=$userdep;}
 ?>
 
-<div style="width:100%;min-height:260px; border:2px solid #333">
+<div style="width:100%;min-height:260px; border:2px solid #333" id="bh-main" tabindex="-1">
 <div style="clear:both; margin-bottom:10px"></div>
-<img src="../<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
+<img alt="" src="../<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
 <p style="text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 0px"><?php  echo $comname ?></p>
 <div style="clear:both"></div>
 <p style="text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 0px">P.O Box <?php  echo $Add ?><br/>Tel: <?php  echo $tel ?>

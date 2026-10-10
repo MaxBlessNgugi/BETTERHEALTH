@@ -11,11 +11,16 @@ $mon=$_GET['mon'];
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="css/tokens.css" />
+<link rel="stylesheet" href="css/components.css" />
 <link id="favicon" href="images/fav.png" rel="icon" type="image/png"/>
 <title>B-HEALTH  PaySlips</title>
+<link type="text/css" rel="stylesheet" href="css/feedback.css">
+<script type="text/javascript" src="js/bh-feedback.js"></script>
 <script src="js/functions.js"></script>
 </head>
 <body>
+	<a class="bh-skip" href="#bh-main">Skip to main content</a>
+	<div id="bh-main" tabindex="-1"></div>
 <?php
 
 switch($id){

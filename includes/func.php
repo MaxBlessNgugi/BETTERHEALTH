@@ -5,7 +5,7 @@ bh_require_auth();
 
 function open_invoice_summary($logo,$comname,$Add,$tel,$web,$email,$cname){
 echo'<div style="width:100%;min-height:260px; border:2px solid #333">
-<img src=../'.$logo.' style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
+<img alt="" src=../'.$logo.' style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
 <p style="text-align:center;font-size:16px; font-weight:bold;font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;margin:0 0 0 0px">'.$comname.'<br/>P.O Box '.$Add.'<br/>Tel: '.$tel.'
 <br/>Website: '.$web.'<br/>Email: '.$email.'<br/>OFFICIAL OPEN INVOICES SUMMARY<br/><strong style="font-size:16px">COMPANY:'.$cname.'</strong><br/><strong style="font-size:16px">Date: '.date('d/m/Y').'</strong></p>';
 
@@ -21,7 +21,7 @@ function unregistered_patients_eports($logo,$comname,$Add,$tel,$web,$email,$date
 echo '
 <div style="width:100%;min-height:260px; border:2px solid #333">
 <div style="clear:both; margin-bottom:10px"></div>
-<img src="../'.$logo.'" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
+<img alt="Logo" src="../'.$logo.'" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
 <p style="text-align:center;font-size:16px; font-weight:bold;font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;margin:0 0 0 0px">'.$comname.'<br/>P.O Box '.$Add.'<br/>Tel: '.$tel.'
 <br/>Website: '.$web.'<br/>Email: '.$email.'<br/>'.$pgheadtitle.'<br/>';
 echo ' <strong style="font-size:16px">Date:'.dateprint($date).'</strong></p>';
@@ -35,7 +35,7 @@ function lab_patient_reports($logo,$comname,$Add,$tel,$web,$email,$d1,$d2,$catna
 echo '
 <div style="width:100%;min-height:260px; border:2px solid #333">
 <div style="clear:both; margin-bottom:10px"></div>
-<img src="'.$logo.'" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
+<img alt="Logo" src="'.$logo.'" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
 <p style="text-align:center;font-size:16px; font-weight:bold;font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;margin:0 0 0 0px">'.$comname.'<br/>P.O Box '.$Add.'<br/>Tel: '.$tel.'
 <br/>Website: '.$web.'<br/>Email: '.$email.'<br/>';
 $x='LAB REPORTS';
@@ -54,7 +54,7 @@ function pharmacy_dispenses_patient_reports($logo,$comname,$Add,$tel,$web,$email
 echo '
 <div style="width:100%;min-height:260px; border:2px solid #333">
 <div style="clear:both; margin-bottom:10px"></div>
-<img src="../'.$logo.'" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
+<img alt="Logo" src="../'.$logo.'" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
 <p style="text-align:center;font-size:16px; font-weight:bold;font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;margin:0 0 0 0px">'.$comname.'<br/>P.O Box '.$Add.'<br/>Tel: '.$tel.'
 <br/>Website: '.$web.'<br/>Email: '.htmlspecialchars($email).'<br/>'.$pgheadtitle.'<br/>';
 echo ' <strong style="font-size:16px">Date:'.date('d/m/Y').'</strong><br/><strong style="font-size:16px">Category:'.htmlspecialchars($catname).'</strong></p>';
@@ -69,7 +69,7 @@ function pharmacy_dispenses_patient_reports2($logo,$comname,$Add,$tel,$web,$emai
 echo '
 <div style="width:100%;min-height:260px; border:2px solid #333">
 <div style="clear:both; margin-bottom:10px"></div>
-<img src="../'.$logo.'" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
+<img alt="Logo" src="../'.$logo.'" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
 <p style="text-align:center;font-size:16px; font-weight:bold;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;margin:0 0 0 0px">'.$comname.'<br/>P.O Box '.$Add.'<br/>Tel: '.$tel.'
 <br/>Website: '.$web.'<br/>Email: '.htmlspecialchars($email).'<br/>'.$pgheadtitle.'<br/>';
 echo ' <strong style="font-size:16px">Date:'.date('d/m/Y').'</strong><br/><strong style="font-size:16px">Category:'.htmlspecialchars($catname).'</strong></p>';
@@ -83,7 +83,7 @@ echo ' <strong style="font-size:16px">Date:'.date('d/m/Y').'</strong><br/><stron
 function general_opd_clinic_patients_reports($logo,$comname,$Add,$tel,$web,$email,$date,$d1,$d2,$code,$pgheadtitle){
 echo '<div style="width:100%;min-height:260px; border:2px solid #333">';
 echo '<div style="clear:both; margin-bottom:10px"></div>';
-echo '<img src="../'.htmlspecialchars($logo).'" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>';
+echo '<img alt="Htmlspecialchars Logo" src="../'.htmlspecialchars($logo).'" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>';
 echo '<p style="text-align:center;font-size:16px; font-weight:bold;font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;margin:0 0 0 0px">
 '.htmlspecialchars($comname).'<br/>P.O Box '.htmlspecialchars($Add).'<br/>Tel: '.htmlspecialchars($tel).'<br/>Website: '.htmlspecialchars($web).'<br/>
 Email: '.htmlspecialchars($email).'<br/>OPD '.$pgheadtitle.' PATIENTS LIST<br/><strong style="font-size:16px">Date:'.dateprint($date).'</strong></p>';

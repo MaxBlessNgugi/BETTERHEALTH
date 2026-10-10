@@ -34,9 +34,12 @@ $logo=stripslashes($row['Logo']);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="../css/tokens.css" />
+<link rel="stylesheet" href="../css/components.css" />
 <title>Blood Transfussion Chart</title>
 <link id="favicon" href="../images/fav.png" rel="icon" type="image/png"/>
 <script type="text/javascript" src="../js/jquery.js"></script>
+<link type="text/css" rel="stylesheet" href="../css/feedback.css">
+<script type="text/javascript" src="../js/bh-feedback.js"></script>
 <script src="../js/functions.js"></script>
 <script type="text/javascript" src="../js/connectcode-javascript-code39.js"></script>
 <script src="../js/excellentexport.js"></script>
@@ -56,6 +59,7 @@ font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 </head>
 
 <body>
+	<a class="bh-skip" href="#bh-main">Skip to main content</a>
 
 <?php 
 
@@ -88,10 +92,10 @@ $remarks_after=stripslashes($btRow['RemarksAfterTransfussion']);
 
 $fname=strtolower($name).'_invoices_report';
 ?>
-<div style="width:100%;min-height:260px; border:2px solid #333">
+<div style="width:100%;min-height:260px; border:2px solid #333" id="bh-main" tabindex="-1">
 
 <div style="clear:both; margin-bottom:10px;"></div>
-<img src="../<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
+<img alt="" src="../<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
 <p style="text-align:center;font-size:14px; font-weight:bold;font-family:'Trebuchet MS', Arial, Helvetica, sans-serif;margin:0 0 0 0px">CATHOLIC DIOCESE OF MARSABIT</p>
 <p style="text-align:center;font-size:14px; font-weight:bold;font-family:'Trebuchet MS', Arial, Helvetica, sans-serif;margin:0 0 0 0px"><?php  echo $comname ?></p>
 <div style="clear:both"></div>
@@ -99,7 +103,7 @@ $fname=strtolower($name).'_invoices_report';
 <br/>Website: <?php  echo $web ?><br/>Email: <?php  echo $email ?></p><div style="clear:both"></div>
 <p style="text-align:center;font-size:14px; font-weight:bold;font-family:'Trebuchet MS', Arial, Helvetica, sans-serif;margin:0 0 0 0px"> BLOOD TRANSFUSSION CHART<br/><strong style="font-size:14px">Date:<?php  echo date('d/m/Y') ?></strong></p>
 <?php if($name){ echo "<p style='text-align:center;font-size:14px; font-weight:normal;text-transform: uppercase;font-family:'Trebuchet MS', Arial, Helvetica, sans-serif;margin:0 0 0 0px'><strong>NAME:</strong>".$name." &nbsp;&nbsp;<strong>BATCH NO:</strong>&nbsp;".$batchno." &nbsp;&nbsp;<strong>AGE:</strong>&nbsp;".$age."</br><strong>VITALS BEFORE TRANSFUSSION</strong></br><strong>TEMP:</strong>&nbsp;".$temp."&nbsp;<strong>&nbsp;BP:</strong>&nbsp;".$bp1." / ".$bp2."&nbsp;&nbsp;<strong>PR:</strong>&nbsp;".$pr."</br><strong>DIAGNOSIS:</strong>&nbsp;".$diagnosis."&nbsp;</br><strong>BLOOD GROUP:</strong>&nbsp;".$bgrp."&nbsp;<strong>TYPE OF BLOOD GROUP:</strong>&nbsp;".$typebgrp."&nbsp;</br><strong>REASON FOR TRANSFUSSION:</strong>&nbsp;".$reason."&nbsp;</br><strong>TIME STARTED:</strong>&nbsp;".$startime."&nbsp;<strong>COUNTER CHECKED BY:</strong>&nbsp;".$checkedby."&nbsp;<strong>VOLUME:</strong>&nbsp;".$volume."&nbsp;</p>"; } 
-echo'<img src="../images/adobe.png" style="height:30px; float:right; margin-right:10px;  margin-top:-53px; cursor:pointer" onclick="window.print() " title="Convert to Pdf"/>';
+echo'<img alt="Convert to Pdf" src="../images/adobe.png" style="height:30px; float:right; margin-right:10px;  margin-top:-53px; cursor:pointer" onclick="window.print() " title="Convert to Pdf"/>';
 
 ?>
 

@@ -28,6 +28,7 @@ echo"<script>window.location.href = \"index.php\";</script>";exit;
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/tokens.css" />
+<link rel="stylesheet" href="css/components.css" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="language" content="en-au">
@@ -37,7 +38,12 @@ echo"<script>window.location.href = \"index.php\";</script>";exit;
 		<meta name="keywords" content="css3, jquery, pie, graph, chart, timer">
 		<meta name="description" content="CSS3 pie graph timer with jquery">
         <link id="favicon" href="images/fav.png" rel="icon" type="image/png"/>
-		<script src="js/jquery.min.js" type="text/javascript"></script>
+		<link type="text/css" rel="stylesheet" href="css/tokens.css">
+<link type="text/css" rel="stylesheet" href="css/feedback.css">
+<link type="text/css" rel="stylesheet" href="css/jquery.custom.alerts.css">
+<script type="text/javascript" src="js/bh-feedback.js"></script>
+<script type="text/javascript" src="js/jquery.custom.alerts.js"></script>
+<script src="js/jquery.min.js" type="text/javascript"></script>
 		<style>
 			.timer {
 				position:relative;
@@ -155,7 +161,8 @@ echo"<script>window.location.href = \"index.php\";</script>";exit;
 		</script>
 	</head>
 	<body style="background:#fff">
-<input id="watch" value="Start" type="button" style="display:none" ><input id="watch" size="2" value="5" type="text" style="display:none">
+	<a class="bh-skip" href="#boss">Skip to main content</a>
+<input id="watch" value="Start" type="button" style="display:none" ><label for="watch" class="bh-visually-hidden">Skip to main content</label><input id="watch" size="2" value="5" type="text" style="display:none">
 		
         
       <div id="boss" style="position:absolute; top:30%; left:40%; border-radius:5px; padding:20px 30px">

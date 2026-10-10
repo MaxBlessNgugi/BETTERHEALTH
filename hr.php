@@ -25,7 +25,9 @@ else{echo"<script>window.location.href = \"index.php\";</script>";exit;}
 <link rel="stylesheet" href="css/website.css" type="text/css" media="screen"/>
 <link rel="stylesheet" type="text/css" href="css/lightbox.css" />
 <script type="text/javascript" src="js/jquery.tinyscrollbar.min.js"></script>
+<link type="text/css" rel="stylesheet" href="css/feedback.css">
 <link type="text/css" rel="stylesheet" href="css/jquery.custom.alerts.css">
+<script type="text/javascript" src="js/bh-feedback.js"></script>
 <script type="text/javascript" src="js/jquery.custom.alerts.js"></script>
 <script type="text/javascript" src="js/chart.js"></script>
 <script type="text/javascript" src="js/javascript.js"></script>
@@ -232,7 +234,6 @@ $(function() {
 		});
 		</script>	
 <link rel="stylesheet" href="css/custom.css">
-<link rel="stylesheet" href="css/grid.css">
 <link href="css/page.css" rel="stylesheet" type="text/css" />
 <?php
 $id=$_GET['id'];
@@ -249,11 +250,11 @@ switch($id){
 			echo'<div id="alertDiv" style="min-height:90px; width:370px">
 					<div id="tit" style="width:350px; background:#10504F; padding:5px 0px 5px 20px;border-radius:0px 5px 0 0">
 				<h5 style="margin-right:10px; color:#fff">NEW PAYROLL
-				<img src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5>
+				<img alt="Delete" src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5>
 				</div>
 				<div class="cleaner_h5"></div>
 					<a class="labels" style="margin-left:5px">Month:<span>*</span></a>
-		<input type="text" id="default_widget"  class="in_field" value="" style="width:60%;float:right;margin-right:10px; text-transform:none; " readonly="readonly"/> 
+		<label for="default_widget" class="bh-visually-hidden">Month:</label><input type="text" id="default_widget"  class="in_field" value="" style="width:60%;float:right;margin-right:10px; text-transform:none; " readonly="readonly"/> 
 <div class="cleaner_h10"></div>
 				<div class="cleaner_h5"></div>
 									<input type="button" value="Cancel" style="float:right; margin-right:70px; cursor:pointer; width:80px" class="select" onclick="hidediv()"/>
@@ -356,21 +357,21 @@ switch($id){
 									echo'
 				<div id="figure2" style="width:40px; margin-left:0" >'.stripslashes($row['emp']).'</div>
 				<div id="figure2" style="width:120px; overflow:hidden" >'.stripslashes($row['name']).'</div>
-				<div id="figure2" style="width:55px;height:22px; padding:2px" ><input class="input_field" type="text" style="width:90%;padding:1px 1px" value="'.$sal.'" id="sal'.$emp.'"/></div>
-				<div id="figure2" style="width:50px; padding:2px;height:22px" ><input class="input_field" type="text" style="width:90%;padding:1px 1px" value="'.$allow.'" id="allow'.$emp.'"/></div>
-				<div id="figure2" style="width:50px; padding:2px;height:22px" ><input  class="input_field"type="text" style="width:90%;padding:1px 1px" value="'.$hrs.'" id="hrs'.$emp.'"/></div>
-				<div id="figure2" style="width:50px; padding:2px;height:22px" ><input  class="input_field" type="text" style="width:90%;padding:1px 1px " value="'.$rate.'" id="rate'.$emp.'"/></div>
-				<div id="figure2" style="width:50px; padding:2px;height:22px" ><input class="input_field" type="text" disabled="disabled"  style="width:90%;padding:1px 1px;background:#fff; border-color:var(--color-danger, #DC2626)" value="'.$ot.'" id="ot'.$emp.'"/></div>
-				<div id="figure2" style="width:50px; padding:2px;height:22px" ><input class="input_field" type="text"  disabled="disabled"  style=" background:#fff; border-color:var(--color-danger, #DC2626);width:90%;padding:1px 1px" value="'.$nssf.'" id="nssf'.$emp.'"/></div>
-				<div id="figure2" style="width:50px; padding:2px;height:22px" ><input class="input_field" type="text"  disabled="disabled"  style="width:90%;padding:1px 1px; background:#fff; border-color:var(--color-danger, #DC2626)" value="'.$tax.'" id="tax'.$emp.'"/></div>
-				<div id="figure2" style="width:45px; padding:2px;height:22px" ><input class="input_field" type="text"  disabled="disabled"  style="width:90%; background:#fff; border-color:var(--color-danger, #DC2626);padding:1px 1px;" value="'.$nhif.'" id="nhif'.$emp.'"/></div>
-				<div id="figure2" style="width:45px; padding:2px;height:22px" ><input  class="input_field" type="text" style="width:90%;padding:1px 1px; " value="'.$adva.'" id="adva'.$emp.'"/></div>
+				<div id="figure2" style="width:55px;height:22px; padding:2px" ><label for="sal'.$emp.'" class="bh-visually-hidden">Text field</label><input class="input_field" type="text" style="width:90%;padding:1px 1px" value="'.$sal.'" id="sal'.$emp.'"/></div>
+				<div id="figure2" style="width:50px; padding:2px;height:22px" ><label for="allow'.$emp.'" class="bh-visually-hidden">Text field</label><input class="input_field" type="text" style="width:90%;padding:1px 1px" value="'.$allow.'" id="allow'.$emp.'"/></div>
+				<div id="figure2" style="width:50px; padding:2px;height:22px" ><label for="hrs'.$emp.'" class="bh-visually-hidden">Text field</label><input  class="input_field"type="text" style="width:90%;padding:1px 1px" value="'.$hrs.'" id="hrs'.$emp.'"/></div>
+				<div id="figure2" style="width:50px; padding:2px;height:22px" ><label for="rate'.$emp.'" class="bh-visually-hidden">Text field</label><input  class="input_field" type="text" style="width:90%;padding:1px 1px " value="'.$rate.'" id="rate'.$emp.'"/></div>
+				<div id="figure2" style="width:50px; padding:2px;height:22px" ><label for="ot'.$emp.'" class="bh-visually-hidden">Text field</label><input class="input_field" type="text" disabled="disabled"  style="width:90%;padding:1px 1px;background:#fff; border-color:var(--color-danger, #DC2626)" value="'.$ot.'" id="ot'.$emp.'"/></div>
+				<div id="figure2" style="width:50px; padding:2px;height:22px" ><label for="nssf'.$emp.'" class="bh-visually-hidden">Text field</label><input class="input_field" type="text"  disabled="disabled"  style=" background:#fff; border-color:var(--color-danger, #DC2626);width:90%;padding:1px 1px" value="'.$nssf.'" id="nssf'.$emp.'"/></div>
+				<div id="figure2" style="width:50px; padding:2px;height:22px" ><label for="tax'.$emp.'" class="bh-visually-hidden">Text field</label><input class="input_field" type="text"  disabled="disabled"  style="width:90%;padding:1px 1px; background:#fff; border-color:var(--color-danger, #DC2626)" value="'.$tax.'" id="tax'.$emp.'"/></div>
+				<div id="figure2" style="width:45px; padding:2px;height:22px" ><label for="nhif'.$emp.'" class="bh-visually-hidden">Text field</label><input class="input_field" type="text"  disabled="disabled"  style="width:90%; background:#fff; border-color:var(--color-danger, #DC2626);padding:1px 1px;" value="'.$nhif.'" id="nhif'.$emp.'"/></div>
+				<div id="figure2" style="width:45px; padding:2px;height:22px" ><label for="adva'.$emp.'" class="bh-visually-hidden">Text field</label><input  class="input_field" type="text" style="width:90%;padding:1px 1px; " value="'.$adva.'" id="adva'.$emp.'"/></div>
 				<input  class="input_field" type="hidden" style="width:90%;padding:1px 1px; " value="'.$days.'" id="days'.$emp.'"/>
-				<div id="figure2" style="width:55px; padding:2px;height:22px" ><input  class="input_field" type="text" style="width:90%;padding:1px 1px; " value="'.$ins.'" id="ins'.$emp.'"/></div>
-			<div id="figure2" style="width:55px; padding:2px;height:22px" ><input  class="input_field" type="text" style="width:90%;padding:1px 1px; " value="'.$ded.'" id="ded'.$emp.'"/></div>
-				<div id="figure2" style="width:75px; padding:2px;height:22px" ><input class="input_field" type="text"  disabled="disabled"  style="width:90%;padding:1px 1px; background:#fff; border-color:var(--color-danger, #DC2626); font-weight:bold" value="'.$net.'" id="net'.$emp.'"/></div>';
-				echo"<div class=\"figure2\" id=\"rem".$emp."\" onclick=\"deletepayemp(".stripslashes($row['serial']).")\" style=\"width:50px;padding:2px;height:22px\" ><img src=\"images/delete.png\" style=\"height:22px;width:22px\" /></div>
-				<div class=\"figure2\" id=\"save".$emp."\" onclick=\"savepayemp('".$emp."','".$mon."')\" style=\"width:49px;padding:2px;height:22px\" ><img src=\"images/save.jpg\" style=\"height:20px;width:20px\" /></div>";
+				<div id="figure2" style="width:55px; padding:2px;height:22px" ><label for="ins'.$emp.'" class="bh-visually-hidden">Text field</label><input  class="input_field" type="text" style="width:90%;padding:1px 1px; " value="'.$ins.'" id="ins'.$emp.'"/></div>
+			<div id="figure2" style="width:55px; padding:2px;height:22px" ><label for="ded'.$emp.'" class="bh-visually-hidden">Text field</label><input  class="input_field" type="text" style="width:90%;padding:1px 1px; " value="'.$ded.'" id="ded'.$emp.'"/></div>
+				<div id="figure2" style="width:75px; padding:2px;height:22px" ><label for="net'.$emp.'" class="bh-visually-hidden">Text field</label><input class="input_field" type="text"  disabled="disabled"  style="width:90%;padding:1px 1px; background:#fff; border-color:var(--color-danger, #DC2626); font-weight:bold" value="'.$net.'" id="net'.$emp.'"/></div>';
+				echo"<div class=\"figure2\" id=\"rem".$emp."\" onclick=\"deletepayemp(".stripslashes($row['serial']).")\" style=\"width:50px;padding:2px;height:22px\" ><img alt=\"Delete\" src=\"images/delete.png\" style=\"height:22px;width:22px\" /></div>
+				<div class=\"figure2\" id=\"save".$emp."\" onclick=\"savepayemp('".$emp."','".$mon."')\" style=\"width:49px;padding:2px;height:22px\" ><img alt=\"Save\" src=\"images/save.jpg\" style=\"height:20px;width:20px\" /></div>";
 					echo'</div>
 					<div class="cleaner"></div>';
 					}
@@ -391,11 +392,11 @@ switch($id){
 			echo'<div id="alertDiv" style="min-height:90px; width:370px">
 					<div id="tit" style="width:350px; background:#10504F; padding:5px 0px 5px 20px;border-radius:0px 5px 0 0">
 				<h5 style="margin-right:10px; color:#fff">EDIT PAYROLL
-				<img src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5>
+				<img alt="Delete" src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5>
 				</div>
 				<div class="cleaner_h5"></div>
 					<a class="labels" style="margin-left:5px">Month:<span>*</span></a>
-		<input type="text" id="default_widget"  class="in_field" value="" style="width:60%;float:right;margin-right:10px; text-transform:none; " readonly="readonly"/> 
+		<label for="default_widget" class="bh-visually-hidden">Month:</label><input type="text" id="default_widget"  class="in_field" value="" style="width:60%;float:right;margin-right:10px; text-transform:none; " readonly="readonly"/> 
 <div class="cleaner_h10"></div>
 				<div class="cleaner_h5"></div>
 									<input type="button" value="Cancel" style="float:right; margin-right:70px; cursor:pointer; width:80px" class="select" onclick="hidediv()"/>
@@ -414,11 +415,11 @@ switch($id){
 			echo'<div id="alertDiv" style="min-height:90px; width:370px; border:1px solid #333">
 					<div id="tit" style="width:350px; background:#10504F; padding:5px 0px 5px 20px;border-radius:0px 0px 0 0">
 				<h5 style="margin-right:10px; color:#fff">ADD TO PAYROLL
-				<img src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5>
+				<img alt="Delete" src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5>
 				</div>
 				<div class="cleaner_h5"></div>
 				<div class="ui_widget"  style="margin-left:10px;float:left; width:270px;">
-				<select id="addemp" style="width:260px; margin-left:10px;">
+				<label for="addemp" class="bh-visually-hidden">ADD TO PAYROLL</label><select id="addemp" style="width:260px; margin-left:10px;">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from employee where status=1 order by fname");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -477,11 +478,11 @@ switch($id){
 	}	
 									
 									echo'
-			<div id="figure2" style="width:200px; padding:2px; height:22px" ><input type="text"  class="input_field" type="text" style="width:90%;padding:1px 1px" value="'.stripslashes($row['lower']).'" id="lower'.$code.'"/></div>
-			<div id="figure2" style="width:200px;  padding:2px; height:22px" ><input type="text" class="input_field" type="text" style="width:90%;padding:1px 1px" value="'.stripslashes($row['upper']).'" id="upper'.$code.'"/></div>
-			<div id="figure2" style="width:200px;  padding:2px; height:22px" ><input type="text" class="input_field" type="text" style="width:90%;padding:1px 1px" value="'.stripslashes($row['amount']).'" id="amount'.$code.'"/></div>';
+			<div id="figure2" style="width:200px; padding:2px; height:22px" ><label for="lower'.$code.'" class="bh-visually-hidden">Text field</label><input type="text"  class="input_field" type="text" style="width:90%;padding:1px 1px" value="'.stripslashes($row['lower']).'" id="lower'.$code.'"/></div>
+			<div id="figure2" style="width:200px;  padding:2px; height:22px" ><label for="upper'.$code.'" class="bh-visually-hidden">Text field</label><input type="text" class="input_field" type="text" style="width:90%;padding:1px 1px" value="'.stripslashes($row['upper']).'" id="upper'.$code.'"/></div>
+			<div id="figure2" style="width:200px;  padding:2px; height:22px" ><label for="amount'.$code.'" class="bh-visually-hidden">Text field</label><input type="text" class="input_field" type="text" style="width:90%;padding:1px 1px" value="'.stripslashes($row['amount']).'" id="amount'.$code.'"/></div>';
 									
-									echo"<div class=\"figure2\" style=\"width:110px; padding:2px; height:22px\" id=\"save".$code."\" onclick=\"savenhif(".$code.")\"><img src=\"images/tick.png\" style=\"width:22px;height:22px\"/></div>
+									echo"<div class=\"figure2\" style=\"width:110px; padding:2px; height:22px\" id=\"save".$code."\" onclick=\"savenhif(".$code.")\"><img alt=\"Tick\" src=\"images/tick.png\" style=\"width:22px;height:22px\"/></div>
 									</div>
 									<div class=\"cleaner\"></div>";
 					}
@@ -514,11 +515,11 @@ switch($id){
 	}	
 									
 									echo'
-			<div id="figure2" style="width:200px; padding:2px; height:22px" ><input type="text" style="width:90%;padding:1px 1px" value="'.stripslashes($row['lower']).'" id="taxlower'.$code.'"/></div>
-			<div id="figure2" style="width:200px;  padding:2px; height:22px" ><input type="text" style="width:90%;padding:1px 1px" value="'.stripslashes($row['upper']).'" id="taxupper'.$code.'"/></div>
-			<div id="figure2" style="width:200px;  padding:2px; height:22px" ><input type="text" style="width:90%;padding:1px 1px" value="'.stripslashes($row['tax']).'" id="taxpercent'.$code.'"/></div>';
+			<div id="figure2" style="width:200px; padding:2px; height:22px" ><label for="taxlower'.$code.'" class="bh-visually-hidden">Text field</label><input type="text" style="width:90%;padding:1px 1px" value="'.stripslashes($row['lower']).'" id="taxlower'.$code.'"/></div>
+			<div id="figure2" style="width:200px;  padding:2px; height:22px" ><label for="taxupper'.$code.'" class="bh-visually-hidden">Text field</label><input type="text" style="width:90%;padding:1px 1px" value="'.stripslashes($row['upper']).'" id="taxupper'.$code.'"/></div>
+			<div id="figure2" style="width:200px;  padding:2px; height:22px" ><label for="taxpercent'.$code.'" class="bh-visually-hidden">Text field</label><input type="text" style="width:90%;padding:1px 1px" value="'.stripslashes($row['tax']).'" id="taxpercent'.$code.'"/></div>';
 									
-									echo"<div class=\"figure2\" style=\"width:110px; padding:2px; height:22px\" id=\"taxsave".$code."\" onclick=\"savetax(".$code.")\"><img src=\"images/tick.png\" style=\"width:22px;height:22px\"/></div>
+									echo"<div class=\"figure2\" style=\"width:110px; padding:2px; height:22px\" id=\"taxsave".$code."\" onclick=\"savetax(".$code.")\"><img alt=\"Tick\" src=\"images/tick.png\" style=\"width:22px;height:22px\"/></div>
 									
 									</div>
 									<div class=\"cleaner\"></div>";
@@ -533,7 +534,7 @@ switch($id){
 						$employee=stripslashes($row['amount']);
 						
 				echo'<a class="labels" style="margin-left:15px" >Employee:(%)</a>
-						<input type="text" title="Rate in percent" id="employeenssf" class="input_field" value="'.$employee.'"  style="width:100px; margin-left:10px;float:left"/>
+						<label for="employeenssf" class="bh-visually-hidden">Rate in percent</label><input type="text" title="Rate in percent" id="employeenssf" class="input_field" value="'.$employee.'"  style="width:100px; margin-left:10px;float:left"/>
 						<input class="in_field" type="button" value="Save" id="submit"  style="padding:5px 5px; border-color:#fff; background:#0f3; float:left; cursor:pointer;width:50px; margin-left:10px; border:1px solid #333" class="in_field" onclick="submnssf();"/>
 						<div id="mes3" style="float:left;width:40px; height:40px; margin-left:10px"></div>
 		
@@ -547,7 +548,7 @@ switch($id){
 						$row=mysqli_fetch_array($result);
 						$amount=stripslashes($row['rate']);
 				echo'<a class="labels" style="margin-left:15px" >Overtime Rate per Hour:</a>
-						<input type="text" title="Rate per Hour" id="overtime" class="input_field" value="'.$amount.'"  style="width:100px; margin-left:10px;float:left"/>
+						<label for="overtime" class="bh-visually-hidden">Rate per Hour</label><input type="text" title="Rate per Hour" id="overtime" class="input_field" value="'.$amount.'"  style="width:100px; margin-left:10px;float:left"/>
 						<input class="in_field" type="button" value="Save" id="submit"  style="padding:5px 5px; border-color:#fff; background:#0f3; float:left; cursor:pointer;width:50px; margin-left:10px; border:1px solid #333" class="in_field" onclick="submover();"/>
 						<div id="mes4" style="float:left;width:40px; height:40px; margin-left:10px"></div>
 		
@@ -616,15 +617,15 @@ switch($id){
 						echo'
 				<div id="figure2" style="width:50px; margin-left:0" >'.stripslashes($row['pfno']).'</div>
 				<div id="figure2" style="width:200px" >'.stripslashes($row['names']).'</div>
-				<div id="figure2" style="width:80px; padding:2px;height:22px" ><input class="input_field" type="text" style="width:90%;padding:1px 1px"  value="'.$phone.'" id="phone'.$emp.'"/></div>
-				<div id="figure2" style="width:75px; padding:2px;height:22px" ><input  class="input_field" type="text" style="width:90%;padding:1px 1px" value="'.$health.'" id="health'.$emp.'"/></div>
-				<div id="figure2" style="width:85px; padding:2px;height:22px" ><input  class="input_field" type="text" style="width:90%;padding:1px 1px"  value="'.$vehicle.'" id="vehicle'.$emp.'"/></div>
-				<div id="figure2" style="width:75px; padding:2px;height:22px" ><input class="input_field"  type="text" style="width:90%;padding:1px 1px" value="'.$house.'" id="house'.$emp.'"/></div>
-				<div id="figure2" style="width:75px; padding:2px;height:22px" ><input  class="input_field" type="text"style="width:90%;padding:1px 1px; background:#fff; " value="'.$entertainment.'" id="entertainment'.$emp.'"/></div>
-				<div id="figure2" style="width:75px; padding:2px;height:22px" ><input  class="input_field" type="text"  style="width:90%;padding:1px 1px; background:#fff; " value="'.$perdiem.'" id="perdiem'.$emp.'"/></div>
-				<div id="figure2" style="width:69px; padding:2px;height:22px" ><input   class="input_field" type="text"  style="width:90%;padding:1px 1px; background:#fff; " value="'.$others.'" id="others'.$emp.'"/></div>';
-				echo"<div class=\"figure2\" id=\"rem".$emp."\" onclick=\"deletebenemp(".stripslashes($row['id']).")\" style=\"width:60px;padding:2px;height:22px\" ><img src=\"images/delete.png\" style=\"height:22px;width:22px\" /></div>
-				<div class=\"figure2\" id=\"save".$emp."\" onclick=\"savebenemp('".$emp."')\" style=\"width:60px;padding:2px;height:22px\" ><img src=\"images/save.jpg\" style=\"height:20px;width:20px\" /></div>";
+				<div id="figure2" style="width:80px; padding:2px;height:22px" ><label for="phone'.$emp.'" class="bh-visually-hidden">Text field</label><input class="input_field" type="text" style="width:90%;padding:1px 1px"  value="'.$phone.'" id="phone'.$emp.'"/></div>
+				<div id="figure2" style="width:75px; padding:2px;height:22px" ><label for="health'.$emp.'" class="bh-visually-hidden">Text field</label><input  class="input_field" type="text" style="width:90%;padding:1px 1px" value="'.$health.'" id="health'.$emp.'"/></div>
+				<div id="figure2" style="width:85px; padding:2px;height:22px" ><label for="vehicle'.$emp.'" class="bh-visually-hidden">Text field</label><input  class="input_field" type="text" style="width:90%;padding:1px 1px"  value="'.$vehicle.'" id="vehicle'.$emp.'"/></div>
+				<div id="figure2" style="width:75px; padding:2px;height:22px" ><label for="house'.$emp.'" class="bh-visually-hidden">Text field</label><input class="input_field"  type="text" style="width:90%;padding:1px 1px" value="'.$house.'" id="house'.$emp.'"/></div>
+				<div id="figure2" style="width:75px; padding:2px;height:22px" ><label for="entertainment'.$emp.'" class="bh-visually-hidden">Text field</label><input  class="input_field" type="text"style="width:90%;padding:1px 1px; background:#fff; " value="'.$entertainment.'" id="entertainment'.$emp.'"/></div>
+				<div id="figure2" style="width:75px; padding:2px;height:22px" ><label for="perdiem'.$emp.'" class="bh-visually-hidden">Text field</label><input  class="input_field" type="text"  style="width:90%;padding:1px 1px; background:#fff; " value="'.$perdiem.'" id="perdiem'.$emp.'"/></div>
+				<div id="figure2" style="width:69px; padding:2px;height:22px" ><label for="others'.$emp.'" class="bh-visually-hidden">Text field</label><input   class="input_field" type="text"  style="width:90%;padding:1px 1px; background:#fff; " value="'.$others.'" id="others'.$emp.'"/></div>';
+				echo"<div class=\"figure2\" id=\"rem".$emp."\" onclick=\"deletebenemp(".stripslashes($row['id']).")\" style=\"width:60px;padding:2px;height:22px\" ><img alt=\"Delete\" src=\"images/delete.png\" style=\"height:22px;width:22px\" /></div>
+				<div class=\"figure2\" id=\"save".$emp."\" onclick=\"savebenemp('".$emp."')\" style=\"width:60px;padding:2px;height:22px\" ><img alt=\"Save\" src=\"images/save.jpg\" style=\"height:20px;width:20px\" /></div>";
 					echo'</div><div class="cleaner"></div>';
 					}
 		 	
@@ -642,11 +643,11 @@ switch($id){
 			echo'<div id="alertDiv" style="min-height:90px; width:370px; border:1px solid #333">
 					<div id="tit" style="width:350px; background:#10504F; padding:5px 0px 5px 20px;border-radius:0px 0px 0 0">
 				<h5 style="margin-right:10px; color:#fff">ADD TO BENEFITS
-				<img src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5>
+				<img alt="Delete" src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5>
 				</div>
 				<div class="cleaner_h5"></div>
 				<div class="ui_widget"  style="margin-left:10px;float:left; width:270px;">
-				<select id="addempben" style="width:260px; margin-left:10px;">
+				<label for="addempben" class="bh-visually-hidden">ADD TO BENEFITS</label><select id="addempben" style="width:260px; margin-left:10px;">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from employee where status=1 order by fname");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -671,7 +672,7 @@ switch($id){
 						<div style="height:370px;border-right:2px solid #10504F; width:460px;float:left">';
 						echo"<script>$('#scrollbar5').tinyscrollbar();$('#scrollbar6').tinyscrollbar();</script>";
 				echo'<h5 style="text-align:center; float:left; margin-left:200px">NHIF</h5>';
-						echo"<img src=\"images/document_add.png\" width=\"30\" height=\"30\" style=\"cursor:pointer; margin:-3px 20px 0 0px; float:right\" title=\"Add new NHIF row\"onclick=\"addnewrow()\"/>";
+						echo"<img alt=\"Add new NHIF row\" src=\"images/document_add.png\" width=\"30\" height=\"30\" style=\"cursor:pointer; margin:-3px 20px 0 0px; float:right\" title=\"Add new NHIF row\"onclick=\"addnewrow()\"/>";
 									
 	echo'<div class="cleaner"></div><div id="scrollbar5" style="width:460px; height:340px">
 		<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
@@ -695,10 +696,10 @@ switch($id){
 										for ($i=0; $i <200; $i++) {
 									echo"
 									<div id=\"normal2".$i."\" class=\"normal\" style=\"display:none\">";
-										echo'<div class="figure2x" style="width:105px;padding:1px 2px"><input type="text" class="put_field" value="" id="lower2'.$i.'" style="background:#fff;width:90px"/></div>
-										<div class="figure2x" style="width:105px;padding:1px 2px"><input type="text" class="put_field" value="" id="upper2'.$i.'" style="background:#fff;width:90px"/></div>
-										<div class="figure2x" style="width:125px;padding:1px 2px"><input type="text" class="put_field" value="" id="amount2'.$i.'" style="background:#fff;width:90px"/></div>';
-				echo"<div class=\"figure2x\" style=\"width:56px\" id=\"save2".$i."\" onclick=\"savenhif2(".$i.")\"><img src=\"images/save.jpg\" style=\"width:20px;height:16px\"/></div>";						
+										echo'<div class="figure2x" style="width:105px;padding:1px 2px"><label for="lower2'.$i.'" class="bh-visually-hidden">Save</label><input type="text" class="put_field" value="" id="lower2'.$i.'" style="background:#fff;width:90px"/></div>
+										<div class="figure2x" style="width:105px;padding:1px 2px"><label for="upper2'.$i.'" class="bh-visually-hidden">Text field</label><input type="text" class="put_field" value="" id="upper2'.$i.'" style="background:#fff;width:90px"/></div>
+										<div class="figure2x" style="width:125px;padding:1px 2px"><label for="amount2'.$i.'" class="bh-visually-hidden">Text field</label><input type="text" class="put_field" value="" id="amount2'.$i.'" style="background:#fff;width:90px"/></div>';
+				echo"<div class=\"figure2x\" style=\"width:56px\" id=\"save2".$i."\" onclick=\"savenhif2(".$i.")\"><img alt=\"Save\" src=\"images/save.jpg\" style=\"width:20px;height:16px\"/></div>";						
 										echo"</div><div class=\"cleaner\"></div>";
 									}
 									
@@ -711,10 +712,10 @@ switch($id){
 										$amount=stripslashes($row['amount']);
 										echo"
 										<div id=\"normal".$code."\" class=\"normal\">";
-										echo'<div class="figure2x" style="width:105px;padding:1px 2px"><input type="text" class="put_field" value="'.$lower.'" id="lower'.$code.'" style="background:#fff;width:90px"/></div>
-										<div class="figure2x" style="width:105px;padding:1px 2px"><input type="text" class="put_field" value="'.$upper.'" id="upper'.$code.'" style="background:#fff;width:90px"/></div>
-										<div class="figure2x" style="width:125px;padding:1px 2px"><input type="text" class="put_field" value="'.$amount.'" id="amount'.$code.'" style="background:#fff;width:90px"/></div>';
-				echo"<div class=\"figure2\" style=\"width:56px\" id=\"save".$code."\" onclick=\"savenhif(".$code.")\"><img src=\"images/save.jpg\" style=\"width:20px;height:16px\"/></div>";						
+										echo'<div class="figure2x" style="width:105px;padding:1px 2px"><label for="lower'.$code.'" class="bh-visually-hidden">Text field</label><input type="text" class="put_field" value="'.$lower.'" id="lower'.$code.'" style="background:#fff;width:90px"/></div>
+										<div class="figure2x" style="width:105px;padding:1px 2px"><label for="upper'.$code.'" class="bh-visually-hidden">Text field</label><input type="text" class="put_field" value="'.$upper.'" id="upper'.$code.'" style="background:#fff;width:90px"/></div>
+										<div class="figure2x" style="width:125px;padding:1px 2px"><label for="amount'.$code.'" class="bh-visually-hidden">Text field</label><input type="text" class="put_field" value="'.$amount.'" id="amount'.$code.'" style="background:#fff;width:90px"/></div>';
+				echo"<div class=\"figure2\" style=\"width:56px\" id=\"save".$code."\" onclick=\"savenhif(".$code.")\"><img alt=\"Save\" src=\"images/save.jpg\" style=\"width:20px;height:16px\"/></div>";						
 										echo"</div><div class=\"cleaner\"></div>";
 										}	
 										
@@ -734,10 +735,10 @@ switch($id){
 						$row=mysqli_fetch_array($result);
 						$employer=stripslashes($row['amount']);
 				echo'<a class="labels" style="margin-left:5px">Employer:</a>
-						<input type="text" id="employernssf" value="'.$employer.'" class="input_field"  style="width:100px; margin-left:10px;float:left"/>
+						<label for="employernssf" class="bh-visually-hidden">Employer:</label><input type="text" id="employernssf" value="'.$employer.'" class="input_field"  style="width:100px; margin-left:10px;float:left"/>
 						<a class="labels" style="margin-left:15px" >Employee:</a>
-						<input type="text" id="employeenssf" class="input_field" value="'.$employee.'"  style="width:100px; margin-left:10px;float:left"/>';
-						echo"<img src=\"images/subm.jpg\" width=\"50\" height=\"25\" style=\"cursor:pointer; margin:5px 0px 0 15px; float:left\" title=\"Submit\"onclick=\"submnssf()\"/>";
+						<label for="employeenssf" class="bh-visually-hidden">Employee:</label><input type="text" id="employeenssf" class="input_field" value="'.$employee.'"  style="width:100px; margin-left:10px;float:left"/>';
+						echo"<img alt=\"Submit\" src=\"images/subm.jpg\" width=\"50\" height=\"25\" style=\"cursor:pointer; margin:5px 0px 0 15px; float:left\" title=\"Submit\"onclick=\"submnssf()\"/>";
 						echo'<div id="mes3" style="float:left;width:40px; height:40px; margin-left:10px"></div>
 						<div class="cleaner_h5"></div>
 						
@@ -749,12 +750,12 @@ switch($id){
 						
 						
 				echo'<a class="labels" style="margin-left:5px">Rate per hour:</a>
-						<input type="text" id="overtime" value="'.$amount.'" class="input_field"  style="width:100px; margin-left:10px;float:left"/>';
-						echo"<img src=\"images/subm.jpg\" width=\"50\" height=\"25\" style=\"cursor:pointer; margin:5px 0px 0 15px; float:left\" title=\"Submit\"onclick=\"submover()\"/>";
+						<label for="overtime" class="bh-visually-hidden">Rate per hour:</label><input type="text" id="overtime" value="'.$amount.'" class="input_field"  style="width:100px; margin-left:10px;float:left"/>';
+						echo"<img alt=\"Submit\" src=\"images/subm.jpg\" width=\"50\" height=\"25\" style=\"cursor:pointer; margin:5px 0px 0 15px; float:left\" title=\"Submit\"onclick=\"submover()\"/>";
 						echo'<div id="mes4" style="float:left;width:40px; height:40px; margin-left:10px"></div>
 						<div class="cleaner_h5"></div>
 						<h5 style="text-align:center; float:left; margin-left:200px">Tax Rates</h5>';
-						echo"<img src=\"images/document_add.png\" width=\"30\" height=\"30\" style=\"cursor:pointer; margin:-3px 20px 0 0px; float:right\" title=\"Add new Tax row\"onclick=\"addnewrow2()\"/>";
+						echo"<img alt=\"Add new Tax row\" src=\"images/document_add.png\" width=\"30\" height=\"30\" style=\"cursor:pointer; margin:-3px 20px 0 0px; float:right\" title=\"Add new Tax row\"onclick=\"addnewrow2()\"/>";
 						
 						echo'<div class="cleaner_h5"></div>
 						
@@ -779,11 +780,11 @@ switch($id){
 										for ($i=0; $i <200; $i++) {
 									echo"
 									<div id=\"normal3".$i."\" class=\"normal\" style=\"display:none\">";
-										echo'<div class="figure2x" style="width:105px;padding:1px 2px"><input type="text" class="put_field" value="" id="lower3'.$i.'" style="background:#fff;width:90px"/></div>
-										<div class="figure2x" style="width:105px;padding:1px 2px"><input type="text" class="put_field" value="" id="upper3'.$i.'" style="background:#fff;width:90px"/></div>
-										<div class="figure2x" style="width:95px;padding:1px 2px"><input type="text" class="put_field" value="" id="amount3'.$i.'" style="background:#fff;width:90px"/></div>
-										<div class="figure2x" style="width:97px;padding:1px 2px"><input type="text" class="put_field" value="" id="relief3'.$i.'" style="background:#fff;width:90px"/></div>';
-				echo"<div class=\"figure2\" style=\"width:56px\" id=\"save3".$i."\" onclick=\"savetax3(".$i.")\"><img src=\"images/save.jpg\" style=\"width:20px;height:16px\"/></div>";						
+										echo'<div class="figure2x" style="width:105px;padding:1px 2px"><label for="lower3'.$i.'" class="bh-visually-hidden">Save</label><input type="text" class="put_field" value="" id="lower3'.$i.'" style="background:#fff;width:90px"/></div>
+										<div class="figure2x" style="width:105px;padding:1px 2px"><label for="upper3'.$i.'" class="bh-visually-hidden">Text field</label><input type="text" class="put_field" value="" id="upper3'.$i.'" style="background:#fff;width:90px"/></div>
+										<div class="figure2x" style="width:95px;padding:1px 2px"><label for="amount3'.$i.'" class="bh-visually-hidden">Text field</label><input type="text" class="put_field" value="" id="amount3'.$i.'" style="background:#fff;width:90px"/></div>
+										<div class="figure2x" style="width:97px;padding:1px 2px"><label for="relief3'.$i.'" class="bh-visually-hidden">Text field</label><input type="text" class="put_field" value="" id="relief3'.$i.'" style="background:#fff;width:90px"/></div>';
+				echo"<div class=\"figure2\" style=\"width:56px\" id=\"save3".$i."\" onclick=\"savetax3(".$i.")\"><img alt=\"Save\" src=\"images/save.jpg\" style=\"width:20px;height:16px\"/></div>";						
 										echo"</div><div class=\"cleaner\"></div>";
 									}
 									
@@ -797,11 +798,11 @@ switch($id){
 										$relief=stripslashes($row['relief']);
 										echo"
 										<div id=\"normal4".$code."\" class=\"normal\">";
-										echo'<div class="figure2x" style="width:105px;padding:1px 2px"><input type="text" class="put_field" value="'.$lower.'" id="lower4'.$code.'" style="background:#fff;width:90px"/></div>
-										<div class="figure2x" style="width:105px;padding:1px 2px"><input type="text" class="put_field" value="'.$upper.'" id="upper4'.$code.'" style="background:#fff;width:90px"/></div>
-										<div class="figure2x" style="width:95px;padding:1px 2px"><input type="text" class="put_field" value="'.$amount.'" id="amount4'.$code.'" style="background:#fff;width:90px"/></div>
-										<div class="figure2x" style="width:97px;padding:1px 2px"><input type="text" class="put_field" value="'.$relief.'" id="relief4'.$code.'" style="background:#fff;width:90px"/></div>';
-				echo"<div class=\"figure2\" style=\"width:56px\" id=\"save4".$code."\" onclick=\"savetax4(".$code.")\"><img src=\"images/save.jpg\" style=\"width:20px;height:16px\"/></div>";						
+										echo'<div class="figure2x" style="width:105px;padding:1px 2px"><label for="lower4'.$code.'" class="bh-visually-hidden">Text field</label><input type="text" class="put_field" value="'.$lower.'" id="lower4'.$code.'" style="background:#fff;width:90px"/></div>
+										<div class="figure2x" style="width:105px;padding:1px 2px"><label for="upper4'.$code.'" class="bh-visually-hidden">Text field</label><input type="text" class="put_field" value="'.$upper.'" id="upper4'.$code.'" style="background:#fff;width:90px"/></div>
+										<div class="figure2x" style="width:95px;padding:1px 2px"><label for="amount4'.$code.'" class="bh-visually-hidden">Text field</label><input type="text" class="put_field" value="'.$amount.'" id="amount4'.$code.'" style="background:#fff;width:90px"/></div>
+										<div class="figure2x" style="width:97px;padding:1px 2px"><label for="relief4'.$code.'" class="bh-visually-hidden">Text field</label><input type="text" class="put_field" value="'.$relief.'" id="relief4'.$code.'" style="background:#fff;width:90px"/></div>';
+				echo"<div class=\"figure2\" style=\"width:56px\" id=\"save4".$code."\" onclick=\"savetax4(".$code.")\"><img alt=\"Save\" src=\"images/save.jpg\" style=\"width:20px;height:16px\"/></div>";						
 										echo"</div><div class=\"cleaner\"></div>";
 										}	
 										
@@ -817,11 +818,11 @@ switch($id){
 			echo'<div id="alertDiv" style="min-height:90px; width:320px">
 					<div id="tit" style="width:300px; background:#10504F; padding:5px 0px 5px 20px;border-radius:0px 5px 0 0">
 				<h5 style="margin-right:10px; color:#fff">Monthly Report
-				<img src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5>
+				<img alt="Delete" src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5>
 				</div>
 				<div class="cleaner_h5"></div>
 				<div class="ui_widget"  style="margin-left:10px;float:left; width:270px">
-				<select id="month1" style="width:260px; margin-left:10px;">
+				<label for="month1" class="bh-visually-hidden">Monthly Report</label><select id="month1" style="width:260px; margin-left:10px;">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from salregister");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -843,11 +844,11 @@ switch($id){
 			echo'<div id="alertDiv" style="min-height:90px; width:320px">
 					<div id="tit" style="width:300px; background:#10504F; padding:5px 0px 5px 20px;border-radius:0px 0px 0 0">
 				<h5 style="margin-right:10px; color:#fff">Monthly Bank Summary
-				<img src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:0px; cursor:pointer" onclick="hidediv()"></h5>
+				<img alt="Delete" src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:0px; cursor:pointer" onclick="hidediv()"></h5>
 				</div>
 				<div class="cleaner_h5"></div>
 				<div class="ui_widget"  style="margin-left:10px;float:left; width:270px">
-				<select id="month14" style="width:260px; margin-left:10px;">
+				<label for="month14" class="bh-visually-hidden">Monthly Bank Summary</label><select id="month14" style="width:260px; margin-left:10px;">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from salregister");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -868,12 +869,12 @@ switch($id){
 			echo'<div id="alertDiv" style="min-height:90px; width:320px">
 					<div id="tit" style="width:300px; background:#10504F; padding:5px 0px 5px 20px;border-radius:0px 0px 0 0">
 				<h5 style="margin-right:10px; color:#fff">Individual Bank Report
-				<img src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:0px; cursor:pointer" onclick="hidediv()"></h5>
+				<img alt="Delete" src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:0px; cursor:pointer" onclick="hidediv()"></h5>
 				</div>
 				<div class="cleaner_h5"></div>
 				<a class="labels" style="margin-left:20px">Bank:</a>
 				<div class="ui_widget"  style="margin-left:10px;float:left; width:270px">
-				<select id="empbank" style="width:260px; margin-left:10px;">
+				<label for="empbank" class="bh-visually-hidden">Bank:</label><select id="empbank" style="width:260px; margin-left:10px;">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from banktbl");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -887,7 +888,7 @@ switch($id){
 	<div class="cleaner_h5"></div>
 				<a class="labels" style="margin-left:20px">Month:</a>
 				<div class="ui_widget"  style="margin-left:10px;float:left; width:270px">
-				<select id="monthsum" style="width:260px; margin-left:10px;">
+				<label for="monthsum" class="bh-visually-hidden">Month:</label><select id="monthsum" style="width:260px; margin-left:10px;">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from salregister");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -914,11 +915,11 @@ switch($id){
 			echo'<div id="alertDiv" style="min-height:90px; width:320px">
 					<div id="tit" style="width:300px; background:#10504F; padding:5px 0px 5px 20px;border-radius:0px 5px 0 0">
 				<h5 style="margin-right:10px; color:#fff">Employee Payroll Summary
-				<img src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5>
+				<img alt="Delete" src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5>
 				</div>
 				<div class="cleaner_h5"></div>
 				<div class="ui_widget"  style="margin-left:10px;float:left; width:270px">
-				<select id="cus9" style="width:260px; margin-left:10px;">
+				<label for="cus9" class="bh-visually-hidden">Employee Payroll Summary</label><select id="cus9" style="width:260px; margin-left:10px;">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from employee");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -939,12 +940,12 @@ switch($id){
 			echo'<div id="alertDiv" style="min-height:90px; width:320px">
 					<div id="tit" style="width:300px; background:#10504F; padding:5px 0px 5px 20px;border-radius:0px 0px 0 0">
 				<h5 style="margin-right:10px; color:#fff">Individual Pay Slips
-				<img src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:0px; cursor:pointer" onclick="hidediv()"></h5>
+				<img alt="Delete" src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:0px; cursor:pointer" onclick="hidediv()"></h5>
 				</div>
 				<div class="cleaner_h5"></div>
 				<a class="labels" style="margin-left:20px">Employee:</a>
 				<div class="ui_widget"  style="margin-left:10px;float:left; width:270px">
-				<select id="cus19" style="width:260px; margin-left:10px;">
+				<label for="cus19" class="bh-visually-hidden">Employee:</label><select id="cus19" style="width:260px; margin-left:10px;">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from employee");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -958,7 +959,7 @@ switch($id){
 	<div class="cleaner_h5"></div>
 				<a class="labels" style="margin-left:20px">Month:</a>
 				<div class="ui_widget"  style="margin-left:10px;float:left; width:270px">
-				<select id="monthsum" style="width:260px; margin-left:10px;">
+				<label for="monthsum" class="bh-visually-hidden">Month:</label><select id="monthsum" style="width:260px; margin-left:10px;">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from salregister");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -985,11 +986,11 @@ switch($id){
 			echo'<div id="alertDiv" style="min-height:90px; width:320px">
 					<div id="tit" style="width:300px; background:#10504F; padding:5px 0px 5px 20px;border-radius:0px 0px 0 0">
 				<h5 style="margin-right:10px; color:#fff">Process PaySlips
-				<img src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:0px; cursor:pointer" onclick="hidediv()"></h5>
+				<img alt="Delete" src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:0px; cursor:pointer" onclick="hidediv()"></h5>
 				</div>
 				<div class="cleaner_h5"></div>
 				<div class="ui_widget"  style="margin-left:10px;float:left; width:270px">
-				<select id="month2" style="width:260px; margin-left:10px;">
+				<label for="month2" class="bh-visually-hidden">Process PaySlips</label><select id="month2" style="width:260px; margin-left:10px;">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from salregister");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -1042,22 +1043,22 @@ switch($id){
 								<h5>Personal Details</h5>
 								<div class="cleaner_h5"></div>
 								<a class="labels">PF No:<span>*</span></a>
-                                <input type="text" id="emp" name="emp" class="in_field" value="'.$emp.'" style="border-color:var(--color-danger, #DC2626)"/> 
+                                <label for="emp" class="bh-visually-hidden">Emp</label><input type="text" id="emp" name="emp" class="in_field" value="'.$emp.'" style="border-color:var(--color-danger, #DC2626)"/> 
 								<div class="cleaner_h5"></div>
 								<a class="labels">F.Name:<span>*</span></a>
-                                <input type="text" id="fname" name="field" class="in_field" />
+                                <label for="fname" class="bh-visually-hidden">Field</label><input type="text" id="fname" name="field" class="in_field" />
 								<div class="cleaner_h5"></div>
 								 <a class="labels">M. Name:<span>*</span></a>
-                                <input type="text" id="mname" name="field" class="in_field"/> 
+                                <label for="mname" class="bh-visually-hidden">Field</label><input type="text" id="mname" name="field" class="in_field"/> 
 								<div class="cleaner_h5"></div>
 								 <a class="labels">L. Name:<span>*</span></a>
-                                <input type="text" id="lname" name="field" class="in_field"/> 
+                                <label for="lname" class="bh-visually-hidden">Field</label><input type="text" id="lname" name="field" class="in_field"/> 
 								<div class="cleaner_h5"></div>
 								 <a class="labels">D.O.B:</a>
 							  <input id="dob" name="dob" class="in_field" placeholder="" type="text">
 							   <div class="cleaner_h5"></div>
 								 <a class="labels">Mar. Status:</a>
-                                <select class="select" id="mar" name="mar" style="float:right; text-transform:uppercase;width:120px">
+                                <label for="mar" class="bh-visually-hidden">Mar</label><select class="select" id="mar" name="mar" style="float:right; text-transform:uppercase;width:120px">
 								<option value="Single">Single</option>
 								<option value="Engaged">Engaged</option>
 								<option value="Married">Married</option>
@@ -1068,7 +1069,7 @@ switch($id){
 								 <a class="labels">Languages:</a>
                                		
 								<div class="ui-widget"  style="float:right; margin-right:25px">
-	<select id="language" class="combos">
+	<label for="language" class="bh-visually-hidden">Languages:</label><select id="language" class="combos">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from languages order by name");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -1085,32 +1086,32 @@ switch($id){
 								<div class="cleaner_h5"></div>
 								
 								  <a class="labels" style="margin-right:30px">Gender:</a>
-                                <input  id="maleGender" name="gender" type="radio" value="male" class="radio" checked="checked">Male.
-								 <input  id="femaleGender" name="gender" type="radio" value="female" class="radio">Female.
+                                <label for="maleGender" class="bh-visually-hidden">Gender</label><input  id="maleGender" name="gender" type="radio" value="male" class="radio" checked="checked">Male.
+								 <label for="femaleGender" class="bh-visually-hidden">Gender</label><input  id="femaleGender" name="gender" type="radio" value="female" class="radio">Female.
 									<div class="cleaner_h5"></div>
 								<a class="labels">ID NO:<span>*</span></a>
-                                <input type="text" id="idno" name="field" class="in_field" onkeyup="validatenum(\'idno\')"/>
+                                <label for="idno" class="bh-visually-hidden">Field</label><input type="text" id="idno" name="field" class="in_field" onkeyup="validatenum(\'idno\')"/>
 								<div class="cleaner_h5"></div>
 								 <a class="labels">Pin No:</a>
-                                <input type="text" id="pinno" name="field" class="in_field"/> 
+                                <label for="pinno" class="bh-visually-hidden">Field</label><input type="text" id="pinno" name="field" class="in_field"/> 
 								<div class="cleaner_h5"></div>	
 								<a class="labels">Phone No:<span>*</span></a>
-								 <input type="text" id="phone" name="phone" class="in_field" onkeyup="validatenum(\'phone\')" style="width:130px"/> 
+								 <label for="phone" class="bh-visually-hidden">Phone</label><input type="text" id="phone" name="phone" class="in_field" onkeyup="validatenum(\'phone\')" style="width:130px"/> 
 								<div class="cleaner_h5"></div>
 								<div id="music"></div>
 								<a class="labels">Phone No[2]:</a>
-								 <input type="text" id="phone2" name="phone2" class="in_field" onkeyup="validatenum(\'phone2\')"  style="width:130px"/> 
+								 <label for="phone2" class="bh-visually-hidden">Phone2</label><input type="text" id="phone2" name="phone2" class="in_field" onkeyup="validatenum(\'phone2\')"  style="width:130px"/> 
 								<div class="cleaner_h5"></div>
 								<a class="labels">Email Add:</a>
-								 <input type="text" id="emailadd" name="emailadd" class="in_field" style="text-transform:lowercase"/> 
+								 <label for="emailadd" class="bh-visually-hidden">Emailadd</label><input type="text" id="emailadd" name="emailadd" class="in_field" style="text-transform:lowercase"/> 
 								<div class="cleaner_h5"></div>
 								<a class="labels">Phy Add:</a>
-                                <input type="text" id="phyadd" name="phyadd" class="in_field"/> 
+                                <label for="phyadd" class="bh-visually-hidden">Phyadd</label><input type="text" id="phyadd" name="phyadd" class="in_field"/> 
 								<div class="cleaner_h5"></div>
 								 <a class="labels">Location:</a>
                                		
 								<div class="ui-widget" style="float:right; margin-right:25px">
-	<select id="town" class="combos">
+	<label for="town" class="bh-visually-hidden">Location:</label><select id="town" class="combos">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from towns order by name");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -1128,35 +1129,35 @@ switch($id){
 								<div id="personal" style="overflow-y:auto">
 								<h5>Salary Details</h5>
 								<a class="labels">Basic Sal:<span>*</span></a>
-								<input type="text" id="sal" name="sal" class="in_field" onkeyup="validatenum(\'sal\')"/>
+								<label for="sal" class="bh-visually-hidden">Sal</label><input type="text" id="sal" name="sal" class="in_field" onkeyup="validatenum(\'sal\')"/>
 								<div class="cleaner_h5"></div>
 								 <a class="labels">D.O.E:<span>*</span></a>
-								<input id="datepick" name="doe" class="in_field"  type="text" readonly="readonly">
+								<label for="datepick" class="bh-visually-hidden">Doe</label><input id="datepick" name="doe" class="in_field"  type="text" readonly="readonly">
 							   <div class="cleaner_h5"></div>
 								
 								<a class="labels" style="margin-right:10px">Emp Type:<span>*</span></a>
-	<input  id="Permanent" name="emptype" type="radio" checked="checked" value="Permanent" onclick="hidecontract()"/>Permanent
-		<input  id="Contract" name="emptype" type="radio" value="Contract"  onclick="showcontract()"/>Contract
-		<input  id="Temporary" name="emptype" type="radio" value="Temporary"  onclick="hidecontract()"/>Temporary
+	<label for="Permanent" class="bh-visually-hidden">Emptype</label><input  id="Permanent" name="emptype" type="radio" checked="checked" value="Permanent" onclick="hidecontract()"/>Permanent
+		<label for="Contract" class="bh-visually-hidden">Emptype</label><input  id="Contract" name="emptype" type="radio" value="Contract"  onclick="showcontract()"/>Contract
+		<label for="Temporary" class="bh-visually-hidden">Emptype</label><input  id="Temporary" name="emptype" type="radio" value="Temporary"  onclick="hidecontract()"/>Temporary
 		
 								<div id="contract" style="display:none">
 								<a class="labels">From:<span>*</span></a>
-								<input type="text" id="datepick2" name="from" class="in_field"/>
+								<label for="datepick2" class="bh-visually-hidden">From</label><input type="text" id="datepick2" name="from" class="in_field"/>
 								<div class="cleaner_h5"></div>
 								<a class="labels">To:<span>*</span></a>
-								<input type="text" id="datepick3" name="to" class="in_field"/>
+								<label for="datepick3" class="bh-visually-hidden">To</label><input type="text" id="datepick3" name="to" class="in_field"/>
 								</div>
 								
 								<div class="cleaner_h5"></div>
 								<a class="labels">Branch:<span>*</span></a>
                                 <div class="ui-widget" style="float:right; margin-right:25px">
-								<select id="branch" class="combos">
+								<label for="branch" class="bh-visually-hidden">Branch:</label><select id="branch" class="combos">
 									<option value="LAISAMIS_ CATHOLIC_ MISSION_HOSPITAL" selected="selected" disabled="disabled">LAISAMIS_CATHOLIC_ MISSION_HOSPITAL</option>
 								</select></div>
 								<div class="cleaner_h5"></div>
 								<a class="labels">Dept:<span>*</span></a>
                                 <div class="ui-widget" style="float:right; margin-right:25px">
-	<select id="dept" class="combos"><option value="" selected="selected" disabled="disabled">Select One...</option>
+	<label for="dept" class="bh-visually-hidden">Dept:</label><select id="dept" class="combos"><option value="" selected="selected" disabled="disabled">Select One...</option>
 								';
 		$resulta =mysqli_query($db, "select * from dept order by name");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -1169,7 +1170,7 @@ switch($id){
 								<div class="cleaner_h5"></div>
 								<a class="labels">Position:<span>*</span></a>
                                		<div class="ui-widget" style="float:right; margin-right:25px">
-	<select id="pos" class="combos">
+	<label for="pos" class="bh-visually-hidden">Position:</label><select id="pos" class="combos">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from positions order by name");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -1182,12 +1183,12 @@ switch($id){
 </div>
 								<div class="cleaner_h5"></div>
 								<a class="labels">Job Description:</a>
-								<textarea class="textarea" id="jobdesc" style="width:200px"></textarea>
+								<label for="jobdesc" class="bh-visually-hidden">Job Description:</label><textarea class="textarea" id="jobdesc" style="width:200px"></textarea>
 								<div class="cleaner_h5"></div>
 								<h5>MEDICAL DETAILS</h5>
 								<div class="cleaner_h5"></div>
 								<a class="labels">B.Group:</a>
-                                <select class="select" id="bgroup" name="bgroup" style="float:right ;text-transform:uppercase">
+                                <label for="bgroup" class="bh-visually-hidden">Bgroup</label><select class="select" id="bgroup" name="bgroup" style="float:right ;text-transform:uppercase">
 								 <option value="" selected="selected" disabled="disabled">Select One...</option>
 								<option value="A Rh+">A Rh+</option>
 								<option value="A Rh-">A Rh-</option>
@@ -1201,7 +1202,7 @@ switch($id){
 								<div class="cleaner_h5"></div>
 								<a class="labels">Known Health Problems/Alergies:</a>
 								<div class="cleaner_h5"></div>
-								<textarea class="textarea" id="alergy"  style="width:200px"></textarea>
+								<label for="alergy" class="bh-visually-hidden">Known Health Problems/Alergies:</label><textarea class="textarea" id="alergy"  style="width:200px"></textarea>
 								<div class="cleaner_h5"></div>
 						</div>
 								
@@ -1219,7 +1220,7 @@ switch($id){
 								<h5>EDUCATION DETAILS</h5>
 								<a class="labels">Course:</a>
 								<div class="ui-widget" style="float:right; margin-right:25px">
-	<select id="certificate"  class="combos">
+	<label for="certificate" class="bh-visually-hidden">Course:</label><select id="certificate"  class="combos">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from courses order by name");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -1241,7 +1242,7 @@ switch($id){
 						<a class="labels">Experience:</a>
                                		
 								<div class="ui-widget"  style="float:right; margin-right:25px">
-	<select id="experience" class="combos">
+	<label for="experience" class="bh-visually-hidden">Experience:</label><select id="experience" class="combos">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from experience order by name");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -1261,7 +1262,7 @@ switch($id){
 								
 								<a class="labels">Bank:</a>
                                <div class="ui-widget"  style="float:right; margin-right:25px">
-				<select id="bank" class="combos">
+				<label for="bank" class="bh-visually-hidden">Bank:</label><select id="bank" class="combos">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from banktbl order by name");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -1275,14 +1276,14 @@ switch($id){
 </div>
 								<div class="cleaner_h5"></div>
 								 <a class="labels">A/C No:</a>
-                                <input type="text" id="acno" name="field" class="in_field"/> 
+                                <label for="acno" class="bh-visually-hidden">Field</label><input type="text" id="acno" name="field" class="in_field"/> 
 								<div class="cleaner_h5"></div>
 								
 								 <a class="labels">NHIF No.:</a>
-                                <input type="text" id="nhif" name="field" class="in_field"/> 
+                                <label for="nhif" class="bh-visually-hidden">Field</label><input type="text" id="nhif" name="field" class="in_field"/> 
 								<div class="cleaner_h5"></div>
 								 <a class="labels">NSSF No.:</a>
-                                <input type="text" id="nssf" name="field" class="in_field"/> 
+                                <label for="nssf" class="bh-visually-hidden">Field</label><input type="text" id="nssf" name="field" class="in_field"/> 
 								<div class="cleaner_h5"></div>						
 									
 									
@@ -1291,7 +1292,7 @@ switch($id){
 								</form>
 									<h5>SKILLS</h5>
 								<a class="labels">Skill:</a>
-								<input style="" type="text" id="skill" name="field" class="in_field" placeholder="Type and Press and Enter..."/> 
+								<input type="text" id="skill" name="field" class="in_field" placeholder="Type and Press and Enter..."/> 
 								<div class="cleaner_h5"></div>
 								<div id="skills" style="width:100%;"></div>
 								<div class="cleaner"></div>
@@ -1306,7 +1307,7 @@ switch($id){
 								<form method="post" action="upload.php" enctype="multipart/form-data" target="leiframe">
       							
 								<dd class="custuploadblock_js">
-								<input style="opacity:0; float:left;" name="image" id="photoupload"  
+								<label for="photoupload" class="bh-visually-hidden">Image</label><input style="opacity:0; float:left;" name="image" id="photoupload"  
 								class="transfileform_js" type="file">
 								</dd>
 								<iframe name="leiframe" id="leiframe" class="leiframe">
@@ -1388,12 +1389,12 @@ switch($id){
 			echo'<div id="alertDiv" style="min-height:90px; width:320px">
 					<div id="tit" style="width:300px; background:#10504F; padding:5px 10px;border-radius:0px 5px 0 0">
 			<h5 style="margin-right:0px; color:#fff">'.$x.'';
-			echo"<div id=\"backatt\" style=\"width:9px; height:20px; float:right;margin:0px 5px 0 10px\"><img src=\"images/helper.png\" width=\"10\" height=\"20\" style=\"cursor:pointer;\" title=\"Help\" onclick=\"help30()\"/></div>";								
-echo'<img src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5></div>
+			echo"<div id=\"backatt\" style=\"width:9px; height:20px; float:right;margin:0px 5px 0 10px\"><img alt=\"Help\" src=\"images/helper.png\" width=\"10\" height=\"20\" style=\"cursor:pointer;\" title=\"Help\" onclick=\"help30()\"/></div>";								
+echo'<img alt="Delete" src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5></div>
 				<div class="cleaner_h5"></div>
 						<input type="hidden" id="ser" name="ser"  value="'.$a.'"/>
 						<div class="ui_widget"  style="margin-left:10px;float:left; width:270px">
-				<select id="stude4" style="width:260px; margin-left:10px;">
+				<label for="stude4" class="bh-visually-hidden">Text field</label><select id="stude4" style="width:260px; margin-left:10px;">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from employee where status=1 order by fname");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -1447,22 +1448,22 @@ $result = mysqli_query($db, "insert into log values('0','".$username." accesses 
 								<h5>Personal Details</h5>
 								<div class="cleaner_h5"></div>
 								<a class="labels">PF No:<span>*</span></a>
-                                <input type="text" id="emp" name="emp" class="in_field" value="'.$emp.'" style="border-color:var(--color-danger, #DC2626)" disabled="disabled"/> 
+                                <label for="emp" class="bh-visually-hidden">Emp</label><input type="text" id="emp" name="emp" class="in_field" value="'.$emp.'" style="border-color:var(--color-danger, #DC2626)" disabled="disabled"/> 
 								<div class="cleaner_h5"></div>
 								<a class="labels">F.Name:<span>*</span></a>
-                                <input type="text" id="fname" name="field" class="in_field"onkeyup="validatealp(\'fname\')" value="'.stripslashes($rowx['fname']).'"/>
+                                <label for="fname" class="bh-visually-hidden">Field</label><input type="text" id="fname" name="field" class="in_field"onkeyup="validatealp(\'fname\')" value="'.stripslashes($rowx['fname']).'"/>
 								<div class="cleaner_h5"></div>
 								 <a class="labels">M. Name:<span>*</span></a>
-                                <input type="text" id="mname" name="field" class="in_field" value="'.stripslashes($rowx['mname']).'"/> 
+                                <label for="mname" class="bh-visually-hidden">Field</label><input type="text" id="mname" name="field" class="in_field" value="'.stripslashes($rowx['mname']).'"/> 
 								<div class="cleaner_h5"></div>
 								 <a class="labels">L. Name:<span>*</span></a>
-                                <input type="text" id="lname" name="field" class="in_field"  value="'.stripslashes($rowx['lname']).'"/> 
+                                <label for="lname" class="bh-visually-hidden">Field</label><input type="text" id="lname" name="field" class="in_field"  value="'.stripslashes($rowx['lname']).'"/> 
 								<div class="cleaner_h5"></div>
 								 <a class="labels">D.O.B:</a>
 							  <input id="dob" name="dob" class="in_field" placeholder="" type="text" value="'.stripslashes($rowx['dob']).'">
 							   <div class="cleaner_h5"></div>
 								 <a class="labels">Mar. Status:</a>
-								 <select class="select" id="mar" name="mar" style="float:right; text-transform:uppercase;width:120px">
+								 <label for="mar" class="bh-visually-hidden">Mar</label><select class="select" id="mar" name="mar" style="float:right; text-transform:uppercase;width:120px">
 								 <option value="'.stripslashes($rowx['marital']).'" selected="selected">'.stripslashes($rowx['marital']).'</option>
 								<option value="Single">Single</option>
 								<option value="Engaged">Engaged</option>
@@ -1474,7 +1475,7 @@ $result = mysqli_query($db, "insert into log values('0','".$username." accesses 
 								 <a class="labels">Languages:</a>
                                		
 								<div class="ui-widget"  style="float:right; margin-right:25px">
-	<select id="language" class="combos">
+	<label for="language" class="bh-visually-hidden">Languages:</label><select id="language" class="combos">
 		<option value="">Select one...</option>';
 		
 		$resulta =mysqli_query($db, "select * from languages order by name");
@@ -1501,37 +1502,37 @@ echo'</div>
 								
 								<a class="labels" style="margin-right:30px">Gender:<span>*</span></a>';
 							if(stripslashes($rowx['gender'])=='MALE'){
-			 echo'<input  id="maleGender" name="gender" type="radio" checked="checked" value="male" class="radio"/>Male
-		<input  id="femaleGender" name="gender" type="radio" value="female" class="radio"/>Female'; 
+			 echo'<label for="maleGender" class="bh-visually-hidden">Gender</label><input  id="maleGender" name="gender" type="radio" checked="checked" value="male" class="radio"/>Male
+		<label for="femaleGender" class="bh-visually-hidden">Gender</label><input  id="femaleGender" name="gender" type="radio" value="female" class="radio"/>Female'; 
 								 }
 							 else{
-          echo'<input  id="maleGender" name="gender" type="radio" value="male" class="radio"/>Male
-		<input  id="femaleGender" name="gender" type="radio" value="female"  checked="checked" class="radio"/>Female';}
+          echo'<label for="maleGender" class="bh-visually-hidden">Gender</label><input  id="maleGender" name="gender" type="radio" value="male" class="radio"/>Male
+		<label for="femaleGender" class="bh-visually-hidden">Gender</label><input  id="femaleGender" name="gender" type="radio" value="female"  checked="checked" class="radio"/>Female';}
 		echo'
 								<div class="cleaner_h5"></div>
 								<a class="labels">ID NO:<span>*</span></a>
-                                <input type="text" id="idno" name="field" class="in_field" onkeyup="validatenum(\'idno\')"  value="'.stripslashes($rowx['idno']).'"/>
+                                <label for="idno" class="bh-visually-hidden">Field</label><input type="text" id="idno" name="field" class="in_field" onkeyup="validatenum(\'idno\')"  value="'.stripslashes($rowx['idno']).'"/>
 								<div class="cleaner_h5"></div>
 								 <a class="labels">Pin No:</a>
-                                <input type="text" id="pinno" name="field" class="in_field" value="'.stripslashes($rowx['pinno']).'" /> 
+                                <label for="pinno" class="bh-visually-hidden">Field</label><input type="text" id="pinno" name="field" class="in_field" value="'.stripslashes($rowx['pinno']).'" /> 
 								<div class="cleaner_h5"></div>	
 								<a class="labels">Phone No:<span>*</span></a>
-								 <input type="text" id="phone"  style="width:130px" name="phone" class="in_field"  value="'.stripslashes($rowx['phone']).'" onkeyup="validatenum(\'phone\')"/> 
+								 <label for="phone" class="bh-visually-hidden">Phone</label><input type="text" id="phone"  style="width:130px" name="phone" class="in_field"  value="'.stripslashes($rowx['phone']).'" onkeyup="validatenum(\'phone\')"/> 
 								<div class="cleaner_h5"></div>
 								<div id="music"></div>
 								<a class="labels">Phone No[2]:</a>
-								 <input type="text" id="phone2" style="width:130px" name="phone2" class="in_field"  value="'.stripslashes($rowx['phone2']).'" onkeyup="validatenum(\'phone2\')"/> 
+								 <label for="phone2" class="bh-visually-hidden">Phone2</label><input type="text" id="phone2" style="width:130px" name="phone2" class="in_field"  value="'.stripslashes($rowx['phone2']).'" onkeyup="validatenum(\'phone2\')"/> 
 								<div class="cleaner_h5"></div>
 								<a class="labels">Email Add:</a>
-								 <input type="text" id="emailadd" name="emailadd"  value="'.stripslashes($rowx['email']).'" class="in_field" style="text-transform:lowercase"/> 
+								 <label for="emailadd" class="bh-visually-hidden">Emailadd</label><input type="text" id="emailadd" name="emailadd"  value="'.stripslashes($rowx['email']).'" class="in_field" style="text-transform:lowercase"/> 
 								<div class="cleaner_h5"></div>
 								<a class="labels">Phy Add:</a>
-                                <input type="text" id="phyadd" name="phyadd"  value="'.stripslashes($rowx['phyadd']).'" class="in_field"/> 
+                                <label for="phyadd" class="bh-visually-hidden">Phyadd</label><input type="text" id="phyadd" name="phyadd"  value="'.stripslashes($rowx['phyadd']).'" class="in_field"/> 
 								<div class="cleaner_h5"></div>
 								 <a class="labels">Location:</a>
                                		
 								<div class="ui-widget" style="float:right; margin-right:25px">
-	<select id="town" class="combos">
+	<label for="town" class="bh-visually-hidden">Location:</label><select id="town" class="combos">
 			 <option value="'.stripslashes($rowx['town']).'" selected="selected">'.stripslashes($rowx['town']).'</option>';
 		$resulta =mysqli_query($db, "select * from towns order by name");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -1549,54 +1550,54 @@ echo'</div>
 									<h5>EMPLOYMENT DETAILS</h5>
 								
 								<a class="labels">Basic Sal:<span>*</span></a>
-								<input type="text" id="sal" name="sal" class="in_field" onkeyup="validatenum(\'sal\')"  value="'.stripslashes($rowx['salary']).'" />
+								<label for="sal" class="bh-visually-hidden">Sal</label><input type="text" id="sal" name="sal" class="in_field" onkeyup="validatenum(\'sal\')"  value="'.stripslashes($rowx['salary']).'" />
 								<div class="cleaner_h5"></div>
 								 <a class="labels">D.O.E:<span>*</span></a>
-								<input id="datepick" name="doe" class="in_field"  type="text" readonly="readonly"   value="'.stripslashes($rowx['employdate']).'" >
+								<label for="datepick" class="bh-visually-hidden">Doe</label><input id="datepick" name="doe" class="in_field"  type="text" readonly="readonly"   value="'.stripslashes($rowx['employdate']).'" >
 							   <div class="cleaner_h5"></div>
 								
 								<a class="labels" style="margin-right:30px">Emp. Type:<span>*</span></a>
 								';
 								
 		if(stripslashes($rowx['emptype'])=='PERMANENT'){
-			 echo'<input  id="Permanent" name="emptype" type="radio" checked="checked" value="Permanent" class="radio" onclick="hidecontract()"/>Permanent
-		<input  id="Contract" name="emptype" type="radio" value="Contract" class="radio" onclick="showcontract()"/>Contract
-		<input  id="Other" name="emptype" type="radio" value="Other" class="radio" onclick="hidecontract()"/>Other
+			 echo'<label for="Permanent" class="bh-visually-hidden">Emptype</label><input  id="Permanent" name="emptype" type="radio" checked="checked" value="Permanent" class="radio" onclick="hidecontract()"/>Permanent
+		<label for="Contract" class="bh-visually-hidden">Emptype</label><input  id="Contract" name="emptype" type="radio" value="Contract" class="radio" onclick="showcontract()"/>Contract
+		<label for="Other" class="bh-visually-hidden">Emptype</label><input  id="Other" name="emptype" type="radio" value="Other" class="radio" onclick="hidecontract()"/>Other
 		'; 
 								 }
 								 else if(stripslashes($rowx['emptype'])=='CONTRACT'){
-			 echo'<input  id="Permanent" name="emptype" type="radio" value="Permanent" class="radio" onclick="hidecontract()"/>Permanent
-		<input  id="Contract" name="emptype" type="radio" value="Contract"  checked="checked" class="radio" onclick="showcontract()"/>Contract
-		<input  id="Other" name="emptype" type="radio" value="Other" class="radio" onclick="hidecontract()"/>Other
+			 echo'<label for="Permanent" class="bh-visually-hidden">Emptype</label><input  id="Permanent" name="emptype" type="radio" value="Permanent" class="radio" onclick="hidecontract()"/>Permanent
+		<label for="Contract" class="bh-visually-hidden">Emptype</label><input  id="Contract" name="emptype" type="radio" value="Contract"  checked="checked" class="radio" onclick="showcontract()"/>Contract
+		<label for="Other" class="bh-visually-hidden">Emptype</label><input  id="Other" name="emptype" type="radio" value="Other" class="radio" onclick="hidecontract()"/>Other
 		'; 
 								 }
 							 else{
-          echo'<input  id="Permanent" name="emptype" type="radio" value="Permanent" class="radio" onclick="hidecontract()"/>Permanent
-		<input  id="Contract" name="emptype" type="radio" value="Contract" class="radio" onclick="showcontract()"/>Contract
-		<input  id="Temporary" name="emptype" type="radio" value="Temporary"  checked="checked" class="radio" onclick="hidecontract()"/>Temporary
+          echo'<label for="Permanent" class="bh-visually-hidden">Emptype</label><input  id="Permanent" name="emptype" type="radio" value="Permanent" class="radio" onclick="hidecontract()"/>Permanent
+		<label for="Contract" class="bh-visually-hidden">Emptype</label><input  id="Contract" name="emptype" type="radio" value="Contract" class="radio" onclick="showcontract()"/>Contract
+		<label for="Temporary" class="bh-visually-hidden">Emptype</label><input  id="Temporary" name="emptype" type="radio" value="Temporary"  checked="checked" class="radio" onclick="hidecontract()"/>Temporary
 	';}
 		echo'
 			
 								<div id="contract" style="display:none">
 								<a class="labels">From:<span>*</span></a>
-								<input type="text" id="datepick2" name="from" class="in_field"  value="'.stripslashes($rowx['contractfrom']).'"/>
+								<label for="datepick2" class="bh-visually-hidden">From</label><input type="text" id="datepick2" name="from" class="in_field"  value="'.stripslashes($rowx['contractfrom']).'"/>
 								<div class="cleaner_h5"></div>
 								<a class="labels">To:<span>*</span></a>
-								<input type="text" id="datepick3" name="to" class="in_field" value="'.stripslashes($rowx['contractto']).'"/>
+								<label for="datepick3" class="bh-visually-hidden">To</label><input type="text" id="datepick3" name="to" class="in_field" value="'.stripslashes($rowx['contractto']).'"/>
 								</div>
 								
 								<div class="cleaner_h5"></div>
 								
 									<a class="labels">Branch:<span>*</span></a>
                                 <div class="ui-widget" style="float:right; margin-right:25px">
-								<select id="branch" class="combos">
+								<label for="branch" class="bh-visually-hidden">Branch:</label><select id="branch" class="combos">
 									<option value="LAISAMIS_CATHOLIC_ MISSION_HOSPITAL" selected="selected" disabled="disabled">LAISAMIS_CATHOLIC_ MISSION_HOSPITAL</option>
 								</select></div>
 								<div class="cleaner_h5"></div>
 								
 								<a class="labels">Dept:<span>*</span></a>
                                   <div class="ui-widget" style="float:right; margin-right:25px">
-	<select id="dept" class="combos"><option value="" selected="selected" disabled="disabled">Select One...</option>
+	<label for="dept" class="bh-visually-hidden">Dept:</label><select id="dept" class="combos"><option value="" selected="selected" disabled="disabled">Select One...</option>
 		<option value="'.stripslashes($rowx['dept']).'" selected="selected">'.stripslashes($rowx['dept']).'</option>';
 		$resulta =mysqli_query($db, "select * from dept order by name");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -1609,7 +1610,7 @@ echo'</div>
 								<div class="cleaner_h5"></div>
 								<a class="labels">Position:<span>*</span></a>
                                		<div class="ui-widget" style="float:right; margin-right:25px">
-	<select id="pos" class="combos">
+	<label for="pos" class="bh-visually-hidden">Position:</label><select id="pos" class="combos">
 		<option value="'.stripslashes($rowx['position']).'" selected="selected">'.stripslashes($rowx['position']).'</option>';
 		$resulta =mysqli_query($db, "select * from positions order by name");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -1622,11 +1623,11 @@ echo'</div>
 </div>
 								<div class="cleaner_h5"></div>
 								<a class="labels">Job Description:</a>
-								<textarea class="alergy" id="jobdesc" style="width:200px">'.stripslashes($rowx['jobdesc']).'</textarea>
+								<label for="jobdesc" class="bh-visually-hidden">Job Description:</label><textarea class="alergy" id="jobdesc" style="width:200px">'.stripslashes($rowx['jobdesc']).'</textarea>
 								<div class="cleaner"></div>
 								<h5>MEDICAL DETAILS</h5>
 								<a class="labels">B.Group:</a>
-                                <select class="select" id="bgroup" name="bgroup" style="float:right ;text-transform:uppercase">
+                                <label for="bgroup" class="bh-visually-hidden">Bgroup</label><select class="select" id="bgroup" name="bgroup" style="float:right ;text-transform:uppercase">
 								 <option value="'.stripslashes($rowx['bgroup']).'" selected="selected">'.stripslashes($rowx['bgroup']).'</option>
 								<option value="A Rh+">A Rh+</option>
 								<option value="A Rh-">A Rh-</option>
@@ -1640,7 +1641,7 @@ echo'</div>
 								<div class="cleaner_h5"></div>
 								<a class="labels">Known Health Problems/Alergies:</a>
 								<div class="cleaner_h5"></div>
-								<textarea class="alergy" id="alergy" style="width:200px">'.stripslashes($rowx['alergy']).'</textarea>
+								<label for="alergy" class="bh-visually-hidden">Known Health Problems/Alergies:</label><textarea class="alergy" id="alergy" style="width:200px">'.stripslashes($rowx['alergy']).'</textarea>
 								<div class="cleaner_h5"></div>
 						
 
@@ -1663,7 +1664,7 @@ echo'</div>
 								
 								<a class="labels">Course:</a>
 								<div class="ui-widget" style="float:right; margin-right:25px">
-	<select id="certificate"  class="combos">
+	<label for="certificate" class="bh-visually-hidden">Course:</label><select id="certificate"  class="combos">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from courses  order by name");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -1687,7 +1688,7 @@ echo'</div>
 						<a class="labels">Experience:</a>
                                		
 								<div class="ui-widget"  style="float:right; margin-right:25px">
-	<select id="experience" class="combos">
+	<label for="experience" class="bh-visually-hidden">Experience:</label><select id="experience" class="combos">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from experience order by name");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -1712,7 +1713,7 @@ echo'</div>
 								<h5>PAYSLIP DETAILS</h5>
 								<a class="labels">Bank:</a>
                                <div class="ui-widget"  style="float:right; margin-right:25px">
-				<select id="bank" class="combos">
+				<label for="bank" class="bh-visually-hidden">Bank:</label><select id="bank" class="combos">
 		<option value="'.stripslashes($rowx['bid']).'#'.stripslashes($rowx['bname']).'" selected="selected">'.stripslashes($rowx['bname']).'</option>';
 		$resulta =mysqli_query($db, "select * from banktbl order by name");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -1726,13 +1727,13 @@ echo'</div>
 </div>
 								<div class="cleaner_h5"></div>
 								 <a class="labels">A/C No:</a>
-                                <input type="text" id="acno" name="field" class="in_field" value="'.stripslashes($rowx['acno']).'" /> 
+                                <label for="acno" class="bh-visually-hidden">Field</label><input type="text" id="acno" name="field" class="in_field" value="'.stripslashes($rowx['acno']).'" /> 
 								<div class="cleaner_h5"></div>
 								<a class="labels">NHIF No.:</a>
-                                <input type="text" id="nhif" name="field" class="in_field" value="'.stripslashes($rowx['nhif']).'" /> 
+                                <label for="nhif" class="bh-visually-hidden">Field</label><input type="text" id="nhif" name="field" class="in_field" value="'.stripslashes($rowx['nhif']).'" /> 
 								<div class="cleaner_h5"></div>
 								 <a class="labels">NSSF No.:</a>
-                                <input type="text" id="nssf" name="field" class="in_field" value="'.stripslashes($rowx['nssf']).'" /> 
+                                <label for="nssf" class="bh-visually-hidden">Field</label><input type="text" id="nssf" name="field" class="in_field" value="'.stripslashes($rowx['nssf']).'" /> 
 								<div class="cleaner_h5"></div>					
 								</div>
 								
@@ -1769,7 +1770,7 @@ echo'</div>
 								<form method="post" action="upload.php" enctype="multipart/form-data" target="leiframe">
       							
 								<dd class="custuploadblock_js">
-								<input style="opacity:0; float:left;" name="image" id="photoupload"  
+								<label for="photoupload" class="bh-visually-hidden">Image</label><input style="opacity:0; float:left;" name="image" id="photoupload"  
 								class="transfileform_js" type="file">
 								</dd>
 								<iframe name="leiframe" id="leiframe" class="leiframe" src="images/employees/'.$emp.'.jpg">
@@ -1829,7 +1830,7 @@ echo'</div>
 								
 							echo'	<h5 style="margin-left:10px">Employee Search Panel</h5>';							
 echo' <div class="ui-widget" style="margin:10px; float:left">
-	<select id="emp1">
+	<label for="emp1" class="bh-visually-hidden">Employee Search Panel</label><select id="emp1">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from employee where status=1  order by fname");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -1842,7 +1843,7 @@ echo' <div class="ui-widget" style="margin:10px; float:left">
 
 	<div id="cate" style="float:right">
 				<h5 style="margin-right:10px">Browse by Department</h5>
-						<select class="select" id="categ" name="categ" onchange="categemp();"">';
+						<label for="categ" class="bh-visually-hidden">Categ</label><select class="select" id="categ" name="categ" onchange="categemp();"">';
 				$resulta =mysqli_query($db, "select * from dept order by name");
 							$num_resultsa = mysqli_num_rows($resulta);	
 							for ($i=0; $i <$num_resultsa; $i++) {
@@ -2067,7 +2068,7 @@ echo'
 								<h5 style="text-align:center">Create Payroll</h5>
 								<div class="cleaner_h5"></div>
 					<h5>Select Month</h5>
-				<input class="input_field" style="float:right;  margin-right:120px" id="default_widget" type="text"/>
+				<label for="default_widget" class="bh-visually-hidden">Select Month</label><input class="input_field" style="float:right;  margin-right:120px" id="default_widget" type="text"/>
 				<div class="cleaner_h5"></div>
 					<input type="button" value="Submit" style="float:left; margin-left:100px; 
 									cursor:pointer; width:80px" class="select" onclick="submpay();"/>	
@@ -2077,7 +2078,7 @@ echo'
 								
 								<div class="cleaner_h5"></div>
 					<h5>Select Month</h5>
-				<input class="input_field" style="float:right;  margin-right:120px" id="default_widgeta" type="text"/>
+				<label for="default_widgeta" class="bh-visually-hidden">Select Month</label><input class="input_field" style="float:right;  margin-right:120px" id="default_widgeta" type="text"/>
 				<div class="cleaner_h5"></div>
 					<input type="button" value="Submit" style="float:left; margin-left:100px; 
 									cursor:pointer; width:80px" class="select" onclick="submeditpay();"/>	
@@ -2088,7 +2089,7 @@ echo'
 								<h5 style="text-align:center">Payslips</h5>
 								<div class="cleaner_h5"></div>
 						
-				Month:<input class="input_field" style="float:right;  margin-right:120px" id="default_widgetb" type="text"/>	
+				Month:<label for="default_widgetb" class="bh-visually-hidden">Payslips</label><input class="input_field" style="float:right;  margin-right:120px" id="default_widgetb" type="text"/>	
 				<div class="cleaner_h5"></div>	
 				<h5>Single PaySlip</h5>
 					
@@ -2098,7 +2099,7 @@ echo'
 								<div id="ges" style="width:40px; height:40px; float:left; margin-left:20px"/>
 								<div class="cleaner_h20"></div>	
 							<h5 style="border-top:2px solid #10504F; padding-top:10px">Multiple PaySlips</h5>	
-							<select style="float:left; width:210px"class="select" id="multslp" name="category" size="1" >
+							<label for="multslp" class="bh-visually-hidden">Category</label><select style="float:left; width:210px"class="select" id="multslp" name="category" size="1" >
 									<option value="Accounting">Accounting</option>
 								<option value="Medical">Medical</option>
 								<option value="Kitchen">Kitchen</option>
@@ -2141,9 +2142,9 @@ echo'
 							<div id="newstude">
 								<div id="createpay">
 								<h5 style="margin-left:10px">Payroll of Month: '.$mon.'</h5>';
-							echo"<div id=\"im\" style=\"width:30px; height:30px; float:right;margin:-20px 10px 0 0\"><img src=\"images/foto.jpg\" width=\"30\" height=\"30\" style=\"cursor:pointer;\" title=\"Commit Payroll\" onclick=\"commitpay('".$mon."');\"/></div>";
-								echo"<img src=\"images/print.png\"  style=\"float:right; cursor:pointer; margin:-20px 10px 0 0\" title=\"Pull Report\" onclick=\"window.open('payreport.php?id=1&reg=".$mon."')\"/>";
-								echo"<img src=\"images/plus.png\" width=\"30\" height=\"30\" style=\"float:right; cursor:pointer; margin:-20px 10px 0 0\" title=\"Add to Payroll\" onclick=\"addtopay('".$mon."');\"/>";
+							echo"<div id=\"im\" style=\"width:30px; height:30px; float:right;margin:-20px 10px 0 0\"><img alt=\"Commit Payroll\" src=\"images/foto.jpg\" width=\"30\" height=\"30\" style=\"cursor:pointer;\" title=\"Commit Payroll\" onclick=\"commitpay('".$mon."');\"/></div>";
+								echo"<img alt=\"Pull Report\" src=\"images/print.png\"  style=\"float:right; cursor:pointer; margin:-20px 10px 0 0\" title=\"Pull Report\" onclick=\"window.open('payreport.php?id=1&reg=".$mon."')\"/>";
+								echo"<img alt=\"Add to Payroll\" src=\"images/plus.png\" width=\"30\" height=\"30\" style=\"float:right; cursor:pointer; margin:-20px 10px 0 0\" title=\"Add to Payroll\" onclick=\"addtopay('".$mon."');\"/>";
 								
 								echo'<div id="results" style="min-height:380px; min-width:990px;">';
 									
@@ -2180,10 +2181,10 @@ echo'
 							<div id="newstude">
 								<div id="createpay">
 								<h5 style="margin-left:10px">Payroll of Month: '.$mon.'</h5>';
-								echo"<div id=\"im\" style=\"width:30px; height:30px; float:right;margin:-20px 10px 0 0\"><img src=\"images/foto.jpg\" width=\"30\" height=\"30\" style=\"cursor:pointer;\" title=\"Commit Payroll\" onclick=\"commitpay('".$mon."');\"/></div>";
-								echo"<img src=\"images/print.png\"  style=\"float:right; cursor:pointer; margin:-20px 10px 0 0\" title=\"Pull Report\" onclick=\"window.open('payreport.php?id=1&reg=".$mon."')\"/>";
+								echo"<div id=\"im\" style=\"width:30px; height:30px; float:right;margin:-20px 10px 0 0\"><img alt=\"Commit Payroll\" src=\"images/foto.jpg\" width=\"30\" height=\"30\" style=\"cursor:pointer;\" title=\"Commit Payroll\" onclick=\"commitpay('".$mon."');\"/></div>";
+								echo"<img alt=\"Pull Report\" src=\"images/print.png\"  style=\"float:right; cursor:pointer; margin:-20px 10px 0 0\" title=\"Pull Report\" onclick=\"window.open('payreport.php?id=1&reg=".$mon."')\"/>";
 								
-								echo"<img src=\"images/plus.png\" width=\"30\" height=\"30\" style=\"float:right; cursor:pointer; margin:-20px 10px 0 0\" title=\"Add to Payroll\" onclick=\"addtopay('".$mon."');\"/>";
+								echo"<img alt=\"Add to Payroll\" src=\"images/plus.png\" width=\"30\" height=\"30\" style=\"float:right; cursor:pointer; margin:-20px 10px 0 0\" title=\"Add to Payroll\" onclick=\"addtopay('".$mon."');\"/>";
 											
 								
 								
@@ -2222,7 +2223,7 @@ echo'
 								
 									$num_results = mysqli_num_rows($result);
 									if($num_results>=1){
-										echo'<p><img src="images/tick.png" style=" width:30px; height:30px; margin:-10px 0 0 0px"></p>';
+										echo'<p><img alt="Tick" src="images/tick.png" style=" width:30px; height:30px; margin:-10px 0 0 0px"></p>';
 										?>
 <script>
 										var emp = $('#regno').html();
@@ -2237,7 +2238,7 @@ echo'
 										case 2:
 									echo'<p id="no" style="display:none">'.$emp.'</p>
 							<p id="mon" style="display:none">'.$mon.'</p>';
-										echo'<p><img src="images/tick.png" style=" width:30px; height:30px; margin:-10px 0 0 0px"></p>';
+										echo'<p><img alt="Tick" src="images/tick.png" style=" width:30px; height:30px; margin:-10px 0 0 0px"></p>';
 									?>
 <script>
 										var empp = $('#no').html();
@@ -2248,7 +2249,7 @@ echo'
 <?php										
 										break;
 								}
-							}else echo'<p><img src="images/delete.png" style=" width:30px; height:30px; margin:-10px 0 0 0px"></p>';	
+							}else echo'<p><img alt="Delete" src="images/delete.png" style=" width:30px; height:30px; margin:-10px 0 0 0px"></p>';	
 								
 							break;
 							case 67:
@@ -2275,23 +2276,23 @@ echo'
 									<div id="figure3">Cancel</div>
 									</div>
 									<div id="normal">
-									<div class="figure4"><input type="text" class="payinput" value="" id="emp"/></div>
-									<div class="figure4"><input type="text" class="payinput" value="" id="name"/></div>
-									<div class="figure4"><input type="text" class="payinput" value="0" id="sal"/></div>
-									<div class="figure4"><input type="text" class="payinput" value="0" id="allow"/></div>
-									<div class="figure4"><input type="text" class="payinput" value="0" id="adva"/></div>
-									<div class="figure4"><input type="text" class="payinput" value="0" id="ins"/></div>
-									<div class="figure4"><input type="text" class="payinput" value="0" id="ded"/></div>
-									<div class="figure4"><input type="text" class="payinput" value="0" id="hrs"/></div>
-									<div class="figure4"><input type="text" class="payinput" value="0" id="rate"/></div>
+									<div class="figure4"><label for="emp" class="bh-visually-hidden">Cancel</label><input type="text" class="payinput" value="" id="emp"/></div>
+									<div class="figure4"><label for="name" class="bh-visually-hidden">Cancel</label><input type="text" class="payinput" value="" id="name"/></div>
+									<div class="figure4"><label for="sal" class="bh-visually-hidden">Cancel</label><input type="text" class="payinput" value="0" id="sal"/></div>
+									<div class="figure4"><label for="allow" class="bh-visually-hidden">Cancel</label><input type="text" class="payinput" value="0" id="allow"/></div>
+									<div class="figure4"><label for="adva" class="bh-visually-hidden">Text field</label><input type="text" class="payinput" value="0" id="adva"/></div>
+									<div class="figure4"><label for="ins" class="bh-visually-hidden">Text field</label><input type="text" class="payinput" value="0" id="ins"/></div>
+									<div class="figure4"><label for="ded" class="bh-visually-hidden">Text field</label><input type="text" class="payinput" value="0" id="ded"/></div>
+									<div class="figure4"><label for="hrs" class="bh-visually-hidden">Text field</label><input type="text" class="payinput" value="0" id="hrs"/></div>
+									<div class="figure4"><label for="rate" class="bh-visually-hidden">Text field</label><input type="text" class="payinput" value="0" id="rate"/></div>
 									<div class="figure4">';
-				echo"<input type=\"text\" onclick=\"calctotal()\" id=\"otot\" class=\"payinput\">";
+				echo"<label for=\"otot\" class=\"bh-visually-hidden\">Text field</label><input type=\"text\" onclick=\"calctotal()\" id=\"otot\" class=\"payinput\">";
 				echo'</div><div class="figure4">';
-				echo "<input type=\"text\" onclick=\"calcnetal()\" id=\"nett\" class=\"payinput\"></div>";
+				echo "<label for=\"nett\" class=\"bh-visually-hidden\">Text field</label><input type=\"text\" onclick=\"calcnetal()\" id=\"nett\" class=\"payinput\"></div>";
 				echo'<div class="figure4" id="save" >';
-			echo"<img src=\"images/save.jpg\" width=\"16\" height=\"18\"  onclick=\"saveaddemp(1,'".$mon."')\"/></div>";
+			echo"<img alt=\"\" src=\"images/save.jpg\" width=\"16\" height=\"18\"  onclick=\"saveaddemp(1,'".$mon."')\"/></div>";
 				echo'<div class="figure4" id="save" >';
-				echo"<img src=\"images/delete.png\" width=\"20\" height=\"20\"  onclick=\"pagerefresh(1,9,'".$mon."')\"/></div>";
+				echo"<img alt=\"\" src=\"images/delete.png\" width=\"20\" height=\"20\"  onclick=\"pagerefresh(1,9,'".$mon."')\"/></div>";
 				echo'</div></div></div>';
 						break;
 						
@@ -2316,7 +2317,7 @@ echo'
 								<div id="aes" style="width:40px; height:40px; float:right; margin-right:20px"/>
 								<div class="cleaner_h20"></div>	
 							<h5 style="border-top:2px solid #10504F; padding-top:10px">Multiple Reports</h5>	
-							<select style="float:left; width:210px"class="select" id="multrep" name="category" size="1" >
+							<label for="multrep" class="bh-visually-hidden">Category</label><select style="float:left; width:210px"class="select" id="multrep" name="category" size="1" >
 									<option value="Accounting">Accounting</option>
 									<option value="Medical">Medical</option>
 								<option value="Kitchen">Kitchen</option>
@@ -2335,10 +2336,10 @@ echo'
 					<h5 style="margin-right:10px; text-align:center">Month & Year Range:</h5>
 					<div class="cleaner_h5"></div>
 					From:
-					<input class="input_field" style="float:right; width="40px" margin-right:80px" id="default_widget" type="text"/>
+					<label for="default_widget" class="bh-visually-hidden">Month &amp; Year Range:</label><input class="input_field" style="float:right; width="40px" margin-right:80px" id="default_widget" type="text"/>
 					<div class="cleaner_h5"></div>
 					To:
-					<input class="input_field" style="float:right; width="40px" margin-right:80px" id="other_widget" type="text"/> 
+					<label for="other_widget" class="bh-visually-hidden">From:</label><input class="input_field" style="float:right; width="40px" margin-right:80px" id="other_widget" type="text"/> 
 					<div class="cleaner_h5"></div>
 				
 					<input type="button" value="Submit" style="float:left; margin-left:70px; 
@@ -2350,7 +2351,7 @@ echo'
 	<h5 style="margin-right:10px; text-align:center">Single Month Payroll:</h5>
 					<div class="cleaner_h5"></div>
 					Month:
-					<input class="input_field" style="float:right; width="40px" margin-right:80px" id="default_widgeta" type="text"/>
+					<label for="default_widgeta" class="bh-visually-hidden">Single Month Payroll:</label><input class="input_field" style="float:right; width="40px" margin-right:80px" id="default_widgeta" type="text"/>
 					<div class="cleaner_h5"></div>
 	<input type="button" value="Submit" style="float:left; margin-left:60px; cursor:pointer; width:60px" class="select" onclick="generatepay();">
 	<div id="ees" style="width:40px; height:40px; float:left; margin:0px 0 0 10px;"/>
@@ -2359,10 +2360,10 @@ echo'
 	
 					<div class="cleaner_h5"></div>
 					From:
-					<input class="input_field" style="float:right; width="40px" margin-right:80px" id="default_widgetb" type="text"/>
+					<label for="default_widgetb" class="bh-visually-hidden">Multiple Month Payroll</label><input class="input_field" style="float:right; width="40px" margin-right:80px" id="default_widgetb" type="text"/>
 					<div class="cleaner_h5"></div>
 					To:
-					<input class="input_field" style="float:right; width="40px" margin-right:80px" id="other_widgetb" type="text"/> 
+					<label for="other_widgetb" class="bh-visually-hidden">From:</label><input class="input_field" style="float:right; width="40px" margin-right:80px" id="other_widgetb" type="text"/> 
 					<div class="cleaner_h5"></div>
 	<input type="button" value="Submit" style="float:left; margin-left:60px; cursor:pointer; width:60px" class="select" onclick="generatepaymult();"/>	<div id="fes" style="width:40px; height:40px; float:left; margin:0px 0 0 10px;"/>					
 										
@@ -2383,7 +2384,7 @@ echo'
 									$result =mysqli_query($db, "select * from employee where emp='".$reg."' and status=1");
 									$num_results = mysqli_num_rows($result);
 									if($num_results>=1){
-										echo'<p><img src="images/tick.png" style=" width:30px; height:30px; margin:-10px 0 0 0px"></p>';
+										echo'<p><img alt="Tick" src="images/tick.png" style=" width:30px; height:30px; margin:-10px 0 0 0px"></p>';
 										echo"<script>
 										var reg = $('#regno').html();
 										setTimeout(function() {
@@ -2396,7 +2397,7 @@ echo'
 										
 										case 2:
 									
-										echo'<p><img src="images/tick.png" style=" width:30px; height:30px; margin:-10px 0 0 0px"></p>';
+										echo'<p><img alt="Tick" src="images/tick.png" style=" width:30px; height:30px; margin:-10px 0 0 0px"></p>';
 										echo"<script>
 										var reg = $('#regno').html();
 										setTimeout(function() {
@@ -2431,7 +2432,7 @@ echo'
 							$mon=$_GET['mon'];	
 							$result =mysqli_query($db, "select * from ".$mon."");
 							if($result){
-								echo'<p><img src="images/tick.png" style=" width:30px; height:30px; margin:0px 0 0 10px"></p>';
+								echo'<p><img alt="Tick" src="images/tick.png" style=" width:30px; height:30px; margin:0px 0 0 10px"></p>';
 							echo"<script>window.open('payreport.php?id=1&reg=".$mon."')</script>";
 										}
 										else{
@@ -2449,7 +2450,7 @@ echo'
 							$resulta =mysqli_query($db, "select * from ".$monfrom."");
 							$resultb =mysqli_query($db, "select * from ".$monto."");
 							if($resulta&&$resultb){
-							echo'<p><img src="images/tick.png" style=" width:30px; height:30px; margin:0px 0 0 0px"></p>';
+							echo'<p><img alt="Tick" src="images/tick.png" style=" width:30px; height:30px; margin:0px 0 0 0px"></p>';
 							echo"<script>window.open('payreport.php?id=2&reg=".$monfrom."&reg2=".$monto."')</script>";
 										}
 										else{
@@ -2473,10 +2474,10 @@ echo'
 			 <div id="title">
 			 <div class="figure1" id="tdate" style="float:left;margin-left:0px;width:100%; border-bottom:1px solid #75c5cf">
 			<b style="float:left;margin-LEFT:5px;margin-top:5px;color:#10504F">Date: </b>
-			 <input id="datepick" name="doe" class="in_field" value="'.date('Y/m/d').'"  type="text" readonly="readonly" style="width:150PX;float:left; margin-left:10px"> 
-			 	   <img src="images/zoom.png" style="width:30px; height:30px; float:left; margin-left:10px; cursor:pointer" onclick="showattendance()" title="View Attendance">
+			 <label for="datepick" class="bh-visually-hidden">Doe</label><input id="datepick" name="doe" class="in_field" value="'.date('Y/m/d').'"  type="text" readonly="readonly" style="width:150PX;float:left; margin-left:10px"> 
+			 	   <img alt="View Attendance" src="images/zoom.png" style="width:30px; height:30px; float:left; margin-left:10px; cursor:pointer" onclick="showattendance()" title="View Attendance">
 				
-			 <div id="resu" style=""></div>
+			 <div id="resu"></div>
 			</div>
 			 </div>
 			 
@@ -2505,7 +2506,7 @@ echo'
 									$status=stripslashes($row[$x]);
 									if($status=='0'){
 									echo"<div class=\"figure2\" style=\"width:200px;padding:5px 0; background:var(--color-danger, #DC2626)\" id=\"back".stripslashes($row['id'])."\" >
-									<select  class=\"select\"   style=\"margin-left:20px;margin-top:-3px;padding:0 \"id=\"action".stripslashes($row['id'])."\">
+									<label for=\"action".stripslashes($row['id'])."\" class=\"bh-visually-hidden\">Text field</label><select  class=\"select\"   style=\"margin-left:20px;margin-top:-3px;padding:0 \"id=\"action".stripslashes($row['id'])."\">
 									<option value=\"0\"  disabled=\"disabled\">Select</option>
 									<option selected=\"selected\" value=\"0\"  onclick=\"checkatt(".stripslashes($row['id']).")\" >Absent</option>
 									<option value=\"1\"  onclick=\"checkatt(".stripslashes($row['id']).")\" >Present</option>
@@ -2515,7 +2516,7 @@ echo'
 									}
 									else if($status=='1'){
 									echo"<div class=\"figure2\" style=\"width:200px;padding:5px 0; background:#0f6\" id=\"back".stripslashes($row['id'])."\" >
-									<select  class=\"select\"   style=\"margin-left:20px;margin-top:-3px;padding:0 \"id=\"action".stripslashes($row['id'])."\">
+									<label for=\"action".stripslashes($row['id'])."\" class=\"bh-visually-hidden\">Sick Leave</label><select  class=\"select\"   style=\"margin-left:20px;margin-top:-3px;padding:0 \"id=\"action".stripslashes($row['id'])."\">
 									<option value=\"0\" disabled=\"disabled\">Select</option>
 									<option  value=\"0\"  onclick=\"checkatt(".stripslashes($row['id']).")\" >Absent</option>
 									<option value=\"1\"  selected=\"selected\" onclick=\"checkatt(".stripslashes($row['id']).")\" >Present</option>
@@ -2526,7 +2527,7 @@ echo'
 									
 									else if($status=='2'){
 									echo"<div class=\"figure2\" style=\"width:200px;padding:5px 0; background:var(--color-info, #0369A1)\" id=\"back".stripslashes($row['id'])."\" >
-									<select class=\"select\"  style=\"margin-left:20px;margin-top:-3px;padding:0 \"id=\"action".stripslashes($row['id'])."\">
+									<label for=\"action".stripslashes($row['id'])."\" class=\"bh-visually-hidden\">Sick Leave</label><select class=\"select\"  style=\"margin-left:20px;margin-top:-3px;padding:0 \"id=\"action".stripslashes($row['id'])."\">
 									<option value=\"0\" disabled=\"disabled\">Select</option>
 									<option  value=\"0\"  onclick=\"checkatt(".stripslashes($row['id']).")\" >Absent</option>
 									<option value=\"1\" onclick=\"checkatt(".stripslashes($row['id']).")\" >Present</option>
@@ -2537,7 +2538,7 @@ echo'
 									
 									else if($status=='3'){
 									echo"<div class=\"figure2\" style=\"width:200px;padding:5px 0;background:#ff3\" id=\"back".stripslashes($row['id'])."\" >
-									<select  class=\"select\"   style=\"margin-left:20px;margin-top:-3px;padding:0 \"id=\"action".stripslashes($row['id'])."\">
+									<label for=\"action".stripslashes($row['id'])."\" class=\"bh-visually-hidden\">Sick Leave</label><select  class=\"select\"   style=\"margin-left:20px;margin-top:-3px;padding:0 \"id=\"action".stripslashes($row['id'])."\">
 									<option value=\"0\" disabled=\"disabled\">Select</option>
 									<option  value=\"0\"  onclick=\"checkatt(".stripslashes($row['id']).")\" >Absent</option>
 									<option value=\"1\" onclick=\"checkatt(".stripslashes($row['id']).")\" >Present</option>
@@ -2548,7 +2549,7 @@ echo'
 									
 									else {
 									echo"<div class=\"figure2\" style=\"width:200px;padding:5px 0\" id=\"back".stripslashes($row['id'])."\" >
-									<select   class=\"select\"  style=\"margin-left:20px;margin-top:-3px;padding:0 \"id=\"action".stripslashes($row['id'])."\">
+									<label for=\"action".stripslashes($row['id'])."\" class=\"bh-visually-hidden\">Sick Leave</label><select   class=\"select\"  style=\"margin-left:20px;margin-top:-3px;padding:0 \"id=\"action".stripslashes($row['id'])."\">
 									<option value=\"0\"  selected=\"selected\" disabled=\"disabled\">Select</option>
 									<option  value=\"0\"  onclick=\"checkatt(".stripslashes($row['id']).")\" >Absent</option>
 									<option value=\"1\" onclick=\"checkatt(".stripslashes($row['id']).")\" >Present</option>
@@ -2611,9 +2612,9 @@ $result = mysqli_query($db, "insert into log values('0','".$username." accesses 
 								<div id="findstude">';
 								
 							echo'	<h5 style="margin-left:10px">Ex-Employees Search Panel</h5>';
-							echo"<div id=\"backatt\" style=\"width:30px; height:30px; float:right;margin:-25px 5px 0 0\"><img src=\"images/findstud.jpg\" width=\"30\" height=\"30\" style=\"cursor:pointer;\" title=\"Help\" onclick=\"help33()\"/></div>";								
+							echo"<div id=\"backatt\" style=\"width:30px; height:30px; float:right;margin:-25px 5px 0 0\"><img alt=\"Help\" src=\"images/findstud.jpg\" width=\"30\" height=\"30\" style=\"cursor:pointer;\" title=\"Help\" onclick=\"help33()\"/></div>";								
 echo'<div class="ui-widget" style="margin:10px; float:left">
-	<select id="emp2">
+	<label for="emp2" class="bh-visually-hidden">Ex-Employees Search Panel</label><select id="emp2">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from employee where status=0 order by name");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -2667,13 +2668,13 @@ else{
 		echo'</div>
 		<div style="float:left;width:65%; height:100%;padding:2%">
 			<a class="labels">File Name:<span>*</span></a>
-			<input type="text" id="fname" name="sal" class="in_field"  value="'.stripslashes($rowd['name']).'" style="text-transform:none" />
+			<label for="fname" class="bh-visually-hidden">Sal</label><input type="text" id="fname" name="sal" class="in_field"  value="'.stripslashes($rowd['name']).'" style="text-transform:none" />
 				<div class="cleaner_h5"></div>  
 			<a class="labels">File Description:</a>
-				<textarea class="textarea" id="filedesc">'.stripslashes($rowd['filedesc']).'</textarea>
+				<label for="filedesc" class="bh-visually-hidden">File Description:</label><textarea class="textarea" id="filedesc">'.stripslashes($rowd['filedesc']).'</textarea>
 		<div class="cleaner_h5"></div>  
 			<a class="labels">Uploaded on:</a>
-				<input type="text" style="border-color:var(--color-danger, #DC2626)" id="datepicker" name="sal" class="in_field"  value="'.stripslashes($rowd['date']).'" disabled="disabled" />
+				<label for="datepicker" class="bh-visually-hidden">Sal</label><input type="text" style="border-color:var(--color-danger, #DC2626)" id="datepicker" name="sal" class="in_field"  value="'.stripslashes($rowd['date']).'" disabled="disabled" />
 				<div class="cleaner_h20"></div>  
 				 <a class="btn btn-sm btn-success" onclick="updatephoto('.stripslashes($rowd['id']).')"><i class="fa fa-save"></i>UPDATE</a>';
 		echo"<a class=\"btn btn-sm btn-info\"  href=\"#\" onclick=\"window.open('http://".$server."/BHealth /upload/".stripslashes($rowd['image'])."')\">
@@ -2698,14 +2699,14 @@ else{
 			echo'<div id="alertDiv" style="min-height:200px; width:370px">
 					<div id="tit" style="width:350px; background:#10504F; padding:5px 0px 5px 20px;border-radius:0px 5px 0 0">
 				<h5 style="margin-right:10px; color:#fff">TERMINATE EMPLOYMENT
-				<img src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5>
+				<img alt="Delete" src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5>
 				</div>
 				<div class="cleaner_h5"></div>
 				
 				
 				<a class="labels" style="margin-left:5px">Employee:<span>*</span></a>
 					<div class="ui_widget"  style="margin-right:10%;float:right;">
-				<select id="emp55" class="combos">
+				<label for="emp55" class="bh-visually-hidden">Employee:</label><select id="emp55" class="combos">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from employee where status=1 order by fname");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -2718,10 +2719,10 @@ else{
 	</div>
 	<div class="cleaner_h10"></div>
 	<a class="labels" style="margin-left:5px">Date:<span>*</span></a>
-		<input type="text" id="datepick"  class="in_field" value="'.date('Y/m/d').'" style="width:70%;float:right;margin-right:10px; text-transform:none; "/> 
+		<label for="datepick" class="bh-visually-hidden">Date:</label><input type="text" id="datepick"  class="in_field" value="'.date('Y/m/d').'" style="width:70%;float:right;margin-right:10px; text-transform:none; "/> 
 	<div class="cleaner_h10"></div>
 	<a class="labels" style="margin-left:5px">Reason:<span>*</span></a>
-<textarea id="reason" style="float:right;height:60px; width:90%; float:left; margin-left:10px" class="alergy" ></textarea>
+<label for="reason" class="bh-visually-hidden">Reason:</label><textarea id="reason" style="float:right;height:60px; width:90%; float:left; margin-left:10px" class="alergy" ></textarea>
 					
 					<div class="cleaner_h5"></div>
 									<input type="button" value="Cancel" style="float:right; margin-right:70px; cursor:pointer; width:80px" class="select" onclick="hidediv()"/>
@@ -2816,7 +2817,7 @@ else{
 									$status=stripslashes($row[$x]);
 								if($status=='0'){
 									echo"<div class=\"figure2\" style=\"width:200px;padding:5px 0; background:var(--color-danger, #DC2626)\" id=\"back".stripslashes($row['id'])."\" >
-									<select  class=\"select\"   style=\"margin-left:20px;margin-top:-3px;padding:0 \"id=\"action".stripslashes($row['id'])."\">
+									<label for=\"action".stripslashes($row['id'])."\" class=\"bh-visually-hidden\">Text field</label><select  class=\"select\"   style=\"margin-left:20px;margin-top:-3px;padding:0 \"id=\"action".stripslashes($row['id'])."\">
 									<option value=\"0\"  disabled=\"disabled\">Select</option>
 									<option selected=\"selected\" value=\"0\"  onclick=\"checkatt(".stripslashes($row['id']).")\" >Absent</option>
 									<option value=\"1\"  onclick=\"checkatt(".stripslashes($row['id']).")\" >Present</option>
@@ -2826,7 +2827,7 @@ else{
 									}
 									else if($status=='1'){
 									echo"<div class=\"figure2\" style=\"width:200px;padding:5px 0; background:#0f6\" id=\"back".stripslashes($row['id'])."\" >
-									<select  class=\"select\"   style=\"margin-left:20px;margin-top:-3px;padding:0 \"id=\"action".stripslashes($row['id'])."\">
+									<label for=\"action".stripslashes($row['id'])."\" class=\"bh-visually-hidden\">Sick Leave</label><select  class=\"select\"   style=\"margin-left:20px;margin-top:-3px;padding:0 \"id=\"action".stripslashes($row['id'])."\">
 									<option value=\"0\" disabled=\"disabled\">Select</option>
 									<option  value=\"0\"  onclick=\"checkatt(".stripslashes($row['id']).")\" >Absent</option>
 									<option value=\"1\"  selected=\"selected\" onclick=\"checkatt(".stripslashes($row['id']).")\" >Present</option>
@@ -2837,7 +2838,7 @@ else{
 									
 									else if($status=='2'){
 									echo"<div class=\"figure2\" style=\"width:200px;padding:5px 0; background:var(--color-info, #0369A1)\" id=\"back".stripslashes($row['id'])."\" >
-									<select class=\"select\"  style=\"margin-left:20px;margin-top:-3px;padding:0 \"id=\"action".stripslashes($row['id'])."\">
+									<label for=\"action".stripslashes($row['id'])."\" class=\"bh-visually-hidden\">Sick Leave</label><select class=\"select\"  style=\"margin-left:20px;margin-top:-3px;padding:0 \"id=\"action".stripslashes($row['id'])."\">
 									<option value=\"0\" disabled=\"disabled\">Select</option>
 									<option  value=\"0\"  onclick=\"checkatt(".stripslashes($row['id']).")\" >Absent</option>
 									<option value=\"1\" onclick=\"checkatt(".stripslashes($row['id']).")\" >Present</option>
@@ -2848,7 +2849,7 @@ else{
 									
 									else if($status=='3'){
 									echo"<div class=\"figure2\" style=\"width:200px;padding:5px 0; background:#ff3\" id=\"back".stripslashes($row['id'])."\" >
-									<select  class=\"select\"   style=\"margin-left:20px;margin-top:-3px;padding:0 \"id=\"action".stripslashes($row['id'])."\">
+									<label for=\"action".stripslashes($row['id'])."\" class=\"bh-visually-hidden\">Sick Leave</label><select  class=\"select\"   style=\"margin-left:20px;margin-top:-3px;padding:0 \"id=\"action".stripslashes($row['id'])."\">
 									<option value=\"0\" disabled=\"disabled\">Select</option>
 									<option  value=\"0\"  onclick=\"checkatt(".stripslashes($row['id']).")\" >Absent</option>
 									<option value=\"1\" onclick=\"checkatt(".stripslashes($row['id']).")\" >Present</option>
@@ -2859,7 +2860,7 @@ else{
 									
 									else {
 									echo"<div class=\"figure2\" style=\"width:200px;padding:5px 0\" id=\"back".stripslashes($row['id'])."\" >
-									<select   class=\"select\"  style=\"margin-left:20px;margin-top:-3px;padding:0 \"id=\"action".stripslashes($row['id'])."\">
+									<label for=\"action".stripslashes($row['id'])."\" class=\"bh-visually-hidden\">Sick Leave</label><select   class=\"select\"  style=\"margin-left:20px;margin-top:-3px;padding:0 \"id=\"action".stripslashes($row['id'])."\">
 									<option value=\"0\"  selected=\"selected\" disabled=\"disabled\">Select</option>
 									<option  value=\"0\"  onclick=\"checkatt(".stripslashes($row['id']).")\" >Absent</option>
 									<option value=\"1\" onclick=\"checkatt(".stripslashes($row['id']).")\" >Present</option>
@@ -2882,20 +2883,20 @@ else{
 		<div id="alertDiv" style="min-height:200px; width:370px">
 					<div id="tit" style="width:350px; background:#10504F; padding:5px 0px 5px 20px;border-radius:0px 5px 0 0">
 				<h5 style="margin-right:10px; color:#fff">LEAVE REQUEST
-				<img src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5>
+				<img alt="Delete" src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5>
 				</div>
 				<div class="cleaner_h5"></div>
 					<a class="labels" style="margin-left:5px">PF No:<span>*</span></a>
-					<input type="text" id="pfno"  class="in_field" value="" style="width:70%;float:right;margin-right:10px; text-transform:none; "/> 
+					<label for="pfno" class="bh-visually-hidden">PF No:</label><input type="text" id="pfno"  class="in_field" value="" style="width:70%;float:right;margin-right:10px; text-transform:none; "/> 
 	<div class="cleaner_h10"></div>
 	<a class="labels" style="margin-left:5px">Commence Date:<span>*</span></a>
-		<input type="text" id="datepick"  class="in_field" value="" style="width:60%;float:right;margin-right:10px; text-transform:none; "/> 
+		<label for="datepick" class="bh-visually-hidden">Commence Date:</label><input type="text" id="datepick"  class="in_field" value="" style="width:60%;float:right;margin-right:10px; text-transform:none; "/> 
 	<div class="cleaner_h10"></div>
 	<a class="labels" style="margin-left:5px">Return Date:<span>*</span></a>
-		<input type="text" id="datepick2"  class="in_field" value="" style="width:60%;float:right;margin-right:10px; text-transform:none; "/> 
+		<label for="datepick2" class="bh-visually-hidden">Return Date:</label><input type="text" id="datepick2"  class="in_field" value="" style="width:60%;float:right;margin-right:10px; text-transform:none; "/> 
 	<div class="cleaner_h10"></div>
 	<a class="labels" style="margin-left:5px" title=Person to take duties">Person to take duties:<span>*</span></a>
-	<input type="text" id="shadow"  class="in_field" value="" style="width:50%;float:right;margin-right:10px; text-transform:none; "/> 
+	<label for="shadow" class="bh-visually-hidden">Person to take duties:</label><input type="text" id="shadow"  class="in_field" value="" style="width:50%;float:right;margin-right:10px; text-transform:none; "/> 
 				
 				<div class="cleaner_h5"></div>
 									<input type="button" value="Cancel" style="float:right; margin-right:70px; cursor:pointer; width:80px" class="select" onclick="hidediv()"/>
@@ -2958,7 +2959,7 @@ else{
 									<div id=\"figure2\" style=\"width:50px\" >".stripslashes($row['days'])."</div>
 									<div id=\"figure2\" style=\"width:100px; overflow:hidden\" >".stripslashes($row['shadow'])."</div>
 										<div id=\"figure2\" style=\"width:89px;padding:5px 5px\" >
-										<select class=\"select\" style=\"width:80px;margin-top:-3px;padding:0  \"id=\"action".stripslashes($row['id'])."\">
+										<label for=\"action".stripslashes($row['id'])."\" class=\"bh-visually-hidden\">Text field</label><select class=\"select\" style=\"width:80px;margin-top:-3px;padding:0  \"id=\"action".stripslashes($row['id'])."\">
 										<option value=\"0\" selected=\"selected\" disabled=\"disabled\">Select</option>
 										<option value=\"Deny\"  onclick=\"leaveauth(".stripslashes($row['id']).")\" >Deny</option>
 										<option value=\"Approve\"  onclick=\"leaveauth(".stripslashes($row['id']).")\" >Approve</option>
@@ -3070,22 +3071,22 @@ echo'<div class="cleaner_h50">	</div>
 			echo'<div id="alertDiv" style="min-height:150px; width:420px">
 					<div id="tit" style="width:400px; background:#10504F; padding:5px 0px 5px 20px;border-radius:0px 5px 0 0">
 				<h5 style="margin-right:10px; color:#fff">ACTIVATE LICENSE
-				<img src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5>
+				<img alt="Delete" src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5>
 				</div>
 				<div class="cleaner_h5"></div>
 					<a class="labels" style="margin-left:5px">Company:<span>*</span></a>
-					<input type="text" id="cname"  class="in_field" value="" style="width:70%;float:right;margin-right:10px; text-transform:none; "/> 
+					<label for="cname" class="bh-visually-hidden">Company:</label><input type="text" id="cname"  class="in_field" value="" style="width:70%;float:right;margin-right:10px; text-transform:none; "/> 
 	<div class="cleaner_h10"></div>
 	<a class="labels" style="margin-left:5px">Key:<span>*</span></a>
-		<input type="text" id="key5"  class="in_field" value="" onkeyup="countdig(5)" style="width:50px;float:right;margin-right:5px; text-transform:uppercase; " maxlength="5"/> 
+		<label for="key5" class="bh-visually-hidden">Key:</label><input type="text" id="key5"  class="in_field" value="" onkeyup="countdig(5)" style="width:50px;float:right;margin-right:5px; text-transform:uppercase; " maxlength="5"/> 
 		<a class="labels" style="float:right;margin-right:5px">-</a>
-			<input type="text" id="key4"  class="in_field" value=""  onkeyup="countdig(4)" style="width:50px;float:right;margin-right:5px; text-transform:uppercase; " maxlength="5"/>
+			<label for="key4" class="bh-visually-hidden">Key:</label><input type="text" id="key4"  class="in_field" value=""  onkeyup="countdig(4)" style="width:50px;float:right;margin-right:5px; text-transform:uppercase; " maxlength="5"/>
 			<a class="labels" style="float:right;margin-right:5px">-</a> 
-			<input type="text" id="key3"  class="in_field" value=""  onkeyup="countdig(3)" style="width:50px;float:right;margin-right:5px; text-transform:uppercase; " maxlength="5"/>
+			<label for="key3" class="bh-visually-hidden">Text field</label><input type="text" id="key3"  class="in_field" value=""  onkeyup="countdig(3)" style="width:50px;float:right;margin-right:5px; text-transform:uppercase; " maxlength="5"/>
 			<a class="labels" style="float:right;margin-right:5px">-</a> 
-			<input type="text" id="key2"  class="in_field" value=""  onkeyup="countdig(2)" style="width:50px;float:right;margin-right:5px; text-transform:uppercase; " maxlength="5"/>
+			<label for="key2" class="bh-visually-hidden">Text field</label><input type="text" id="key2"  class="in_field" value=""  onkeyup="countdig(2)" style="width:50px;float:right;margin-right:5px; text-transform:uppercase; " maxlength="5"/>
 			<a class="labels" style="float:right;margin-right:5px">-</a> 
-			<input type="text" id="key1"  class="in_field" value="" onkeyup="countdig(1)" style="width:50px;float:right;margin-right:5px; text-transform:uppercase; " maxlength="5"/>
+			<label for="key1" class="bh-visually-hidden">Text field</label><input type="text" id="key1"  class="in_field" value="" onkeyup="countdig(1)" style="width:50px;float:right;margin-right:5px; text-transform:uppercase; " maxlength="5"/>
 	<div class="cleaner_h10"></div>
 									<input type="button" value="Cancel" style="float:right; margin-right:120px; cursor:pointer; width:80px" class="select" onclick="hidediv()"/>
 									<input type="button" value="Submit" style="float:right; margin-right:10px; 
@@ -3103,11 +3104,11 @@ echo'<div class="cleaner_h50">	</div>
 			echo'<div id="alertDiv" style="min-height:90px; width:320px">
 					<div id="tit" style="width:300px; background:#10504F; padding:5px 0px 5px 20px;border-radius:0px 0px 0 0">
 				<h5 style="margin-right:10px; color:#fff">Employees List
-				<img src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:0px; cursor:pointer" onclick="hidediv()"></h5>
+				<img alt="Delete" src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:0px; cursor:pointer" onclick="hidediv()"></h5>
 				</div>
 				<div class="cleaner_h5"></div>
 				<div class="ui_widget"  style="margin-left:10px;float:left; width:270px">
-				<select id="emp99" style="width:260px; margin-left:10px;">
+				<label for="emp99" class="bh-visually-hidden">Employees List</label><select id="emp99" style="width:260px; margin-left:10px;">
 				<option value="">Select one...</option>
 		<option value="1">Active Employees</option>
 		<option value="0">Ex-Employees</option>
@@ -3125,13 +3126,13 @@ echo'<div class="cleaner_h50">	</div>
 			echo'<div id="alertDiv" style="min-height:90px; width:320px">
 					<div id="tit" style="width:300px; background:#10504F; padding:5px 0px 5px 20px;border-radius:0px 0px 0 0">
 				<h5 style="margin-right:10px; color:#fff">Attendance Report
-				<img src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:0px; cursor:pointer" onclick="hidediv()"></h5>
+				<img alt="Delete" src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:0px; cursor:pointer" onclick="hidediv()"></h5>
 				</div>
 				<div class="cleaner_h5"></div>
 				<div class="cleaner_h5"></div>
 				<a class="labels" style="margin-left:20px">Branch:</a>
 				<div class="ui_widget"  style="margin-left:10px;float:left; width:270px">
-				<select class="combos" id="branch" style="width:260px; margin-left:10px;">
+				<label for="branch" class="bh-visually-hidden">Branch:</label><select class="combos" id="branch" style="width:260px; margin-left:10px;">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from branchtbl");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -3146,7 +3147,7 @@ echo'<div class="cleaner_h50">	</div>
 	<div class="cleaner_h5"></div>
 				<a class="labels" style="margin-left:20px">Month:</a>
 				<div class="ui_widget"  style="margin-left:10px;float:left; width:270px">
-				<select id="monthsum" style="width:260px; margin-left:10px;" class="combos">
+				<label for="monthsum" class="bh-visually-hidden">Month:</label><select id="monthsum" style="width:260px; margin-left:10px;" class="combos">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from attendancelog");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -3172,16 +3173,16 @@ echo'<div class="cleaner_h50">	</div>
 			echo'<div id="alertDiv" style="min-height:90px; width:320px">
 					<div id="tit" style="width:300px; background:#10504F; padding:5px 0px 5px 20px;border-radius:0px 0px 0 0">
 				<h5 style="margin-right:10px; color:#fff">Leave Report
-				<img src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:0px; cursor:pointer" onclick="hidediv()"></h5>
+				<img alt="Delete" src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:0px; cursor:pointer" onclick="hidediv()"></h5>
 				</div>
 				<div class="cleaner_h5"></div>
 				<a class="labels" style="margin-left:5px">From:</a>
-				<input id="datepick" name="doe" class="in_field" type="text"  style="width:80%;float:right; margin-right:10px"> 
+				<label for="datepick" class="bh-visually-hidden">Doe</label><input id="datepick" name="doe" class="in_field" type="text"  style="width:80%;float:right; margin-right:10px"> 
 				<div class="cleaner_h5"></div>
 			<a class="labels" style="margin-left:5px">To:</a>
-			 <input id="datepick2" name="doe" class="in_field" v  type="text"  style="width:80%;float:right; margin-right:10px"> 
+			 <label for="datepick2" class="bh-visually-hidden">Doe</label><input id="datepick2" name="doe" class="in_field" v  type="text"  style="width:80%;float:right; margin-right:10px"> 
 			 <div class="cleaner"></div>
-					<input type="checkbox" style="float:left; margin:8px 5px 0 30px" name="viewall" value="1">
+					<input aria-label="Viewall" type="checkbox" style="float:left; margin:8px 5px 0 30px" name="viewall" value="1">
 					<a class="labels" style="margin-left:10px; float:left">View All</a>
 			 	<div class="cleaner_h5"></div>
 			
@@ -3231,48 +3232,48 @@ echo'<div class="cleaner_h50">	</div>
 								<h5>Personal Details</h5>
 								<div class="cleaner_h5"></div>
 								<a class="labels">PF No:<span>*</span></a>
-                                <input type="text" id="emp" name="emp" class="in_field" value="'.$emp.'" style="border-color:var(--color-danger, #DC2626)"/> 
+                                <label for="emp" class="bh-visually-hidden">Emp</label><input type="text" id="emp" name="emp" class="in_field" value="'.$emp.'" style="border-color:var(--color-danger, #DC2626)"/> 
 								<div class="cleaner_h5"></div>
 								<a class="labels">F.Name:<span>*</span></a>
-                                <input type="text" id="fname" name="field" class="in_field" />
+                                <label for="fname" class="bh-visually-hidden">Field</label><input type="text" id="fname" name="field" class="in_field" />
 								<div class="cleaner_h5"></div>
 								 <a class="labels">M. Name:<span>*</span></a>
-                                <input type="text" id="mname" name="field" class="in_field"/> 
+                                <label for="mname" class="bh-visually-hidden">Field</label><input type="text" id="mname" name="field" class="in_field"/> 
 								<div class="cleaner_h5"></div>
 								 <a class="labels">L. Name:<span>*</span></a>
-                                <input type="text" id="lname" name="field" class="in_field"/> 
+                                <label for="lname" class="bh-visually-hidden">Field</label><input type="text" id="lname" name="field" class="in_field"/> 
 								<div class="cleaner_h5"></div>
 								 
 					<div id="languages" style="width:100%;"></div>
 								<div class="cleaner_h5"></div>
 								
 								  <a class="labels" style="margin-right:30px">Gender:</a>
-                                <input  id="maleGender" name="gender" type="radio" value="male" class="radio" checked="checked">Male.
-								 <input  id="femaleGender" name="gender" type="radio" value="female" class="radio">Female.
+                                <label for="maleGender" class="bh-visually-hidden">Gender</label><input  id="maleGender" name="gender" type="radio" value="male" class="radio" checked="checked">Male.
+								 <label for="femaleGender" class="bh-visually-hidden">Gender</label><input  id="femaleGender" name="gender" type="radio" value="female" class="radio">Female.
 									<div class="cleaner_h5"></div>
 								<a class="labels">ID NO:<span>*</span></a>
-                                <input type="text" id="idno" name="field" class="in_field" onkeyup="validatenum(\'idno\')"/>
+                                <label for="idno" class="bh-visually-hidden">Field</label><input type="text" id="idno" name="field" class="in_field" onkeyup="validatenum(\'idno\')"/>
 								<div class="cleaner_h5"></div>
 								 <a class="labels">Pin No:</a>
-                                <input type="text" id="pinno" name="field" class="in_field"/> 
+                                <label for="pinno" class="bh-visually-hidden">Field</label><input type="text" id="pinno" name="field" class="in_field"/> 
 								<div class="cleaner_h5"></div>	
 								<a class="labels">Phone No:<span>*</span></a>
-								 <input type="text" id="phone" name="phone" class="in_field" onkeyup="validatenum(\'phone\')" style="width:130px"/> 
+								 <label for="phone" class="bh-visually-hidden">Phone</label><input type="text" id="phone" name="phone" class="in_field" onkeyup="validatenum(\'phone\')" style="width:130px"/> 
 								<div class="cleaner_h5"></div>
 								<div id="music"></div>
 								<a class="labels">Phone No[2]:</a>
-								 <input type="text" id="phone2" name="phone2" class="in_field" onkeyup="validatenum(\'phone2\')"  style="width:130px"/> 
+								 <label for="phone2" class="bh-visually-hidden">Phone2</label><input type="text" id="phone2" name="phone2" class="in_field" onkeyup="validatenum(\'phone2\')"  style="width:130px"/> 
 								<div class="cleaner_h5"></div>
 								<a class="labels">Email Add:</a>
-								 <input type="text" id="emailadd" name="emailadd" class="in_field" style="text-transform:lowercase"/> 
+								 <label for="emailadd" class="bh-visually-hidden">Emailadd</label><input type="text" id="emailadd" name="emailadd" class="in_field" style="text-transform:lowercase"/> 
 								<div class="cleaner_h5"></div>
 								<a class="labels">Phy Add:</a>
-                                <input type="text" id="phyadd" name="phyadd" class="in_field"/> 
+                                <label for="phyadd" class="bh-visually-hidden">Phyadd</label><input type="text" id="phyadd" name="phyadd" class="in_field"/> 
 								<div class="cleaner_h5"></div>
 								 <a class="labels">Location:</a>
                                		
 								<div class="ui-widget" style="float:right; margin-right:25px">
-									<select id="town" class="combos">
+									<label for="town" class="bh-visually-hidden">Location:</label><select id="town" class="combos">
 										<option value="">Select one...</option>';
 										$resulta =mysqli_query($db, "select * from towns order by name");
 										$num_resultsa = mysqli_num_rows($resulta);	
@@ -3291,7 +3292,7 @@ echo'<div class="cleaner_h50">	</div>
 								<h5>Role Details</h5>
 								<a class="labels">Position:<span>*</span></a>
                                	<div class="ui-widget" style="float:right; margin-right:25px">
-									<select id="pos" class="combos">
+									<label for="pos" class="bh-visually-hidden">Position:</label><select id="pos" class="combos">
 										<option value="">Select one...</option>';
 										$resulta =mysqli_query($db, "select * from positions order by name");
 										$num_resultsa = mysqli_num_rows($resulta);	
@@ -3304,12 +3305,12 @@ echo'<div class="cleaner_h50">	</div>
 								</div>
 								<div class="cleaner_h5"></div>
 								<a class="labels">Job Description:</a>
-								<textarea class="textarea" id="jobdesc" style="width:200px"></textarea>
+								<label for="jobdesc" class="bh-visually-hidden">Job Description:</label><textarea class="textarea" id="jobdesc" style="width:200px"></textarea>
 								<div class="cleaner_h5"></div>
 								<h5>MEDICAL DETAILS</h5>
 								<div class="cleaner_h5"></div>
 								<a class="labels">B.Group:</a>
-                                <select class="select" id="bgroup" name="bgroup" style="float:right ;text-transform:uppercase">
+                                <label for="bgroup" class="bh-visually-hidden">Bgroup</label><select class="select" id="bgroup" name="bgroup" style="float:right ;text-transform:uppercase">
 								 	<option value="" selected="selected" disabled="disabled">Select One...</option>
 									<option value="A Rh+">A Rh+</option>
 									<option value="A Rh-">A Rh-</option>
@@ -3323,7 +3324,7 @@ echo'<div class="cleaner_h50">	</div>
 								<div class="cleaner_h5"></div>
 								<a class="labels">Known Health Problems/Alergies:</a>
 								<div class="cleaner_h5"></div>
-								<textarea class="textarea" id="alergy"  style="width:200px"></textarea>
+								<label for="alergy" class="bh-visually-hidden">Known Health Problems/Alergies:</label><textarea class="textarea" id="alergy"  style="width:200px"></textarea>
 								<div class="cleaner_h5"></div>
 						</div>
 								
@@ -3341,7 +3342,7 @@ echo'<div class="cleaner_h50">	</div>
 								<h5>EDUCATION DETAILS</h5>
 								<a class="labels">Course:</a>
 								<div class="ui-widget" style="float:right; margin-right:25px">
-	<select id="certificate"  class="combos">
+	<label for="certificate" class="bh-visually-hidden">Course:</label><select id="certificate"  class="combos">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from courses order by name");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -3363,7 +3364,7 @@ echo'<div class="cleaner_h50">	</div>
 						<a class="labels">Experience:</a>
                                		
 								<div class="ui-widget"  style="float:right; margin-right:25px">
-	<select id="experience" class="combos">
+	<label for="experience" class="bh-visually-hidden">Experience:</label><select id="experience" class="combos">
 		<option value="">Select one...</option>';
 		$resulta =mysqli_query($db, "select * from experience order by name");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -3383,7 +3384,7 @@ echo'<div class="cleaner_h50">	</div>
 								
 								<a class="labels">Bank:</a>
 		                        <div class="ui-widget"  style="float:right; margin-right:25px">
-									<select id="bank" class="combos">
+									<label for="bank" class="bh-visually-hidden">Bank:</label><select id="bank" class="combos">
 										<option value="">Select one...</option>';
 										$resulta =mysqli_query($db, "select * from banktbl order by name");
 										$num_resultsa = mysqli_num_rows($resulta);	
@@ -3397,7 +3398,7 @@ echo'<div class="cleaner_h50">	</div>
 								</div>
 								<div class="cleaner_h5"></div>
 								 <a class="labels">A/C No:</a>
-                                <input type="text" id="acno" name="field" class="in_field"/> 
+                                <label for="acno" class="bh-visually-hidden">Field</label><input type="text" id="acno" name="field" class="in_field"/> 
 								<div class="cleaner_h5"></div>
 
 								</div>
@@ -3405,7 +3406,7 @@ echo'<div class="cleaner_h50">	</div>
 								</form>
 									<h5>SKILLS</h5>
 								<a class="labels">Skill:</a>
-								<input style="" type="text" id="skill" name="field" class="in_field" placeholder="Type and Press and Enter..."/> 
+								<input type="text" id="skill" name="field" class="in_field" placeholder="Type and Press and Enter..."/> 
 								<div class="cleaner_h5"></div>
 								<div id="skills" style="width:100%;"></div>
 								<div class="cleaner"></div>
@@ -3420,7 +3421,7 @@ echo'<div class="cleaner_h50">	</div>
 								<form method="post" action="upload.php" enctype="multipart/form-data" target="leiframe">
       							
 								<dd class="custuploadblock_js">
-								<input style="opacity:0; float:left;" name="image" id="photoupload"  
+								<label for="photoupload" class="bh-visually-hidden">Image</label><input style="opacity:0; float:left;" name="image" id="photoupload"  
 								class="transfileform_js" type="file">
 								</dd>
 								<iframe name="leiframe" id="leiframe" class="leiframe">
@@ -3479,17 +3480,17 @@ echo'<div class="cleaner_h50">	</div>
 								<h5 style="text-align:center">Add New External Medic</h5>
 								<div class="cleaner_h5"></div> 
 								<a class="labels">Name:<span>*</span></a>
-                                <input type="text" id="name" name="age" class="in_field"   style="width:270px;margin-right:10px" value=""/> 
+                                <label for="name" class="bh-visually-hidden">Age</label><input type="text" id="name" name="age" class="in_field"   style="width:270px;margin-right:10px" value=""/> 
 								<div class="cleaner_h5"></div>
 								<a class="labels">Type:<span>*</span></a>
-                                <select class="select" id="type" name="type" style="width:282px;float:right;margin-right:10px;text-transform:uppercase">
+                                <label for="type" class="bh-visually-hidden">Type</label><select class="select" id="type" name="type" style="width:282px;float:right;margin-right:10px;text-transform:uppercase">
 								 	<option value="" selected="selected" disabled="disabled">Select One...</option>
 									<option value="Locum">Locum</option>
 									<option value="Consultant">Consultant</option>
 								</select>
 								<div class="cleaner_h5"></div>
 								<a class="labels">Position:<span>*</span></a>
-								<select id="pos" class="select" style="width:282px;float:right;margin-right:10px">
+								<label for="pos" class="bh-visually-hidden">Position:</label><select id="pos" class="select" style="width:282px;float:right;margin-right:10px">
 										<option value="">Select one...</option>';
 										$resulta =mysqli_query($db, "select * from positions order by name");
 										$num_resultsa = mysqli_num_rows($resulta);	
@@ -3502,24 +3503,24 @@ echo'<div class="cleaner_h50">	</div>
 								<div class="cleaner_h5"></div>
 								<div class="cleaner_h5"></div>
 								<a class="labels">Address:</a>
-                                <input type="text" id="add" name="age" class="in_field"   style="width:270px; margin-right:10px" value=""/> 
+                                <label for="add" class="bh-visually-hidden">Age</label><input type="text" id="add" name="age" class="in_field"   style="width:270px; margin-right:10px" value=""/> 
 								<div class="cleaner_h5"></div>
 								<a class="labels">Town:</a>
-                                <input type="text" id="towna" name="age" class="in_field"   style="width:270px;margin-right:10px" value=""/> 
+                                <label for="towna" class="bh-visually-hidden">Age</label><input type="text" id="towna" name="age" class="in_field"   style="width:270px;margin-right:10px" value=""/> 
 								<div class="cleaner_h5"></div>
 								 <a class="labels">Mobile No:<span>*</span></a>
-                                <input type="text" id="mobile" name="age" class="in_field"   style="width:270px;margin-right:10px" value=""/> 
+                                <label for="mobile" class="bh-visually-hidden">Age</label><input type="text" id="mobile" name="age" class="in_field"   style="width:270px;margin-right:10px" value=""/> 
 								<div class="cleaner_h5"></div>
 								 <a class="labels">Tel:</a>
-                                <input type="text" id="tel" name="age" class="in_field"   style="width:270px;margin-right:10px" value=""/> 
+                                <label for="tel" class="bh-visually-hidden">Age</label><input type="text" id="tel" name="age" class="in_field"   style="width:270px;margin-right:10px" value=""/> 
 								<div class="cleaner_h5"></div>
 								<a class="labels">Email:</a>
-                                <input type="text" id="email" name="age" class="in_field"   style="width:270px; margin-right:10px" value=""/> 
+                                <label for="email" class="bh-visually-hidden">Age</label><input type="text" id="email" name="age" class="in_field"   style="width:270px; margin-right:10px" value=""/> 
                                 <div class="cleaner_h5"></div>
 								 <a class="labels">User Name:<span>*</span></a>
-                                <input type="text" id="uname" name="age" class="in_field"   style="width:270px; margin-right:10px" value=""/>
+                                <label for="uname" class="bh-visually-hidden">Age</label><input type="text" id="uname" name="age" class="in_field"   style="width:270px; margin-right:10px" value=""/>
 								<div class="cleaner_h5"></div>';
-								echo"<img src=\"images/subm.jpg\" width=\"100\" height=\"50\" style=\"cursor:pointer; margin:20px 0 0 200px; float:left\" title=\"Submit\" onclick=\"addextmed(1)\"/>";
+								echo"<img alt=\"Submit\" src=\"images/subm.jpg\" width=\"100\" height=\"50\" style=\"cursor:pointer; margin:20px 0 0 200px; float:left\" title=\"Submit\" onclick=\"addextmed(1)\"/>";
 								echo'<div id="res1" style="float:left;width:40px; height:40px; margin-left:10px"></div></div>
 							</div>
 									
@@ -3530,7 +3531,7 @@ echo'<div class="cleaner_h50">	</div>
 								<a class="labels">Name:<span>*</span></a>
 								
                                 <div class="ui_widget"  style="margin-left:155px;float:left; width:200px">
-								<select id="extmedic" style="width:260px; margin-left:10px;">
+								<label for="extmedic" class="bh-visually-hidden">Name:</label><select id="extmedic" style="width:260px; margin-left:10px;">
 								<option value="">Select one...</option>';
 								$resulta =mysqli_query($db, "select * from extmedics order by name");
 								$num_resultsa = mysqli_num_rows($resulta);	
@@ -3541,18 +3542,18 @@ echo'<div class="cleaner_h50">	</div>
 								echo'</select>
 								</div><div class="cleaner_h5"></div>
 								<a class="labels">New Name:<span>*</span></a>
-								<input type="text" id="regn" name="age" class="in_field"   style="display:none" value=""/>
-                                <input type="text" id="name2" name="age" class="in_field"   style="width:270px;margin-right:10px" value=""/> 
+								<label for="regn" class="bh-visually-hidden">Age</label><input type="text" id="regn" name="age" class="in_field"   style="display:none" value=""/>
+                                <label for="name2" class="bh-visually-hidden">Age</label><input type="text" id="name2" name="age" class="in_field"   style="width:270px;margin-right:10px" value=""/> 
 								<div class="cleaner_h5"></div>
 								<a class="labels">Type:<span>*</span></a>
-                                <select class="select" id="type2" name="type" style="width:282px;float:right;margin-right:10px;text-transform:uppercase">
+                                <label for="type2" class="bh-visually-hidden">Type</label><select class="select" id="type2" name="type" style="width:282px;float:right;margin-right:10px;text-transform:uppercase">
 								 	<option value="" selected="selected" disabled="disabled">Select One...</option>
 									<option value="Locum">Locum</option>
 									<option value="Consultant">Consultant</option>
 								</select>
 								<div class="cleaner_h5"></div>
 								<a class="labels">Position:<span>*</span></a>
-								<select id="pos2" class="select"  style="width:282px;float:right;margin-right:10px">
+								<label for="pos2" class="bh-visually-hidden">Position:</label><select id="pos2" class="select"  style="width:282px;float:right;margin-right:10px">
 										<option value="">Select one...</option>';
 										$resulta =mysqli_query($db, "select * from positions order by name");
 										$num_resultsa = mysqli_num_rows($resulta);	
@@ -3564,24 +3565,24 @@ echo'<div class="cleaner_h50">	</div>
 									echo'</select>
 								<div class="cleaner_h5"></div>
 								<a class="labels">Address:</a>
-                                <input type="text" id="add2" name="age" class="in_field"   style="width:270px; margin-right:10px" value=""/> 
+                                <label for="add2" class="bh-visually-hidden">Age</label><input type="text" id="add2" name="age" class="in_field"   style="width:270px; margin-right:10px" value=""/> 
 								<div class="cleaner_h5"></div>
 								<a class="labels">Town:</a>
-                                <input type="text" id="town2" name="age" class="in_field"   style="width:270px;margin-right:10px" value=""/> 
+                                <label for="town2" class="bh-visually-hidden">Age</label><input type="text" id="town2" name="age" class="in_field"   style="width:270px;margin-right:10px" value=""/> 
 								<div class="cleaner_h5"></div>
 								 <a class="labels">Mobile No:<span>*</span></a>
-                                <input type="text" id="mobile2" name="age" class="in_field"   style="width:270px;margin-right:10px" value=""/> 
+                                <label for="mobile2" class="bh-visually-hidden">Age</label><input type="text" id="mobile2" name="age" class="in_field"   style="width:270px;margin-right:10px" value=""/> 
 								<div class="cleaner_h5"></div>
 								 <a class="labels">Tel:</a>
-                                <input type="text" id="tel2" name="age" class="in_field"   style="width:270px;margin-right:10px" value=""/> 
+                                <label for="tel2" class="bh-visually-hidden">Age</label><input type="text" id="tel2" name="age" class="in_field"   style="width:270px;margin-right:10px" value=""/> 
 								<div class="cleaner_h5"></div>
 								 <a class="labels">Email:</a>
-                                <input type="text" id="email2" name="age" class="in_field"   style="width:270px; margin-right:10px" value=""/>
+                                <label for="email2" class="bh-visually-hidden">Age</label><input type="text" id="email2" name="age" class="in_field"   style="width:270px; margin-right:10px" value=""/>
                                 <div class="cleaner_h5"></div>
 								 <a class="labels">User Name:<span>*</span></a>
-                                <input type="text" id="uname2" name="age" class="in_field"   style="width:270px; margin-right:10px" value=""/>';
-								echo"<img src=\"images/subm.jpg\" width=\"100\" height=\"50\" style=\"cursor:pointer; margin:5px 0 0 200px; float:left\" title=\"Submit\" onclick=\"editextmed(2)\"/>";
-								echo"<img src=\"images/empty.png\" width=\"50\" height=\"50\" style=\"cursor:pointer; margin:5px 0 0 20px; float:left\" title=\"Delete User\" onclick=\"delextmed()\"/>";
+                                <label for="uname2" class="bh-visually-hidden">Age</label><input type="text" id="uname2" name="age" class="in_field"   style="width:270px; margin-right:10px" value=""/>';
+								echo"<img alt=\"Submit\" src=\"images/subm.jpg\" width=\"100\" height=\"50\" style=\"cursor:pointer; margin:5px 0 0 200px; float:left\" title=\"Submit\" onclick=\"editextmed(2)\"/>";
+								echo"<img alt=\"Delete User\" src=\"images/empty.png\" width=\"50\" height=\"50\" style=\"cursor:pointer; margin:5px 0 0 20px; float:left\" title=\"Delete User\" onclick=\"delextmed()\"/>";
 								echo'<div id="res2" style="float:left;width:40px; height:40px; margin-left:10px"></div></div>
 								</div>
 									
@@ -3603,7 +3604,7 @@ echo'<div class="cleaner_h50">	</div>
 							if($result){
 								$resulta = mysqli_query($db, "insert into log values('0','".$username." edits External Medics database.','".$username."','".date('YmdHi')."','".date('H:i')."','".date('d/m/Y')."','1')");	
 					
-									echo'<p><img src="images/tick.png" style="margin-top:0px;width:30px; height:30px"></p>
+									echo'<p><img alt="Tick" src="images/tick.png" style="margin-top:0px;width:30px; height:30px"></p>
 									<script>
 										newextmedic();
 										$().customAlert();
@@ -3612,7 +3613,7 @@ echo'<div class="cleaner_h50">	</div>
 										</script>';
 									}
 									else{
-										echo'<p><img src="images/delete.png" style="margin-top:0px;width:30px; height:30px"></p>';
+										echo'<p><img alt="Delete" src="images/delete.png" style="margin-top:0px;width:30px; height:30px"></p>';
 										}
 							
 							break;
@@ -3622,9 +3623,9 @@ echo'<div class="cleaner_h50">	</div>
 								$result = mysqli_query($db, "DELETE from extmedics where id='".$regn."'");
 								if($result){
 									$resulta = mysqli_query($db, "insert into log values('0','".$username." deletes data from External Medics database.Id:".$_GET['regn']."','".$username."','".date('YmdHi')."','".date('H:i')."','".date('d/m/Y')."','1')");	
-									echo'<p><img src="images/tick.png" style="margin-top:0px;width:30px; height:30px"></p>';
+									echo'<p><img alt="Tick" src="images/tick.png" style="margin-top:0px;width:30px; height:30px"></p>';
 								}else{
-									echo'<p><img src="images/delete.png" style="margin-top:0px;width:30px; height:30px"></p>';
+									echo'<p><img alt="Delete" src="images/delete.png" style="margin-top:0px;width:30px; height:30px"></p>';
 								}
 							break;
 
@@ -3648,12 +3649,12 @@ echo'<div class="cleaner_h50">	</div>
 								echo'<div id="alertDiv" style="min-height:90px; width:320px">
 								<div id="tit" style="width:300px; background:#10504F; padding:5px 10px;border-radius:0px 5px 0 0">
 								<h5 style="margin-right:0px; color:#fff">Locum Punch-In';
-								echo"<div id=\"backatt\" style=\"width:9px; height:20px; float:right;margin:0px 5px 0 10px\"><img src=\"images/helper.png\" width=\"10\" height=\"20\" style=\"cursor:pointer;\" title=\"Help\" onclick=\"help30()\"/></div>";								
-								echo'<img src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5></div>
+								echo"<div id=\"backatt\" style=\"width:9px; height:20px; float:right;margin:0px 5px 0 10px\"><img alt=\"Help\" src=\"images/helper.png\" width=\"10\" height=\"20\" style=\"cursor:pointer;\" title=\"Help\" onclick=\"help30()\"/></div>";								
+								echo'<img alt="Delete" src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5></div>
 										<div class="cleaner_h5"></div>
 								<input type="hidden" id="ser" name="ser"  value="207"/>
 								<div class="ui_widget"  style="margin-left:10px;float:left; width:270px">
-								<select id="loc4" style="width:260px; margin-left:10px;">
+								<label for="loc4" class="bh-visually-hidden">Text field</label><select id="loc4" style="width:260px; margin-left:10px;">
 								<option value="">Select one...</option>';
 								$resulta =mysqli_query($db, "select * from extmedics where status=0 and type = 'Locum' order by name");
 									$num_resultsa = mysqli_num_rows($resulta);	
@@ -3672,12 +3673,12 @@ echo'<div class="cleaner_h50">	</div>
 								echo'<div id="alertDiv" style="min-height:90px; width:320px">
 								<div id="tit" style="width:300px; background:#10504F; padding:5px 10px;border-radius:0px 5px 0 0">
 								<h5 style="margin-right:0px; color:#fff">Locum Punch-Out';
-								echo"<div id=\"backatt\" style=\"width:9px; height:20px; float:right;margin:0px 5px 0 10px\"><img src=\"images/helper.png\" width=\"10\" height=\"20\" style=\"cursor:pointer;\" title=\"Help\" onclick=\"help30()\"/></div>";								
-								echo'<img src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5></div>
+								echo"<div id=\"backatt\" style=\"width:9px; height:20px; float:right;margin:0px 5px 0 10px\"><img alt=\"Help\" src=\"images/helper.png\" width=\"10\" height=\"20\" style=\"cursor:pointer;\" title=\"Help\" onclick=\"help30()\"/></div>";								
+								echo'<img alt="Delete" src="images/delete.png" style="width:20px; height:20px; float:right; border:1px solid #fff; border-radius:2px; cursor:pointer" onclick="hidediv()"></h5></div>
 										<div class="cleaner_h5"></div>
 								<input type="hidden" id="ser" name="ser"  value="208"/>
 								<div class="ui_widget"  style="margin-left:10px;float:left; width:270px">
-								<select id="loc4" style="width:260px; margin-left:10px;">
+								<label for="loc4" class="bh-visually-hidden">Text field</label><select id="loc4" style="width:260px; margin-left:10px;">
 								<option value="">Select one...</option>';
 								$resulta =mysqli_query($db, "select * from extmedics where status=1 and type = 'Locum' order by name");
 									$num_resultsa = mysqli_num_rows($resulta);	

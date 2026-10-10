@@ -26,16 +26,20 @@ if(isset($_GET['d2'])){
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="css/tokens.css" />
+<link rel="stylesheet" href="css/components.css" />
 <title>Better Health  Reports</title>
 <link id="favicon" href="images/fav.png" rel="icon" type="image/png"/>
 <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
 <link type="text/css" rel="stylesheet" href="css/green.css" media="all" />
+<link type="text/css" rel="stylesheet" href="css/feedback.css">
+<script type="text/javascript" src="js/bh-feedback.js"></script>
 <script type="text/javascript" src="js/functions.js"></script>
 </head>
 
 <body>
+	<a class="bh-skip" href="#bh-main">Skip to main content</a>
  
-       <div  class="owner">
+       <div  class="owner" id="bh-main" tabindex="-1">
         <div class="ptopret"></div>
        <div class="paper-top"></div>
        <div class="ptopret"></div>

@@ -15,6 +15,8 @@ include(__DIR__ . '/includes/functions.php');
 else{echo"<script>window.location.href = \"index.php\";</script>";exit;}
 ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="css/feedback.css">
+<script type="text/javascript" src="js/bh-feedback.js"></script>
 <script src="js/functions.js"></script>
 <script src="js/ajax.js"></script>
 <!-- <script>window.onload = setupRefresh</script> -->
@@ -71,8 +73,8 @@ switch($id){
 
 							if($posted==$num_resultx){
 									echo'<p>'.$posted.'/'.$num_resultx.' posted.</p>';
-									echo'<img src="images/tick.png" width="30px" height="30px"/>'; 
-									echo"<img src=\"images/tick.png\" style=\"margin-top:0px\"  width=\"22\" height=\"22\"/>";
+									echo'<img alt="" src="images/tick.png" width="30px" height="30px"/>'; 
+									echo"<img alt=\"\" src=\"images/tick.png\" style=\"margin-top:0px\"  width=\"22\" height=\"22\"/>";
 									}else{
 										$notposted=$num_resultx-$posted;
 										echo'<p>'.$notposted.'/'.$num_resultx.' not posted.';

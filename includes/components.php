@@ -9,15 +9,15 @@
             <div class="modal-body">
                 <div class="col-lg-12">
                     <div class="form-group col-md-6">
-                        <label for="ParentName" >Name</label>         
+                        <label for="parentname" >Name</label>         
                         <input type="text" class="form-control" id="parentname" placeholder="parentname" required>            
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="DiagnosisChildName" >ChildName:</label>
+                        <label for="childname" >ChildName:</label>
                         <input type="text" class="form-control" id="childname" placeholder="childname">                  
                     </div>      
                     <div class="form-group col-md-6">
-                        <label>DiagnosisCode:</label>                      
+                        <label for="diagnosiscode">DiagnosisCode:</label>                      
                         <input type="text" id="diagnosiscode" name="diagnosiscode" class="form-control" placeholder="diagnosiscode">                          
                     </div>           
                             
@@ -47,15 +47,15 @@
             <div class="modal-body">
                 <div class="col-lg-12">
                     <div class="form-group col-md-6">
-                        <label for="ParentName" >Name</label>         
+                        <label for="diagparentname" >Name</label>         
                         <input type="text" class="form-control" id="diagparentname" placeholder="parent name" required>            
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="DiagnosisChildName" >ChildName:</label>
+                        <label for="diagchildname" >ChildName:</label>
                         <input type="text" class="form-control" id="diagchildname" placeholder="child name">                  
                     </div>      
                     <div class="form-group col-md-6">
-                        <label>DiagnosisCode:</label>                      
+                        <label for="diagnosis_code">DiagnosisCode:</label>                      
                         <input type="text" id="diagnosis_code" name="diagnosis_code" class="form-control" placeholder="diagnosis code">                          
                     </div>           
                             

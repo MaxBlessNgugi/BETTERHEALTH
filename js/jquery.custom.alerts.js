@@ -1,91 +1,79 @@
 /*
- * Copyright (c) 2011 Arron Bailiss <arron@arronbailiss.com>
- * Based on original code from Steve Chipman (slayeroffice.com)
+ * BETTER-HEALTH HMIS — alert() bridge  (Roadmap R-04)
+ * --------------------------------------------------------------------------
+ * Supersedes Arron Bailiss' jquery.custom.alerts (2011), which replaced
+ * window.alert with a MODAL that greyed out the whole document and silently
+ * discarded any call that did not pass two arguments.
  *
- * Permission to use, copy, modify, and distribute this software for any
- * purpose with or without fee is hereby granted, provided that the above
- * copyright notice and this permission notice appear in all copies.
+ * The public surface is deliberately unchanged so that the ~1,550 existing
+ * call sites keep working without edits:
  *
- * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
- * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
- * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
- * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
- * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
- * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ *     alert('Error!', '<p>Enter the quantity!</p>');   // 2-arg (the convention)
+ *     alert('some message');                           // 1-arg (used to vanish)
+ *     $().customAlert();                               // now a no-op
+ *
+ * Behaviour now:
+ *     - a non-blocking toast (css/feedback.css) instead of a modal overlay
+ *     - announced to assistive tech via role="alert" / role="status"
+ *     - auto-dismisses, and can be closed or dismissed with Escape
+ *     - single-argument calls are shown instead of being dropped
+ *     - when the call site registered a field with bhTarget(), the message is
+ *       rendered inline next to that input instead of as a toast
+ *
+ * The component itself lives in js/bh-feedback.js, which must be loaded first.
  */
+(function ($) {
+	"use strict";
 
+	var fallback = null;   // the browser's native alert, captured once
 
-(function($) {
+	/* ---- $().customAlert() : kept so existing call sites keep working ---- */
+	$.fn.customAlert = function () { return this; };
 
-	$.fn.customAlert = function(options) {
-		var settings = {
-			'alertOk'   : 'OK',
-			'draggable' : true,
-			'modal' : true
-		};
-		
-		if (options) $.extend(settings, options);
-		
-		if (document.getElementById) {
-			window.defaultAlert = window.alert; // Call defaultAlert() to use the standard alert() behavior
-			window.alert = function(alertTitle, msgTxt) {
-				if ($('#modalDiv').length > 0 || alertTitle === undefined || msgTxt === undefined) return; // Only ever show one alert and ensure the required parameters have been passed
-				
-				// The modal div to block out the rest of the document whilst the alert is shown
-				var modalDiv = $('<div>').attr('id', 'modalDiv')
-					.height('100%'); // Make overlay cover the whole window
-				
-				// The alert container
-				var alertDiv = $('<div>').attr('id', 'alertDiv');
-				
-				// The alert title
-				var title = $('<div>').addClass('title')
-					.html(alertTitle);
-				
-				// The alert text to display
-				var msg = $('<div>').addClass('message')
-					.html(msgTxt);
-				
-				// OK button - will remove/close the alert on click
-				var okBtn = $('<a>').addClass('okBtn')
-					.text(settings.alertOk)
-					.attr('href', '#');
-				
-				// Append elements to document body
-				alertDiv.append(title)
-					.append(msg)
-					.append(okBtn);
-				$('body').append(modalDiv)
-					.append(alertDiv);
-				
-				// Center alert on page
-			
-				
-				// Make draggable
-				if (settings.draggable && $('#alertDiv').draggable) {
-					$('#alertDiv').draggable({
-						handle	: '.title',
-						opacity	: .4
-					});
-					$('#alertDiv .title').css('cursor', 'move');
-				}
-				
-				// Bind OK button to remove/close alert
-				$('#alertDiv .okBtn').click(function(e) {
-					e.preventDefault();
-					$('#alertDiv, #modalDiv').remove();
-				});
-				
-				// Bind enter key to trigger remove/close alert
-				$('#alertDiv .okBtn').focus();
-				$(window).keydown(function(e) {
-					if (e.keyCode == '13'||e.keyCode == '27') {
-						$('#alertDiv .okBtn').click();
-						$(this).unbind('keydown');
-					}
-				});
-			};
+	/* ---- decide where a message should go -------------------------------- */
+	function route(title, msg, oneArg) {
+		if (typeof window.bhNotify !== "function") {
+			/* component not on this page — never lose the message */
+			if (fallback) { fallback(oneArg ? title : (title + "\n\n" + msg)); }
+			return;
 		}
-	};
+
+		/* a field target registered by bhTarget($('#x')) -> inline message */
+		var target = (typeof window.bhTakePending === "function") ? window.bhTakePending() : null;
+		if (target && !oneArg && msg != null && msg !== "") {
+			if (typeof window.bhFieldError === "function") { window.bhFieldError(target, msg); return; }
+		}
+
+		var type = (typeof window.bhClassify === "function")
+			? window.bhClassify(title, msg)
+			: "info";
+
+		if (oneArg) { window.bhNotify(type, "", title); }
+		else { window.bhNotify(type, title, msg); }
+	}
+
+	/* ---- install the override -------------------------------------------- */
+	function install() {
+		if (!document.getElementById) return;
+		try { fallback = window.alert; } catch (e) { return; }
+		if (fallback && fallback.bh) return;          /* already installed */
+
+		window.alert = function (title, msg) {
+			if (title === undefined && msg === undefined) return;   /* alert() */
+			if (msg === undefined || msg === null) { route(title, "", true); return; }
+			if (title === undefined || title === null) { route(msg, "", true); return; }
+			route(title, msg, false);
+		};
+		window.alert.bh = true;
+		window.defaultAlert = fallback;
+	}
+
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", install);
+	} else {
+		install();
+	}
+	/* jQuery may still be parsing when this runs */
+	$(install);
+
 })(jQuery);

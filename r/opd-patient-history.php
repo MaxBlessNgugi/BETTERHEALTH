@@ -34,9 +34,12 @@ $logo=stripslashes($row['Logo']);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="../css/tokens.css" />
+<link rel="stylesheet" href="../css/components.css" />
 <title>Better Health Patients History Reports</title>
 <link id="favicon" href="../images/fav.png" rel="icon" type="image/png"/>
 <script type="text/javascript" src="../js/jquery.js"></script>
+<link type="text/css" rel="stylesheet" href="../css/feedback.css">
+<script type="text/javascript" src="../js/bh-feedback.js"></script>
 <script src="../js/functions.js"></script>
 <script type="text/javascript" src="../js/connectcode-javascript-code39.js"></script>
 <script src="../js/excellentexport.js"></script>
@@ -51,6 +54,7 @@ font-family: Verdana, Geneva, sans-serif;
 </head>
 
 <body>
+	<a class="bh-skip" href="#bh-main">Skip to main content</a>
 
 <?php 
 
@@ -86,9 +90,9 @@ $rowx=mysqli_fetch_array($resultx);
 
 ?>
 <?php
-echo'<div style="width:740px;min-height:260px; border:2px solid #333; overflow:auto;font-size:11px;padding:5px">
+echo'<div style="width:740px;min-height:260px; border:2px solid #333; overflow:auto;font-size:11px;padding:5px" id="bh-main" tabindex="-1">
 <div style="clear:both; margin-bottom:10px"></div>
-<img src="../'.$logo.'" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
+<img alt="Logo" src="../'.$logo.'" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
 <p style="text-align:center;font-size:14px; font-weight:bold;margin:0 0 0 0px">
 '.$comname.'<br/>P.O BOX '.$Add.'<br/> TEL: '.$tel.'<br/> OFFICIAL OUT PATIENT RECORD<br/><strong style="font-size:14px">Date:'.$date.'<br/>Record No: '.$rcptno.'</strong></p>
 <div style="clear:both"></div>
@@ -98,7 +102,7 @@ echo'<div style="width:740px;min-height:260px; border:2px solid #333; overflow:a
 <strong>Patient Name: </strong>'.stripslashes($row['PatName']).'&nbsp; &nbsp;&nbsp;&nbsp;
 Age:'.stripslashes($rowx['age']).'&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 
 <strong>Record ID: </strong>'.$rcptno.'</p><div style="clear:both; margin-bottom:2px"></div>
-<img src="../images/adobe.png" style="height:30px; float:right; margin-right:10px;  margin-top:-53px; cursor:pointer" onclick="window.print() " title="Convert to Pdf"/>
+<img alt="Convert to Pdf" src="../images/adobe.png" style="height:30px; float:right; margin-right:10px;  margin-top:-53px; cursor:pointer" onclick="window.print() " title="Convert to Pdf"/>
 
 <p  style="text-align:center;font-size:12px; text-transform:uppercase; color:#000; background:#fff; margin-top:0px; padding-top:0">
 <strong>Insurance:</strong>'.stripslashes($rowx['insurer']).'&nbsp; &nbsp;&nbsp;&nbsp;<strong>Card No:</strong>'.stripslashes($rowx['cardno']).' &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<strong>ID No:</strong>'.stripslashes($rowx['idno']).'&nbsp; &nbsp;&nbsp;&nbsp;<strong>Date: </strong>'.stripslashes($row['TransDate']).'</p>';
@@ -201,7 +205,7 @@ echo '<div style="clear:both; margin-bottom:5px"></div>';
 	}
 echo'</p>';
 echo'<div style="clear:both; margin:10px 0; border-bottom:1px solid #333"></div>';
-echo'<div style="float:right; margin:0 5px 0 0px;"><img src="../images/IMG-20240206-WA0003.png" style="width:300px; height:60px; margin-right:100px;" /></div>';
+echo'<div style="float:right; margin:0 5px 0 0px;"><img alt="IMG 20240206 WA0003" src="../images/IMG-20240206-WA0003.png" style="width:300px; height:60px; margin-right:100px;" /></div>';
 //echo'<div style="clear:both; margin-bottom:60px"></div>';
 
 //echo '<div style="clear:both; margin-bottom:40px"></div>';<p style="font-size:11px;margin:-10px 20px 0 20px"><strong>History:</strong>'.$brk.' '.strip_tags(stripslashes($rowb['prescription']), '<br/>').'</p>

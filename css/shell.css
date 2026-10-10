@@ -1,0 +1,207 @@
+/* ==========================================================================
+   BETTER-HEALTH HMIS — Application Shell (Roadmap R-10)
+   Loaded AFTER every other stylesheet so its rules win ties against the
+   legacy template sheets. Depends on css/tokens.css for all values.
+
+   Covers: semantic module navigation (replacing image sprites), global
+   search, collapsible quick-access sidebar, responsive + keyboard states.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Top bar / header
+   -------------------------------------------------------------------------- */
+#header { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3, 12px); }
+
+.bh-topbar-search {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 8px);
+  flex: 1 1 220px;
+  min-width: 180px;
+  max-width: 420px;
+}
+.bh-topbar-search label {
+  font-size: var(--text-sm, 13px);
+  font-weight: var(--weight-medium, 500);
+  color: var(--color-text-muted, #64748B);
+  white-space: nowrap;
+}
+.bh-topbar-search input {
+  flex: 1 1 auto;
+  min-width: 120px;
+  min-height: var(--tap-target, 44px);
+  padding: 8px var(--space-3, 12px);
+  font-family: var(--font-sans, inherit);
+  font-size: var(--text-base, 15px);
+  color: var(--color-text, #1e293b);
+  background: var(--color-surface, #fff);
+  border: 1px solid var(--color-border-control, #64748b);
+  border-radius: var(--radius-md, 8px);
+}
+.bh-topbar-search input:focus {
+  border-color: var(--color-action, #0f766e);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.20);
+}
+.bh-search-count {
+  font-size: var(--text-xs, 12px);
+  color: var(--color-text-muted, #64748b);
+  white-space: nowrap;
+}
+.bh-search-count[data-state="empty"] { color: var(--color-danger, #dc2626); }
+
+/* --------------------------------------------------------------------------
+   Module navigation — replaces the 160x49 image sprites with text + icons.
+   Specificity ties #templatemo_menu ul li a.<sprite>; shell.css loads last.
+   -------------------------------------------------------------------------- */
+#templatemo_menu ul li a.bh-nav-item {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2, 8px);
+  min-height: var(--tap-target, 44px);
+  width: auto;
+  min-width: 148px;
+  height: auto;
+  margin: 5px 4px 0 4px;
+  padding: 6px var(--space-3, 12px);
+  background: none;
+  background-image: none;
+  color: var(--color-heading, #0f172a);
+  font-family: var(--font-sans, inherit);
+  font-size: var(--text-base, 15px);
+  font-weight: var(--weight-medium, 500);
+  line-height: 1.2;
+  text-align: left;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md, 8px);
+  cursor: pointer;
+}
+#templatemo_menu ul li a.bh-nav-item:hover,
+#templatemo_menu ul li a.bh-nav-item.selected {
+  background: var(--primary-50, #f0fdfa);
+  border-color: var(--primary-200, #ccfbf1);
+  color: var(--color-action, #0f766e);
+}
+#templatemo_menu ul li a.bh-nav-item:focus-visible {
+  outline: var(--focus-ring, 2px solid #0f766e);
+  outline-offset: 2px;
+}
+#templatemo_menu ul li a.bh-nav-item[aria-expanded="true"] {
+  background: var(--primary-100, #f0fdfa);
+  border-color: var(--primary-300, #99f6e4);
+  color: var(--color-action, #0f766e);
+}
+
+.bh-nav-icon { flex: 0 0 auto; display: inline-flex; color: currentColor; }
+.bh-nav-icon svg { display: block; width: 20px; height: 20px; }
+.bh-nav-text { flex: 1 1 auto; white-space: nowrap; }
+
+/* Keyboard-opened submenu (ddsmoothmenu only opens on hover) */
+#templatemo_menu ul li.is-open > ul {
+  display: block !important;
+  height: auto !important;
+  max-height: none;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+#templatemo_menu ul li.is-open > a.bh-nav-item {
+  background: var(--primary-100, #f0fdfa);
+  border-color: var(--primary-300, #99f6e4);
+}
+
+/* Sub-menu links: make href-less onclick items look and focus like controls */
+#templatemo_menu ul ul a[onclick]:not([href]) { cursor: pointer; }
+#templatemo_menu ul ul a[onclick]:not([href]):focus-visible,
+#templatemo_menu ul ul a[tabindex]:focus-visible {
+  outline: var(--focus-ring, 2px solid #0f766e);
+  outline-offset: -2px;
+  background: var(--primary-50, #f0fdfa);
+}
+
+/* --------------------------------------------------------------------------
+   Quick-access sidebar — collapse rail (280 px open / 72 px closed)
+   -------------------------------------------------------------------------- */
+#sidep { transition: width var(--transition-base, 240ms ease); }
+#sidep.is-collapsed { width: 72px; max-width: 72px; }
+#sidep.is-collapsed > *:not(.bh-rail-toggle) { display: none; }
+
+.bh-rail-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2, 8px);
+  width: 100%;
+  min-height: var(--tap-target, 44px);
+  margin: 0 0 var(--space-2, 8px) 0;
+  padding: 0 var(--space-2, 8px);
+  font-family: var(--font-sans, inherit);
+  font-size: var(--text-sm, 13px);
+  font-weight: var(--weight-medium, 500);
+  color: var(--color-action, #0f766e);
+  background: var(--color-surface, #fff);
+  border: 1px solid var(--color-border-control, #64748b);
+  border-radius: var(--radius-md, 8px);
+  cursor: pointer;
+}
+.bh-rail-toggle:hover { background: var(--primary-50, #f0fdfa); }
+.bh-rail-toggle:focus-visible { outline: var(--focus-ring, 2px solid #0f766e); outline-offset: 2px; }
+#sidep.is-collapsed .bh-rail-toggle .bh-rail-label { display: none; }
+
+/* --------------------------------------------------------------------------
+   Role-aware favourites (surfaced above the 104 report screens)
+   -------------------------------------------------------------------------- */
+.bh-favourites { margin: var(--space-3, 12px) 0; }
+.bh-favourites h3 {
+  margin: 0 0 var(--space-2, 8px);
+  font-size: var(--text-sm, 13px);
+  font-weight: var(--weight-semibold, 600);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.bh-favourites ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.bh-favourites a,
+.bh-favourites button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: var(--tap-target, 44px);
+  padding: 8px var(--space-3, 12px);
+  font-family: var(--font-sans, inherit);
+  font-size: var(--text-sm, 13px);
+  text-align: left;
+  text-decoration: none;
+  color: var(--color-text, #1e293b);
+  background: var(--color-surface, #fff);
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: var(--radius-md, 8px);
+  cursor: pointer;
+}
+.bh-favourites a:hover,
+.bh-favourites button:hover { background: var(--primary-50, #f0fdfa); border-color: var(--primary-200, #ccfbf1); }
+.bh-favourites a:focus-visible,
+.bh-favourites button:focus-visible { outline: var(--focus-ring, 2px solid #0f766e); outline-offset: 2px; }
+#sidep.is-collapsed .bh-favourites { display: none; }
+
+/* Search-hit highlight (1.4.10 reflow — never hides content) */
+.bh-search-hit { background: var(--warning-100, #fef3c7); border-radius: 3px; }
+
+/* --------------------------------------------------------------------------
+   Responsive shell
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  #templatemo_menu ul li a.bh-nav-item { min-width: 0; }
+}
+@media (max-width: 768px) {
+  #header { flex-direction: column; align-items: stretch; }
+  .bh-topbar-search { max-width: none; }
+  #templatemo_menu ul { display: flex; flex-wrap: wrap; gap: 4px; }
+  #sidep, #sidep.is-collapsed { width: auto; max-width: none; float: none; }
+  #sidep.is-collapsed > *:not(.bh-rail-toggle) { display: block; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #sidep { transition: none !important; }
+}

@@ -30,6 +30,7 @@ if (isset($_SESSION['valid_user'])) {
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="css/tokens.css" />
+<link rel="stylesheet" href="css/components.css" />
 <title>Better Health Hospital Management Information System</title>
 <meta name="keywords" content="betterhealth" />
 <meta name="description" content="betterhealth" />
@@ -242,7 +243,9 @@ ddsmoothmenu.init({
 })
 
 </script> 
+<link type="text/css" rel="stylesheet" href="css/feedback.css">
 <link type="text/css" rel="stylesheet" href="css/jquery.custom.alerts.css">
+<script type="text/javascript" src="js/bh-feedback.js"></script>
 <script type="text/javascript" src="js/jquery.custom.alerts.js"></script>
 <link rel="stylesheet" href="css/website.css" type="text/css" media="screen"/>
 <script type="text/javascript" src="js/jquery.tinyscrollbar.min.js"></script>
@@ -476,15 +479,16 @@ var area1,area2,area3,area4,area5,area6,area7,area8,area9,area10,area11,area12,a
 	
 </head>
 <body id="body" onmousemove="reset_interval()" onclick="reset_interval()" onkeypress="reset_interval()" onscroll="reset_interval()">
+	<a class="bh-skip" href="#mainp">Skip to main content</a>
 
 <div id="templatemo_container"  class="site">
  <div id="header">
-    	<div class="site" id="sitename_panel"><img src="images/applogo.png" style="width:200px;height:50px" title="AppCo Systems"/></div>
+    	<div class="site" id="sitename_panel"><img alt="AppCo Systems" src="images/applogo.png" style="width:200px;height:50px" title="AppCo Systems"/></div>
         
 <div id="templatemo_menu" class="ddsmoothmenu">
             <ul>
                
-          	<li><a class="patients"></a>
+          	<li><a aria-label="patients" class="patients"></a>
              <ul>
              <?php 
 			 
@@ -533,7 +537,7 @@ var area1,area2,area3,area4,area5,area6,area7,area8,area9,area10,area11,area12,a
               ?>
              </ul> 
             </li>
-              <li><a class="consultations"></a>
+              <li><a aria-label="consultations" class="consultations"></a>
                  <ul style="width:494px">
              <li style="width:164px; border-right:2px  dashed #000; float:left">
                 <?php
@@ -712,7 +716,7 @@ var area1,area2,area3,area4,area5,area6,area7,area8,area9,area10,area11,area12,a
 						 ?>
                 </ul>
               </li>
-             <li><a class="finance"></a>
+             <li><a aria-label="finance" class="finance"></a>
                     <ul>
                      <?php
 				 if($arr[126]=='YES'){
@@ -753,7 +757,7 @@ var area1,area2,area3,area4,area5,area6,area7,area8,area9,area10,area11,area12,a
 				?>
              	 </ul>
                </li>
-              <li><a class="inventory"></a>
+              <li><a aria-label="inventory" class="inventory"></a>
                 <ul style="width:328px">
              	<li style="width:164px; border-right:2px  dashed #000; float:left">
              	 <p style="color:#0085B2; text-decoration:underline">Stock Management</p>
@@ -835,7 +839,7 @@ var area1,area2,area3,area4,area5,area6,area7,area8,area9,area10,area11,area12,a
                      </ul> 
             
               
-              <li><a class="reports"></a> 
+              <li><a aria-label="reports" class="reports"></a> 
             <ul style="width:824px">
              <li style="width:164px; border-right:2px  dashed #000; float:left">
               <?php
@@ -1107,7 +1111,7 @@ echo'</li>';
 				?>
       </ul>
       </li>
-      <li><a class="employees"></a>
+      <li><a aria-label="employees" class="employees"></a>
     <ul style="width:495px">
    	<li style="width:164px; border-right:2px  dashed #000; float:left">
    <?php
@@ -1185,7 +1189,7 @@ echo'</li>';
                </li>
               	</ul>
               </li>
-             <li><a class="settings"></a>
+             <li><a aria-label="settings" class="settings"></a>
               <ul>
                <?php
 			  	if($arr[198]=='YES'){
@@ -1269,7 +1273,7 @@ echo'</li>';
   <div style="width:auto; height:40px; border:1px solid #0085B2; background:#fff; padding:0 0px; border-radius:0px">
   <?php 
   	
-	echo'<img src="'.$photo.'" style="float:left;max-height:40px;">
+	echo'<img alt="Photo" src="'.$photo.'" style="float:left;max-height:40px;">
 	<p style="margin-left:10px; color:#10504F; font-size:15px; margin-top:3px; float:left">Logged in as: '.$username.'<br/>
 	<small style="size:10px">Dept:'.$userdep.'</small></p>';
 	# - '.$usuario['usertype'].' - '.$usuario['old_in_user_type'].'
@@ -1282,27 +1286,27 @@ $row=mysqli_fetch_array($result);
 
   ?>
  <div style="height:105px; border:1px solid #0085B2; background:#fff; padding:0 0px; border-radius:0px;margin-top:5px">
-  <img src="images/logo.png" style="float:left;max-height:95px; margin:0px 10px 0 0px"/>
+  <img alt="Logo" src="images/logo.png" style="float:left;max-height:95px; margin:0px 10px 0 0px"/>
  <p style="font-size:12px; margin-top:5px; margin-right:5px; color:#000">Licensed to:<br/><strong style="font-size:12px;color:#333;"><?php echo strtoupper(stripslashes($row['CompanyName'])) ?></strong><br/><?php echo strtoupper(stripslashes($row['Motto'])) ?><br/></p>
 </div>
 <h2 style="color:#fff;margin:7px 0 7px 5px">Quick Access Panel</h2>
 <div id="accordion">
 <h3 ><a style="color:#fff" href="#">Start a Task</a></h3>
 	<div>
-    <img src="images/profile.png" style="width:17px; height:17px; margin-top:0px; float:left"/>
+    <img alt="Profile" src="images/profile.png" style="width:17px; height:17px; margin-top:0px; float:left"/>
 	<a id="sidelink" style="float:left; margin:1px 0 0 5px; font-size:11px; color:#000;cursor:pointer; text-decoration:none" onclick="homepage();">Dashboard</a>
     <div class="cleaner" style="margin-bottom:5px"></div> 
-    <img src="images/att.jpg" style="width:17px; height:17px; margin-top:0px; float:left"/>
+    <img alt="Att" src="images/att.jpg" style="width:17px; height:17px; margin-top:0px; float:left"/>
 	<a id="sidelink" style="float:left; margin:1px 0 0 5px; font-size:11px; color:#000; cursor:pointer; text-decoration:none" onclick="reception();">Reception</a>
     <div class="cleaner" style="margin-bottom:5px"></div> 
-     <img src="images/delete.png" style="width:17px; height:17px; margin-top:0px; float:left"/>
+     <img alt="Delete" src="images/delete.png" style="width:17px; height:17px; margin-top:0px; float:left"/>
 	<a id="sidelink" style="float:left; margin:1px 0 0 5px; font-size:11px; color:#000; cursor:pointer; text-decoration:none" onclick="hidenewstude();">Exit Main Display</a>
     <div class="cleaner" style="margin-bottom:5px"></div> 
   	</div>
 	<h3 style="color:#fff"><a style="color:#fff" href="#">Quick Item Find</a></h3>
 	<div>
 	  <div class="ui-widget" style="margin-left:-12px">
-	<select id="item1">
+	<label for="item1" class="bh-visually-hidden">Quick Item Find</label><select id="item1">
 		<option value="">Select one...</option>
         <?php
 		$resulta =mysqli_query($db, "select * from items  where ".$_SESSION['rights']." order by ItemName");
@@ -1318,7 +1322,7 @@ $row=mysqli_fetch_array($result);
     <h3 style="color:#fff"><a style="color:#fff" href="#">Quick Patient Find</a></h3>
             <div style="height:70px">
              	 <div class="ui-widget" style="margin-left:-12px">
-	<select id="pnt1">
+	<label for="pnt1" class="bh-visually-hidden">Quick Patient Find</label><select id="pnt1">
 		<option value="">Select one...</option>
         <?php
 		
@@ -1351,7 +1355,7 @@ echo'<div id="chata" style="height:90px; padding-bottom:5px;" ondblclick="refres
 										$chat=stripslashes($row['chat']);
 					echo"
 		<p style=\"font-size:12px; color:#333; margin:0px 0px; cursor:pointer;\">";
-		echo"<img src=\"images/bullet.png\" style=\"width:12px; height:12px; margin:0 3px -2px 0\" /><strong style=\"color:#0085B2\">".$name."</strong>-".$chat."</p>";
+		echo"<img alt=\"\" src=\"images/bullet.png\" style=\"width:12px; height:12px; margin:0 3px -2px 0\" /><strong style=\"color:#0085B2\">".$name."</strong>-".$chat."</p>";
 									}
 										
 										
@@ -1360,8 +1364,8 @@ echo'<div id="chata" style="height:90px; padding-bottom:5px;" ondblclick="refres
 		<form action="#" method="get">
 		<div id="search" class="input_field" style="float:left;margin:10px;width:180px; padding:0">
 		<input type="text" placeholder="Write Something..." name="keyword" id="comme"  class="input_field" style="border:0; float:left;width:130px;"';echo"/>";
-		echo'<input type="text"  id="" class="" style="font-size:12px; display:none; width:50px"/>';
-				echo"<img src=\"images/back2.png\" onclick=\"postchat('".$username."')\" height=\"24\" width=\"24\" id=\"searchbutton\" style=\"margin:3px 5px 0 0; float:right; cursor:pointer\">
+		echo'<input aria-label="Text field" type="text"  id="" class="" style="font-size:12px; display:none; width:50px"/>';
+				echo"<img alt=\"\" src=\"images/back2.png\" onclick=\"postchat('".$username."')\" height=\"24\" width=\"24\" id=\"searchbutton\" style=\"margin:3px 5px 0 0; float:right; cursor:pointer\">
 				</div></form>";
 				echo'<div id="xclusive" style="width:50px; height:50px; display:none"></div>';
 ?>  
@@ -1373,7 +1377,7 @@ echo'<div id="chata" style="height:90px; padding-bottom:5px;" ondblclick="refres
 </div><!-- End demo -->
 
   </div>
-   <div id="mainp">
+   <div id="mainp" tabindex="-1">
    
    
      
@@ -1417,21 +1421,21 @@ echo'<div id="chata" style="height:90px; padding-bottom:5px;" ondblclick="refres
     
 </div><!--end container-->
 <div id="warddialog" title="Assign a Bed">
-<a class="labels" style="">Bed No:</a>
-<input type="text" id="bednoo"  class="in_field" value="" style="width:120px;float:right; margin-right:10px; border-color:var(--color-danger, #DC2626)" disabled="disabled"/> 
-<input type="text" id="a"  class="in_field" value="" style="display:none"/> 
+<a class="labels">Bed No:</a>
+<label for="bednoo" class="bh-visually-hidden">Bed No:</label><input type="text" id="bednoo"  class="in_field" value="" style="width:120px;float:right; margin-right:10px; border-color:var(--color-danger, #DC2626)" disabled="disabled"/> 
+<label for="a" class="bh-visually-hidden">Bed No:</label><input type="text" id="a"  class="in_field" value="" style="display:none"/> 
 <div class="cleaner_h10"></div>
-<a class="labels" style="">Room No:</a>
-<input type="text" id="roomno"  class="in_field" value="" style="width:120px;float:right; margin-right:10px ;border-color:var(--color-danger, #DC2626)" disabled="disabled"/> 
+<a class="labels">Room No:</a>
+<label for="roomno" class="bh-visually-hidden">Room No:</label><input type="text" id="roomno"  class="in_field" value="" style="width:120px;float:right; margin-right:10px ;border-color:var(--color-danger, #DC2626)" disabled="disabled"/> 
 <div class="cleaner_h10"></div>
-<a class="labels" style="">Room Type:</a>
-<input type="text" id="roomtype"  class="in_field" value="" style="width:120px;float:right; margin-right:10px; border-color:var(--color-danger, #DC2626)" disabled="disabled"/> 
+<a class="labels">Room Type:</a>
+<label for="roomtype" class="bh-visually-hidden">Room Type:</label><input type="text" id="roomtype"  class="in_field" value="" style="width:120px;float:right; margin-right:10px; border-color:var(--color-danger, #DC2626)" disabled="disabled"/> 
 <div class="cleaner_h10"></div>
-<a class="labels" style="">Ward Type:</a>
-<input type="text" id="wardtype"  class="in_field" value="" style="width:120px;float:right; margin-right:10px; border-color:var(--color-danger, #DC2626)" disabled="disabled"/> 
+<a class="labels">Ward Type:</a>
+<label for="wardtype" class="bh-visually-hidden">Ward Type:</label><input type="text" id="wardtype"  class="in_field" value="" style="width:120px;float:right; margin-right:10px; border-color:var(--color-danger, #DC2626)" disabled="disabled"/> 
 <input type="hidden" id="bbid"/>
 <div class="cleaner_h10"></div>
- <a class="labels" style="">Patient:<span>*</span></a><div class="cleaner"></div>
+ <a class="labels">Patient:<span>*</span></a><div class="cleaner"></div>
 <div id="yepyep">
 
 </div>
@@ -1447,7 +1451,7 @@ echo'<div id="chata" style="height:90px; padding-bottom:5px;" ondblclick="refres
 	<input type="text" id="ledgername" class="input_field" style="width:250px" placeholder="Enter ledger name" />
 	<div class="cleaner_h10"></div>
 	<a class="labels">Ledger Type:<span>*</span></a>
-	<select class="select" id="ledgertype" style="width:150px;">
+	<label for="ledgertype" class="bh-visually-hidden">Ledger Type:</label><select class="select" id="ledgertype" style="width:150px;">
 		<option value="">Select an option</option>
 		<option value="Asset">Asset</option>
 		<option value="Liability">Liability</option>
@@ -1458,7 +1462,7 @@ echo'<div id="chata" style="height:90px; padding-bottom:5px;" ondblclick="refres
 	</select>
 	<div class="cleaner_h10"></div>
 	<a class="labels">Category:<span>*</span></a>
-	<select class="select" id="ledgercat" style="width:150px;margin-left:20px">
+	<label for="ledgercat" class="bh-visually-hidden">Category:</label><select class="select" id="ledgercat" style="width:150px;margin-left:20px">
 		<option value="">Select an option</option>
 		<option value="Other">Other</option>
 		<option value="Cashier">Cashier</option>
@@ -1467,10 +1471,10 @@ echo'<div id="chata" style="height:90px; padding-bottom:5px;" ondblclick="refres
 	</select>
 	<div class="cleaner_h10"></div>
 	<a class="labels" style="margin-left:10px">Create as a main account with subledgers
-		<input type="checkbox" id="newledgerhassubledgers_cb" style="cursor:pointer;" />
+		<label for="newledgerhassubledgers_cb" class="bh-visually-hidden">PhysicalAsset</label><input type="checkbox" id="newledgerhassubledgers_cb" style="cursor:pointer;" />
 	</a>
 	<div class="cleaner_h10"></div>
-	<img src="images/subm.jpg" style="width:60px; height:30px; margin-left:100px; cursor:pointer;" onclick="addnewledger()" />
+	<img alt="Subm" src="images/subm.jpg" style="width:60px; height:30px; margin-left:100px; cursor:pointer;" onclick="addnewledger()" />
 	<div id="newled" style="float:right"></div>
 	</div>
 
@@ -1479,7 +1483,7 @@ echo'<div id="chata" style="height:90px; padding-bottom:5px;" ondblclick="refres
 		<div class="cleaner_h10"></div>
 		<div class="cleaner_h10"></div>
 		<a class="labels" style="margin-right:5px;">Main Ledger:<span>*</span></a>
-		<select class="select" id="new_subledger_ledgerid" style="width:250px;">
+		<label for="new_subledger_ledgerid" class="bh-visually-hidden">Main Ledger:</label><select class="select" id="new_subledger_ledgerid" style="width:250px;">
 			<option value="">Select an Option</option>
 			<?php
 			$mainLedgers = mysqli_query($db, "SELECT `ledgerid`,`name` FROM `ledgers` WHERE `status`=1 AND `ledgerid`!=601 AND `isMainLedger`=1 ORDER BY `ledgerid` ASC");
@@ -1493,7 +1497,7 @@ echo'<div id="chata" style="height:90px; padding-bottom:5px;" ondblclick="refres
 		<input type="text" id="new_subledger_name" class="input_field" style="width:200px" placeholder="Enter Name" />
 		<div class="cleaner_h10"></div>
 		<div class="cleaner_h10"></div>
-		<img src="images/subm.jpg" style="width:60px; height:30px; margin-left:100px; cursor:pointer" onclick="addNewSubledger()" />
+		<img alt="Subm" src="images/subm.jpg" style="width:60px; height:30px; margin-left:100px; cursor:pointer" onclick="addNewSubledger()" />
 		<div id="newsubledres" style="float:right"></div>
 	</div>
 
@@ -1511,7 +1515,7 @@ echo'<div id="chata" style="height:90px; padding-bottom:5px;" ondblclick="refres
     <a class="labels">Parts :<span>*</span></a>
   <input type="text" id="transferparts"  placeholder="In Parts" class="input_field" style="width:250px;margin-left:10px;"/> 
 	<div class="cleaner_h10"></div>
- <img src="images/subm.jpg" style="width:60px; height:30px; margin-left:100px; cursor:pointer" onclick="postnewdeds()"/>
+ <img alt="Subm" src="images/subm.jpg" style="width:60px; height:30px; margin-left:100px; cursor:pointer" onclick="postnewdeds()"/>
  <div id="newprac" style="float:right"></div>
   </div>
 
@@ -1526,47 +1530,47 @@ echo'<div id="chata" style="height:90px; padding-bottom:5px;" ondblclick="refres
 		</script>
   <div style="display:none" id="adminauth" title="Function Authorization"/>
     <a class="labels" style="text-decoration:blink">User Name:<span>*</span></a>
-  <input type="text" id="adname" class="input_field" style="width:150px"/> 
+  <label for="adname" class="bh-visually-hidden">User Name:</label><input type="text" id="adname" class="input_field" style="width:150px"/> 
 	<div class="cleaner_h10"></div>
     <a class="labels">Password:<span>*</span></a>
-  <input type="password" id="adpass" class="input_field" style="width:150px; margin-left:10px"/> 
+  <label for="adpass" class="bh-visually-hidden">Password:</label><input type="password" id="adpass" class="input_field" style="width:150px; margin-left:10px"/> 
 	<div class="cleaner_h10"></div>
- <img src="images/subm.jpg" style="width:60px; height:30px; margin-left:100px; cursor:pointer" onclick="adlog()"/>
+ <img alt="Subm" src="images/subm.jpg" style="width:60px; height:30px; margin-left:100px; cursor:pointer" onclick="adlog()"/>
  <div id="adlog" style="float:right"></div>
   </div>
   
   
    <div style="display:none" id="adminauth2" title="Function Authorization"/>
     <a class="labels" style="text-decoration:blink">User Name:<span>*</span></a>
-  <input type="text" id="adname2" class="input_field" style="width:150px"/> 
+  <label for="adname2" class="bh-visually-hidden">User Name:</label><input type="text" id="adname2" class="input_field" style="width:150px"/> 
 	<div class="cleaner_h10"></div>
     <a class="labels">Password:<span>*</span></a>
-  <input type="password" id="adpass2" class="input_field" style="width:150px; margin-left:10px"/>
+  <label for="adpass2" class="bh-visually-hidden">Password:</label><input type="password" id="adpass2" class="input_field" style="width:150px; margin-left:10px"/>
   <input type="hidden" id="authid"/> 
 	<div class="cleaner_h10"></div>
- <img src="images/subm.jpg" style="width:60px; height:30px; margin-left:100px; cursor:pointer" onclick="adlog2()"/>
+ <img alt="Subm" src="images/subm.jpg" style="width:60px; height:30px; margin-left:100px; cursor:pointer" onclick="adlog2()"/>
  <div id="adlog2" style="float:right"></div>
   </div>
   
   
   <div  style="display:none" id="addnewday" title="Add New Day-Drug Record"/>
     <a class="labels" style="text-decoration:blink">Day:<span>*</span></a>
-  <input type="text" id="datepick16" class="input_field" style="width:150px"/> 
+  <label for="datepick16" class="bh-visually-hidden">Day:</label><input type="text" id="datepick16" class="input_field" style="width:150px"/> 
   <input type="hidden" id="daycode"/>
 	<div class="cleaner_h10"></div>
- <img src="images/subm.jpg" style="width:60px; height:30px; margin-left:100px; cursor:pointer" onclick="adsiku()"/>
+ <img alt="Subm" src="images/subm.jpg" style="width:60px; height:30px; margin-left:100px; cursor:pointer" onclick="adsiku()"/>
  <div id="adsiku" style="float:right"></div>
   </div>
  
  <div style="display:none" id="messagelog" title="New Message Alert">
-    <a class="labels" id="mess"></a>
+    <a aria-label="labels" class="labels" id="mess"></a>
     <div id="messaudio" style="float:right"></div>
   </div>
     <div style="display:none" id="newmessage" title="Create New Message"/>
       <a class="labels">To:<span>*</span></a>
    <?php 
 echo'<div class="ui-widget" style="margin:0 10px 0 0px;  float:left; width:120px">
-	<select id="user1">
+	<label for="user1" class="bh-visually-hidden">To:</label><select id="user1">
 		<option value="">Select one...</option>';
 	$resulta =mysqli_query($db, "select * from users where name!='".$username."' order by name");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -1594,9 +1598,9 @@ echo'<div class="ui-widget" style="margin:0 10px 0 0px;  float:left; width:120px
 	<a class="labels">Message:<span>*</span></a>
 		<div class="cleaner"></div>
 		<div id="taskadd" class="input_field" style="float:left;margin:5px 10px 10px 0px;width:330px; padding:0; background:#fff">
-		<textarea  id="mezzage"  class="input_field" style="border:0; float:left;width:280px; font-size:11px;background:#fff; height:60px"';echo"></textarea>";
-		echo'<input type="text"  id="" class="" style="font-size:12px; display:none; width:50px"/>';
-				echo"<img src=\"images/back2.png\" title=\"Send Message\" onclick=\"sendmessage('".$username."')\" height=\"24\" width=\"24\" id=\"searchbutton\" style=\"margin:3px 5px 0 0; float:right; cursor:pointer\">
+		<label for="mezzage" class="bh-visually-hidden">Message:</label><textarea  id="mezzage"  class="input_field" style="border:0; float:left;width:280px; font-size:11px;background:#fff; height:60px"';echo"></textarea>";
+		echo'<input aria-label="Message:" type="text"  id="" class="" style="font-size:12px; display:none; width:50px"/>';
+				echo"<img alt=\"Send Message\" src=\"images/back2.png\" title=\"Send Message\" onclick=\"sendmessage('".$username."')\" height=\"24\" width=\"24\" id=\"searchbutton\" style=\"margin:3px 5px 0 0; float:right; cursor:pointer\">
 				</div>";                
  ?> 
   
@@ -1605,20 +1609,20 @@ echo'<div class="ui-widget" style="margin:0 10px 0 0px;  float:left; width:120px
    <!-- New Bed -->
   <div style="display:none" id="newbed" title="Add New Bed"/>
     <a class="labels">Bed No:<span>*</span></a>
-  <input type="text" id="bedno1" class="input_field" style="width:150px; float:right; margin-right:10px"/> 
+  <label for="bedno1" class="bh-visually-hidden">Bed No:</label><input type="text" id="bedno1" class="input_field" style="width:150px; float:right; margin-right:10px"/> 
 	<div class="cleaner_h10"></div>
     <a class="labels">Room No:<span>*</span></a>
-  <input type="text" id="roomna2" class="input_field" style="width:150px; float:right; margin-right:10px"/> 
+  <label for="roomna2" class="bh-visually-hidden">Room No:</label><input type="text" id="roomna2" class="input_field" style="width:150px; float:right; margin-right:10px"/> 
 	<div class="cleaner_h10"></div>
     <a class="labels">Room Type:<span>*</span></a>
- <select class="select" id="roomtyp1" style="width:150px; float:right; margin-right:10px">
+ <label for="roomtyp1" class="bh-visually-hidden">Room Type:</label><select class="select" id="roomtyp1" style="width:150px; float:right; margin-right:10px">
 										<option value="male">male</option>
 										<option value="female">female</option>
                                         <option value="either">Either</option>
 	</select> 
 	<div class="cleaner_h10"></div>
       <a class="labels">Ward Type:<span>*</span></a>
- <select class="select" id="wardtyp1" style="width:150px; float:right; margin-right:10px">
+ <label for="wardtyp1" class="bh-visually-hidden">Ward Type:</label><select class="select" id="wardtyp1" style="width:150px; float:right; margin-right:10px">
 								<option value="AMENITY_A">AMENITY A</option>
 								<option value="AMENITY_B">AMENITY B</option>
 								<option value="ISOLATION_A">ISOLATION A</option>
@@ -1630,7 +1634,7 @@ echo'<div class="ui-widget" style="margin:0 10px 0 0px;  float:left; width:120px
 								<option value="PAEDIATRICS">PAEDIATRICS</option>
 	</select> 
 	<div class="cleaner_h10"></div>
- <img src="images/subm.jpg" style="width:60px; height:30px; margin-left:100px; cursor:pointer" onclick="addnewbed()"/>
+ <img alt="Subm" src="images/subm.jpg" style="width:60px; height:30px; margin-left:100px; cursor:pointer" onclick="addnewbed()"/>
  <div id="newward" style="float:right"></div>
   </div>
   
@@ -1638,7 +1642,7 @@ echo'<div class="ui-widget" style="margin:0 10px 0 0px;  float:left; width:120px
    <!-- New Computer -->
   <div style="display:none" id="addnewcomp" title="Add New Computer"/>
     <a class="labels">Name:<span>*</span></a>
-  <input type="text" id="compname" class="input_field" style="width:150px; float:right; margin-right:10px"/> 
+  <label for="compname" class="bh-visually-hidden">Name:</label><input type="text" id="compname" class="input_field" style="width:150px; float:right; margin-right:10px"/> 
 	<div class="cleaner_h10"></div>
     <a class="labels">Dept:<span>*</span></a>
     <?php
@@ -1650,7 +1654,7 @@ echo'<div class="ui-widget" style="margin:0 10px 0 0px;  float:left; width:120px
 								$arr[]=stripslashes($row['Branchname']);
 							}
 	?>
- <select class="select" id="compdep" style="width:250px; float:right; margin-right:10px">
+ <label for="compdep" class="bh-visually-hidden">Dept:</label><select class="select" id="compdep" style="width:250px; float:right; margin-right:10px">
 										<option value="male">TRIAGE</option>
 										<option value="female">GENERAL CONSULTATIONS</option>
                                         <?php
@@ -1659,20 +1663,20 @@ echo'<div class="ui-widget" style="margin:0 10px 0 0px;  float:left; width:120px
 	</select> 
 	<div class="cleaner_h10"></div>
     <a class="labels">IP:<span>*</span></a>
-  <input type="text" id="compip" class="input_field" style="width:150px; float:right; margin-right:10px"/> 
+  <label for="compip" class="bh-visually-hidden">IP:</label><input type="text" id="compip" class="input_field" style="width:150px; float:right; margin-right:10px"/> 
 	<div class="cleaner_h10"></div>
     
 	<div class="cleaner_h10"></div>
- <img src="images/subm.jpg" style="width:60px; height:30px; margin-left:100px; cursor:pointer" onclick="addnewcomp()"/>
+ <img alt="Subm" src="images/subm.jpg" style="width:60px; height:30px; margin-left:100px; cursor:pointer" onclick="addnewcomp()"/>
  <div id="newcomp" style="float:right"></div>
   </div>
   
      <!-- New Bank -->
   <div style="display:none" id="addnewbank" title="Add New Bank"/>
     <a class="labels">Name:<span>*</span></a>
-  <input type="text" id="bankname" class="input_field" style="width:250px; float:right; margin-right:10px"/> 
+  <label for="bankname" class="bh-visually-hidden">Name:</label><input type="text" id="bankname" class="input_field" style="width:250px; float:right; margin-right:10px"/> 
 	<div class="cleaner_h10"></div>
- <img src="images/subm.jpg" style="width:60px; height:30px; margin-left:100px; cursor:pointer" onclick="addnewbank()"/>
+ <img alt="Subm" src="images/subm.jpg" style="width:60px; height:30px; margin-left:100px; cursor:pointer" onclick="addnewbank()"/>
  <div id="newbank" style="float:right"></div>
   </div>
 
@@ -1755,14 +1759,14 @@ echo'<div class="ui-widget" style="margin:0 10px 0 0px;  float:left; width:120px
  ?>
 <?php
 echo'<div id="ncalendar" title="My Tasks" style="overflow-y:auto; height:700px; display:none">
-					<a class="labels" style="">Subject:<span>*</span></a><input type="text" id="subject" name="oname"  class="in_field" value="" style="width:280px;float:left; margin-left:10px"/> 
+					<a class="labels">Subject:<span>*</span></a><label for="subject" class="bh-visually-hidden">Oname</label><input type="text" id="subject" name="oname"  class="in_field" value="" style="width:280px;float:left; margin-left:10px"/> 
 					<div class="cleaner_h10"></div>
-					<a class="labels" style="">Location:</a><input type="text" id="location" name="oname"  class="in_field" value=""  style="width:280px;float:left; margin-left:10px"/> 
+					<a class="labels">Location:</a><label for="location" class="bh-visually-hidden">Oname</label><input type="text" id="location" name="oname"  class="in_field" value=""  style="width:280px;float:left; margin-left:10px"/> 
 					<div class="cleaner_h10"></div>';
 					$resultc =mysqli_query($db, "select * from tasks order by Name asc");
 					$num_resultsc = mysqli_num_rows($resultc);
-					echo'<a class="labels" style="">Category:</a>
-					<select class="select" id="category" style="float:left; width:200px; margin-left:10px">';
+					echo'<a class="labels">Category:</a>
+					<label for="category" class="bh-visually-hidden">Category:</label><select class="select" id="category" style="float:left; width:200px; margin-left:10px">';
 							
 							for ($i=0; $i <$num_resultsc; $i++) {
 								$rowc=mysqli_fetch_array($resultc);
@@ -1771,44 +1775,44 @@ echo'<div id="ncalendar" title="My Tasks" style="overflow-y:auto; height:700px; 
 							echo'
 					</select>
 					<div class="cleaner_h10"></div>
-					<a class="labels" style="">Due:</a><input type="text" id="datepick" name="oname"  class="in_field" value="" style="float:left;width:80px;margin-left:5px"/> 
-					<select class="select" id="time1" style="float:left; width:55px; margin-left:5px">';
+					<a class="labels">Due:</a><label for="datepick" class="bh-visually-hidden">Oname</label><input type="text" id="datepick" name="oname"  class="in_field" value="" style="float:left;width:80px;margin-left:5px"/> 
+					<label for="time1" class="bh-visually-hidden">Due:</label><select class="select" id="time1" style="float:left; width:55px; margin-left:5px">';
 					for ($i=1; $i <13; $i++) {
 						echo'<option value="'.sprintf("%02d",$i).'">'.sprintf("%02d",$i).'</option>';
 							}
 							echo'
 					</select>
-					<select class="select" id="time2" style="float:left; width:55px; margin-left:5px">';
+					<label for="time2" class="bh-visually-hidden">Due:</label><select class="select" id="time2" style="float:left; width:55px; margin-left:5px">';
 					for ($i=0; $i <60; $i++) {
 						echo'<option value="'.sprintf("%02d",$i).'">'.sprintf("%02d",$i).'</option>';
 							}
 							echo'
 					</select>
-					<select class="select" id="time3" style="float:left; width:60px; margin-left:5px;">
+					<label for="time3" class="bh-visually-hidden">Text field</label><select class="select" id="time3" style="float:left; width:60px; margin-left:5px;">
 						<option value="AM">AM</option>
 						<option value="PM">PM</option>
 					</select>
 					<div class="cleaner_h10"></div>
-					<a class="labels" style="">Start:</a><input type="text" id="datepick2" name="oname"  class="in_field" value="" style="float:left;width:80px;margin-left:5px"/> 
-					<select class="select" id="time4" style="float:left; width:55px; margin-left:5px">';
+					<a class="labels">Start:</a><label for="datepick2" class="bh-visually-hidden">Oname</label><input type="text" id="datepick2" name="oname"  class="in_field" value="" style="float:left;width:80px;margin-left:5px"/> 
+					<label for="time4" class="bh-visually-hidden">Start:</label><select class="select" id="time4" style="float:left; width:55px; margin-left:5px">';
 					for ($i=1; $i <13; $i++) {
 						echo'<option value="'.sprintf("%02d",$i).'">'.sprintf("%02d",$i).'</option>';
 							}
 							echo'
 					</select>
-					<select class="select" id="time5" style="float:left; width:55px; margin-left:5px">';
+					<label for="time5" class="bh-visually-hidden">Start:</label><select class="select" id="time5" style="float:left; width:55px; margin-left:5px">';
 					for ($i=0; $i <60; $i++) {
 						echo'<option value="'.sprintf("%02d",$i).'">'.sprintf("%02d",$i).'</option>';
 							}
 							echo'
 					</select>
-					<select class="select" id="time6" style="float:left; width:60px; margin-left:5px;">
+					<label for="time6" class="bh-visually-hidden">Text field</label><select class="select" id="time6" style="float:left; width:60px; margin-left:5px;">
 						<option value="AM">AM</option>
 						<option value="PM">PM</option>
 					</select>
 					<div class="cleaner_h10"></div>
-					<a class="labels" style="">Status:</a>
-					<select class="select" id="status" style="float:left; width:100px; margin-left:5px;">
+					<a class="labels">Status:</a>
+					<label for="status" class="bh-visually-hidden">Status:</label><select class="select" id="status" style="float:left; width:100px; margin-left:5px;">
 						<option value="Not Started">Not Started</option>
 						<option value="In Progress">In Progress</option>
 						<option value="Completed">Completed</option>
@@ -1816,47 +1820,47 @@ echo'<div id="ncalendar" title="My Tasks" style="overflow-y:auto; height:700px; 
 						<option value="Deferred">Deferred</option>
 					</select>
 					<a class="labels" style="margin-left:5px">Priority:</a>
-					<select class="select" id="priority" style="float:left; width:80px; margin-left:5px;">
+					<label for="priority" class="bh-visually-hidden">Priority:</label><select class="select" id="priority" style="float:left; width:80px; margin-left:5px;">
 						<option value="Normal">Normal</option>
 						<option value="High">High</option>
 						<option value="Low">Low</option>
 					</select>
-					<input id="crex" style="display:none" value="1"/>
-					<input id="eid" style="display:none" value="00"/>
+					<label for="crex" class="bh-visually-hidden">Low</label><input id="crex" style="display:none" value="1"/>
+					<label for="eid" class="bh-visually-hidden">Low</label><input id="eid" style="display:none" value="00"/>
 					<div class="cleaner_h10"></div>
-					<a class="labels" style="">Complete:</a>
-					<select class="select" id="completer" style="float:left; width:55px; margin-left:5px">';
+					<a class="labels">Complete:</a>
+					<label for="completer" class="bh-visually-hidden">Complete:</label><select class="select" id="completer" style="float:left; width:55px; margin-left:5px">';
 					for ($i=0; $i <101; $i=$i+5) {
 						echo'<option value="'.sprintf("%02d",$i).'">'.sprintf("%02d",$i).'</option>';
 							}
 							echo'
 					</select><a class="labels" style="margin-left:3px">%</a>
 					<a class="labels" style="margin-left:10px">Reminder?</a>
-					<input type="checkbox" name="remind" id="remind" style="margin:8px 0 0 5px" onclick="showrem()" value="1"/>
+					<label for="remind" class="bh-visually-hidden">Remind</label><input type="checkbox" name="remind" id="remind" style="margin:8px 0 0 5px" onclick="showrem()" value="1"/>
 					<div class="cleaner_h10"></div>
 					<div id="showrem" style="display:none">
-					<a class="labels" style="">Reminder:</a><input type="text" id="datepick3" name="oname"  class="in_field" value="'.date('Y/m/d').'" style="float:left;width:80px;margin-left:5px"/> 
-					<select class="select" id="time7" style="float:left; width:55px; margin-left:5px">';
+					<a class="labels">Reminder:</a><label for="datepick3" class="bh-visually-hidden">Oname</label><input type="text" id="datepick3" name="oname"  class="in_field" value="'.date('Y/m/d').'" style="float:left;width:80px;margin-left:5px"/> 
+					<label for="time7" class="bh-visually-hidden">Reminder:</label><select class="select" id="time7" style="float:left; width:55px; margin-left:5px">';
 					for ($i=1; $i <13; $i++) {
 						echo'<option value="'.sprintf("%02d",$i).'">'.sprintf("%02d",$i).'</option>';
 							}
 							echo'
 					</select>
-					<select class="select" id="time8" style="float:left; width:55px; margin-left:5px">';
+					<label for="time8" class="bh-visually-hidden">Text field</label><select class="select" id="time8" style="float:left; width:55px; margin-left:5px">';
 					for ($i=0; $i <60; $i++) {
 						echo'<option value="'.sprintf("%02d",$i).'">'.sprintf("%02d",$i).'</option>';
 							}
 							echo'
 					</select>
-					<select class="select" id="time9" style="float:left; width:55px; margin-left:5px;">
+					<label for="time9" class="bh-visually-hidden">Text field</label><select class="select" id="time9" style="float:left; width:55px; margin-left:5px;">
 						<option value="AM">AM</option>
 						<option value="PM">PM</option>
 					</select>
 					</div>
 					<div class="cleaner"></div>
-					<a class="labels" style="">Notes</a>
+					<a class="labels">Notes</a>
 					<div class="cleaner_h10"></div>
-					<textarea id="notes" style="float:left;height:70px; width:320px" class="alergy" ></textarea>
+					<label for="notes" class="bh-visually-hidden">Notes</label><textarea id="notes" style="float:left;height:70px; width:320px" class="alergy" ></textarea>
 					<div class="cleaner_h10"></div>
 					<input type="button" value="Submit" style="float:left; margin-left:80px; cursor:pointer; width:80px" class="select" onclick="newtasks();"/>
 					<div id="taskstud" style="float:right;height:20px; "></div>			
@@ -1865,10 +1869,10 @@ echo'<div id="ncalendar" title="My Tasks" style="overflow-y:auto; height:700px; 
 	
 	
 	echo'<div id="nevent" title="Appointments" style="overflow-y:auto; height:700px; display:none">
-	<a class="labels" style="">Patient:<span>*</span></a>
+	<a class="labels">Patient:<span>*</span></a>
 	
 	<div class="ui-widget" style="margin:0 10px 0 10px;  float:left; width:280px">
-	<select id="patname14">
+	<label for="patname14" class="bh-visually-hidden">Patient:</label><select id="patname14">
 		<option value="">Select one...</option>';
 	$resulta =mysqli_query($db, "select * from patients where status=1 order by name");
 							$num_resultsa = mysqli_num_rows($resulta);	
@@ -1879,17 +1883,17 @@ echo'<div id="ncalendar" title="My Tasks" style="overflow-y:auto; height:700px; 
 	echo'</select>
 	</div>
 					<div class="cleaner_h10"></div>
-					<a class="labels" style="">Subject:<span>*</span></a><input type="text" id="subject2" name="oname"  class="in_field" value="" style="width:280px;float:left; margin-left:10px"/> 
+					<a class="labels">Subject:<span>*</span></a><label for="subject2" class="bh-visually-hidden">Oname</label><input type="text" id="subject2" name="oname"  class="in_field" value="" style="width:280px;float:left; margin-left:10px"/> 
 					<input type="hidden" id="pidd2" name="oname"  class="in_field" value="" style="diplay:none"/> 
 					<input type="hidden" id="pname2" name="oname"  class="in_field" value="" style="diplay:none"/> 
 					
 					<div class="cleaner_h10"></div>
-					<a class="labels" style="">Location:</a><input type="text" id="location2" name="oname"  class="in_field" value=""  style="width:280px;float:left; margin-left:10px"/> 
+					<a class="labels">Location:</a><label for="location2" class="bh-visually-hidden">Oname</label><input type="text" id="location2" name="oname"  class="in_field" value=""  style="width:280px;float:left; margin-left:10px"/> 
 					<div class="cleaner_h10"></div>';
 					$resultc =mysqli_query($db, "select * from tasks order by Name asc");
 					$num_resultsc = mysqli_num_rows($resultc);
-					echo'<a class="labels" style="">Category:</a>
-					<select class="select" id="category2" style="float:left; width:200px; margin-left:10px">';
+					echo'<a class="labels">Category:</a>
+					<label for="category2" class="bh-visually-hidden">Category:</label><select class="select" id="category2" style="float:left; width:200px; margin-left:10px">';
 							
 							for ($i=0; $i <$num_resultsc; $i++) {
 								$rowc=mysqli_fetch_array($resultc);
@@ -1898,44 +1902,44 @@ echo'<div id="ncalendar" title="My Tasks" style="overflow-y:auto; height:700px; 
 							echo'
 					</select>
 					<div class="cleaner_h10"></div>
-					<a class="labels" style="">Start:</a><input type="text" id="datepick6" name="oname"  class="in_field" value="'.date('Y/m/d').'" style="float:left;width:80px;margin-left:5px"/> 
-					<select class="select" id="time12" style="float:left; width:55px; margin-left:5px">';
+					<a class="labels">Start:</a><label for="datepick6" class="bh-visually-hidden">Oname</label><input type="text" id="datepick6" name="oname"  class="in_field" value="'.date('Y/m/d').'" style="float:left;width:80px;margin-left:5px"/> 
+					<label for="time12" class="bh-visually-hidden">Start:</label><select class="select" id="time12" style="float:left; width:55px; margin-left:5px">';
 					for ($i=1; $i <13; $i++) {
 						echo'<option value="'.sprintf("%02d",$i).'">'.sprintf("%02d",$i).'</option>';
 							}
 							echo'
 					</select>
-					<select class="select" id="time22" style="float:left; width:55px; margin-left:5px">';
+					<label for="time22" class="bh-visually-hidden">Text field</label><select class="select" id="time22" style="float:left; width:55px; margin-left:5px">';
 					for ($i=0; $i <60; $i++) {
 						echo'<option value="'.sprintf("%02d",$i).'">'.sprintf("%02d",$i).'</option>';
 							}
 							echo'
 					</select>
-					<select class="select" id="time32" style="float:left; width:60px; margin-left:5px;">
+					<label for="time32" class="bh-visually-hidden">Text field</label><select class="select" id="time32" style="float:left; width:60px; margin-left:5px;">
 						<option value="AM">AM</option>
 						<option value="PM">PM</option>
 					</select>
 					<div class="cleaner_h10"></div>
-					<a class="labels" style="">End:</a><input type="text" id="datepick7" name="oname"  class="in_field" value="" style="float:left;width:80px;margin-left:5px"/> 
-					<select class="select" id="time42" style="float:left; width:55px; margin-left:5px">';
+					<a class="labels">End:</a><label for="datepick7" class="bh-visually-hidden">Oname</label><input type="text" id="datepick7" name="oname"  class="in_field" value="" style="float:left;width:80px;margin-left:5px"/> 
+					<label for="time42" class="bh-visually-hidden">End:</label><select class="select" id="time42" style="float:left; width:55px; margin-left:5px">';
 					for ($i=1; $i <13; $i++) {
 						echo'<option value="'.sprintf("%02d",$i).'">'.sprintf("%02d",$i).'</option>';
 							}
 							echo'
 					</select>
-					<select class="select" id="time52" style="float:left; width:55px; margin-left:5px">';
+					<label for="time52" class="bh-visually-hidden">End:</label><select class="select" id="time52" style="float:left; width:55px; margin-left:5px">';
 					for ($i=0; $i <60; $i++) {
 						echo'<option value="'.sprintf("%02d",$i).'">'.sprintf("%02d",$i).'</option>';
 							}
 							echo'
 					</select>
-					<select class="select" id="time62" style="float:left; width:60px; margin-left:5px;">
+					<label for="time62" class="bh-visually-hidden">Text field</label><select class="select" id="time62" style="float:left; width:60px; margin-left:5px;">
 						<option value="AM">AM</option>
 						<option value="PM">PM</option>
 					</select>
 					<div class="cleaner_h10"></div>
-					<a class="labels" style="">Status:</a>
-					<select class="select" id="status2" style="float:left; width:100px; margin-left:5px;">
+					<a class="labels">Status:</a>
+					<label for="status2" class="bh-visually-hidden">Status:</label><select class="select" id="status2" style="float:left; width:100px; margin-left:5px;">
 						<option value="Not Started">Not Started</option>
 						<option value="In Progress">In Progress</option>
 						<option value="Completed">Completed</option>
@@ -1943,41 +1947,41 @@ echo'<div id="ncalendar" title="My Tasks" style="overflow-y:auto; height:700px; 
 						<option value="Deferred">Deferred</option>
 					</select>
 					<a class="labels" style="margin-left:5px">Priority:</a>
-					<select class="select" id="priority2" style="float:left; width:80px; margin-left:5px;">
+					<label for="priority2" class="bh-visually-hidden">Priority:</label><select class="select" id="priority2" style="float:left; width:80px; margin-left:5px;">
 						<option value="Normal">Normal</option>
 						<option value="High">High</option>
 						<option value="Low">Low</option>
 					</select>
-					<input id="crex2" style="display:none" value="1"/>
-					<input id="eid2" style="display:none" value="00"/>
+					<label for="crex2" class="bh-visually-hidden">Low</label><input id="crex2" style="display:none" value="1"/>
+					<label for="eid2" class="bh-visually-hidden">Low</label><input id="eid2" style="display:none" value="00"/>
 					<div class="cleaner_h10"></div>
-					<a class="labels" style="">Complete:</a>
-					<select class="select" id="completer2" style="float:left; width:55px; margin-left:5px">';
+					<a class="labels">Complete:</a>
+					<label for="completer2" class="bh-visually-hidden">Complete:</label><select class="select" id="completer2" style="float:left; width:55px; margin-left:5px">';
 					for ($i=0; $i <101; $i=$i+5) {
 						echo'<option value="'.sprintf("%02d",$i).'">'.sprintf("%02d",$i).'</option>';
 							}
 							echo'
 					</select><a class="labels" style="margin-left:3px">%</a>
 					<a class="labels" style="margin-left:10px">Reminder?</a>
-					<input type="checkbox" name="remind2" id="remind2" style="float:left;margin:8px 5px 0 5px" onclick="showrem2()" value="1"/>
+					<label for="remind2" class="bh-visually-hidden">Remind2</label><input type="checkbox" name="remind2" id="remind2" style="float:left;margin:8px 5px 0 5px" onclick="showrem2()" value="1"/>
 					<a class="labels" style="margin-left:10px">Reccur?</a>
-					<input type="checkbox" name="reccur" id="reccur" style="float:left;margin:8px 0px 0 5px" onclick="showrec()" value="1"/>
+					<label for="reccur" class="bh-visually-hidden">Reccur</label><input type="checkbox" name="reccur" id="reccur" style="float:left;margin:8px 0px 0 5px" onclick="showrec()" value="1"/>
 					<div class="cleaner_h10"></div>
 					<div id="showrem2" style="display:none">
-					<a class="labels" style="">Reminder:</a><input type="text" id="datepick8" name="oname"  class="in_field" value="" style="float:left;width:80px;margin-left:5px"/> 
-					<select class="select" id="time72" style="float:left; width:55px; margin-left:5px">';
+					<a class="labels">Reminder:</a><label for="datepick8" class="bh-visually-hidden">Oname</label><input type="text" id="datepick8" name="oname"  class="in_field" value="" style="float:left;width:80px;margin-left:5px"/> 
+					<label for="time72" class="bh-visually-hidden">Reminder:</label><select class="select" id="time72" style="float:left; width:55px; margin-left:5px">';
 					for ($i=1; $i <13; $i++) {
 						echo'<option value="'.sprintf("%02d",$i).'">'.sprintf("%02d",$i).'</option>';
 							}
 							echo'
 					</select>
-					<select class="select" id="time82" style="float:left; width:55px; margin-left:5px">';
+					<label for="time82" class="bh-visually-hidden">Reminder:</label><select class="select" id="time82" style="float:left; width:55px; margin-left:5px">';
 					for ($i=0; $i <60; $i++) {
 						echo'<option value="'.sprintf("%02d",$i).'">'.sprintf("%02d",$i).'</option>';
 							}
 							echo'
 					</select>
-					<select class="select" id="time92" style="float:left; width:55px; margin-left:5px;">
+					<label for="time92" class="bh-visually-hidden">Text field</label><select class="select" id="time92" style="float:left; width:55px; margin-left:5px;">
 						<option value="AM">AM</option>
 						<option value="PM">PM</option>
 					</select>
@@ -1985,12 +1989,12 @@ echo'<div id="ncalendar" title="My Tasks" style="overflow-y:auto; height:700px; 
 					</div>
 					
 					<div id="showrec" style="display:none">
-					<a class="labels" style="">Reccur Start:</a><input type="text" id="datepick4" name="oname"  class="in_field" value="'.date('Y/m/d').'" style="float:left;width:80px;margin-left:5px"/> 
+					<a class="labels">Reccur Start:</a><label for="datepick4" class="bh-visually-hidden">Oname</label><input type="text" id="datepick4" name="oname"  class="in_field" value="'.date('Y/m/d').'" style="float:left;width:80px;margin-left:5px"/> 
 					<a class="labels" style="margin-left:5px">End:</a>
-					<input type="text" id="datepick5" name="oname"  class="in_field" value="" style="float:left;width:80px;margin-left:5px"/> 
+					<label for="datepick5" class="bh-visually-hidden">Oname</label><input type="text" id="datepick5" name="oname"  class="in_field" value="" style="float:left;width:80px;margin-left:5px"/> 
 					<div class="cleaner_h10"></div>
-					<a class="labels" style="">Reccurence Pattern:</a>
-					<select class="select" id="recpattern" style="float:left; width:85px; margin-left:5px;">
+					<a class="labels">Reccurence Pattern:</a>
+					<label for="recpattern" class="bh-visually-hidden">Reccurence Pattern:</label><select class="select" id="recpattern" style="float:left; width:85px; margin-left:5px;">
 						<option value="1">Daily</option>
 						<option value="7">Weekly</option>
 						<option value="30">Monthly</option>
@@ -1999,8 +2003,8 @@ echo'<div id="ncalendar" title="My Tasks" style="overflow-y:auto; height:700px; 
 					</div>
 					
 					<div class="cleaner"></div>
-					<a class="labels" style="">Notes</a>
-					<textarea id="notes2" style="float:left;height:70px; width:320px" class="alergy" ></textarea>
+					<a class="labels">Notes</a>
+					<label for="notes2" class="bh-visually-hidden">Notes</label><textarea id="notes2" style="float:left;height:70px; width:320px" class="alergy" ></textarea>
 					<div class="cleaner_h10"></div>
 					<input type="button" value="Submit" style="float:left; margin-left:80px; cursor:pointer; width:80px" class="select" onclick="newevents();"/>
 					<div id="taskevent" style="float:right;height:20px; "></div>			

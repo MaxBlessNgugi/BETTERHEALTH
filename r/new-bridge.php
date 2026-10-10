@@ -35,16 +35,16 @@ switch ($SRC_ID) {
                         <div style="display:flex;justify-content:space-between;">
                             <div style="padding:8px;">
                               <label>START DATE</label>
-                              <input id="recon_startdate" type="text" value="' . $one_year_ago . '" class="chs" style="width:220px;" readonly>
+                              <label for="recon_startdate" class="bh-visually-hidden">START DATE</label><input id="recon_startdate" type="text" value="' . $one_year_ago . '" class="chs" style="width:220px;" readonly>
                             </div> 
                             <div style="padding:8px;">
                               <label>END DATE</label>
-                              <input id="recon_enddate" type="text" value="' . $today . '" class="chs" style="width:220px;" readonly>
+                              <label for="recon_enddate" class="bh-visually-hidden">END DATE</label><input id="recon_enddate" type="text" value="' . $today . '" class="chs" style="width:220px;" readonly>
                             </div> 
 
                             <div style="padding:8px;"> 
                                 <label>FILTER</label>
-                                <select id="recon_searchdispfilter" class="chs-select">
+                                <label for="recon_searchdispfilter" class="bh-visually-hidden">FILTER</label><select id="recon_searchdispfilter" class="chs-select">
                                     <option value="Unconfirmed" >Unconfirmed Only</option>
                                     <option value="All" >All</option>
                                 </select>
@@ -52,7 +52,7 @@ switch ($SRC_ID) {
 
                             <div style="padding:8px;"> 
                                 <label>BANK</label>
-                                <select id="recon_searchbank" class="chs-select">';
+                                <label for="recon_searchbank" class="bh-visually-hidden">BANK</label><select id="recon_searchbank" class="chs-select">';
         $result1stBank = mysqli_query($db, "SELECT `ledgerid`,`name` FROM `ledgers` WHERE ledgerid!=818 AND `category`='Bank' ORDER BY `ledgerid` DESC ");
         if (mysqli_num_rows($result1stBank) > 0) {
             $row1stBank = mysqli_fetch_assoc($result1stBank);
@@ -143,10 +143,10 @@ switch ($SRC_ID) {
                     $output .= '<td>0.00 </td>';
                 }
                 $output .= '<td style="text-align:center;"> 
-                                    <input id="bank_reconcb' . intval($row['transid']) . '" type="checkbox" name="bank_reconcb" value="' . intval($row['transid']) . '" data-amt="' . $amount . '" data-inc="0" class="bank_reconcb" >
+                                    <label for="bank_reconcb' . intval($row['transid']) . '" class="bh-visually-hidden">Bank Reconcb</label><input id="bank_reconcb' . intval($row['transid']) . '" type="checkbox" name="bank_reconcb" value="' . intval($row['transid']) . '" data-amt="' . $amount . '" data-inc="0" class="bank_reconcb" >
                                 </td>';
                 $output .= '<td style="text-align:center;"> 
-                                    <input id="reconcnote' . intval($row['transid']) . '" type="text" name="reconcnote" value="' . $reconNote . '" data-transid="' . intval($row['transid']) . '" data-bankid="' . $bankledgerid . '" class="input_field" style="width:80px;">
+                                    <label for="reconcnote' . intval($row['transid']) . '" class="bh-visually-hidden">Reconcnote</label><input id="reconcnote' . intval($row['transid']) . '" type="text" name="reconcnote" value="' . $reconNote . '" data-transid="' . intval($row['transid']) . '" data-bankid="' . $bankledgerid . '" class="input_field" style="width:80px;">
                                 </td>';
 
                 $output .= '</tr>';
@@ -191,7 +191,7 @@ switch ($SRC_ID) {
         $output .= '<div style="width:100%;">';
 
         $output .= '<div style="clear:both; margin-bottom:10px"></div>
-                            <img src="' . $hospitalLogo1 . '" style="max-height:90px; margin:0px 10px 20px 10px; position:absolute;" />
+                            <img alt="HospitalLogo1" src="' . $hospitalLogo1 . '" style="max-height:90px; margin:0px 10px 20px 10px; position:absolute;" />
                             <p style="text-align:center;font-size:11px; font-weight:bold;font-family:\'Lucida Sans Unicode\', \'Lucida Grande\', sans-serif;margin:0 0 0 0px">' . $hospitalName . '</p>
                             <div style="clear:both"></div>
                             <p style="text-align:center;font-size:11px; font-weight:bold;font-family:\'Lucida Sans Unicode\', \'Lucida Grande\', sans-serif;margin:0 0 0 0px">P.O BOX ' . $hospitalAddress . ' <br /> TEL: ' . $hospitalTel . '</p>
@@ -311,7 +311,7 @@ switch ($SRC_ID) {
 
         $output .= '<div style="width:90%;margin:20px;text-align:right;padding:10px;">
                         <form id="printreconrprt_form" action="./illness-management-form.php" method="post" target="_blank">
-                            <input id="bankreconrprt_html" type="text" name="bankreconrprt_html" style="display:none;">
+                            <label for="bankreconrprt_html" class="bh-visually-hidden">Bankreconrprt Html</label><input id="bankreconrprt_html" type="text" name="bankreconrprt_html" style="display:none;">
                             <button id="printreconreport_btn" type="button" class="btn btn-dark btn-sms" style="padding:6px 12px;cursor:pointer;" disabled>PRINT</button>
                         </form>
                     </div>';
@@ -392,10 +392,10 @@ switch ($SRC_ID) {
                             $output .= '<td>0.00 </td>';
                         }
                         $output .= '<td style="text-align:center;"> 
-                                <input id="bank_reconcb' . intval($row['transid']) . '" type="checkbox" name="bank_reconcb" value="' . intval($row['transid']) . '" data-amt="' . $amount . '" data-inc="0" class="bank_reconcb" >
+                                <label for="bank_reconcb' . intval($row['transid']) . '" class="bh-visually-hidden">Bank Reconcb</label><input id="bank_reconcb' . intval($row['transid']) . '" type="checkbox" name="bank_reconcb" value="' . intval($row['transid']) . '" data-amt="' . $amount . '" data-inc="0" class="bank_reconcb" >
                             </td>';
                         $output .= '<td style="text-align:center;"> 
-                                    <input id="reconcnote' . intval($row['transid']) . '" type="text" name="reconcnote" value="' . $reconNote . '" data-transid="' . intval($row['transid']) . '" data-bankid="' . $reconsearchbankledgerid . '" class="input_field" style="width:80px;">
+                                    <label for="reconcnote' . intval($row['transid']) . '" class="bh-visually-hidden">Reconcnote</label><input id="reconcnote' . intval($row['transid']) . '" type="text" name="reconcnote" value="' . $reconNote . '" data-transid="' . intval($row['transid']) . '" data-bankid="' . $reconsearchbankledgerid . '" class="input_field" style="width:80px;">
                                 </td>';
                         $output .= '</tr>';
                     }
@@ -456,7 +456,7 @@ switch ($SRC_ID) {
         $output .= '<h5 style="margin:10px 0; padding:8px 5px 5px 24px;"> ONBOARD BALANCES</h5>';
         $output .= '<div style="width:100%;padding:20px;">
                                     <a class="labels"> Category<span>*</span> </a>
-                                    <select id="onboardbals_category" class="input_field" style="margin-left:10px;">
+                                    <label for="onboardbals_category" class="bh-visually-hidden">Category</label><select id="onboardbals_category" class="input_field" style="margin-left:10px;">
                                         <option value="">Select an option </option>
                                         <option value="Bank">Bank </option>
                                         <option value="BankNoDepartment">Bank (No Department)</option>
@@ -500,7 +500,7 @@ switch ($SRC_ID) {
                                             <div class="cleaner_h10"></div>';
             if ($onboard_cat == 'Debtor') {
                 $output .= '<a class="labels" style="width:80px;">Debtor /Receivable <span>*</span> </a>
-                            <select id="onboardbals_subjectid" class="input_field" style="margin-left:10px;width:220px;"><option value="">Select an option </option>';
+                            <label for="onboardbals_subjectid" class="bh-visually-hidden">Debtor /Receivable</label><select id="onboardbals_subjectid" class="input_field" style="margin-left:10px;width:220px;"><option value="">Select an option </option>';
                 $result = mysqli_query($db, "SELECT CustomerId,Bal,CustomerName FROM creditcustomers WHERE AccountReceivableLedgerID>0 AND IncomeAccountLedgerID>0 AND CustomerName!='CASH' ORDER BY CustomerName DESC ");
                 while ($row = mysqli_fetch_assoc($result)) {
                     $output .= '<option value="' . intval($row['CustomerId']) . '">' . trim(stripslashes($row['CustomerName'])) . ' ' . number_format(floatval($row['Bal']), 2, '.', ',') . '</option>';
@@ -508,7 +508,7 @@ switch ($SRC_ID) {
                 $output .= '</select>';
                 $output .= '<div class="cleaner_h10"></div>';
                 $output .= '<a class="labels" style="width:80px;">Department (Income)<span>*</span> </a>
-                                <select id="onboardbals_departmentid" class="input_field" style="margin-left:10px;width:220px;"><option value="">Select an option </option>';
+                                <label for="onboardbals_departmentid" class="bh-visually-hidden">Department (Income)</label><select id="onboardbals_departmentid" class="input_field" style="margin-left:10px;width:220px;"><option value="">Select an option </option>';
                 $resultIncomeDepartment = mysqli_query($db, "SELECT ledgerid,bal,`name` FROM ledgers WHERE `type`='Income' AND mainLedgerId=635 AND `category`='Department' ORDER BY CAST(bal AS UNSIGNED) DESC ");
                 while ($rowIncomeDepartment = mysqli_fetch_assoc($resultIncomeDepartment)) {
                     $output .= '<option value="' . intval($rowIncomeDepartment['ledgerid']) . '">' . trim(stripslashes($rowIncomeDepartment['name'])) . ' </option>';
@@ -517,7 +517,7 @@ switch ($SRC_ID) {
                 $output .= '<div class="cleaner_h10"></div>';
             } else if ($onboard_cat == 'Creditor') {
                 $output .= '<a class="labels" style="width:80px;"> Creditor /Payable<span>*</span> </a>
-                            <select id="onboardbals_subjectid" class="input_field" style="margin-left:10px;width:220px;"><option value="">Select an Option </option>';
+                            <label for="onboardbals_subjectid" class="bh-visually-hidden">Creditor /Payable</label><select id="onboardbals_subjectid" class="input_field" style="margin-left:10px;width:220px;"><option value="">Select an Option </option>';
                 $result = mysqli_query($db, "SELECT CustomerId,Bal,CustomerName FROM creditsuppliers ORDER BY CustomerName DESC ");
                 while ($row = mysqli_fetch_assoc($result)) {
                     $output .= '<option value="' . intval($row['CustomerId']) . '">' . trim(stripslashes($row['CustomerName'])) . ' ' . number_format(floatval($row['Bal']), 2, '.', ',') . '</option>';
@@ -525,7 +525,7 @@ switch ($SRC_ID) {
                 $output .= '</select>';
                 $output .= '<div class="cleaner_h10"></div>';
                 $output .= '<a class="labels" style="width:80px;">Department (Expense)<span>*</span> </a>
-                                <select id="onboardbals_departmentid" class="input_field" style="margin-left:10px;width:220px;"><option value="">Select an Option </option>';
+                                <label for="onboardbals_departmentid" class="bh-visually-hidden">Department (Expense)</label><select id="onboardbals_departmentid" class="input_field" style="margin-left:10px;width:220px;"><option value="">Select an Option </option>';
                 $resultIncomeDepartment = mysqli_query($db, "SELECT ledgerid,bal,`name` FROM ledgers WHERE `type`='Expense' AND `category`='Department' ORDER BY CAST(bal AS UNSIGNED) DESC ");
                 while ($rowIncomeDepartment = mysqli_fetch_assoc($resultIncomeDepartment)) {
                     $output .= '<option value="' . intval($rowIncomeDepartment['ledgerid']) . '">' . trim(stripslashes($rowIncomeDepartment['name'])) . ' </option>';
@@ -534,7 +534,7 @@ switch ($SRC_ID) {
                 $output .= '<div class="cleaner_h10"></div>';
             } else if ($onboard_cat == 'Bank') {
                 $output .= '<a class="labels" style="width:80px;"> Bank/Cash<span>*</span> </a>
-                            <select id="onboardbals_subjectid" class="input_field" style="margin-left:10px;width:220px;"><option value="">Select an Option </option>';
+                            <label for="onboardbals_subjectid" class="bh-visually-hidden">Bank/Cash</label><select id="onboardbals_subjectid" class="input_field" style="margin-left:10px;width:220px;"><option value="">Select an Option </option>';
                 $result = mysqli_query($db, "SELECT `ledgerid`,`name`,`bal` FROM ledgers WHERE `ledgerid` IN(SELECT `ledgerid` FROM ledgers WHERE `type`='Asset' AND `category`='Bank' ORDER BY ledgerid ASC) OR `ledgerid` IN(SELECT `ledgerid` FROM ledgers WHERE `type`='Asset' AND isMainLedger=0 AND `category`='Cash' ORDER BY ledgerid ASC) ");
                 while ($row = mysqli_fetch_assoc($result)) {
                     $output .= '<option value="' . intval($row['ledgerid']) . '">' . trim(stripslashes($row['name'])) . '  ' . number_format(floatval($row['bal']), 2, '.', ',') . '</option>';
@@ -543,7 +543,7 @@ switch ($SRC_ID) {
 
                 $output .= '<div class="cleaner_h10"></div>';
                 $output .= '<a class="labels" style="width:80px;">Department (Income)<span>*</span> </a>
-                                <select id="onboardbals_departmentid" class="input_field" style="margin-left:10px;width:220px;"><option value="">Select an Option </option>';
+                                <label for="onboardbals_departmentid" class="bh-visually-hidden">Department (Income)</label><select id="onboardbals_departmentid" class="input_field" style="margin-left:10px;width:220px;"><option value="">Select an Option </option>';
                 $resultIncomeDepartment = mysqli_query($db, "SELECT ledgerid,bal,`name` FROM ledgers WHERE `type`='Income' AND mainLedgerId=635 AND `category`='Department' ORDER BY CAST(bal AS UNSIGNED) DESC ");
                 while ($rowIncomeDepartment = mysqli_fetch_assoc($resultIncomeDepartment)) {
                     $output .= '<option value="' . intval($rowIncomeDepartment['ledgerid']) . '">' . trim(stripslashes($rowIncomeDepartment['name'])) . ' </option>';
@@ -552,7 +552,7 @@ switch ($SRC_ID) {
                 $output .= '<div class="cleaner_h10"></div>';
             } else if ($onboard_cat == 'BankNoDepartment') {
                 $output .= '<a class="labels" style="width:80px;"> Bank/Cash<span>*</span> </a>
-                            <select id="onboardbals_subjectid" class="input_field" style="margin-left:10px;width:220px;"><option value="">Select an option </option>';
+                            <label for="onboardbals_subjectid" class="bh-visually-hidden">Bank/Cash</label><select id="onboardbals_subjectid" class="input_field" style="margin-left:10px;width:220px;"><option value="">Select an option </option>';
                 $result = mysqli_query($db, "SELECT `ledgerid`,`name`,`bal` FROM ledgers WHERE `ledgerid` IN(SELECT `ledgerid` FROM ledgers WHERE `type`='Asset' AND `category`='Bank' ORDER BY ledgerid ASC) OR `ledgerid` IN(SELECT `ledgerid` FROM ledgers WHERE `type`='Asset' AND isMainLedger=0 AND `category`='Cash' ORDER BY ledgerid ASC) ");
                 while ($row = mysqli_fetch_assoc($result)) {
                     $output .= '<option value="' . intval($row['ledgerid']) . '">' . trim(stripslashes($row['name'])) . '  ' . number_format(floatval($row['bal']), 2, '.', ',') . '</option>';
@@ -565,7 +565,7 @@ switch ($SRC_ID) {
             $output .= '</div>';
             $output .= '<div>
                             <a class="labels" style="width:140px;">Current Balance </a>
-                            <input id="onboardbals_acnt_currentbal" type="text" class="input_field" style="margin-left:10px;width:140px;" autocomplete="off" disabled="disabled">
+                            <label for="onboardbals_acnt_currentbal" class="bh-visually-hidden">Current Balance</label><input id="onboardbals_acnt_currentbal" type="text" class="input_field" style="margin-left:10px;width:140px;" autocomplete="off" disabled="disabled">
                             <div class="cleaner_h10"></div>';
 
             $output .= '<a class="labels" style="width:140px;"> Amount to Add<span>*</span> </a>
@@ -595,7 +595,7 @@ switch ($SRC_ID) {
         $output .= '<h5 style="margin:10px 0; padding:8px 5px 5px 24px;"> ASSET MANAGEMENT</h5>';
         $output .= '<div style="width:100%;padding:20px;">
                                     <a class="labels"> Action<span>*</span> </a>
-                                    <select id="assetmanagement_action" class="input_field" style="margin-left:10px;">
+                                    <label for="assetmanagement_action" class="bh-visually-hidden">Action</label><select id="assetmanagement_action" class="input_field" style="margin-left:10px;">
                                         <option value="">Select an Option </option>
                                         <option value="Register">Register Asset </option>
                                         <option value="Purchase">Purchase Asset </option>
@@ -644,7 +644,7 @@ switch ($SRC_ID) {
                 $output .= '<div class="cleaner_h10"></div>';
 
                 // $output .= '<a class="labels" style="width:80px;">Category <span>*</span> </a>
-                //             <select id="assetmanagement_assetcat" class="input_field" style="margin-left:10px;width:220px;"><option value="">Select an option </option>';
+                //             <label for="assetmanagement_assetcat" class="bh-visually-hidden">Category</label><select id="assetmanagement_assetcat" class="input_field" style="margin-left:10px;width:220px;"><option value="">Select an option </option>';
                 // $result = mysqli_query($db, "SELECT * FROM assetsubcategories  ORDER BY `name` ");
                 // while ($row = mysqli_fetch_assoc($result)) {
                 //     $output .= '<option value="' . intval($row['id']) . '">' . strtoupper(trim(stripslashes($row['name']))) . ' </option>';
@@ -653,7 +653,7 @@ switch ($SRC_ID) {
                 // $output .= '<div class="cleaner_h10"></div>';
 
                 $output .= '<a class="labels" style="width:80px;">Account<span>*</span> </a>
-                                <select id="assetmanagement_assetacntid" class="input_field" style="margin-left:10px;width:220px;"><option value="">Select an option </option>';
+                                <label for="assetmanagement_assetacntid" class="bh-visually-hidden">Account</label><select id="assetmanagement_assetacntid" class="input_field" style="margin-left:10px;width:220px;"><option value="">Select an option </option>';
                 $resultAssetAcnt = mysqli_query($db, "SELECT ledgerid,`name` FROM ledgers WHERE `type`='Asset' AND `category`='PhysicalAsset' AND mainLedgerId=1086 ");
                 while ($rowAssetAcnt = mysqli_fetch_assoc($resultAssetAcnt)) {
                     $output .= '<option value="' . intval($rowAssetAcnt['ledgerid']) . '">' . trim(stripslashes($rowAssetAcnt['name'])) . ' </option>';
@@ -670,7 +670,7 @@ switch ($SRC_ID) {
 
             $output .= '<div>';
             $output .= '<a class="labels" style="width:80px;">Department<span>*</span> </a>
-                                <select id="assetmanagement_assetdepartment" class="input_field" style="margin-left:10px;width:220px;"><option value="">Select an option </option>';
+                                <label for="assetmanagement_assetdepartment" class="bh-visually-hidden">Department</label><select id="assetmanagement_assetdepartment" class="input_field" style="margin-left:10px;width:220px;"><option value="">Select an option </option>';
             $resultAssetDepartment = mysqli_query($db, "SELECT CatId,ItemCat FROM categories  ");
             while ($rowAssetDepartment = mysqli_fetch_assoc($resultAssetDepartment)) {
                 $output .= '<option value="' . trim(stripslashes($rowAssetDepartment['ItemCat'])) . '">' . trim(stripslashes($rowAssetDepartment['ItemCat'])) . ' </option>';

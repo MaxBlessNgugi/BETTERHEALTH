@@ -1,7 +1,7 @@
 function Display_Load()
 {
 $("#loading").fadeIn(900,0);
-$("#display").html('<img id="img-spinner" src="images/load.gif" style="position:absolute; top:45%; left:50%" alt="Loading"/>');
+$("#display").html('<span id="img-spinner" class="bh-spinner" role="status" aria-label="Loading" style="position:absolute; top:45%; left:50%"></span>');
 }
 //Hide Loading Image
 function Hide_Load()

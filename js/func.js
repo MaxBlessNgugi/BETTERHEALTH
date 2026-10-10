@@ -17,7 +17,7 @@
 //    return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
 //  }; 
 
-var loader = '<img id="img-spinner" src="images/load.gif" style="position:absolute; top:45%; left:50%" alt="Loading"/>';
+var loader = '<span id="img-spinner" class="bh-spinner" role="status" aria-label="Loading" style="position:absolute; top:45%; left:50%"></span>';
 
 // $(function() { });
 //$(document).ready(function(){ });
@@ -384,7 +384,7 @@ function addnewemergencypat(){
    }else if(instatus==''){
       //var instatus="Companies";
       $().customAlert();
-      alert('Error!', '<p>Select mode of payment!</p>');
+      bhFieldError($('#currentins').parent().find('input:first'), '<p>Select mode of payment!</p>');
       $('#currentins').parent().find('input:first').focus();
    }
    
@@ -616,7 +616,7 @@ function checkIPDOPDStatus(rcptno){
 // function saveledg23sder(code){
 //    var type=$('#type' + code).val();
 //    var bal=$('#bal' + code).val();
-//    $('#save' + code).html('<img id="img-spinner" src="images/load.gif" style="position:absolute; top:25%; left:50%" alt="Loading"/>');
+//    $('#save' + code).html('<span id="img-spinner" class="bh-spinner" role="status" aria-label="Loading" style="position:absolute; top:25%; left:50%"></span>');
 //    $.ajax({
 //    url:'data.php',
 //    data:{id:'31.2',code:code,type:type,bal:bal},
@@ -649,7 +649,7 @@ function abouttoexpiry2(){
 }
 
 // function abouttoexpiry2(){
-//    $("#mainp").html('<img id="img-spinner" src="images/load.gif" style="position:absolute; top:45%; left:50%" alt="Loading"/>');
+//    $("#mainp").html('<span id="img-spinner" class="bh-spinner" role="status" aria-label="Loading" style="position:absolute; top:45%; left:50%"></span>');
 //    $.ajax({
 //    url:'bridgerep.php',
 //    data:{id:2},
@@ -660,7 +660,7 @@ function abouttoexpiry2(){
 // }
 
 // function abouttoexpiry3(){
-//    $("#mainp").html('<img id="img-spinner" src="images/load.gif" style="position:absolute; top:45%; left:50%" alt="Loading"/>');
+//    $("#mainp").html('<span id="img-spinner" class="bh-spinner" role="status" aria-label="Loading" style="position:absolute; top:45%; left:50%"></span>');
 //    $.ajax({
 //    url:'bridgerep.php',
 //    data:{id:5},

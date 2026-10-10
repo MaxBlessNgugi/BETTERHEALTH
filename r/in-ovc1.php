@@ -33,6 +33,7 @@ $logo=stripslashes($row['Logo']);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="../css/tokens.css" />
+<link rel="stylesheet" href="../css/components.css" />
 <title>Better Health OPD Visits Comparision Report</title>
 <link id="favicon" href="../images/fav.png" rel="icon" type="image/png"/>
 <style type="text/css">
@@ -60,6 +61,7 @@ $logo=stripslashes($row['Logo']);
 
 </head>
 <body>
+	<a class="bh-skip" href="#bh-main">Skip to main content</a>
 <?php
 $date=date('Y/m/d');
 $stamp=date('Ymd');
@@ -76,9 +78,9 @@ $name='OPD VISITS COMPARISON';
 
 ?>
 
-<div style="width:100%;min-height:260px; border:2px solid #333">
+<div style="width:100%;min-height:260px; border:2px solid #333" id="bh-main" tabindex="-1">
 <div style="clear:both; margin-bottom:10px"></div>
-<img src="../<?php echo $logo ?>" style="max-height:105px; margin:0px 10px; position:absolute;"/>
+<img alt="" src="../<?php echo $logo ?>" style="max-height:105px; margin:0px 10px; position:absolute;"/>
 <p style="text-align:center;font-size:12px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0px;"><?php echo str_replace("_", " ", $comname); ?></p>
 <div style="clear:both"></div>
 <p style="text-align:center;font-size:12px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0px;">P.O BOX <?php echo $Add ?>, TEL: <?php echo $tel ?>

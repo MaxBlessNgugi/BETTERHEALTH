@@ -1,10 +1,4 @@
-@charset "UTF-8";
-/* RESET */
-/* ----------------------------------------- */
 
-:focus {
-	outline: 0;
-}
 body {
 	line-height: 1;background:#fff; font-size:12px
 }body p{font-size:12px}
@@ -96,7 +90,7 @@ body {
 	margin:0 20px;
 }
 
-h1  {
+h1 {
 	
 	font-size:42px;
 	color:#10504F;
@@ -190,13 +184,13 @@ img.portrait {
 /* TIPSY */
 /* ----------------------------------------- */
 
-.tipsy { padding: 5px; font-size: 10px; background-repeat: no-repeat;  background-image: url(../images/tipsy.gif); }
-.tipsy-inner { padding: 5px 8px 4px 8px; background-color: #080626; color: #fff; max-width: 200px; text-align: center; }
-.tipsy-inner { -moz-border-radius:3px; -webkit-border-radius:3px; }
-.tipsy-north { background-position: top center; }
-.tipsy-south { background-position: bottom center; margin-bottom:20px; }
-.tipsy-east { background-position: right center; }
-.tipsy-west { background-position: left center; }
+.tipsy {padding: 5px; font-size: 10px; background-repeat: no-repeat;  background-image: url(../images/tipsy.gif); }
+.tipsy-inner {padding: 5px 8px 4px 8px; background-color: #080626; color: #fff; max-width: 200px; text-align: center; }
+.tipsy-inner {-moz-border-radius:3px; -webkit-border-radius:3px; }
+.tipsy-north {background-position: top center; }
+.tipsy-south {background-position: bottom center; margin-bottom:20px; }
+.tipsy-east {background-position: right center; }
+.tipsy-west {background-position: left center; }
 
 
 /* COLORBOX */
@@ -214,7 +208,7 @@ img.portrait {
 
 #cboxOverlay{background:#666;}
 
-#colorBox{}
+
 #cboxTopLeft{width:25px; height:25px; background:url(../images/border1.png) 0 0 no-repeat;}
 #cboxTopCenter{height:25px; background:url(../images/border1.png) 0 -50px repeat-x;}
 #cboxTopRight{width:25px; height:25px; background:url(../images/border1.png) -25px 0 no-repeat;}
@@ -390,7 +384,7 @@ input {
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	font-size: 13px;
 	padding:5px;
-	outline: none;
+	
 }
 
 input:focus {
@@ -413,7 +407,7 @@ textarea {
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	font-size: 13px;
 	padding:5px;
-	outline: none;
+	
 }
 
 textarea:focus {
@@ -434,14 +428,14 @@ textarea:focus {
 	float:left;
 	margin-left: 80px;
 	text-indent: -9999px;
-	outline: 0;
+	
 	cursor: pointer;
 	padding:0;
 }
 
 .submit-button:hover {
 	background: transparent url(../images/submit.jpg) no-repeat 0 -33px;
-	outline: 0;
+	
 	border: none;
 }
 

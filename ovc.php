@@ -42,15 +42,19 @@ $logo=stripslashes($row['Logo']);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="css/tokens.css" />
+<link rel="stylesheet" href="css/components.css" />
 <title>Better Health OPD Visits Comparision Report</title>
 <link id="favicon" href="images/fav.png" rel="icon" type="image/png"/>
 <script type="text/javascript" src="js/jquery.js"></script>
+<link type="text/css" rel="stylesheet" href="css/feedback.css">
+<script type="text/javascript" src="js/bh-feedback.js"></script>
 <script src="js/functions.js"></script>
 <script type="text/javascript" src="js/connectcode-javascript-code39.js"></script>
 <script src="js/excellentexport.js"></script>
 
 </head>
 <body>
+	<a class="bh-skip" href="#bh-main">Skip to main content</a>
 <?php
 
 // case 27:
@@ -62,7 +66,7 @@ $code=$_GET['code'];
 $name='OPD Visits';
 ?>
 
-<div style="width:100%;min-height:260px; border:2px solid #333">
+<div style="width:100%;min-height:260px; border:2px solid #333" id="bh-main" tabindex="-1">
 
 <div style="clear:both; margin-bottom:10px"></div>
 <div style="clear:both; margin-bottom:10px" ></div>

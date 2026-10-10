@@ -16,7 +16,7 @@ switch ($SRC_ID) {
             $new_subledger_name = trim(preg_replace("~'~", "", trim(strtoupper(mysqli_real_escape_string($db, $_POST['new_subledger_name'])))));
             $result = mysqli_query($db, "SELECT `ledgerid` FROM ledgers WHERE ( `name`='" . strtolower($new_subledger_name) . "' OR `name`='" . ucwords(strtolower($new_subledger_name)) . "' OR `name`='" . $new_subledger_name . "') AND `mainLedgerId`='" . $new_subledger_ledgerid . "' ");
             if (mysqli_num_rows($result) > 0) {
-                die('<p><img src="images/delete.png" style="width:30px; height:30px"></p>');
+                die('<p><img alt="Delete" src="images/delete.png" style="width:30px; height:30px"></p>');
             } else {
                 $resultb = mysqli_query($db, "SELECT `name`,`type`,`category` FROM ledgers WHERE `ledgerid`='" . $new_subledger_ledgerid . "' LIMIT 0,1");
                 if (mysqli_num_rows($resultb) > 0) {
@@ -36,12 +36,18 @@ switch ($SRC_ID) {
                     if (mysqli_affected_rows($db) > 0) {
                         @mysqli_query($db, "UPDATE ledgers SET `isMainLedger`=1 WHERE `ledgerid`='" . $new_subledger_ledgerid . "' ");
                         @mysqli_query($db, "INSERT INTO `log` VALUES('','" . $username . ": Creates new " . $name . " sub-ledger: " . $new_subledger_name . ": ledgerid: " . $new_ledgerid . " ','" . $username . "','" . date('YmdHi') . "','" . date('H:i') . "','" . date('d/m/Y') . "','1')");
-                        die('<p><img src="images/tick.png" style="width:30px; height:30px"></p> <script>paginate(8,0);</script>');
+                        die('<p><img alt="Tick" src="images/tick.png" style="width:30px; height:30px"></p> <link type="text/css" rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/components.css" />
+<link type="text/css" rel="stylesheet" href="../css/feedback.css">
+<link type="text/css" rel="stylesheet" href="../css/jquery.custom.alerts.css">
+<script type="text/javascript" src="../js/bh-feedback.js"></script>
+<script type="text/javascript" src="../js/jquery.custom.alerts.js"></script>
+<script>paginate(8,0);</script>');
                     } else {
-                        die('<p><img src="images/delete.png" style="width:30px; height:30px"></p>');
+                        die('<p><img alt="Delete" src="images/delete.png" style="width:30px; height:30px"></p>');
                     }
                 } else {
-                    die('<p><img src="images/delete.png" style="width:30px; height:30px"></p>');
+                    die('<p><img alt="Delete" src="images/delete.png" style="width:30px; height:30px"></p>');
                 }
             }
         } else {
@@ -59,12 +65,12 @@ switch ($SRC_ID) {
             $newledgerhassubledgers_cb = intval($_POST['newledgerhassubledgers_cb']);
 
             if ($type == '' || $cat == '' || $ledger == '') {
-                die('<p><img src="images/delete.png" style="width:30px; height:30px"></p>');
+                die('<p><img alt="Delete" src="images/delete.png" style="width:30px; height:30px"></p>');
             }
 
             $result1 = mysqli_query($db, "SELECT `ledgerid` FROM ledgers WHERE `name`='" . ucwords(strtolower($ledger)) . "' OR `name`='" . strtolower($ledger) . "' OR `name`='" . $ledger . "' ");
             if (mysqli_num_rows($result1) > 0) {
-                die('<p><img src="images/delete.png" style="width:30px; height:30px"></p>');
+                die('<p><img alt="Delete" src="images/delete.png" style="width:30px; height:30px"></p>');
             } else {
                 $newIdResult = mysqli_query($db, "SELECT `ledgerid` FROM `ledgers` ORDER BY `ledgerid` DESC LIMIT 0,1 ");
                 $rowNewId = mysqli_fetch_assoc($newIdResult);
@@ -77,11 +83,11 @@ switch ($SRC_ID) {
                 $result = mysqli_query($db, "INSERT INTO ledgers VALUES('','" . $new_ledgerid . "','" . $ledger . "','" . $type . "','0',1,'" . date('d/m/Y') . "','" . $cat . "',0,0,'" . $newledgerhassubledgers_cb . "',null,null,'" . date('Y-m-d H:i:s') . "','" . date('Y-m-d H:i:s') . "','" . $username . "','uno','dos','tres','cuatro','cinco','seis')");
                 if ($result) {
                     @mysqli_query($db, "INSERT INTO `log` VALUES('','" . $username . ": Creates new " . $type . " ledger: " . $ledger . " ledgerid: " . $new_ledgerid . " ','" . $username . "','" . date('YmdHi') . "','" . date('H:i') . "','" . date('d/m/Y') . "','1')");
-                    echo '<p><img src="images/tick.png" style="width:30px; height:30px"></p>';
+                    echo '<p><img alt="Tick" src="images/tick.png" style="width:30px; height:30px"></p>';
                     echo "<script>paginate(8,0);</script>";
                     exit;
                 } else {
-                    die('<p><img src="images/delete.png" style="width:30px; height:30px"></p>');
+                    die('<p><img alt="Delete" src="images/delete.png" style="width:30px; height:30px"></p>');
                 }
             }
         } else {

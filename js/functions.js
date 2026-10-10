@@ -17,7 +17,7 @@ var n = this, c = isNaN(c = Math.abs(c)) ? 2 : c, d = d == undefined ? "," : d, 
    return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
  }; 
 
-var loader = '<img id="img-spinner" src="images/load.gif" style="position:absolute; top:45%; left:50%" alt="Loading"/>';
+var loader = '<span id="img-spinner" class="bh-spinner" role="status" aria-label="Loading" style="position:absolute; top:45%; left:50%"></span>';
 //var loader = loader;
 //var loader = loader;
 
@@ -653,30 +653,30 @@ if(smode=='cash') {
 var cname =  $('#cname').val();}
 if(cname==''){
 $().customAlert();
-	alert('Error!', '<p>Enter the Patient Name!</p>');
+	bhFieldError($('#cname'), '<p>Enter the Patient Name!</p>');
 	$('#cname').focus();	
 }
 else if(price==''){
 
 $().customAlert();
-		alert('Error!', '<p>Select an item!</p>');
+		bhFieldError($('#item4').parent().find("input:first"), '<p>Select an item!</p>');
 	$('#item4').parent().find("input:first").focus();	
 }
 else if(quat==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the quantity!</p>');
+		bhFieldError($('#quat'), '<p>Enter the quantity!</p>');
 		$('#quat').focus();	
 }
 
 else if((parseInt(quat,10) >parseInt(bal,10) )&&type=='GOOD'){
 		$().customAlert();
-		alert('Error!', '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + fbal + '</p>');
+		bhFieldError($('#quat'), '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + fbal + '</p>');
 		$('#quat').focus();	
 		return;	
 }
 else if(bal<0){
 		$().customAlert();
-		alert('Error!', '<p>Quantity entered exceeds existing stock!<br/>Existing Balance is: ' + fbal + ' units.</p>');
+		bhFieldError($('#quat'), '<p>Quantity entered exceeds existing stock!<br/>Existing Balance is: ' + fbal + ' units.</p>');
 		$('#quat').focus();	
 }
 
@@ -699,7 +699,7 @@ $('.dr').parent('').find("input:first").val('');
 }
 function delitem(pid){
 $('#del' + pid).html(loader);
-$.ajax({
+if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:3,pid:pid},
 	success:function(data){
@@ -770,18 +770,18 @@ var old_customer_no =  $('#old_patient_no').val();
   
  	if(fintot==''){
 			$().customAlert();
-			alert('Error!', '<p>No Sales Made!</p>');
+			bhFieldError($('#item4').parent().find("input:first"), '<p>No Sales Made!</p>');
 			$('#item4').parent().find("input:first").focus();
 			e.preventDefault();
 	}
 	else if(pmode=='OTC Sale'&&amount==''){
 					$().customAlert();
-						alert('Error!', '<p>No Amount paid!</p>');
+						bhFieldError($('#ampaid'), '<p>No Amount paid!</p>');
 						$('#ampaid').focus();
 	}
 	else if((parseInt(amount,10)<parseInt(fintot,10))&&pmode=='OTC Sale'){
 						$().customAlert();
-						alert('Error!', '<p>The amount paid is less than the Final Total!</p>');
+						bhFieldError($('#ampaid'), '<p>The amount paid is less than the Final Total!</p>');
 						$('#ampaid').focus();
 	}
 		
@@ -820,7 +820,7 @@ function emptycart(){
 }
 function removelastcart(){
 	$('#display').html(loader);
-	$.ajax({
+	if (!confirm('Remove this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:'3.1'},
 	success:function(data){
@@ -888,12 +888,12 @@ var disc = $('#disc').val();
 var total = $('#total').val();
 if(price==''){
 	$().customAlert();
-		alert('Error!', '<p>No item selected!</p>');
+		bhFieldError($('#itemname7').parent().find('input:first'), '<p>No item selected!</p>');
 		$('#itemname7').parent().find('input:first').focus();
 }
 else if(quat==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the quantity!</p>');
+		bhFieldError($('#quat'), '<p>Enter the quantity!</p>');
 		$('#quat').focus();
 }
 else{
@@ -933,7 +933,7 @@ function emptycartquot(){
 }
 function delitemquot(pid){
 	$('#del' + pid).html(loader);
-$.ajax({
+if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:10,pid:pid},
 	success:function(data){
@@ -3053,32 +3053,32 @@ if(bonus==1){
 
 if(name==''){
 	$().customAlert();
-		alert('Error!', '<p>No item selected!</p>');
+		bhFieldError($('#itemxa').parent().find('input:first'), '<p>No item selected!</p>');
 		$('#itemxa').parent().find('input:first').focus();
 }
 else if(unit1==''&&part==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the quantity!</p>');
+		bhFieldError($('#unit56'), '<p>Enter the quantity!</p>');
 		$('#unit56').focus();
 }
 else if(invoice==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the Invoice Number!</p>');
+		bhFieldError($('#invoice'), '<p>Enter the Invoice Number!</p>');
 		$('#invoice').focus();
 }
 else if(pprice==''&&pprice!=0){
 		$().customAlert();
-		alert('Error!', '<p>Enter the Unit purchase price!</p>');
+		bhFieldError($('#price56'), '<p>Enter the Unit purchase price!</p>');
 		$('#price56').focus();
 }
 else if(sid==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the Supplier name!</p>');
+		bhFieldError($('#supname'), '<p>Enter the Supplier name!</p>');
 		$('#supname').focus();
 }
 else if(expiry==''){
 		$().customAlert();
-		alert('Error!', '<p>Select expiry date!</p>');
+		bhFieldError($('#datepick3'), '<p>Select expiry date!</p>');
 		$('#datepick3').focus();
 }
 
@@ -3119,7 +3119,7 @@ function emptycartpur(){
 }
 function delitempur(pid){
 	$('#del' + pid).html(loader);
-$.ajax({
+if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:30,pid:pid},
 	success:function(data){
@@ -3129,7 +3129,7 @@ $.ajax({
 }
 function removelastpur(){
 	$('#display').html(loader);
-	$.ajax({
+	if (!confirm('Remove this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:'30.1'},
 	success:function(data){
@@ -3462,7 +3462,7 @@ function deleteitem(a){
 		alert('Error!', '<p>Select an item!</p>');
 		e.preventDefault();
 		}
-	$('#res3').html(loader);$.ajax({
+	$('#res3').html(loader);if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'data.php',
 	data:{id:11,code:code,a:a},
 	success:function(data){
@@ -3528,26 +3528,26 @@ var qty= $('#qty').val();
 var notes = $('#notes').val();
 		if(bid==''){
 		$().customAlert();
-		alert('Error!', '<p>No Branch/department selected!</p>');
+		bhFieldError($('#brancht').parent().find('input:first'), '<p>No Branch/department selected!</p>');
 		$('#brancht').parent().find('input:first').focus();
 		}
 		else if(itcode==''){
 		$().customAlert();
-		alert('Error!', '<p>No Item selected!</p>');
+		bhFieldError($('#itemname').parent().find('input:first'), '<p>No Item selected!</p>');
 		$('#itemname').parent().find('input:first').focus();
 		}
 		else if(qty==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the quantity used!</p>');
+		bhFieldError($('#qty'), '<p>Enter the quantity used!</p>');
 		$('#qty').focus();
 		}
 		else if(notes==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the details!</p>');
+		bhFieldError($('#notes'), '<p>Enter the details!</p>');
 		$('#notes').focus();
 		}
 	else{
-		$('#postresp').html('<img id="img-spinner" src="images/load.gif"  alt="Loading"/>');
+		$('#postresp').html('<span id="img-spinner" class="bh-spinner" role="status" aria-label="Loading"></span>');
 		$.ajax({
 		url:'data.php',
 		data:{id:87,itcode:itcode,bid:bid,bname:bname,notes:notes,qty:qty},
@@ -3582,7 +3582,7 @@ var spr = $('#spr').val();
 var qty=(unit1*pack) + parseInt(part,10);
 if(unit1==''&&part==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the quantity!</p>');
+		bhFieldError($('#unit57'), '<p>Enter the quantity!</p>');
 		$('#unit57').focus();
 }
 
@@ -3632,7 +3632,7 @@ function emptytakestock(){
 }
 function delitemstock(pid){
 	$('#del' + pid).html(loader);
-$.ajax({
+if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:35,pid:pid},
 	success:function(data){
@@ -3642,7 +3642,7 @@ $.ajax({
 }
 function removelaststock(){
 	$('#display').html(loader);
-	$.ajax({
+	if (!confirm('Remove this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:'35.1'},
 	success:function(data){
@@ -3659,7 +3659,7 @@ function submitstock(bra){
 var tot = $('#totitems').val();
 		if(tot==''){
 		$().customAlert();
-		alert('Error!', '<p>No Entries Made!</p>');
+		bhFieldError($('#itemxb').parent().find('input:first'), '<p>No Entries Made!</p>');
 		$('#itemxb').parent().find('input:first').focus();
 		}
 		
@@ -3751,7 +3751,7 @@ function emptyexpense(){
 }
 function deleteexpense(pid){
 	$('#del' + pid).html(loader);
-$.ajax({
+if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:40,pid:pid},
 	success:function(data){
@@ -3937,27 +3937,27 @@ if(hod!='HOD'){hod=''}
 
 		if(name1==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the user initials!</p>');
+		bhFieldError($('#name1'), '<p>Enter the user initials!</p>');
 		$('#name1').focus();
 		}
 		else if(name==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the full names!</p>');
+		bhFieldError($('#fname'), '<p>Enter the full names!</p>');
 		$('#fname').focus();
 		}
 		else if(pass==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter a valid Password!</p>');
+		bhFieldError($('#pass1'), '<p>Enter a valid Password!</p>');
 		$('#pass1').focus();
 		}
 		else if(pos==''){
 		$().customAlert();
-		alert('Error!', '<p>Select the user position!</p>');
+		bhFieldError($("#pos1").parent().find("input:first"), '<p>Select the user position!</p>');
 		$("#pos1").parent().find("input:first").focus();	
 		}
 		else if(dept==''){
 		$().customAlert();
-		alert('Error!', '<p>Select the department!</p>');
+		bhFieldError($("#itemname").parent().find("input:first"), '<p>Select the department!</p>');
 		$("#itemname").parent().find("input:first").focus();	
 		}
 		
@@ -4122,7 +4122,7 @@ function delbranch(){
 var code = $('#bname2').val();
  
 		$('#res4').html(loader);
-		$.ajax({
+		if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 		url:'data.php',
 		data:{id:24,code:code},
 		success:function(data){
@@ -4222,7 +4222,7 @@ function delexpense(){
 var code = $('#bname2').val();
  
 		$('#res4').html(loader);
-		$.ajax({
+		if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 		url:'data.php',
 		data:{id:28,code:code},
 		success:function(data){
@@ -4269,7 +4269,7 @@ var amount = $('#amount1').val();
 
 function picknom(nid){
 	
-		$('#inside').html('<img id="img-spinner" src="images/load.gif" style="position:absolute; top:45%; left:50%" alt="Loading" alt="Loading"/>');
+		$('#inside').html('<span id="img-spinner" class="bh-spinner" role="status" aria-label="Loading" style="position:absolute; top:45%; left:50%"></span>');
 		$.ajax({
 		url:'bridge.php',
 		data:{id:51,nid:nid},
@@ -4314,12 +4314,12 @@ var tot=spr*qty;
 
 if(code==''){
 	$().customAlert();
-		alert('Error!', '<p>No item selected!</p>');
+		bhFieldError($("#itemxb").parent().find("input:first"), '<p>No item selected!</p>');
 		$("#itemxb").parent().find("input:first").focus();	
 }
 else if(unit1==''&&part==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the quantity!</p>');
+		bhFieldError($('#unit57'), '<p>Enter the quantity!</p>');
 		$('#unit57').focus();
 }
 
@@ -4365,7 +4365,7 @@ function emptyissue(){
 }
 function removelastissue(){
 	$('#display').html(loader);
-	$.ajax({
+	if (!confirm('Remove this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:'56.1'},
 	success:function(data){
@@ -4375,7 +4375,7 @@ function removelastissue(){
 }
 function delissue(pid){
 	$('#del' + pid).html(loader);
-$.ajax({
+if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:56,pid:pid},
 	success:function(data){
@@ -4546,7 +4546,7 @@ var bal = $('#bal5').val().replace(/[&\/\\#,+()$~%'":*?<>{}]/g,'');
 		e.preventDefault();
 		}
 	else{
-		$('#res5').html('<img id="img-spinner" src="images/load.gif" style="margin-top:0px" alt="Loading"/>');
+		$('#res5').html('<span id="img-spinner" class="bh-spinner" role="status" aria-label="Loading" style="margin-top:0px"></span>');
 		$.ajax({
 		url:'data.php',
 		data:{id:'32.1',name:name,amo:amo,rcred:rcred,cid:cid,desc:desc,bal:bal},
@@ -4818,7 +4818,7 @@ var bal = $('#bal5').val().replace(/[&\/\\#,+()$~%'":*?<>{}]/g,'');
 		e.preventDefault();
 		}
 	else{
-		$('#res5').html('<img id="img-spinner" src="images/load.gif" style="margin-top:0px" alt="Loading"/>');
+		$('#res5').html('<span id="img-spinner" class="bh-spinner" role="status" aria-label="Loading" style="margin-top:0px"></span>');
 		$.ajax({
 		url:'data.php',
 		data:{id:'37.1',name:name,amo:amo,rcred:rcred,cid:cid,desc:desc,bal:bal},
@@ -6039,13 +6039,13 @@ function labreceive(pid,lid){
 	
 	if((fee==0)&&(dept4rm=='OPD')){
 		$().customAlert();
-		alert('Error!', '<p>The patient has not paid for this service.</p>');
+		bhFieldError($('#rectest'), '<p>The patient has not paid for this service.</p>');
 		$('#rectest').focus();	
 		return;
 	}
 	else if(sample==''||condition==''||rejacc==''||source==''){
 	$().customAlert();
-		alert('Error!', '<p>All details are required!</p>');
+		bhFieldError($('#sample'), '<p>All details are required!</p>');
 		$('#sample').focus();	
 		return;
 	}
@@ -6075,7 +6075,7 @@ function importlab(){
 	
 	if(sample==''||db==''){
 	$().customAlert();
-		alert('Error!', '<p>All details are required!</p>');
+		bhFieldError($('#sample'), '<p>All details are required!</p>');
 		$('#sample').focus();	
 		return;
 	}
@@ -6106,7 +6106,7 @@ function labres(pid,a,lid){
 	
 	if(oname==''){
 	$().customAlert();
-		alert('Error!', '<p>Fill the name of the patient!</p>');
+		bhFieldError($('#oname'), '<p>Fill the name of the patient!</p>');
 		$('#oname').focus();	
 		return;
 	}
@@ -6201,13 +6201,13 @@ function nurseres(pid){
 	var inp = $('input[name=inpat]:checked').val();
 	if(fee==''&&inp!=1){
 	$().customAlert();
-		alert('Error!', '<p>Select the payment made by the patient!</p>');
+		bhFieldError($('#consfee').parent().find('input:first'), '<p>Select the payment made by the patient!</p>');
 		$('#consfee').parent().find('input:first').focus();
 	}
 	
 	else if(oname==''){
 	$().customAlert();
-		alert('Error!', '<p>Fill the name of the patient!</p>');
+		bhFieldError($('#rectest'), '<p>Fill the name of the patient!</p>');
 		$('#rectest').focus();	
 	}
 	else{
@@ -6251,13 +6251,13 @@ function radres(pid,a,lid){
 	
 	if(oname==''||radresults==''){
 	$().customAlert();
-		alert('Error!', '<p>Fill the name of the patient!</p>');
+		bhFieldError($('#oname'), '<p>Fill the name of the patient!</p>');
 		$('#oname').focus();	
 		return;
 	}
 	else if(fee==0){
 	$().customAlert();
-		alert('Error!', '<p>The patient has not paid for this service.</p>');
+		bhFieldError($('#rectest'), '<p>The patient has not paid for this service.</p>');
 		$('#rectest').focus();	
 		return;
 	}
@@ -6502,22 +6502,22 @@ var apaid = $('#apcons').val();
 var change = $('#change').val()
 		if(amount==''){
 			$().customAlert();
-			alert('Error!', '<p>Enter the Consultation Charge!</p>');
+			bhFieldError($('#amount'), '<p>Enter the Consultation Charge!</p>');
 			$('#amount').focus();
 			}
 			else if(apaid==''){
 			$().customAlert();
-			alert('Error!', '<p>Enter the amount paid!</p>');
+			bhFieldError($('#apcons'), '<p>Enter the amount paid!</p>');
 			$('#apcons').focus();
 			}
 			else if((parseInt(apaid,10)<parseInt(amount,10))){
 				$().customAlert();
-				alert('Error!', '<p>The amount paid is less than the Consultation Charge!</p>');
+				bhFieldError($('#apcons'), '<p>The amount paid is less than the Consultation Charge!</p>');
 				$('#apcons').focus();
 				}
 			else if(name==''){
 			$().customAlert();
-			alert('Error!', '<p>Enter the patient name!</p>');
+			bhFieldError($('#ampaid'), '<p>Enter the patient name!</p>');
 			$('#ampaid').focus();
 			}
 	else{
@@ -6592,17 +6592,17 @@ var name = $('#oname').val();
 var change = $('#changeam').val().replace(/[&\/\\#,+()$~%'":*?<>{}]/g,'');
 		if(lab==''){
 			$().customAlert();
-			alert('Error!', '<p>Enter the lab charge!</p>');
+			bhFieldError($('#lfee'), '<p>Enter the lab charge!</p>');
 			$('#lfee').focus();
 			}
 			else if(amount==''){
 			$().customAlert();
-			alert('Error!', '<p>Enter the amount paid!</p>');
+			bhFieldError($('#amountl'), '<p>Enter the amount paid!</p>');
 			$('#amountl').focus();
 			}
 		else if((parseInt(amount,10)<parseInt(lab,10))){
 		$().customAlert();
-		alert('Error!', '<p>The amount paid is less than the Lab Charge!</p>');
+		bhFieldError($('#amountl'), '<p>The amount paid is less than the Lab Charge!</p>');
 		$('#amountl').focus();
 		}
 			
@@ -6758,30 +6758,30 @@ var notes = $('#notes').val();
 var usernm = $('#acname3').val();
 		if(bid==''){
 		$().customAlert();
-		alert('Error!', '<p>No Branch/department selected!</p>');
+		bhFieldError($('#brancht').parent().find('input:first'), '<p>No Branch/department selected!</p>');
 		$('#brancht').parent().find('input:first').focus();
 		}
 		else if(itcode==''){
 		$().customAlert();
-		alert('Error!', '<p>No Item selected!</p>');
+		bhFieldError($('#itemname').parent().find('input:first'), '<p>No Item selected!</p>');
 		$('#itemname').parent().find('input:first').focus();
 		}
 		else if(qty==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the quantity used!</p>');
+		bhFieldError($('#qty'), '<p>Enter the quantity used!</p>');
 		$('#qty').focus();
 		}
 		else if(notes==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the details!</p>');
+		bhFieldError($('#notes'), '<p>Enter the details!</p>');
 		$('#notes').focus();
 		}else if(usernm==''){
 		$().customAlert();
-		alert('Error!', '<p>select User!</p>');
+		bhFieldError($('#usernm'), '<p>select User!</p>');
 		$('#usernm').focus();
 		}
 	else{
-		$('#postresp').html('<img id="img-spinner" src="images/load.gif"  alt="Loading"/>');
+		$('#postresp').html('<span id="img-spinner" class="bh-spinner" role="status" aria-label="Loading"></span>');
 		$.ajax({
 		url:'data.php',
 		data:{id:150,itcode:itcode,bid:bid,bname:bname,notes:notes,qty:qty,usernm:usernm},
@@ -6955,7 +6955,7 @@ function newtasks(){
 	}
 	var notes=$('#notes').val();
 	if(subj!=''){	
-	$("#taskstud").html('<img id="img-spinner" src="images/load.gif" style="margin:10px 0px 0 130px" alt="Loading"/>');
+	$("#taskstud").html('<span id="img-spinner" class="bh-spinner" role="status" aria-label="Loading" style="margin:10px 0px 0 130px"></span>');
 	$.ajax({
 	url:'data.php',
 	data:{id:58,subj:subj,loc:loc,cate:cate,due:due,duet:duet,star:star,start:start,rem:rem,remt:remt,status:status,pri:pri,comp:comp,notes:notes,remind:remind,crex:crex,eid:eid},
@@ -6966,7 +6966,7 @@ function newtasks(){
 	 }
 	 else{
 		$().customAlert();
-			alert('Error!', '<p>Enter the subject field!</p>');
+			bhFieldError($('#subject'), '<p>Enter the subject field!</p>');
 			$('#subject').focus(); 
 	 }
 }
@@ -7043,7 +7043,7 @@ function newevents(){
 	var remind = $('input[name=remind2]:checked').val();
 	if (pid==''){
 		$().customAlert();
-			alert('Error!', '<p>Select a patient!</p>');
+			bhFieldError($('#patname14').parent().find('input:first'), '<p>Select a patient!</p>');
 			$('#patname14').parent().find('input:first').focus();
 	 }else{
 	if(remind!=1){
@@ -7055,7 +7055,7 @@ function newevents(){
 	}
 	var notes=$('#notes2').val();
 	if(subj!=''){	
-	$("#taskevent").html('<img id="img-spinner" src="images/load.gif" style="margin:10px 0px 0 130px" alt="Loading"/>');
+	$("#taskevent").html('<span id="img-spinner" class="bh-spinner" role="status" aria-label="Loading" style="margin:10px 0px 0 130px"></span>');
 	$.ajax({
 	url:'data.php',
 	data:{id:61,pid:pid,subj:subj,loc:loc,cate:cate,end:end,endt:endt,star:star,start:start,rem:rem,remt:remt,status:status,pri:pri,comp:comp,notes:notes,remind:remind,crex:crex,eid:eid,recs:recs,rece:rece,rpat:rpat,reccur:reccur,pat:pat},
@@ -7066,7 +7066,7 @@ function newevents(){
 	 }
 	 else{
 		$().customAlert();
-			alert('Error!', '<p>Enter the subject field!</p>');
+			bhFieldError($('#subject2'), '<p>Enter the subject field!</p>');
 			$('#subject2').focus(); 
 	 }
 }
@@ -7105,7 +7105,7 @@ function viewevent(eid,subj,cate,loc,tstatus,pri,comp,star,start,end,endt,rstatu
 function delpnt(patid){
 	
 	$("#mainp").html(loader);
-	$.ajax({
+	if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'data.php',
 	data:{id:64,patid:patid},
 	success:function(data){
@@ -7152,7 +7152,7 @@ function openward(a,b,c,d,e,f){
 
 
 function repfinalb(a){	
-	$("#mainp").html('<img id="img-spinner" src="images/load.gif" style="position:absolute; top:45%; left:50%" alt="Loading"/>');
+	$("#mainp").html('<span id="img-spinner" class="bh-spinner" role="status" aria-label="Loading" style="position:absolute; top:45%; left:50%"></span>');
 	$.ajax({
 	url:'link.php',
 	data:{id:'136',a:a},
@@ -7222,7 +7222,7 @@ var apaid = $('#apcons').val();
 var change = $('#change').val()
 			if(name==''){
 			$().customAlert();
-			alert('Error!', '<p>Enter the patient name!</p>');
+			bhFieldError($('#ampaid'), '<p>Enter the patient name!</p>');
 			$('#ampaid').focus();
 			}
 			else if(amount==''){
@@ -7232,12 +7232,12 @@ var change = $('#change').val()
 			}
 			else if(apaid==''){
 			$().customAlert();
-			alert('Error!', '<p>Enter the amount paid!</p>');
+			bhFieldError($('#apcons'), '<p>Enter the amount paid!</p>');
 			$('#apcons').focus();
 			}
 			else if((parseInt(apaid,10)<parseInt(amount,10))){
 				$().customAlert();
-				alert('Error!', '<p>The amount paid is less than the Consultation Charge!</p>');
+				bhFieldError($('#apcons'), '<p>The amount paid is less than the Consultation Charge!</p>');
 				$('#apcons').focus();
 				}
 		
@@ -7512,7 +7512,7 @@ function delvar(){
 		}
 	else{
 	$("#res4").html(loader);
-	$.ajax({
+	if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'data.php',
 	data:{id:148,sysvar:sysvar,bid:bid,vname:vname},
 	success:function(data){
@@ -7548,7 +7548,7 @@ var loc = $('#loc').val();
 		}
 		else{
 		
-	$('#res2').html('<img id="img-spinner" src="images/load.gif" style="margin-top:30px" alt="Loading"/>');
+	$('#res2').html('<span id="img-spinner" class="bh-spinner" role="status" aria-label="Loading" style="margin-top:30px"></span>');
 	$.ajax({
 	url:'data.php',
 	data:{id:19,cname:cname,tel:tel,add:add,add:add,web:web,email:email,motto:motto,loc:loc},
@@ -7580,7 +7580,7 @@ function deluser(){
 				'Yes'	: {
 					'class'	: 'blue',
 					'action': function(){
-	$("#res2").html('<img id="img-spinner" src="images/load.gif" style="margin:40px 0 0 10px;" alt="Loading"/>');
+	$("#res2").html('<span id="img-spinner" class="bh-spinner" role="status" aria-label="Loading" style="margin:40px 0 0 10px;"></span>');
 	$.ajax({
 	url:'data.php',
 	data:{id:69,user:user},
@@ -7671,7 +7671,7 @@ function updatephoto(param){
 
 function deletephoto(param){
 	$("#uphoto").html(loader);
-	$.ajax({
+	if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'data.php',
 	data:{id:3,param:param},
 	success:function(data){
@@ -7867,7 +7867,7 @@ function submleave(){
 	
 	if(emp==''||from==''||to==''||shadow==''){
 	$().customAlert();
-		alert('Error!', '<p>Fill all the Required Fields!</p>');
+		bhFieldError($('#pfno'), '<p>Fill all the Required Fields!</p>');
 		e.preventDefault();
 		$('#pfno').focus();
 		return;
@@ -7959,7 +7959,7 @@ function showleaves(){
 	var d2 = $('#datepicker4').val();
 	if(d1==''){
 	$().customAlert();
-		alert('Error!', '<p>Pick a valid date!</p>');
+		bhFieldError($('#datepicker4'), '<p>Pick a valid date!</p>');
 		 $('#datepicker4').focus();
 		return;
 	}
@@ -8285,7 +8285,7 @@ function showattendance(){
 	var d1 = $('#datepick').val();
 	if(d1==''){
 	$().customAlert();
-		alert('Error!', '<p>Pick a valid date!</p>');
+		bhFieldError($('#datepicker3'), '<p>Pick a valid date!</p>');
 		 $('#datepicker3').focus();
 		return;
 	}
@@ -9817,7 +9817,7 @@ function addnewbed(){
 function removebed(code){
 
 	$("#normal" + code).html('');
-	$.ajax({
+	if (!confirm('Remove this record? This action cannot be undone.')) return; $.ajax({
 	url:'data.php',
 	data:{id:'30.6',code:code},
 	success:function(data){
@@ -11304,17 +11304,17 @@ if(rec!=1){rec=0}
 var cardno = $('#cardno').val();
 	if(amountpaid==''){
 	$().customAlert();
-	alert('Error!', '<p>No Amount paid!</p>');
+	bhFieldError($('#payam'), '<p>No Amount paid!</p>');
 	$('#payam').focus();
 	}
 	else if(instatus==1&&(insid==''||insamount==''||cardno=='')){
 	$().customAlert();
-	alert('Error!', '<p>Fill all the insurance details!</p>');
+	bhFieldError($('#currentins').parent().find('input:first'), '<p>Fill all the insurance details!</p>');
 	$('#currentins').parent().find('input:first').focus();
 	}
 	else if((parseInt(bal)<0)&&rec==0){
 	$().customAlert();
-	alert('Error!', '<p>The balance cannot be negative.To allow negative balance, first check Enable credit.</p>');
+	bhFieldError($('#payam'), '<p>The balance cannot be negative.To allow negative balance, first check Enable credit.</p>');
 	$('#payam').focus();
 	}
 	else{
@@ -12471,20 +12471,20 @@ else if(code==''||name==''){
 }
 else if(quat==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the quantity!</p>');
+		bhFieldError($('#quat4dr34'), '<p>Enter the quantity!</p>');
 		clrprescribpharm_txtboxes_toprompt_selectitem_after_invalidbill();
 		$('#quat4dr34').focus();	
 		return;	
 }
 else if((parseInt(quat,10) >parseInt(bal,10) )&&type=='GOOD'){
 		$().customAlert();
-		alert('Error!', '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
+		bhFieldError($('#quat4dr34'), '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
 		$('#quat4dr34').focus();	
 		return;	
 }
 else if($('#oname').val()==''){
 	$().customAlert();
-		alert('Error!', '<p>Fill the name of the patient!</p>');
+		bhFieldError($('#patname'), '<p>Fill the name of the patient!</p>');
 		$('#patname').focus();	
 		return;	
 }
@@ -12588,25 +12588,25 @@ var capbill = $('#txttotalcoverage786').val();
 
 if(txtprice==''){
 		$().customAlert();
-		alert('Error!', '<p>Select an item!</p>');
+		bhFieldError($('#appcoDocOrder019').parent().find("input:first"), '<p>Select an item!</p>');
 		$('#appcoDocOrder019').parent().find("input:first").focus();	
 		return;	
 }
 else if(quat==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the quantity!</p>');
+		bhFieldError($('#txtqty019'), '<p>Enter the quantity!</p>');
 		$('#txtqty019').focus();	
 		return;	
 }
 else if((parseInt(quat,10) >parseInt(bal,10) )&&type=='GOOD'){
 		$().customAlert();
-		alert('Error!', '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
+		bhFieldError($('#txtqty019'), '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
 		$('#txtqty019').focus();	
 		return;	
 }
 else if($('#oname').val()==''){
 	$().customAlert();
-		alert('Error!', '<p>Fill the name of the patient!</p>');
+		bhFieldError($('#patname'), '<p>Fill the name of the patient!</p>');
 		$('#patname').focus();	
 		return;	
 }
@@ -12655,25 +12655,25 @@ var capbill = $('#txttotalcoverage786').val();
 
 	if(txtprice==''){
 	$().customAlert();
-			alert('Error!', '<p>Select an item!</p>');
+			bhFieldError($('#docInpPharm1').parent().find("input:first"), '<p>Select an item!</p>');
 		$('#docInpPharm1').parent().find("input:first").focus();	
 		return;	
 	}
 	else if(quat==''){
 			$().customAlert();
-			alert('Error!', '<p>Enter the quantity!</p>');
+			bhFieldError($('#quat4dr34'), '<p>Enter the quantity!</p>');
 			$('#quat4dr34').focus();	
 			return;	
 	}
 	else if((parseInt(quat,10) >parseInt(bal,10) )&&type=='GOOD'){
 			$().customAlert();
-			alert('Error!', '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
+			bhFieldError($('#quat4dr34'), '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
 			$('#quat4dr34').focus();	
 			return;	
 	}
 	else if($('#oname').val() ==''){
 		$().customAlert();
-			alert('Error!', '<p>Fill the name of the patient!</p>');
+			bhFieldError($('#patname'), '<p>Fill the name of the patient!</p>');
 			$('#patname').focus();	
 			return;	
 	}
@@ -12788,7 +12788,7 @@ function savenewpresc(pid){
 
 	if(history==''||history=='<br/>'||history=='</br>'||history=='<br>'||history=='None'||history=='none'){
 		$().customAlert();
-		alert('Error!', '<p>Current History is Required.</p>');
+		bhFieldError($('#history'), '<p>Current History is Required.</p>');
 		$('#history').focus();
 	}
 	//alert(history);
@@ -12946,21 +12946,21 @@ function savenewpresc2(pid){
 
 	if(history==''||history=='<br/>'||history=='</br>'||history=='<br>'||history=='None'||history=='none'){
 		$().customAlert();
-		alert('Error!', '<p>Current History is Required.</p>');
+		bhFieldError($('#history'), '<p>Current History is Required.</p>');
 		$('#history').focus();
 	}
 	//alert(history);
 
 	if(phy==''||phy=='<br/>'||phy=='</br>'||phy=='<br>'||phy=='None'||phy=='none'){
 		$().customAlert();
-		alert('Error!', '<p>Physical Examination is Required.</p>');
+		bhFieldError($('#phyexam'), '<p>Physical Examination is Required.</p>');
 		$('#phyexam').focus();
 	}
 	//alert(phy);
 
 	if(diag==''||diag=='<br/>'||diag=='</br>'||diag=='<br>'||diag=='None'||diag=='none'){
 		$().customAlert();
-		alert('Error!', '<p>Diagnosis is Required. Select Diseases Summary.</p>');
+		bhFieldError($('#diagnosis'), '<p>Diagnosis is Required. Select Diseases Summary.</p>');
 		$('#diagnosis').focus();
 	}
 	//alert(diag);
@@ -12969,7 +12969,7 @@ function savenewpresc2(pid){
 }
 
 function showlab(){
-	alert('');
+	bhFieldError($("#labt").parent().find("input:first").val(''), '');
 }
 function clearlab(){
  $("#labt").parent().find("input:first").val('').focus();		
@@ -13137,7 +13137,7 @@ function addthispresc2(){
 	
 	if($('#dr1').val()==''){
 	$().customAlert();
-		alert('Error!', '<p>Select a drug!</p>');
+		bhFieldError($('#dr1').parent().find("input:first"), '<p>Select a drug!</p>');
 		$('#dr1').parent().find("input:first").focus();	
 	}
 	else if(parseInt(dr3,10)>parseInt(dbal,10)){
@@ -13249,7 +13249,7 @@ function addthispresc(){
 			
 			if($('#docInpPharm1').val()==''){
 			$().customAlert();
-				alert('Error!', '<p>Select a drug!</p>');
+				bhFieldError($("#docInpPharm1").parent().find("input:first").val(''), '<p>Select a drug!</p>');
 				$("#docInpPharm1").parent().find("input:first").val('').focus();
 				
 			}
@@ -13361,7 +13361,7 @@ function addthispresc606(){
 	
 	if($('#docInpPharm1').val()==''){
 	$().customAlert();
-		alert('Error!', '<p>Select a drug!</p>');
+		bhFieldError($("#docInpPharm1").parent().find("input:first").val(''), '<p>Select a drug!</p>');
 		$("#docInpPharm1").parent().find("input:first").val('').focus();
 		
 	}
@@ -13463,7 +13463,7 @@ function addthispresc019(){
 	
 	if($('#appcoDocOrder019').val()==''){
 	$().customAlert();
-		alert('Error!', '<p>Select a drug!</p>');
+		bhFieldError($('#appcoDocOrder019').parent().find("input:first"), '<p>Select a drug!</p>');
 		$('#appcoDocOrder019').parent().find("input:first").focus();	
 	}
 	else if(parseInt(dr3,10)>parseInt(dbal,10)){
@@ -13570,7 +13570,7 @@ var itemd=$('#medata').val();
 addArea('medata',a0);
  	if(itemd==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter some data in the Data field!</p>');
+		bhFieldError($("#itemdefault"), '<p>Enter some data in the Data field!</p>');
 		$("#itemdefault").focus();
 		}
 	
@@ -13594,13 +13594,13 @@ var itemd=$('#medata2').val();
 addArea('medata2',a2);
 if(itid==''){
 		$().customAlert();
-		alert('Error!', '<p>Select a parameter!</p>');
+		bhFieldError($("#itemdefault"), '<p>Select a parameter!</p>');
 		$("#itemdefault").focus();
 		}
 
  	else if(itemd==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter some data in the Data field!</p>');
+		bhFieldError($("#itemdefault"), '<p>Enter some data in the Data field!</p>');
 		$("#itemdefault").focus();
 		}
 	
@@ -13620,7 +13620,7 @@ var cat = $('#itemcat').val();
 var itid = $('#itid').val();
 if(itid==''){
 		$().customAlert();
-		alert('Error!', '<p>Select a parameter!</p>');
+		bhFieldError($("#itemdefault"), '<p>Select a parameter!</p>');
 		$("#itemdefault").focus();
 		}
  
@@ -13890,7 +13890,7 @@ function deleteTempBillItem(code,b){
 			e.preventDefault();	
 	}else{
 		$('#deltempitem' + code).html(loader);
-		$.ajax({
+		if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 		url:'data.php',
 		data:{id:'154',code:code,b:b,patientid:patientid,prescid:prescid,prescno:prescno,oldpatid:oldpatid},
 		success:function(data){
@@ -13912,7 +13912,7 @@ function deletephcDiagItem(code,b){
 			e.preventDefault();	
 	}else{
 		$('#deltempitem' + code).html(loader);
-		$.ajax({
+		if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 		url:'data.php',
 		data:{id:'157',code:code,b:b,patientid:patientid,prescid:prescid,prescno:prescno,itemname:itemname,oldpatid:oldpatid,dept4rm:dept4rm},
 		success:function(data){
@@ -14968,14 +14968,14 @@ $("#generalorder834" ).combobox({
     	if ($('#dept4rm').val()=='OPD') {
 			if($('#insurerscheme606').val() ==''||$('#madeni606').val() ==''||$('#accountype').val() ==''){
 				$().customAlert();
-					alert('Error!', '<p>All fields are required.</p>');
+					bhFieldError($('#insurerscheme606'), '<p>All fields are required.</p>');
 					$('#insurerscheme606').focus();	
 					return;	
 			}
 		}
 		if($('#accountype').val()==''){
 			$().customAlert();
-			alert('Error!', '<p>Type of billing is required.</p>');
+			bhFieldError($('#accountype'), '<p>Type of billing is required.</p>');
 			$('#accountype').focus();	
 			return;	
 		}
@@ -15736,31 +15736,31 @@ var capbill         = $('#txttotalcoverage786').val().replace(/[&\/\\#,+()$~%'":
 
 if(code==''){
 $().customAlert();
-		alert('Error!', '<p>Select an item!</p>');
+		bhFieldError($('#generalorder834').parent().find("input:first"), '<p>Select an item!</p>');
 	$('#generalorder834').parent().find("input:first").focus();	
 	return;	
 }
 else if(price==''){
 $().customAlert();
-		alert('Error!', '<p>Enter the price!</p>');
+		bhFieldError($('#generalorder834').parent().find("input:first"), '<p>Enter the price!</p>');
 	$('#generalorder834').parent().find("input:first").focus();	
 	return;	
 }
 else if(quat==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the quantity!</p>');
+		bhFieldError($('#quat44'), '<p>Enter the quantity!</p>');
 		$('#quat44').focus();	
 		return;	
 }
 else if((parseInt(quat,10) >parseInt(bal,10) )&&type=='GOOD'){
 		$().customAlert();
-		alert('Error!', '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
+		bhFieldError($('#quat44'), '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
 		$('#quat44').focus();	
 		return;	
 }
 else if($('#oname').val() ==''){
 	$().customAlert();
-		alert('Error!', '<p>Fill the name of the patient!</p>');
+		bhFieldError($('#oname'), '<p>Fill the name of the patient!</p>');
 		$('#oname').focus();	
 		return;	
 }
@@ -15862,25 +15862,25 @@ var capbill = $('#txttotalcoverage786').val().replace(/[&\/\\#,+()$~%'":*?<>{}]/
 
 if(price==''){
 	$().customAlert();
-	alert('Error!', '<p>Select an item!</p>');
+	bhFieldError($('#orderitem44').parent().find("input:first"), '<p>Select an item!</p>');
 	$('#orderitem44').parent().find("input:first").focus();	
 	return;	
 }
 else if(quat==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the quantity!</p>');
+		bhFieldError($('#quat44'), '<p>Enter the quantity!</p>');
 		$('#quat44').focus();	
 		return;	
 }
 else if((parseInt(quat,10) >parseInt(bal,10) )&&type=='GOOD'){
 		$().customAlert();
-		alert('Error!', '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
+		bhFieldError($('#quat44'), '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
 		$('#quat44').focus();	
 		return;	
 }
 else if($('#oname').val() ==''){
 	$().customAlert();
-		alert('Error!', '<p>Fill the name of the patient!</p>');
+		bhFieldError($('#oname'), '<p>Fill the name of the patient!</p>');
 		$('#oname').focus();	
 		return;	
 }
@@ -16005,25 +16005,25 @@ var capbill = $('#txttotalcoverage786').val().replace(/[&\/\\#,+()$~%'":*?<>{}]/
 
 if(price==''){
 	$().customAlert();
-	alert('Error!', '<p>Select an item!</p>');
+	bhFieldError($('#appcorder420').parent().find("input:first"), '<p>Select an item!</p>');
 	$('#appcorder420').parent().find("input:first").focus();	
 	return;	
 }
 else if(quat==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the quantity!</p>');
+		bhFieldError($('#quat44'), '<p>Enter the quantity!</p>');
 		$('#quat44').focus();	
 		return;	
 }
 else if((parseInt(quat,10) >parseInt(bal,10) )&&type=='GOOD'){
 		$().customAlert();
-		alert('Error!', '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
+		bhFieldError($('#quat44'), '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
 		$('#quat44').focus();	
 		return;	
 }
 else if($('#oname').val() ==''){
 	$().customAlert();
-		alert('Error!', '<p>Fill the name of the patient!</p>');
+		bhFieldError($('#oname'), '<p>Fill the name of the patient!</p>');
 		$('#oname').focus();	
 		return;	
 }
@@ -16064,7 +16064,7 @@ function emptybill(a){
 }
 function delbill(pid,a){
 $('#del' + pid).html(loader);
-$.ajax({
+if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:132,pid:pid,a:a},
 	success:function(data){
@@ -16077,7 +16077,7 @@ var totsumcoverd254 = $('#txttotalcoverage786').val().replace(/[&\/\\#,+()$~%'":
 $('#del' + pid).html(loader);
 var tcovd=parseInt(totsumcoverd254,10)- parseInt(c,10);
 $('#txttotalcoverage786').val((tcovd).formatMoney(2, '.', ','));
-$.ajax({
+if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:'132.2',pid:pid,a:a},
 	success:function(data){
@@ -16090,7 +16090,7 @@ var totsumcoverd254 = $('#txttotalcoverage786').val().replace(/[&\/\\#,+()$~%'":
 $('#delrad' + pid).html(loader);
 var tcovd=parseInt(totsumcoverd254,10)- parseInt(c,10);
 $('#txttotalcoverage786').val((tcovd).formatMoney(2, '.', ','));
-$.ajax({
+if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:'132.3',pid:pid,a:a},
 	success:function(data){
@@ -16103,7 +16103,7 @@ var totsumcoverd254 = $('#txttotalcoverage786').val().replace(/[&\/\\#,+()$~%'":
 $('#deldre' + pid).html(loader);
 var tcovd=parseInt(totsumcoverd254,10)- parseInt(c,10);
 $('#txttotalcoverage786').val((tcovd).formatMoney(2, '.', ','));
-$.ajax({
+if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:'132.8',pid:pid,a:a},
 	success:function(data){
@@ -16113,7 +16113,7 @@ $.ajax({
 }
 function delbill5(pid,saleid,pharmid,a){
 $('#del' + pid).html(loader);
-$.ajax({
+if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:'132.12',pid:pid,a:a,saleid:saleid,pharmid:pharmid},
 	success:function(data){
@@ -16123,7 +16123,7 @@ $.ajax({
 }
 function delpharmcartbill44(pid,saleid,pharmid,a){
 $('#del' + pid).html(loader);
-$.ajax({
+if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:'132.4',pid:pid,a:a,saleid:saleid,pharmid:pharmid},
 	success:function(data){
@@ -16137,7 +16137,7 @@ $('#delpharmcart' + pid).html(loader);
 var tcovd=parseInt(totsumcoverd254,10)- parseInt(c,10);
 $('#txttotalcoverage786').val((tcovd).formatMoney(2, '.', ','));
 //$('#delpharmcart' + pid).html(loader);
-$.ajax({
+if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:'132.15',pid:pid,a:a},
 	success:function(data){
@@ -16147,7 +16147,7 @@ $.ajax({
 }
 function delpharmcartIPDbill44(pid,saleid,pharmid,a){
 $('#del' + pid).html(loader);
-$.ajax({
+if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:'132.14',pid:pid,a:a,saleid:saleid,pharmid:pharmid},
 	success:function(data){
@@ -16209,7 +16209,7 @@ $.ajax({
 }
 function delmaabarabill44(pid,saleid,pharmid,a){
 $('#delmaabara' + pid).html(loader);
-$.ajax({
+if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:'132.5',pid:pid,a:a,saleid:saleid,pharmid:pharmid},
 	success:function(data){
@@ -16219,7 +16219,7 @@ $.ajax({
 }
 function delmaabaraIPDBill44(pid,saleid,pharmid,a){
 $('#delmaabara' + pid).html(loader);
-$.ajax({
+if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:'132.9',pid:pid,a:a,saleid:saleid,pharmid:pharmid},
 	success:function(data){
@@ -16256,7 +16256,7 @@ function viewRadiolojiaIPDBill(a){
 }
 function delRadiolojiaBill834(pid,saleid,pharmid,a){
 $('#delradiolojia' + pid).html(loader);
-	$.ajax({
+	if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:'132.7',pid:pid,a:a,saleid:saleid,pharmid:pharmid},
 	success:function(data){
@@ -16266,7 +16266,7 @@ $('#delradiolojia' + pid).html(loader);
 }
 function delRadiolojiaIPDBill834(pid,saleid,pharmid,a){
 $('#delradiolojia' + pid).html(loader);
-	$.ajax({
+	if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:'132.11',pid:pid,a:a,saleid:saleid,pharmid:pharmid},
 	success:function(data){
@@ -16291,7 +16291,7 @@ function viewdresserbill(a){
 }
 function deldresserbill606(pid,saleid,pharmid,a){
 $('#deldresser' + pid).html(loader);
-	$.ajax({
+	if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:'132.6',pid:pid,a:a,saleid:saleid,pharmid:pharmid},
 	success:function(data){
@@ -16369,25 +16369,25 @@ var capbill =  $('#txttotalcoverage786').val().replace(/[&\/\\#,+()$~%'":*?<>{}]
 
 	if(price==''){
 		$().customAlert();
-			alert('Error!', '<p>Select an item!</p>');
+			bhFieldError($('#order606').parent().find("input:first"), '<p>Select an item!</p>');
 		$('#order606').parent().find("input:first").focus();	
 		return;	
 	}
 	else if(quat==''){
 			$().customAlert();
-			alert('Error!', '<p>Enter the quantity!</p>');
+			bhFieldError($('#quat606'), '<p>Enter the quantity!</p>');
 			$('#quat606').focus();	
 			return;	
 	}
 	else if((parseInt(quat,10) >parseInt(bal,10) )&&type=='GOOD'){
 			$().customAlert();
-			alert('Error!', '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
+			bhFieldError($('#quat606'), '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
 			$('#quat606').focus();	
 			return;	
 	}
 	else if($('#oname').val() ==''){
 		$().customAlert();
-			alert('Error!', '<p>Fill the name of the patient!</p>');
+			bhFieldError($('#oname'), '<p>Fill the name of the patient!</p>');
 			$('#oname').focus();	
 			return;	
 	}
@@ -16510,25 +16510,25 @@ var capbill = parseInt(totsumcoverd254,10) + parseInt(price,10);
 
 	if(price==''){
 		$().customAlert();
-			alert('Error!', '<p>Select an item!</p>');
+			bhFieldError($('#order606').parent().find("input:first"), '<p>Select an item!</p>');
 		$('#order606').parent().find("input:first").focus();	
 		return;	
 	}
 	else if(quat==''){
 			$().customAlert();
-			alert('Error!', '<p>Enter the quantity!</p>');
+			bhFieldError($('#quat606'), '<p>Enter the quantity!</p>');
 			$('#quat606').focus();	
 			return;	
 	}
 	else if((parseInt(quat,10) >parseInt(bal,10) )&&type=='GOOD'){
 			$().customAlert();
-			alert('Error!', '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
+			bhFieldError($('#quat606'), '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
 			$('#quat606').focus();	
 			return;	
 	}
 	else if($('#oname').val() ==''){
 		$().customAlert();
-			alert('Error!', '<p>Fill the name of the patient!</p>');
+			bhFieldError($('#oname'), '<p>Fill the name of the patient!</p>');
 			$('#oname').focus();	
 			return;	
 	}
@@ -16575,25 +16575,25 @@ var total =  $('#total834').val().replace(/[&\/\\#,+()$~%'":*?<>{}]/g,'');
 
 if(price==''){
 	$().customAlert();
-		alert('Error!', '<p>Select an item!</p>');
+		bhFieldError($('#orderitem834').parent().find("input:first"), '<p>Select an item!</p>');
 	$('#orderitem834').parent().find("input:first").focus();	
 	return;	
 }
 else if(quat==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the quantity!</p>');
+		bhFieldError($('#quat834'), '<p>Enter the quantity!</p>');
 		$('#quat834').focus();	
 		return;	
 }
 else if((parseInt(quat,10) >parseInt(bal,10) )&&type=='GOOD'){
 		$().customAlert();
-		alert('Error!', '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
+		bhFieldError($('#quat834'), '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
 		$('#quat834').focus();	
 		return;	
 }
 else if($('#oname').val() ==''){
 	$().customAlert();
-		alert('Error!', '<p>Fill the name of the patient!</p>');
+		bhFieldError($('#oname'), '<p>Fill the name of the patient!</p>');
 		$('#oname').focus();	
 		return;	
 }
@@ -16619,7 +16619,7 @@ else{
 
 function removelastbill(a){
 	$('#display').html(loader);
-	$.ajax({
+	if (!confirm('Remove this record? This action cannot be undone.')) return; $.ajax({
 	url:'bridge.php',
 	data:{id:'132.1',a:a},
 	success:function(data){
@@ -16640,12 +16640,12 @@ function submitbill(a){
 
 	if(fintot==''){
 		$().customAlert();
-		alert('Error!', '<p>No Sales Made!</p>');
+		bhFieldError($('#itemnam').parent().find("input:first"), '<p>No Sales Made!</p>');
 		$('#itemnam').parent().find("input:first").focus();
 		e.preventDefault();
 	}else if($('#oname').val() ==''){
 		$().customAlert();
-		alert('Error!', '<p>Fill the name of the patient!</p>');
+		bhFieldError($('#oname'), '<p>Fill the name of the patient!</p>');
 		$('#oname').focus();	
 	}else if(a=='ward'||a=='nurse'){
 		$.confirm({
@@ -17232,7 +17232,7 @@ function theatres(pid){
 	var oname  = $('#oname').val(); 
 	if(oname==''){
 	$().customAlert();
-		alert('Error!', '<p>Fill the name of the patient!</p>');
+		bhFieldError($('#oname'), '<p>Fill the name of the patient!</p>');
 		$('#oname').focus();	
 		return;
 	}
@@ -17477,7 +17477,7 @@ function transfer(param){
 	});
 }
 function revoke(param){
-	$.ajax({
+	if (!confirm('Revoke this record? This action cannot be undone.')) return; $.ajax({
 	url:'data.php',
 	data:{id:89,param:param},
 	success:function(data){
@@ -18358,7 +18358,7 @@ function saveip(code){
 
 function removeip(code){
 	$("#normal" + code).html('');
-	$.ajax({
+	if (!confirm('Remove this record? This action cannot be undone.')) return; $.ajax({
 	url:'data.php',
 	data:{id:'108',code:code},
 	success:function(data){
@@ -18380,7 +18380,7 @@ function savebank(code){
 
 function removebank(code){
 	$("#normal" + code).html('');
-	$.ajax({
+	if (!confirm('Remove this record? This action cannot be undone.')) return; $.ajax({
 	url:'data.php',
 	data:{id:'111',code:code},
 	success:function(data){
@@ -19537,33 +19537,33 @@ var capbill = parseInt($('#txttotalcoverage786').val().replace(/[&\/\\#,+()$~%'"
 
 if(price==''){
 $().customAlert();
-		alert('Error!', '<p>Select an item!</p>');
+		bhFieldError($('#item45').parent().find("input:first"), '<p>Select an item!</p>');
 		clrultrasound_txtboxes_after_invalid_bill_notification();
 	$('#item45').parent().find("input:first").focus();	
 	return;	
 }
 else if(code==''||name==''){
 		$().customAlert();
-		alert('Error!', '<p>Select an item!</p>');
+		bhFieldError($('#item45').parent().find("input:first"), '<p>Select an item!</p>');
 		clrultrasound_txtboxes_after_invalid_bill_notification();
 	   $('#item45').parent().find("input:first").focus();	
 		return;	
 }
 else if(quat==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the quantity!</p>');
+		bhFieldError($('#quat45'), '<p>Enter the quantity!</p>');
 		$('#quat45').focus();	
 		return;	
 }
 else if((parseInt(quat,10) >parseInt(bal,10) )&&type=='GOOD'){
 		$().customAlert();
-		alert('Error!', '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
+		bhFieldError($('#quat45'), '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
 		$('#quat45').focus();	
 		return;	
 }
 else if($('#oname').val() ==''){
 	$().customAlert();
-		alert('Error!', '<p>Fill the name of the patient!</p>');
+		bhFieldError($('#oname'), '<p>Fill the name of the patient!</p>');
 		$('#oname').focus();
 		return;	
 	}
@@ -19665,25 +19665,25 @@ var capbill = parseInt($('#txttotalcoverage786').val().replace(/[&\/\\#,+()$~%'"
 
 if(price==''){
 $().customAlert();
-		alert('Error!', '<p>Select an item!</p>');
+		bhFieldError($('#appcorder790').parent().find("input:first"), '<p>Select an item!</p>');
 	$('#appcorder790').parent().find("input:first").focus();	
 	return;	
 }
 else if(quat==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the quantity!</p>');
+		bhFieldError($('#quat45'), '<p>Enter the quantity!</p>');
 		$('#quat45').focus();	
 		return;	
 }
 else if((parseInt(quat,10) >parseInt(bal,10) )&&type=='GOOD'){
 		$().customAlert();
-		alert('Error!', '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
+		bhFieldError($('#quat45'), '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
 		$('#quat45').focus();	
 		return;	
 }
 else if($('#oname').val() ==''){
 	$().customAlert();
-		alert('Error!', '<p>Fill the name of the patient!</p>');
+		bhFieldError($('#oname'), '<p>Fill the name of the patient!</p>');
 		$('#oname').focus();
 		return;	
 	}
@@ -20879,7 +20879,7 @@ view=0;
 }
 if(sendto==''){
 	$().customAlert();
-		alert('Error!', '<p>No item selected!</p>');
+		bhFieldError($('#customsendto').parent().find('input:first'), '<p>No item selected!</p>');
 		$('#customsendto').parent().find('input:first').focus();
 }
 else if((d1==''||d2=='')&&view==0){
@@ -21290,37 +21290,37 @@ var total =  $('#total').val().replace(/[&\/\\#,+()$~%'":*?<>{}]/g,'');
 
 if(code==''){
 $().customAlert();
-		alert('Error!', '<p>Select an item!</p>');
+		bhFieldError($('#item44').parent().find("input:first"), '<p>Select an item!</p>');
 	$('#item44').parent().find("input:first").focus();	
 	return;	
 }
 else if(price==''){
 $().customAlert();
-		alert('Error!', '<p>Enter the price!</p>');
+		bhFieldError($('#item44').parent().find("input:first"), '<p>Enter the price!</p>');
 	$('#item44').parent().find("input:first").focus();	
 	return;	
 }
 else if(quat==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the quantity!</p>');
+		bhFieldError($('#quat44'), '<p>Enter the quantity!</p>');
 		$('#quat44').focus();	
 		return;	
 }
 /*else if((parseInt(quat,10) >parseInt(bal,10) )&&type=='GOOD'){
 		$().customAlert();
-		alert('Error!', '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
+		bhFieldError($('#quat44'), '<p>The quantity entered cannot exceed the balance existing under this Departmental store. Bal is ' + bal + '</p>');
 		$('#quat44').focus();	
 		return;	
 }*/
 else if($('#oname').val() ==''){
 	$().customAlert();
-		alert('Error!', '<p>Fill the name of the patient!</p>');
+		bhFieldError($('#oname'), '<p>Fill the name of the patient!</p>');
 		$('#oname').focus();	
 		return;	
 	}
 else if($('#datepick3').val() ==''){
 	$().customAlert();
-		alert('Error!', '<p>Select the Date!</p>');
+		bhFieldError($('#datepick3'), '<p>Select the Date!</p>');
 		$('#datepick3').focus();	
 		return;	
 	}
@@ -22042,11 +22042,11 @@ function expiryAlerts(){
 }
 function deleteExpired(transNo){
 	var delete_expired_tbl = $('#delete_expired_tbl');
-	//delete_expired_tbl.find('tr#delExp'+transNo).children('td:eq(2)').html('<img id="img-spinner" src="images/load.gif" style="position:absolute; top:45%; left:50%" alt="Loading"/>');	
+	//delete_expired_tbl.find('tr#delExp'+transNo).children('td:eq(2)').html('<span id="img-spinner" class="bh-spinner" role="status" aria-label="Loading" style="position:absolute; top:45%; left:50%"></span>');	
 	delete_expired_tbl.find('tr#delExp'+transNo).children().last().html(loader);
 	var rows=delete_expired_tbl.find('tbody > tr');
 	var row_count=rows.length;
-	$.ajax({
+	if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 		type:'POST',
 		url:'notifications.php',
 		data:{id:154,transNo:transNo,row_count:row_count},
@@ -22064,7 +22064,7 @@ function expiryAlertsFrequency(){
 		alert('Notification Frequency and Recipient are required');
 		return false;	
 	}else{
-		$("#mainp").html('<img id="img-spinner" src="images/load.gif" style="position:absolute; top:45%; left:50%" alt="Loading"/>');
+		$("#mainp").html('<span id="img-spinner" class="bh-spinner" role="status" aria-label="Loading" style="position:absolute; top:45%; left:50%"></span>');
 		$.ajax({
 			type:'POST',
 			url:'notifications.php',

@@ -129,3 +129,68 @@ html {
 @media (forced-colors: active) {
   :focus-visible { outline: 2px solid CanvasText !important; }
 }
+
+/* ==========================================================================
+   Global utilities (R-05 — accessibility foundations)
+   ========================================================================== */
+
+/* Screen-reader-only text: used by skip links and by generated <label>s where
+   the design already shows the prompt as adjacent text or a placeholder. */
+.bh-visually-hidden,
+.visually-hidden,
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip-to-main-content: hidden until keyboard focus, then pinned top-left. */
+.bh-skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 10090;
+  padding: 10px 16px;
+  background: var(--color-action, #0f766e);
+  color: #fff !important;
+  font-size: var(--text-base, 15px);
+  font-weight: var(--weight-semibold, 600);
+  text-decoration: none;
+  border-radius: 0 0 var(--radius-md, 8px) 0;
+  box-shadow: var(--shadow-3);
+}
+.bh-skip:focus,
+.bh-skip:focus-visible {
+  left: 0;
+  outline: 2px solid #fff !important;
+  outline-offset: -4px;
+}
+
+/* Focus target for the skip link - must not draw a ring of its own. */
+#bh-main:focus,
+[bh-main]:focus { outline: none; }
+
+/* Icon-only controls keep a 44px hit area (§4.3 tap-target). */
+/* Browser-native validation (R-06). :user-invalid only matches after the user
+   has interacted, so untouched forms never show a red border. */
+input:user-invalid,
+select:user-invalid,
+textarea:user-invalid {
+  border-color: var(--color-danger, #DC2626) !important;
+  box-shadow: 0 0 0 1px var(--color-danger, #DC2626);
+}
+input:user-valid,
+select:user-valid,
+textarea:user-valid {
+  border-color: var(--color-success, #047857);
+}
+
+.bh-icon-btn {
+  min-width: var(--tap-target, 44px);
+  min-height: var(--tap-target, 44px);
+}

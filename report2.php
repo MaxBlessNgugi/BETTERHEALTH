@@ -1,6 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="css/tokens.css" />
+<link rel="stylesheet" href="css/components.css" />
 <?php include(__DIR__ . '/includes/db_fns.php');
 date_default_timezone_set('Africa/Nairobi'); 
 if(isset($_SESSION['valid_user'])){
@@ -67,6 +68,11 @@ switch($id){
 <script src="js/jquery-1.8.2.js"></script>
 <script src="assets/vendor/ui/jquery.ui.core.js"></script>
 <script src="assets/vendor/ui/jquery.ui.widget.js"></script>
+<link type="text/css" rel="stylesheet" href="css/tokens.css">
+<link type="text/css" rel="stylesheet" href="css/feedback.css">
+<link type="text/css" rel="stylesheet" href="css/jquery.custom.alerts.css">
+<script type="text/javascript" src="js/bh-feedback.js"></script>
+<script type="text/javascript" src="js/jquery.custom.alerts.js"></script>
 <script src="assets/vendor/ui/jquery.ui.datepicker.js"></script>
 
 <script>
@@ -94,7 +100,8 @@ switch($id){
 
 </head>
 
-<body style="background:"> 
+<body style="background:">
+	<a class="bh-skip" href="#bh-main">Skip to main content</a> 
 
 <?PHP
 switch($id){
@@ -119,7 +126,7 @@ if(isset($_GET['d2'])){
 //$fname='patients_list';
 ?>
 
-<div style="width:100%;min-height:260px; border:2px solid #333">
+<div style="width:100%;min-height:260px; border:2px solid #333" id="bh-main" tabindex="-1">
 <div style="clear:both; margin-bottom:10px"></div>
 
 <p style="text-align:left;font-size:15px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 10px"> <?php  echo $comname ?></p>
@@ -130,8 +137,8 @@ if(isset($_GET['d2'])){
 
 <p style="text-align:right;font-size:15px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:-80px 10px 0 10px">OFFICIAL  STATEMENT<br/><strong style="font-size:11px">Date:<?php  echo date('d/m/Y') ?></strong></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<p><a download="<?php  echo $filename ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
-<img src="images/adobe.png" style="30px; height:30px; float:right; margin-right:10px; cursor:pointer" onClick="window.print() " title="Convert to Pdf"/>
+<p><a download="<?php  echo $filename ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
+<img alt="Convert to Pdf" src="images/adobe.png" style="30px; height:30px; float:right; margin-right:10px; cursor:pointer" onClick="window.print() " title="Convert to Pdf"/>
 <div style="clear:both; margin-bottom:10px"></div>
 <div style="clear:both"></div>
 
@@ -295,7 +302,7 @@ $col22=stripslashes($rowa['col2']) ;
 
 <div style="width:60.0%; border-right:1px DASHED #333; float:left">
 
-<img src="images/logorep.jpg" style="float:left;max-height:105px; width:90px; margin:0px 10px 0 10px; "/>
+<img alt="Logorep" src="images/logorep.jpg" style="float:left;max-height:105px; width:90px; margin:0px 10px 0 10px; "/>
 <p style="text-align:left; font-weight:bold;font-size:11px; font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 10px"><?php  echo $comname ?></p>
 <p style="text-align:left;font-size:11px; font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 10px">P.O Box <?php  echo $Add ?><br/>Tel: <?php  echo $tel ?><br/>W: <?php  echo $web ?><br/>E: <?php  echo $email ?></p>
 </div>
@@ -306,9 +313,9 @@ $col22=stripslashes($rowa['col2']) ;
 
 <div style="width:39.0%; float:left">
 <p style="text-align:left;font-size:10px; margin-right:50px; text-transform:uppercase;font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 10px">Patient: <?php  echo $patn?></p>
-<p style="text-align:left;font-size:10px; margin-right:50px; text-transform:uppercase;font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 10px">Inpatient No: <input type="text" id="inpno" value="<?php  echo $ipnoregn?>"></p>
+<p style="text-align:left;font-size:10px; margin-right:50px; text-transform:uppercase;font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 10px">Inpatient No: <label for="inpno" class="bh-visually-hidden">Patient:</label><input type="text" id="inpno" value="<?php  echo $ipnoregn?>"></p>
 <!-- <p style="text-align:left;font-size:10px; text-transform:uppercase;font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 10px">Date:<?php  echo date('d/m/Y') ?></p> -->
-<p style="text-align:left;font-size:10px; text-transform:uppercase;font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 10px">Date:<input type="text" id="datepick1" value="<?php echo date('d/m/Y') ?>"></p>
+<p style="text-align:left;font-size:10px; text-transform:uppercase;font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 10px">Date:<label for="datepick1" class="bh-visually-hidden">Date:</label><input type="text" id="datepick1" value="<?php echo date('d/m/Y') ?>"></p>
 <p style="text-align:left;font-size:10px; text-transform:uppercase;font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 10px">Total Cost: <script>document.writeln(( <?php  echo $col5 ?>).formatMoney(2, '.', ','));</script></p>
 <p style="text-align:left;font-size:10px; text-transform:uppercase;font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 10px">Net Cost: <script>document.writeln(( <?php  echo $col52 ?>).formatMoney(2, '.', ','));</script></p>
 <div style="clear:both; margin-bottom:10px" ></div>
@@ -489,7 +496,7 @@ $colct=stripslashes($rowt['col5']) ;
 
 <div style="clear:both; margin-bottom:5px; border-bottom:1px solid #333"></div>
 <p style="text-align:left;font-size:12px; font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 10px">Admission Date: <?php echo $col23 ?></p>
-<p style="text-align:left;font-size:12px; font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 10px">Discharge Date:  <input type="text" id="datepick2" value="<?php echo $col24 ?>"></p>
+<p style="text-align:left;font-size:12px; font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 10px">Discharge Date:  <label for="datepick2" class="bh-visually-hidden">Admission Date:</label><input type="text" id="datepick2" value="<?php echo $col24 ?>"></p>
 <p style="text-align:left;font-size:12px; font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 10px">Admission No:  <?php echo $pno ?></p>
 <p style="text-align:left;font-size:12px; font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 10px">Bed No: <?php echo $bedno  ?></p>
 <p style="text-align:left;font-size:12px; font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 10px">Ward: <?php echo $wardtype   ?></p>
@@ -554,7 +561,7 @@ $categ=$_GET['categ'];
 ?>
 <div style="width:100%;min-height:260px; border:2px solid #333">
 <div style="clear:both; margin-bottom:10px"></div>
-<img src="<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
+<img alt="" src="<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
 <p style="text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 0px"><?php  echo $comname ?></p>
 <div style="clear:both"></div>
 <p style="text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 0px">P.O Box <?php  echo $Add ?><br/>Tel: <?php  echo $tel ?>

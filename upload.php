@@ -74,9 +74,9 @@ function bh_upload_reply($rel, $stamp)
     }
 
     if (substr($rel, -4) === '.pdf') {
-        echo '<img style="width:100%; height:100%;" src="images/adobe.png"/>';
+        echo '<img alt="Adobe" style="width:100%; height:100%;" src="images/adobe.png"/>';
     } else {
-        echo '<img style="width:100%; height:100%;" src="'
+        echo '<img alt="Htmlspecialchars Rel ENT QUOTES V Mt Rand 0 1000" style="width:100%; height:100%;" src="'
             . htmlspecialchars($rel, ENT_QUOTES) . '?v=' . mt_rand(0, 1000) . '"/>';
     }
 
@@ -90,8 +90,11 @@ $id    = isset($_POST['id']) ? (int)$_POST['id'] : 0;
 <!DOCTYPE html>
 <html>
   <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1" />	<link rel="stylesheet" href="css/tokens.css" /></head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />	<link rel="stylesheet" href="css/tokens.css" />
+<link rel="stylesheet" href="css/components.css" /></head>
   <body>
+	<a class="bh-skip" href="#bh-main">Skip to main content</a>
+	<div id="bh-main" tabindex="-1"></div>
 	<script>
 $('#lei2').html('<iframe name="leiframe2" id="leiframe" class="leiframe" src="" style="margin-right:40px"></iframe>');
 	</script>

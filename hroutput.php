@@ -77,13 +77,16 @@ switch($id){
 <meta http-equiv="content-type" content="text/plain; charset=UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="css/tokens.css" />
+<link rel="stylesheet" href="css/components.css" />
 <title><?php echo $title ?></title>
 <link id="favicon" href="images/fav.png" rel="icon" type="image/png"/>
 
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/chart.js"></script>
 <script src="js/functions.js"></script>
+<link type="text/css" rel="stylesheet" href="css/feedback.css">
 <link type="text/css" rel="stylesheet" href="css/jquery.custom.alerts.css">
+<script type="text/javascript" src="js/bh-feedback.js"></script>
 <script type="text/javascript" src="js/jquery.custom.alerts.js"></script>
 <script type="text/javascript" src="js/connectcode-javascript-code39.js"></script>
 <script src="js/excellentexport.js"></script>
@@ -101,7 +104,8 @@ p{font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif; font-size:12px
 </style>
 </head>
 
-<body style="background:" id="body"> 
+<body style="background:" id="body">
+	<a class="bh-skip" href="#container">Skip to main content</a> 
 
 <?php 
 switch($id){
@@ -111,7 +115,7 @@ $reg=$_GET['reg'];
 ?>
 <div style="width:740px;min-height:260px; border:2px solid #333">
 <div style="clear:both; margin-bottom:10px"></div>
-<img src="<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
+<img alt="" src="<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
 <p style="text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 0px"><?php  echo $comname ?></p>
 <div style="clear:both"></div>
 <p style="text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 0px">P.O Box <?php  echo $Add ?><br/>Tel: <?php  echo $tel ?>
@@ -231,7 +235,7 @@ $bname=stripslashes($row['name']);
 ?>
 <div style="width:740px;min-height:260px; border:2px solid #333">
 <div style="clear:both; margin-bottom:10px"></div>
-<img src="<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
+<img alt="" src="<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
 <p style="text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 0px"><?php  echo $comname ?></p>
 <div style="clear:both"></div>
 <p style="text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 0px">P.O Box <?php  echo $Add ?><br/>Tel: <?php  echo $tel ?>
@@ -319,7 +323,7 @@ $reg=$_GET['reg'];
 ?>
 <div style="width:100%;min-height:260px; border:2px solid #333">
 <div style="clear:both; margin-bottom:10px"></div>
-<img src="<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
+<img alt="" src="<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
 <p style="text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 0px"><?php  echo $comname ?></p>
 <div style="clear:both"></div>
 <p style="text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 0px">P.O Box <?php  echo $Add ?><br/>Tel: <?php  echo $tel ?>
@@ -516,7 +520,7 @@ case 16:
 ?>
 <div style="width:100%;min-height:260px; border:2px solid #333">
 <div style="clear:both; margin-bottom:10px"></div>
-<img src="<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
+<img alt="" src="<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
 <p style="text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 0px"><?php  echo $comname ?></p>
 <div style="clear:both"></div>
 <p style="text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 0px">P.O Box <?php  echo $Add ?><br/>Tel: <?php  echo $tel ?>
@@ -709,7 +713,7 @@ $names=stripslashes($row['name']);
 ?>
 <div style="width:100%;min-height:260px; border:2px solid #333">
 <div style="clear:both; margin-bottom:10px"></div>
-<img src="<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
+<img alt="" src="<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
 <p style="text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 0px"><?php  echo $comname ?></p>
 <div style="clear:both"></div>
 <p style="text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 0px">P.O Box <?php  echo $Add ?><br/>Tel: <?php  echo $tel ?>
@@ -909,9 +913,9 @@ $web=stripslashes($rowx['Website']);
 $email=stripslashes($rowx['Email']);
 $logo=stripslashes($rowx['Logo']);
 ?>
-<div id="container" style="width:100%;min-height:500px; border:2px solid #333; float:left; position:relative; margin-bottom:20px">
+<div id="container" style="width:100%;min-height:500px; border:2px solid #333; float:left; position:relative; margin-bottom:20px" tabindex="-1">
 <div style="clear:both; margin-bottom:10px"></div>
-<img src="<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
+<img alt="" src="<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
 <p style="text-align:center;font-size:18px; font-weight:bold;font-family:'Courier New', Courier, monospace;margin:0 0 0 0px"><?php  echo $comname ?></p>
 <div style="clear:both"></div>
 <p style="text-align:center;font-size:12px; font-weight:bold;font-family:'Courier New', Courier, monospace;margin:0 0 0 0px">P.O Box <?php  echo $Add ?><br/>Tel: <?php  echo $tel ?>
@@ -1102,7 +1106,7 @@ $branch=$_GET['branch'];
 ?>
 <div style="width:100%;min-height:260px; border:2px solid #333">
 <div style="clear:both; margin-bottom:10px"></div>
-<img src="<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
+<img alt="" src="<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
 <p style="text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 0px"><?php  echo $comname ?></p>
 <div style="clear:both"></div>
 <p style="text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 0px">P.O Box <?php  echo $Add ?><br/>Tel: <?php  echo $tel ?>
@@ -1247,13 +1251,13 @@ $d=sprintf("%02d",$a);
 $d=$d.'c';
 if(stripslashes($row[$d])==1||stripslashes($row[$d])==2||stripslashes($row[$d])==3){
 $total+=1;
-echo"<div style=\"width:2%; height:20px;border-right:1.5px solid #333; float:left;\"><img src=\"images/ticker.png\" style=\"width:18px; height:18px\"/></div>";
+echo"<div style=\"width:2%; height:20px;border-right:1.5px solid #333; float:left;\"><img alt=\"Ticker\" src=\"images/ticker.png\" style=\"width:18px; height:18px\"/></div>";
 }
 elseif(stripslashes($row[$d])==0){
-echo"<div style=\"width:2%; height:20px;border-right:1.5px solid #333; float:left;\"><img src=\"images/delete.png\" style=\"width:18px; height:18px\"/></div>";
+echo"<div style=\"width:2%; height:20px;border-right:1.5px solid #333; float:left;\"><img alt=\"Delete\" src=\"images/delete.png\" style=\"width:18px; height:18px\"/></div>";
 }
 else{
-echo"<div style=\"width:2%; height:20px;border-right:1.5px solid #333; float:left;\"><img src=\"images/delete.png\" style=\"width:18px; height:18px\"/></div>";	
+echo"<div style=\"width:2%; height:20px;border-right:1.5px solid #333; float:left;\"><img alt=\"Delete\" src=\"images/delete.png\" style=\"width:18px; height:18px\"/></div>";	
 }
 }
 ?>
@@ -1282,7 +1286,7 @@ if(isset($_GET['d2'])){
 ?>
 <div style="width:100%;min-height:260px; border:2px solid #333">
 <div style="clear:both; margin-bottom:10px"></div>
-<img src="<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
+<img alt="" src="<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
 <p style="text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 0px"><?php  echo $comname ?></p>
 <div style="clear:both"></div>
 <p style="text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 0px">P.O Box <?php  echo $Add ?><br/>Tel: <?php  echo $tel ?>
@@ -1386,7 +1390,7 @@ $stamp=date('Ymd');
 
 <div style="width:100%;min-height:260px; border:2px solid #333">
 <div style="clear:both; margin-bottom:10px"></div>
-<img src="<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
+<img alt="" src="<?php echo $logo ?>" style="max-height:105px; margin:0px 10px 0 10px; position:absolute;"/>
 <p style="text-align:center;font-size:12px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 0px"><?php  echo $comname ?></p>
 <div style="clear:both"></div>
 <p style="text-align:center;font-size:12px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;margin:0 0 0 0px">P.O Box <?php  echo $Add ?><br/>Tel: <?php  echo $tel ?>

@@ -18,7 +18,7 @@ var n = this, c = isNaN(c = Math.abs(c)) ? 2 : c, d = d == undefined ? "," : d, 
  }; 
 
 //$(document).ready(function(){ });
-var loader = '<img id="img-spinner" src="images/load.gif" style="position:absolute; top:45%; left:50%" alt="Loading"/>';
+var loader = '<span id="img-spinner" class="bh-spinner" role="status" aria-label="Loading" style="position:absolute; top:45%; left:50%"></span>';
 
 function addstockit(){
 $("#mainp").html(loader);
@@ -351,7 +351,7 @@ function patientseenbydoc2(a){
 	if(view==null){view=0}
 	if(name==''){
 		$().customAlert();
-			alert('Error!', '<p>No user selected!</p>');
+			bhFieldError($('#docusers254').parent().find('input:first'), '<p>No user selected!</p>');
 			$('#docusers254').parent().find('input:first').focus();
 	}
 	else if((d1==''||d2=='')&&view==0){
@@ -404,32 +404,32 @@ var itsale = $('#itemsale').val();
 var tsale=qty*itsale;
 if(name==''){
 	$().customAlert();
-		alert('Error!', '<p>No item selected!</p>');
+		bhFieldError($('#itemxa').parent().find('input:first'), '<p>No item selected!</p>');
 		$('#itemxa').parent().find('input:first').focus();
 }
 else if(unit1==''&&part==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the quantity!</p>');
+		bhFieldError($('#unit58'), '<p>Enter the quantity!</p>');
 		$('#unit58').focus();
 }
 else if(invoice==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the Invoice Number!</p>');
+		bhFieldError($('#invoice'), '<p>Enter the Invoice Number!</p>');
 		$('#invoice').focus();
 }
 else if(pprice==''&&pprice!=0){
 		$().customAlert();
-		alert('Error!', '<p>Enter the Unit purchase price!</p>');
+		bhFieldError($('#price58'), '<p>Enter the Unit purchase price!</p>');
 		$('#price58').focus();
 }
 else if(sname==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the Supplier name!</p>');
+		bhFieldError($('#supname'), '<p>Enter the Supplier name!</p>');
 		$('#supname').focus();
 }
 else if(batch==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the Batch Number!</p>');
+		bhFieldError($('#batch'), '<p>Enter the Batch Number!</p>');
 		$('#batch').focus();
 }
 
@@ -468,7 +468,7 @@ function emptycartret(){
 }
 function removelastret(){
 	$('#display').html(loader);
-	$.ajax({
+	if (!confirm('Remove this record? This action cannot be undone.')) return; $.ajax({
 	url:'link.php',
 	data:{id:'10.1'},
 	success:function(data){
@@ -478,7 +478,7 @@ function removelastret(){
 }
 function delitemret(pid){
 	$('#del' + pid).html(loader);
-$.ajax({
+if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'link.php',
 	data:{id:10,pid:pid},
 	success:function(data){
@@ -524,23 +524,23 @@ var qty=(unit1*pack) + parseInt(part,10);
 var maxno = $('#totitems').val();
 if(name==''){
 	$().customAlert();
-		alert('Error!', '<p>No item selected!</p>');
+		bhFieldError($('#itemxa').parent().find('input:first'), '<p>No item selected!</p>');
 		$('#itemxa').parent().find('input:first').focus();
 }
 else if(unit1==''&&part==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the quantity!</p>');
+		bhFieldError($('#unit59'), '<p>Enter the quantity!</p>');
 		$('#unit59').focus();
 }
 
 else if(pprice==''&&pprice!=0){
 		$().customAlert();
-		alert('Error!', '<p>Enter the Unit purchase price!</p>');
+		bhFieldError($('#price59'), '<p>Enter the Unit purchase price!</p>');
 		$('#price59').focus();
 }
 else if(sname==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the Supplier name!</p>');
+		bhFieldError($('#supname'), '<p>Enter the Supplier name!</p>');
 		$('#supname').focus();
 }
 
@@ -588,7 +588,7 @@ function emptycartlpo(){
 }
 function delitemlpo(pid){
 	$('#del' + pid).html(loader);
-$.ajax({
+if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'link.php',
 	data:{id:15,pid:pid},
 	success:function(data){
@@ -598,7 +598,7 @@ $.ajax({
 }
 function removelastlpo(){
 	$('#display').html(loader);
-	$.ajax({
+	if (!confirm('Remove this record? This action cannot be undone.')) return; $.ajax({
 	url:'link.php',
 	data:{id:'15.1'},
 	success:function(data){
@@ -821,18 +821,18 @@ function savepayrec(){
 		
 		if(lid==''){
 				$().customAlert();
-				alert('Error!', '<p>Select the account used for the payment</p>');
+				bhFieldError($('#ac89').parent().find('input:first'), '<p>Select the account used for the payment</p>');
 				$('#ac89').parent().find('input:first').focus();
 				return false;
 				
 		}else if(refno==''){
 				$().customAlert();
-				alert('Error', '<p>Please enter receipt or cheque number</p>');
+				bhFieldError($('#refno'), '<p>Please enter receipt or cheque number</p>');
 				$('#refno').focus();
 				return false;
 		}else if(cid1==''){
 				$().customAlert();
-				alert('Error', '<p>Debtor name is required</p>');
+				bhFieldError($('#item89').parent().find('input:first'), '<p>Debtor name is required</p>');
 				$('#item89').parent().find('input:first').focus();
 				return false;
 		}	else{
@@ -1106,14 +1106,14 @@ function addpaymode(){
 
 		if(mode==''){
 			$().customAlert();
-				alert('Error', '<p>Select payment mode</p>');
+				bhFieldError($('#item76').parent().find("input:first"), '<p>Select payment mode</p>');
 				$('#item76').parent().find("input:first").focus();	
 				return false;
 		}
 
 		else if(amount=='' && (mode=='Companies'||mode=='Bank'||mode=='Cash'||mode=='Waiver'||mode=='Credit')){
 				$().customAlert();
-				alert('Error', '<p>Please enter amount paid.</p>');
+				bhFieldError($('#amount76'), '<p>Please enter amount paid.</p>');
 				$('#amount76').focus();
 				return false;	
 		}
@@ -1122,7 +1122,7 @@ function addpaymode(){
 					return false;
 		}else if(parseFloat(amount)==0 || parseFloat(amount)<0 ){
 				$().customAlert();
-				alert('Error', '<p>Please enter amount paid.</p>');
+				bhFieldError($('#amount76'), '<p>Please enter amount paid.</p>');
 				$('#amount76').focus();
 				return false;
 		}		
@@ -1133,18 +1133,18 @@ function addpaymode(){
 		}
 		else if((mode!=='Cash' && mode!=='Companies')&&(rcvpayref76=='')){
 				$().customAlert();
-				alert('Error', '<p>Transaction reference no. is required.</p>');
+				bhFieldError($('#ref76'), '<p>Transaction reference no. is required.</p>');
 				$('#ref76').focus();	
 				return false;
 		}
 		else if((mode=='Waiver')&&(rcvpayref76=='')){
 				$().customAlert();
-				alert('Error', '<p>Please enter waiver number in the reference no field.</p>');
+				bhFieldError($('#ref76'), '<p>Please enter waiver number in the reference no field.</p>');
 				$('#ref76').focus();
 				return false;
 		}else if(rcv_copayment=='' && (mode=='Companies' && parseInt(cid)==16)){
 				$().customAlert();
-				alert('Error', '<p>Please select pay type and try again.</p>');
+				bhFieldError($('#rcv_copayment').parent().find("input:first"), '<p>Please select pay type and try again.</p>');
 				$('#rcv_copayment').parent().find("input:first").focus();
 				return false;
 		}else{
@@ -1195,13 +1195,13 @@ if(mode=='Cummulative'){
 
 if(mode==''){
 $().customAlert();
-	alert('Error!', '<p>Select the Mode pf Payment!</p>');
+	bhFieldError($('#item76').parent().find("input:first"), '<p>Select the Mode pf Payment!</p>');
 	$('#item76').parent().find("input:first").focus();	
 }
 
 else if(amount=='' && (mode=='Companies'||mode=='Bank'||mode=='Cash'||mode=='Waiver'||mode=='Credit')){
 		$().customAlert();
-		alert('Error!', '<p>Enter the amount paid!</p>');
+		bhFieldError($('#amount76'), '<p>Enter the amount paid!</p>');
 		$('#amount76').focus();	
 }
 else if((amount<0&&view==0)&&dc==0){
@@ -1213,12 +1213,12 @@ else if((mode=='Companies'||mode=='Bank')&&(cid=='')){
 }
 else if((mode=='Companies'||mode=='Bank')&&(cardno=='')){
 		$().customAlert();
-		alert('Error!', '<p>Enter the reference no-either card no for insurance companies or cheque no. for banks!</p>');
+		bhFieldError($('#ref76'), '<p>Enter the reference no-either card no for insurance companies or cheque no. for banks!</p>');
 		$('#ref76').focus();	
 }
 else if((mode=='Waiver')&&(cardno=='')){
 		$().customAlert();
-		alert('Error!', '<p>Enter the Waiver number in the Ref No. Field!</p>');
+		bhFieldError($('#ref76'), '<p>Enter the Waiver number in the Ref No. Field!</p>');
 		$('#ref76').focus();	
 }else{
 	$('#display').html(loader);
@@ -1260,7 +1260,7 @@ function emptypaymode(a){
 }
 function delpaymode(pid){
 $('#del' + pid).html(loader);
-$.ajax({
+if (!confirm('Delete this record? This action cannot be undone.')) return; $.ajax({
 	url:'link.php',
 	data:{id:29,pid:pid},
 	success:function(data){
@@ -1473,12 +1473,12 @@ function savepayrec2(){
 		}
 		if(lid==''){
 				$().customAlert();
-				alert('Error', '<p>Select account used to make the payment</p>');
+				bhFieldError($('#ac79').parent().find('input:first'), '<p>Select account used to make the payment</p>');
 				$('#ac79').parent().find('input:first').focus();
 				return false;
 		}else if(paycreditorid==''){
 				$().customAlert();
-				alert('Error', '<p>Please select a creditor and try again.</p>');
+				bhFieldError($('#paycreditorid').parent().find('input:first'), '<p>Please select a creditor and try again.</p>');
 				$('#paycreditorid').parent().find('input:first').focus();
 				return false;
 		}else{
@@ -1632,22 +1632,22 @@ var patientname = $('#oname').val();
 
 if(doc==''){
 		$().customAlert();
-		alert('Error!', '<p>Select the name of the doctor in charge!</p>');
+		bhFieldError($('#doctor'), '<p>Select the name of the doctor in charge!</p>');
 		$('#doctor').focus();
 }
 else if(insid==''||insname==''){
 		$().customAlert();
-		alert('Error!', '<p>Select Mode of payment!</p>');
+		bhFieldError($('#paymode'), '<p>Select Mode of payment!</p>');
 		$('#paymode').focus();
 }
 else if(acctype==''){
 		$().customAlert();
-		alert('Error!', '<p>Select account type!</p>');
+		bhFieldError($('#acctype'), '<p>Select account type!</p>');
 		$('#acctype').focus();
 }
 else if(typeclinics==''){
 		$().customAlert();
-		alert('Error!', '<p>Select clinic!</p>');
+		bhFieldError($('#typeclinics'), '<p>Select clinic!</p>');
 		$('#typeclinics').focus();
 }
 else if(wardid==''||wardtype==''||bedno==''||roomno==''||mainward==''){
@@ -1656,7 +1656,7 @@ else if(wardid==''||wardtype==''||bedno==''||roomno==''||mainward==''){
 }
 else if(ipnosett==0&&ipno==''){
 		$().customAlert();
-		alert('Error!', '<p>Enter the current Inpatient No.!</p>');
+		bhFieldError($('#ipno'), '<p>Enter the current Inpatient No.!</p>');
 		$('#ipno').focus();
 }
 else {

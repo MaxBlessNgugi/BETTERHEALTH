@@ -14,17 +14,12 @@ $reg=$_GET['reg'];
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="css/tokens.css" />
+<link rel="stylesheet" href="css/components.css" />
 <title>B-HEALTH  Reports</title>
 <link id="favicon" href="images/fav.png" rel="icon" type="image/png"/>
 <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
 <link type="text/css" rel="stylesheet" href="css/green.css" media="all" />
 
-<!--[if IE 7]>
-<link href="css/ie7.css" rel="stylesheet" type="text/css" />
-<![endif]-->
-<!--[if IE 6]>
-<link href="css/ie6.css" rel="stylesheet" type="text/css" />
-<![endif]-->
 <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="js/jquery.tipsy.js"></script>
 <script type="text/javascript" src="js/cufon.yui.js"></script>
@@ -32,7 +27,9 @@ $reg=$_GET['reg'];
 <script type="text/javascript" src="js/myriad.js"></script>
 <script type="text/javascript" src="js/jquery.colorbox.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
+<link type="text/css" rel="stylesheet" href="css/feedback.css">
 <link type="text/css" rel="stylesheet" href="css/jquery.custom.alerts.css">
+<script type="text/javascript" src="js/bh-feedback.js"></script>
 <script type="text/javascript" src="js/jquery.custom.alerts.js"></script>
 		<script>
 			
@@ -46,6 +43,8 @@ var n = this, c = isNaN(c = Math.abs(c)) ? 2 : c, d = d == undefined ? "," : d, 
 
 </head>
 <body>
+	<a class="bh-skip" href="#bh-main">Skip to main content</a>
+	<div id="bh-main" tabindex="-1"></div>
 
 <?php
 
