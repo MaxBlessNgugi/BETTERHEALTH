@@ -51,7 +51,7 @@ switch($id){
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/plain; charset=UTF-8"/>
 <title><?php echo $title ?></title>
@@ -65,9 +65,8 @@ switch($id){
 <script type="text/javascript" src="js/connectcode-javascript-code39.js"></script>
 <script src="js/excellentexport.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
-<script type="text/javascript" src="js/jquery.txt"></script>
 <link rel="stylesheet" href="assets/vendor/ui/jquery.ui.all.css">
-<script src="js/jquery-1.8.2.js"></script>
+<script src="js/jquery.js"></script>
 <script src="assets/vendor/ui/jquery.ui.core.js"></script>
 <script src="assets/vendor/ui/jquery.ui.widget.js"></script>
 <script src="assets/vendor/ui/jquery.ui.datepicker.js"></script>
@@ -75,7 +74,7 @@ switch($id){
 </head>
 
 <body style="background:">
-	<a class="bh-skip" href="#bh-main">Skip to main content</a> 
+	<?php require_once __DIR__ . '/includes/render.php'; echo bh_skip_link('#bh-main'); ?> 
 
 <?PHP
 switch($id){
@@ -428,7 +427,7 @@ if(isset($_GET['d2'])){
 
 
 
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
+<table id="datatable-2"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
 <tbody>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
       <td  style="width:8%;">Date of Creation</td>
@@ -621,7 +620,7 @@ if(isset($_GET['d2'])){
 
 
 
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
+<table id="datatable-3"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
 <tbody>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
       <td  style="width:8%;">Date</td>
@@ -805,7 +804,7 @@ if(isset($_GET['d2'])){
 
 
 
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
+<table id="datatable-4"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
 <tbody>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
       <td  style="width:3%;"></td>

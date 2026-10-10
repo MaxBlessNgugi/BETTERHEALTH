@@ -9,7 +9,7 @@ $reg=$_GET['reg'];
  ?>
 <script src="js/functions.js"></script>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,11 +20,9 @@ $reg=$_GET['reg'];
 <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
 <link type="text/css" rel="stylesheet" href="css/green.css" media="all" />
 
-<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery.tipsy.js"></script>
-<script type="text/javascript" src="js/cufon.yui.js"></script>
 <script type="text/javascript" src="js/scrollTo.js"></script>
-<script type="text/javascript" src="js/myriad.js"></script>
 <script type="text/javascript" src="js/jquery.colorbox.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
 <link type="text/css" rel="stylesheet" href="css/feedback.css">
@@ -37,13 +35,9 @@ $reg=$_GET['reg'];
 var n = this, c = isNaN(c = Math.abs(c)) ? 2 : c, d = d == undefined ? "," : d, t = t == undefined ? "." : t, s = n < 0 ? "-" : "", i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", j = (j = i.length) > 3 ? j % 3 : 0;
    return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
  }; </script>
-<script type="text/javascript">
-		Cufon.replace('h1,h2');
-</script>
-
 </head>
 <body>
-	<a class="bh-skip" href="#bh-main">Skip to main content</a>
+	<?php require_once __DIR__ . '/includes/render.php'; echo bh_skip_link('#bh-main'); ?>
 	<div id="bh-main" tabindex="-1"></div>
 
 <?php

@@ -17,7 +17,6 @@ else{echo"<script>window.location.href = \"index.php\";</script>";exit;}
 ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src="js/functions.js"></script>
-<script src="js/websters.js"></script>
 <script src="js/func.js"></script>
 <link type="text/css" rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/components.css" />
@@ -174,7 +173,6 @@ switch($id){
                     $().customAlert();
                     alert('Nice Try!', '<p><b> Finish with debtors balances first :)</b></p>');
                     </script>"; 
-                    #echo"<script>$('#save' + ".$code.").html('<img id='img-spinner' src='images/nice-try-caution-spinner.gif' style='position:absolute; top:45%; left:50%' alt='Loading/>');</script>"; 
               break;
 
               case 2:

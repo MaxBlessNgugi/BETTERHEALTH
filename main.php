@@ -26,7 +26,7 @@ if (isset($_SESSION['valid_user'])) {
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="css/tokens.css" />
@@ -227,8 +227,6 @@ if (isset($_SESSION['valid_user'])) {
 </script>
  <script src="js/scripter.js"></script>
  <script src="js/ajax.js"></script>
- <script type="text/javascript" src="js/jquery.txt"></script>
-<!-- <script type="text/javascript" src="js/DatePicker.js"></script> -->
 <script src="js/functions.js"></script>
  <script src="js/ajax.js"></script>
 <script src="js/func.js"></script>
@@ -250,7 +248,6 @@ ddsmoothmenu.init({
 <link rel="stylesheet" href="css/website.css" type="text/css" media="screen"/>
 <script type="text/javascript" src="js/jquery.tinyscrollbar.min.js"></script>
 <link rel="stylesheet" type="text/css" href="assets/vendor/jquery.confirm/jquery.confirm.css" />
-<!-- <script src="js/confirmscript.js"></script> -->
 <script src="js/help.js"></script>
 <script src="assets/vendor/jquery.confirm/jquery.confirm.js"></script>
 	<script>

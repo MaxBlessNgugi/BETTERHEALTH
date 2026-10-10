@@ -19,7 +19,6 @@ else{echo"<script>window.location.href = \"index.php\";</script>";exit;}
 <script type="text/javascript" src="js/bh-feedback.js"></script>
 <script src="js/functions.js"></script>
 <script src="js/ajax.js"></script>
-<!-- <script>window.onload = setupRefresh</script> -->
 <script type="text/javascript" src="js/script.js"></script>
 <link rel="stylesheet" type="text/css" href="css/graph.css" />
 <script type="text/javascript" src="js/jquery.flot.min.js"></script>

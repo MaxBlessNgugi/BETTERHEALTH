@@ -2181,7 +2181,7 @@ function studreport($result,$result2,$server,$usertype){
 </div>
 </div>
 
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
+<table id="datatable-2"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
 <tbody>
 
 

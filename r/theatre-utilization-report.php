@@ -28,7 +28,7 @@ $logo=stripslashes($row['Logo']);
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -61,7 +61,7 @@ $logo=stripslashes($row['Logo']);
 
 </head>
 <body>
-	<a class="bh-skip" href="#bh-main">Skip to main content</a>
+	<?php require_once __DIR__ . '/../includes/render.php'; echo bh_skip_link('#bh-main'); ?>
 <?php
     $date=date('Y/m/d');
     $stamp=date('Ymd');
@@ -154,7 +154,7 @@ $logo=stripslashes($row['Logo']);
 <table class="moh--report moh--report-striped" style="width:100%;">
     <thead>
         <tr style="background-color: #000;color:#fff;">
-            <th colspan="<?php echo ((count($years_arr)*3)+1);?>"> THEATRE UTILIZATION FROM JANUARY <?php echo $d1.' TO DECEMBER '.$d2; ?> </th>
+            <th scope="col" colspan="<?php echo ((count($years_arr)*3)+1);?>"> THEATRE UTILIZATION FROM JANUARY <?php echo $d1.' TO DECEMBER '.$d2; ?> </th>
         </tr>
     </thead>
     <tbody>
@@ -187,26 +187,26 @@ $logo=stripslashes($row['Logo']);
             foreach ($yearly_utilization_reqs as $month => $val) {
                 if($counter2==0){
                 echo'<tr>';
-                        echo'<th> </th>';
+                        echo'<thscope="row"> </th>';
                     foreach ($yearly_utilization_reqs[$month] as $cat => $v) {
                         if($cat=='major_operations'){$cat_label='MAJOR OPERATIONS';}else if($cat=='minor_operations'){$cat_label='MINOR OPERATIONS';}else{$cat_label='TOTAL';}
-                        echo'<th style="text-align:center;" colspan="'.count($yearly_utilization_reqs[$month][$cat]).'"> '.$cat_label.' </th>';
+                        echo'<th scope="row" style="text-align:center;" colspan="'.count($yearly_utilization_reqs[$month][$cat]).'"> '.$cat_label.' </th>';
                     }
                 echo'</tr>';
                 echo'<tr>';
-                        echo'<th style="text-align:left;">MONTH </th>';
+                        echo'<th scope="row" style="text-align:left;">MONTH </th>';
                     foreach ($yearly_utilization_reqs[$month] as $cat => $v) {
                         foreach ($yearly_utilization_reqs[$month][$cat] as $year => $year_val) {
-                            echo'<th style="text-align:left;"> '.$year.' </th>';
+                            echo'<th scope="row" style="text-align:left;"> '.$year.' </th>';
                         }
                     }
                 echo'</tr>';
                 }else if($counter2==13){
                 echo'<tr>';
-                        echo'<th style="text-align:left;">TOTAL </th>';
+                        echo'<th scope="row" style="text-align:left;">TOTAL </th>';
                     foreach ($yearly_utilization_reqs[$month] as $cat => $value) {
                         foreach ($yearly_utilization_reqs[$month][$cat] as $year => $year_val) {
-                            echo'<th style="text-align:left;"> '.$yearly_total_reqs_per_cat[$cat][$year].' </th>';
+                            echo'<th scope="row" style="text-align:left;"> '.$yearly_total_reqs_per_cat[$cat][$year].' </th>';
                         }
                     }
                 echo'</tr>';
@@ -239,32 +239,32 @@ $logo=stripslashes($row['Logo']);
 <table class="moh--report moh--report-striped" style="width:100%;">
     <thead>
         <tr style="background-color:#262626;color:#fff;">
-            <th colspan="14"> ULTRASOUND UTILIZATION FROM JANUARY <?php echo $d1.' TO DECEMBER '.$d2; ?> </th>
+            <th scope="col" colspan="14"> ULTRASOUND UTILIZATION FROM JANUARY <?php echo $d1.' TO DECEMBER '.$d2; ?> </th>
         </tr>
         <tr>
-            <th></th>
+            <thscope="col"></th>
             <?php 
                 for ($i=1; $i<=count($months_arr); $i++) { 
-                    echo'<th> '.$months_arr[$i].'</th>';
+                    echo'<thscope="col"> '.$months_arr[$i].'</th>';
                 }
             ?>
-            <th>TOTAL</th>
+            <thscope="col">TOTAL</th>
         </tr>
     </thead>
     <tbody>
         <?php 
             foreach ($year_monthly_ultrasound as $year => $value) {
                 echo'<tr> 
-                    <th> '.$year.'</th>';
+                    <thscope="row"> '.$year.'</th>';
                 $year_total=0;
                 foreach ($year_monthly_ultrasound[$year] as $mon => $reqs) {
                     $result=mysqli_query($db,"SELECT COUNT(DISTINCT radno) AS totalReqs FROM radrequests WHERE request LIKE '%ULTRASOUND%' AND DATE_FORMAT(STR_TO_DATE(date,'%d/%m/%Y'),'%M')='".trim($mon)."' AND DATE_FORMAT(STR_TO_DATE(date,'%d/%m/%Y'),'%Y')='".$year."' ");
                     $row=mysqli_fetch_assoc($result);
-                    echo'<th> '.intval($row['totalReqs']).'</th>';
+                    echo'<thscope="row"> '.intval($row['totalReqs']).'</th>';
                     $year_total+=intval($row['totalReqs']);
                 }
 
-                echo'<th> '.$year_total.'</th> </tr>';
+                echo'<thscope="row"> '.$year_total.'</th> </tr>';
 
             }
 
@@ -285,32 +285,32 @@ $logo=stripslashes($row['Logo']);
 <table class="moh--report moh--report-striped" style="width:100%;">
     <thead>
         <tr style="background-color:#262626;color:#fff;">
-            <th colspan="14"> X-RAY UTILIZATION FROM JANUARY <?php echo $d1.' TO DECEMBER '.$d2; ?> </th>
+            <th scope="col" colspan="14"> X-RAY UTILIZATION FROM JANUARY <?php echo $d1.' TO DECEMBER '.$d2; ?> </th>
         </tr>
         <tr>
-            <th></th>
+            <thscope="col"></th>
             <?php 
                 for ($i=1; $i<=count($months_arr); $i++) { 
-                    echo'<th> '.$months_arr[$i].'</th>';
+                    echo'<thscope="col"> '.$months_arr[$i].'</th>';
                 }
             ?>
-            <th>TOTAL</th>
+            <thscope="col">TOTAL</th>
         </tr>
     </thead>
     <tbody>
         <?php 
             foreach ($year_monthly_ultrasound as $year => $value) {
                 echo'<tr> 
-                        <th> '.$year.'</th>';
+                        <thscope="row"> '.$year.'</th>';
                 $year_total=0;
                 foreach ($year_monthly_ultrasound[$year] as $mon => $reqs) {
                     $result=mysqli_query($db,"SELECT COUNT(DISTINCT radno) AS totalReqs FROM radrequests WHERE request LIKE '%X-RAY%' AND DATE_FORMAT(STR_TO_DATE(date,'%d/%m/%Y'),'%M')='".trim($mon)."' AND DATE_FORMAT(STR_TO_DATE(date,'%d/%m/%Y'),'%Y')='".$year."' ");
                     $row=mysqli_fetch_assoc($result);
-                    echo'<th> '.intval($row['totalReqs']).'</th>';
+                    echo'<thscope="row"> '.intval($row['totalReqs']).'</th>';
                     $year_total+=intval($row['totalReqs']);
                 }
 
-                echo'<th> '.$year_total.'</th> </tr>';
+                echo'<thscope="row"> '.$year_total.'</th> </tr>';
 
             }
 

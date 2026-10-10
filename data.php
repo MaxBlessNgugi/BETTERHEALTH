@@ -2365,8 +2365,8 @@ $resulta = mysqli_query($db, "insert into log values('0','".$username." inserts 
 								if(!$rs)
 								{exit("Error in SQL");}
 								echo "<div class=\"cleaner_h5\"></div><table><tr>";
-								echo "<th >NAME</th>";
-								echo "<th >RESULT</th></tr>";
+								echo "<th scope=\"col\" >NAME</th>";
+								echo "<th scope=\"col\" >RESULT</th></tr>";
 
 								while (odbc_fetch_row($rs))
 								{
@@ -10742,9 +10742,9 @@ if($num_resultsdo2>0){
 					<div class="cleaner_h5"></div>
 					<table id="delete_expired_tbl" style="width:96%;margin:5px;" border="1px" cellpadding="15px" cellspacing="0">
 						<thead>
-							<th style="width:50%;padding:2px;">Item Name</th>
-							<th style="width:30%;padding:2px;">Expiry Date</th>
-							<th style="width:20%;padding:2px;">Delete</th>
+							<th scope="col" style="width:50%;padding:2px;">Item Name</th>
+							<th scope="col" style="width:30%;padding:2px;">Expiry Date</th>
+							<th scope="col" style="width:20%;padding:2px;">Delete</th>
 						</thead>
 						<tbody>';
 			$current_date = date('Y-m-d');

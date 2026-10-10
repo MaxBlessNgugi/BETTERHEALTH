@@ -143,7 +143,7 @@ $guideTitle = 'Design System — Living Style Guide';
 </style>
 </head>
 <body class="bh-guide">
-<a class="bh-skip" href="#bh-main">Skip to main content</a>
+<?php require_once __DIR__ . '/includes/render.php'; echo bh_skip_link('#bh-main'); ?>
 
 <div class="bh-guide-wrap">
   <header class="bh-guide-top">
@@ -434,6 +434,51 @@ $guideTitle = 'Design System — Living Style Guide';
         <dd>Sorting state is exposed with <code>aria-sort</code> and announced to assistive technology.</dd>
         <dd>Do not lay tables out with <code>&lt;br&gt;</code> or <code>&amp;nbsp;</code> (R-11).</dd>
       </dl>
+
+      <h3>Live data grid <span class="bh-badge">R-11</span></h3>
+      <p>Adding <code>class="bh-grid"</code> to a report table progressively enhances it with a
+        filter, rows-per-page control, pagination, sortable headers, CSV/print export and
+        screen-reader announcements &mdash; no build step and no framework.</p>
+      <table class="bh-grid">
+        <caption>Unposted entries &mdash; data grid demo</caption>
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Account</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Posted</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>2026-10-09</td><td>Outpatient cash</td><td>1,240.00</td><td>No</td></tr>
+          <tr><td>2026-10-09</td><td>Pharmacy sales</td><td>3,918.50</td><td>No</td></tr>
+          <tr><td>2026-10-08</td><td>Outpatient cash</td><td>980.00</td><td>No</td></tr>
+          <tr><td>2026-10-08</td><td>Laboratory</td><td>4,120.00</td><td>No</td></tr>
+          <tr><td>2026-10-08</td><td>Pharmacy sales</td><td>2,775.25</td><td>No</td></tr>
+          <tr><td>2026-10-07</td><td>Inpatient billing</td><td>12,600.00</td><td>No</td></tr>
+          <tr><td>2026-10-07</td><td>Outpatient cash</td><td>1,050.75</td><td>No</td></tr>
+          <tr><td>2026-10-07</td><td>Laboratory</td><td>640.00</td><td>No</td></tr>
+          <tr><td>2026-10-06</td><td>Pharmacy sales</td><td>3,004.10</td><td>No</td></tr>
+          <tr><td>2026-10-06</td><td>Inpatient billing</td><td>9,875.00</td><td>No</td></tr>
+          <tr><td>2026-10-05</td><td>Outpatient cash</td><td>1,315.00</td><td>No</td></tr>
+          <tr><td>2026-10-05</td><td>Laboratory</td><td>515.50</td><td>No</td></tr>
+        </tbody>
+      </table>
+<pre><code>&lt;table class="bh-grid"&gt;
+  &lt;caption&gt;Unposted entries&lt;/caption&gt;
+  &lt;thead&gt;&lt;tr&gt;&lt;th scope="col"&gt;Date&lt;/th&gt;...&lt;/tr&gt;&lt;/thead&gt;
+  &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;...&lt;/td&gt;&lt;/tr&gt;...&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;script src="js/bh-grid.js"&gt;&lt;/script&gt;</code></pre>
+      <dl class="a11y"><dt>Data grid accessibility</dt>
+        <dd>Headers are promoted to <code>&lt;thead&gt;</code> and carry <code>scope="col"</code>;
+          sorting toggles <code>aria-sort</code> and is announced through a shared
+          <code>role="status"</code> live region.</dd>
+        <dd>Left / Right / Home / End move between headers; the filter is a real
+          <code>&lt;input type="search"&gt;</code> bound with <code>aria-controls</code>.</dd>
+        <dd>Export and print are ordinary buttons, so they are keyboard reachable and announced.</dd>
+        <dd>Nothing is hidden by default: rows-per-page starts at <em>All</em>.</dd>
+      </dl>
     </section>
 
     <section id="alerts" aria-labelledby="h-alerts">
@@ -488,6 +533,12 @@ $guideTitle = 'Design System — Living Style Guide';
             <li>Every table: <code>&lt;caption&gt;</code>, <code>scope</code> on header cells.</li>
             <li>Every destructive action: a <code>confirm()</code> gate.</li>
             <li>Every async action: <code>bhBusy()</code> or a <code>.bh-spinner</code> indicator.</li>
+            <li>Never paste document chrome &mdash; call <code>echo bh_head(array(...))</code> from
+              <code>includes/render.php</code> (R-12: PHP supplies data, the partial renders markup).</li>
+            <li>Repeated fragments come from <code>includes/partials/</code>
+              (<code>bh_skip_link()</code>, <code>bh_head()</code>) &mdash; not from copy-paste.</li>
+            <li>New report tables opt in with <code>class="bh-grid"</code> and load
+              <code>js/bh-grid.js</code> (R-11).</li>
           </ul>
         </div>
       </div>
@@ -501,7 +552,8 @@ $guideTitle = 'Design System — Living Style Guide';
   </footer>
 </div>
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
 <script src="js/bh-feedback.js"></script>
+<script src="js/bh-grid.js"></script>
 </body>
 </html>

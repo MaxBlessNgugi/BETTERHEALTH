@@ -88,12 +88,13 @@ $regno = isset($_POST['regno']) ? $_POST['regno'] : null;
 $id    = isset($_POST['id']) ? (int)$_POST['id'] : 0;
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />	<link rel="stylesheet" href="css/tokens.css" />
-<link rel="stylesheet" href="css/components.css" /></head>
+<link rel="stylesheet" href="css/components.css" />  <title>Upload - BETTER-HEALTH HMIS</title>
+  </head>
   <body>
-	<a class="bh-skip" href="#bh-main">Skip to main content</a>
+	<?php require_once __DIR__ . '/includes/render.php'; echo bh_skip_link('#bh-main'); ?>
 	<div id="bh-main" tabindex="-1"></div>
 	<script>
 $('#lei2').html('<iframe name="leiframe2" id="leiframe" class="leiframe" src="" style="margin-right:40px"></iframe>');

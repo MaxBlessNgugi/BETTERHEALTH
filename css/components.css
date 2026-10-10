@@ -323,7 +323,9 @@
    -------------------------------------------------------------------------- */
 .bh-stack   { display: flex; flex-direction: column; gap: var(--space-4, 16px); }
 .bh-cluster { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3, 12px); }
-.bh-grid    { display: grid; gap: var(--space-5, 20px); grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+/* scoped to div: table.bh-grid is the data-grid opt-in (js/bh-grid.js) and
+   must keep native table layout, not become a grid container */
+div.bh-grid { display: grid; gap: var(--space-5, 20px); grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 
 /* ==========================================================================
    Utility layer  the landing zone for R-09's inline-style migration
@@ -386,6 +388,90 @@
 .bh-h-100 { height: 100%; }
 .bh-overflow-x { overflow-x: auto; }
 
+
+/* --------------------------------------------------------------------------
+   Data grid toolbar (R-11) — injected by js/bh-grid.js above the table
+   -------------------------------------------------------------------------- */
+.bh-grid-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-4, 16px);
+  padding: var(--space-4, 16px);
+  margin-bottom: var(--space-3, 12px);
+  background: var(--color-surface, #fff);
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: var(--radius-lg, 12px);
+}
+.bh-grid-toolbar .bh-field { margin-bottom: 0; }
+.bh-grid-filter { flex: 1 1 220px; min-width: 160px; }
+.bh-grid-size { flex: 0 0 140px; }
+.bh-grid-nav { display: flex; align-items: center; gap: var(--space-3, 12px); margin-left: auto; }
+.bh-grid-status { font-size: var(--text-sm, 13px); color: var(--color-text-muted, #64748b); white-space: nowrap; }
+
+/* Sorting affordance on any grid, not just .bh-table */
+table.bh-grid th[aria-sort] { cursor: pointer; user-select: none; }
+table.bh-grid th[aria-sort="ascending"]::after  { content: " \25B2"; font-size: 0.75em; }
+table.bh-grid th[aria-sort="descending"]::after { content: " \25BC"; font-size: 0.75em; }
+table.bh-grid th[aria-sort="none"]::after       { content: " \2195"; font-size: 0.75em; opacity: 0.5; }
+table.bh-grid th:focus-visible {
+  outline: var(--focus-ring, 2px solid #0f766e);
+  outline-offset: -2px;
+  background: var(--primary-50, #f0fdfa);
+}
+table.bh-grid caption {
+  padding: var(--space-3, 12px) var(--space-4, 16px);
+  text-align: left;
+  font-size: var(--text-sm, 13px);
+  font-weight: var(--weight-semibold, 600);
+  color: var(--color-heading, #0f172a);
+}
+
+/* --------------------------------------------------------------------------
+   Print — design-system print skin (R-11 export / print styles).
+   Deliberately scoped to shell + grid chrome so the dossier print sheets
+   (empreport / patreport + css/print.css) keep their own document layout.
+   -------------------------------------------------------------------------- */
+@media print {
+  .bh-grid-toolbar,
+  .bh-topbar-search,
+  .bh-rail-toggle,
+  .bh-favourites,
+  #templatemo_menu,
+  .bh-skip,
+  .bh-toast-region { display: none !important; }
+
+  body.bh-guide .bh-guide-nav { display: none; }
+
+  #sidep { display: none !important; }
+
+  a[href]::after { content: ""; }
+
+  .bh-grid-status { color: #000; }
+
+  table.bh-grid,
+  .bh-table {
+    width: 100% !important;
+    border-collapse: collapse;
+    page-break-inside: auto;
+    box-shadow: none !important;
+  }
+  table.bh-grid thead th,
+  .bh-table thead th {
+    position: static;
+    background: #fff !important;
+    color: #000 !important;
+    border-bottom: 2px solid #000;
+  }
+  table.bh-grid tbody tr,
+  .bh-table tbody tr { page-break-inside: avoid; }
+  table.bh-grid td,
+  table.bh-grid th,
+  .bh-table td,
+  .bh-table th { border: 1px solid #999 !important; color: #000 !important; }
+
+  .bh-card { border-color: #999; box-shadow: none !important; }
+}
 @media (prefers-reduced-motion: reduce) {
   .bh-btn, .bh-input, .bh-select, .bh-textarea { transition: none !important; }
 }

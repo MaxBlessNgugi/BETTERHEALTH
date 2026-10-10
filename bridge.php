@@ -23,7 +23,6 @@ else{echo"<script>window.location.href = \"index.php\";</script>";exit;}
 <script src="js/ajax.js"></script>
 <script src="js/help.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
-<script type="text/javascript" src="js/jquery.txt"></script>
 <script type="text/javascript" src="js/auth.js"></script>
 <script src="assets/vendor/ui/jquery.ui.position.js"></script>
 <link rel="stylesheet" type="text/css" href="assets/vendor/jquery.confirm/jquery.confirm.css" />
@@ -37,7 +36,6 @@ else{echo"<script>window.location.href = \"index.php\";</script>";exit;}
 <script type="text/javascript" src="js/jquery.custom.alerts.js"></script>
 <script type="text/javascript" src="js/chart.js"></script>
     <link rel="stylesheet" href="css/font-awesome.min.css" />
- <!-- <script src="../code.jquery.com/jquery-latest.min.js" type="text/javascript"></script> -->
      <link href='assets/vendor/DataTables/datatables.min.css' rel='stylesheet' type='text/css'>
 
 <script type="text/javascript" >
@@ -7897,7 +7895,7 @@ echo'</tbody></table><div style="clear:both; margin-bottom:10px"></div>';
 					</div>
 					</div>
 
-			<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;padding:0; " >
+			<table id="datatable-2"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;padding:0; " >
 			<tbody>';
 
 					for ($i=0; $i <$num_results; $i++) {
@@ -8247,10 +8245,10 @@ echo'<div id="tabs-14">';
 	                      echo'<table id="phcdiaginoisTable" class="display dataTable" width="100%">
 	                                <thead>
 	                                    <tr>
-	                                        <th>Parent Name (Parent Code)</th>
-	                                        <th>Name</th>
-	                                        <th>Diagnosis Code</th>
-	                                        <th>Action</th>
+	                                        <thscope="col">Parent Name (Parent Code)</th>
+	                                        <thscope="col">Name</th>
+	                                        <thscope="col">Diagnosis Code</th>
+	                                        <thscope="col">Action</th>
 	                                    </tr>
 	                                </thead>
 	                                

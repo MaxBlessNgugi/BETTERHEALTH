@@ -28,7 +28,7 @@ $logo=stripslashes($row['Logo']);
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -61,7 +61,7 @@ $logo=stripslashes($row['Logo']);
 
 </head>
 <body>
-	<a class="bh-skip" href="#bh-main">Skip to main content</a>
+	<?php require_once __DIR__ . '/../includes/render.php'; echo bh_skip_link('#bh-main'); ?>
 <?php
 $date=date('Y/m/d');
 $stamp=date('Ymd');
@@ -188,7 +188,7 @@ $name='OPD VISITS COMPARISON';
 <table id="op_yearly_visits_comparison" class="moh--report moh--report-striped" style="width:100%;">
     <thead>
         <tr style="background-color:#000;color:#fff;">
-            <th colspan="<?php echo ((count($years_arr)*6)+1);?>">OUTPATIENT DEPARTMENT COMPARISON BETWEEN NEW AND REVISITS <?php if($d1!=$d2){ echo'FROM '.$d1.' TO '.$d2;}else{ echo'IN '.$d2;} ?> </th>
+            <th scope="col" colspan="<?php echo ((count($years_arr)*6)+1);?>">OUTPATIENT DEPARTMENT COMPARISON BETWEEN NEW AND REVISITS <?php if($d1!=$d2){ echo'FROM '.$d1.' TO '.$d2;}else{ echo'IN '.$d2;} ?> </th>
         </tr>
     </thead>
     <tbody><?php 
@@ -221,39 +221,39 @@ $name='OPD VISITS COMPARISON';
     foreach ($yearly_opd_visits as $mon => $value) {
         if($counter==-1){
         echo'<tr>';
-                echo'<th> </th>';
+                echo'<thscope="row"> </th>';
             foreach ($yearly_opd_visits[$mon] as $type => $v) {
                 if($type=='NewPatient'){$type_label='NEW VISIT';}else{$type_label='REVISITS'; }
-                echo'<th style="text-align:center;" colspan="'.(count($yearly_opd_visits[$mon][$type]['under5'])*3).'"> '.$type_label.' </th>';
+                echo'<th scope="row" style="text-align:center;" colspan="'.(count($yearly_opd_visits[$mon][$type]['under5'])*3).'"> '.$type_label.' </th>';
             }
         echo'</tr>';
         }else if($counter==0){
         echo'<tr>';
-                echo'<th> </th>';
+                echo'<thscope="row"> </th>';
             foreach ($yearly_opd_visits[$mon] as $type => $v) {
                 foreach ($yearly_opd_visits[$mon][$type] as $cat => $cat_years) {
                     if($cat=='under5'){$cat_label='UNDER 5';}else if($cat=='over5'){$cat_label='OVER 5';}else{$cat_label='TOTAL';}
-                    echo'<th style="text-align:center;" colspan="'.count($yearly_opd_visits[$mon][$type][$cat]).'"> '.$cat_label.' </th>';
+                    echo'<th scope="row" style="text-align:center;" colspan="'.count($yearly_opd_visits[$mon][$type][$cat]).'"> '.$cat_label.' </th>';
                 }
             }
         echo'</tr>';
         echo'<tr>';
-                echo'<th style="text-align:left;">MONTH </th>';
+                echo'<th scope="row" style="text-align:left;">MONTH </th>';
             foreach ($yearly_opd_visits[$mon] as $type => $v) {
                 foreach ($yearly_opd_visits[$mon][$type] as $cat => $cat_years) {
                     foreach ($yearly_opd_visits[$mon][$type][$cat] as $year => $year_val) {
-                        echo'<th style="text-align:left;"> '.$year.' </th>';
+                        echo'<th scope="row" style="text-align:left;"> '.$year.' </th>';
                     }                    
                 }
             }
         echo'</tr>';
         }else if($counter==13){
         echo'<tr>';
-                echo'<th style="text-align:left;">TOTAL </th>';
+                echo'<th scope="row" style="text-align:left;">TOTAL </th>';
             foreach ($yearly_opd_visits[$mon] as $type => $value) {
                 foreach ($yearly_opd_visits[$mon][$type] as $cat => $cat_years) {
                     foreach ($yearly_opd_visits[$mon][$type][$cat] as $year => $year_val) {
-                        echo'<th style="text-align:left;"> '.$yearly_total_per_cat[$type][$cat][$year].' </th>';
+                        echo'<th scope="row" style="text-align:left;"> '.$yearly_total_per_cat[$type][$cat][$year].' </th>';
                     }
                 }
             }
@@ -283,7 +283,7 @@ $name='OPD VISITS COMPARISON';
 <table id="ip_generalward_comparison" class="moh--report moh--report-striped" style="width:100%;">
     <thead>
         <tr style="background-color: #000;color:#fff;">
-            <th colspan="<?php echo ((count($years_arr)*3)+1);?>">COMPARISON OF ADMISSIONS IN GENERAL WARD <?php if($d1!=$d2){ echo'FROM '.$d1.' TO '.$d2;}else{ echo'IN '.$d2;} ?> </th>
+            <th scope="col" colspan="<?php echo ((count($years_arr)*3)+1);?>">COMPARISON OF ADMISSIONS IN GENERAL WARD <?php if($d1!=$d2){ echo'FROM '.$d1.' TO '.$d2;}else{ echo'IN '.$d2;} ?> </th>
         </tr>
     </thead>
     <tbody>
@@ -315,26 +315,26 @@ $name='OPD VISITS COMPARISON';
             foreach ($yearly_ipd_admissions as $month => $val) {
                 if($counter2==0){
                 echo'<tr>';
-                        echo'<th> </th>';
+                        echo'<thscope="row"> </th>';
                     foreach ($yearly_ipd_admissions[$month] as $cat => $v) {
                         if($cat=='under5'){$cat_label='UNDER 5';}else if($cat=='over5'){$cat_label='OVER 5';}else{$cat_label='TOTAL';}
-                        echo'<th style="text-align:center;" colspan="'.count($yearly_ipd_admissions[$month][$cat]).'"> '.$cat_label.' </th>';
+                        echo'<th scope="row" style="text-align:center;" colspan="'.count($yearly_ipd_admissions[$month][$cat]).'"> '.$cat_label.' </th>';
                     }
                 echo'</tr>';
                 echo'<tr>';
-                        echo'<th style="text-align:left;">MONTH </th>';
+                        echo'<th scope="row" style="text-align:left;">MONTH </th>';
                     foreach ($yearly_ipd_admissions[$month] as $cat => $v) {
                         foreach ($yearly_ipd_admissions[$month][$cat] as $year => $year_val) {
-                            echo'<th style="text-align:left;"> '.$year.' </th>';
+                            echo'<th scope="row" style="text-align:left;"> '.$year.' </th>';
                         }
                     }
                 echo'</tr>';
                 }else if($counter2==13){
                 echo'<tr>';
-                        echo'<th style="text-align:left;">TOTAL </th>';
+                        echo'<th scope="row" style="text-align:left;">TOTAL </th>';
                     foreach ($yearly_ipd_admissions[$month] as $cat => $value) {
                         foreach ($yearly_ipd_admissions[$month][$cat] as $year => $year_val) {
-                            echo'<th style="text-align:left;"> '.$yearly_total_per_cat_ip[$cat][$year].' </th>';
+                            echo'<th scope="row" style="text-align:left;"> '.$yearly_total_per_cat_ip[$cat][$year].' </th>';
                         }
                     }
                 echo'</tr>';

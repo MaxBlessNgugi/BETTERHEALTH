@@ -25,7 +25,7 @@ echo"<script>window.location.href = \"index.php\";</script>";exit;
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"><head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/tokens.css" />
 <link rel="stylesheet" href="css/components.css" />
@@ -43,7 +43,7 @@ echo"<script>window.location.href = \"index.php\";</script>";exit;
 <link type="text/css" rel="stylesheet" href="css/jquery.custom.alerts.css">
 <script type="text/javascript" src="js/bh-feedback.js"></script>
 <script type="text/javascript" src="js/jquery.custom.alerts.js"></script>
-<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/jquery.js" type="text/javascript"></script>
 		<style>
 			.timer {
 				position:relative;

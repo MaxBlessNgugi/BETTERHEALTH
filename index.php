@@ -22,7 +22,7 @@ $result_dest = session_destroy();
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -35,7 +35,7 @@ $result_dest = session_destroy();
 <link id="favicon" href="images/fav.png" rel="icon" type="image/png"/>
 <link href="css/page.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="css/style2.css" />
-<script type='text/javascript' src='js/jquery.min.js'></script>
+<script type='text/javascript' src='js/jquery.js'></script>
 <link type="text/css" rel="stylesheet" href="css/feedback.css">
 <link type="text/css" rel="stylesheet" href="css/jquery.custom.alerts.css">
 <script type="text/javascript" src="js/bh-feedback.js"></script>

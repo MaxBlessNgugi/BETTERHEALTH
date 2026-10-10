@@ -23,7 +23,7 @@ $logo=stripslashes($row['Logo']);
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -46,6 +46,7 @@ font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 </style>
 
+<script type="text/javascript" src="../js/bh-grid.js"></script>
 </head>
 
 <body>
@@ -77,22 +78,22 @@ echo $d2=preg_replace('~/~', '', $d2);
 
 ?>
 <?php 
-echo '<table id="datatable"  style="width:100%;text-align:center;font-size:12px; font-weight:bold;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif; padding:0;"  tabindex="-1">';
-echo '<tbody>';
+echo '<table id="datatable" class="bh-grid" data-bh-thead="first"  style="width:100%;text-align:center;font-size:12px; font-weight:bold;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif; padding:0;"  tabindex="-1"><caption>Better Health Stock Daily Summary Reports</caption>';
+echo '<thead>';
 echo ' <tr style="width:100%; height:20px;color:#fff; background:#2c3e50; padding:0;text-transform:;">';
 ?>
-	    <!-- 	<td  style="width:3%;">#</td> -->
-	    	<td  style="width:10%;">DATE</td>
-	        <td  style="width:20%;">ITEM NAME</td>
-	        <td  style="width:10%;">PREV QTY</td>  
-	        <td  style="width:10%;">QTY ADDED</td>  
-	        <td  style="width:10%;">QTY REMOVED</td> 
-	        <td  style="width:10%;">QTY BAL</td>
-	        <td  style="width:20%;">PARTICULARS</td>
-	        <td  style="width:10%;">USERNAME</td>
+	    <!-- 	<th scope="col"  style="width:3%;">#</th> -->
+	    	<th scope="col"  style="width:10%;">DATE</th>
+	        <th scope="col"  style="width:20%;">ITEM NAME</th>
+	        <th scope="col"  style="width:10%;">PREV QTY</th>  
+	        <th scope="col"  style="width:10%;">QTY ADDED</th>  
+	        <th scope="col"  style="width:10%;">QTY REMOVED</th> 
+	        <th scope="col"  style="width:10%;">QTY BAL</th>
+	        <th scope="col"  style="width:20%;">PARTICULARS</th>
+	        <th scope="col"  style="width:10%;">USERNAME</th>
 
 <?php 
-      echo '</tr>';
+      echo '</tr></thead><tbody>';
 
 	$purch_desc='PURCHASES';
 	$transfer_to='STOCK TRANSFER TO';

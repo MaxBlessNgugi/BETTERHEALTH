@@ -1079,7 +1079,7 @@ echo'
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/plain; charset=UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -1115,10 +1115,11 @@ font-family: Merchant; font-size:18px; font-weight:normal;letter-spacing: 1px; t
 
 </style>
 
+<script type="text/javascript" src="js/bh-grid.js"></script>
 </head>
 
 <body style="background:">
-	<a class="bh-skip" href="#bh-main">Skip to main content</a> 
+	<?php require_once __DIR__ . '/includes/render.php'; echo bh_skip_link('#bh-main'); ?> 
 
 <?php 
 switch($id){
@@ -3651,16 +3652,16 @@ for ($kk=0; $kk <$part; $kk++) {
 
 
 ?>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0;display:none " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-2"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0;display:none " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-   		<td  style="width:11%;">Date</td>
-        <td  style="width:15%;">Invoice No.</td>
-        <td  style="width:40%;">Details</td>
-        <td  style="width:10%;">Dr</td>
-        <td  style="width:10%;">Cr</td>
-        <td  style="width:14%;">Balance</td>
-    </tr>
+   		<th scope="col"  style="width:11%;">Date</th>
+        <th scope="col"  style="width:15%;">Invoice No.</th>
+        <th scope="col"  style="width:40%;">Details</th>
+        <th scope="col"  style="width:10%;">Dr</th>
+        <th scope="col"  style="width:10%;">Cr</th>
+        <th scope="col"  style="width:14%;">Balance</th>
+    </tr></thead><tbody>
 
 
 <?php
@@ -3907,20 +3908,20 @@ $fname=strtolower($date).'_sales_report';
 
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-3"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-   		<td  style="width:120px;">Trans Date</td>
-        <td  style="width:130px">Receipt No.</td>
-        <td  style="width:400px">Item Name</td>
-         <td  style="width:100px;">Unit Price</td>
-       <td  style="width:100px;">Qty</td>
-        <td  style="width:85px">Vat</td>
-        <td  style="width:95px">Discount</td>
-         <td  style="width:135px;">Total Sale</td>
-       <td  style="width:90px;">Posted</td>
-        <td  style="width:90px">Cashier</td>
-    </tr>
+   		<th scope="col"  style="width:120px;">Trans Date</th>
+        <th scope="col"  style="width:130px">Receipt No.</th>
+        <th scope="col"  style="width:400px">Item Name</th>
+         <th scope="col"  style="width:100px;">Unit Price</th>
+       <th scope="col"  style="width:100px;">Qty</th>
+        <th scope="col"  style="width:85px">Vat</th>
+        <th scope="col"  style="width:95px">Discount</th>
+         <th scope="col"  style="width:135px;">Total Sale</th>
+       <th scope="col"  style="width:90px;">Posted</th>
+        <th scope="col"  style="width:90px">Cashier</th>
+    </tr></thead><tbody>
 
 
 <?php
@@ -5004,16 +5005,16 @@ $fname=strtolower($name).'_stock_variance';
 <?php $d1=preg_replace('~/~', '', $d1); $d2=preg_replace('~/~', '', $d2);?>
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-4"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-   		<td  style="width:12%;">Date</td>
-        <td  style="width:17%;">Department</td>
-        <td  style="width:25%;">Item Name</td>
-         <td  style="width:10%;">Pack Size</td>
-       <td  style="width:17%;">Difference</td>
-        <td  style="width:19%;">Monetary Value</td>
-    </tr>
+   		<th scope="col"  style="width:12%;">Date</th>
+        <th scope="col"  style="width:17%;">Department</th>
+        <th scope="col"  style="width:25%;">Item Name</th>
+         <th scope="col"  style="width:10%;">Pack Size</th>
+       <th scope="col"  style="width:17%;">Difference</th>
+        <th scope="col"  style="width:19%;">Monetary Value</th>
+    </tr></thead><tbody>
 
 <?php
 
@@ -5100,14 +5101,14 @@ $fname=strtolower($name).'_stock_variance_summary';
 <?php $d1=preg_replace('~/~', '', $d1); $d2=preg_replace('~/~', '', $d2);?>
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-5"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-		<td  style="width:9%;">Variance No</td>
-   		<td  style="width:30%;">Date</td>
-        <td  style="width:30%;">Department</td>
-        <td  style="width:39%;">Monetary Value</td>
-    </tr>
+		<th scope="col"  style="width:9%;">Variance No</th>
+   		<th scope="col"  style="width:30%;">Date</th>
+        <th scope="col"  style="width:30%;">Department</th>
+        <th scope="col"  style="width:39%;">Monetary Value</th>
+    </tr></thead><tbody>
 
 <?php
 
@@ -5623,23 +5624,23 @@ break;
 				<body>';
 
 				$output .= '<div style="width:100%;padding:10px;">
-            <table class="bhealth-table bhealth-table-striped" style="width:100%;">
+            <table class="bhealth-table bhealth-table-striped bh-grid" style="width:100%;">' . htmlspecialchars($title) . '
               <thead>
                 <tr>
-                  <th colspan="4" style="text-align:center;">TRIAL BALANCE</th>
+                  <th scope="col" colspan="4" style="text-align:center;">TRIAL BALANCE</th>
                 </tr>
                 <tr>
-                  <th colspan="4" style="text-align:center;">PERIOD FROM ' . $d1 . ' TO ' . $d2 . ' </th>
+                  <th scope="col" colspan="4" style="text-align:center;">PERIOD FROM ' . $d1 . ' TO ' . $d2 . ' </th>
                 </tr>';
 				$output .= '<tr style="background-color:rgba(15, 17, 18, 0.71);color:#fff;">';
-				$output .= '<th colspan="2" style="text-align:left;">DESCRIPTION </th>
-                  <th style="text-align:center;">DEBIT</th>
-                  <th style="text-align:center;">CREDIT</th>';
+				$output .= '<th scope="col" colspan="2" style="text-align:left;">DESCRIPTION </th>
+                  <th scope="col" style="text-align:center;">DEBIT</th>
+                  <th scope="col" style="text-align:center;">CREDIT</th>';
 				$output .= '</tr>';
 				$output .= '</thead>
 								<tbody>';
 				$output .= '<tr>
-								<th colspan="4" style="text-align:left;">CASH BALANCES</th>
+								<th scope="row" colspan="4" style="text-align:left;">CASH BALANCES</th>
 							</tr>';
 
 				$output .= '<tr>
@@ -5648,7 +5649,7 @@ break;
                       <td style="text-align:center;"> </td>
                   </tr>';
 				$output .= '<tr>
-						<th colspan="4" style="text-align:left;">BANK BALANCES</th>
+						<th scope="row" colspan="4" style="text-align:left;">BANK BALANCES</th>
 					</tr>';
 
 				for ($i = 0; $i < count($bank_meta); $i++) {
@@ -5668,7 +5669,7 @@ break;
 				//               </tr>';
 
 				$output .= '<tr>
-								<th colspan="4" style="text-align:left;">RECEIVABLES</th>
+								<th scope="row" colspan="4" style="text-align:left;">RECEIVABLES</th>
 							</tr>';
 
 				for ($i = 0; $i < count($receivables_meta); $i++) {
@@ -5690,10 +5691,10 @@ break;
 				//         </tr>';
 
 				$output .= '<tr>
-                      <th colspan="4" style="height:22px;"></th>
+                      <th scope="row" colspan="4" style="height:22px;"></th>
                   </tr>';
 				$output .= '<tr>
-                      <th colspan="4" style="text-align:left;">EXPENSES</th>
+                      <th scope="row" colspan="4" style="text-align:left;">EXPENSES</th>
                   </tr>';
 
 				$expenses_bal = floatval(array_sum($expenses['tdr'])) - floatval(array_sum($expenses['tcr']));
@@ -5710,7 +5711,7 @@ break;
                       <td style="text-align:center;">' . number_format($account_payables_bal, 2) . '</td>
                   </tr>';
 				$output .= '<tr>
-                      <th colspan="4" style="text-align:left;">RECEIPTS</th>
+                      <th scope="row" colspan="4" style="text-align:left;">RECEIPTS</th>
                   </tr>';
 
 				$insurance_receipts_bal = floatval(array_sum($insurancereceipts['tcr'])) - floatval(array_sum($insurancereceipts['tdr']));
@@ -5814,23 +5815,23 @@ break;
 
 				// if ($totalBalBFwd < 0) {
 				// 	$output .= '<tr>
-				//       <th colspan="2" style="text-align:left;"> Balance b/fwd ' . $startdate_words . ' </th>
+				//       <th scope="col" colspan="2" style="text-align:left;"> Balance b/fwd ' . $startdate_words . ' </th>
 				//       <td style="text-align:center;"> </td>
-				//       <th style="text-align:center;">(' . number_format(abs($totalBalBFwd), 2) . ')</th>
+				//       <th scope="col" style="text-align:center;">(' . number_format(abs($totalBalBFwd), 2) . ')</th>
 				//   </tr>';
 				// } else {
 				// 	$output .= '<tr>
-				//       <th colspan="2" style="text-align:left;">Balance b/fwd ' . $startdate_words . ' </th>
+				//       <th scope="col" colspan="2" style="text-align:left;">Balance b/fwd ' . $startdate_words . ' </th>
 				//       <td class="text-center"> </td>
-				//       <th style="text-align:center;">' . number_format($totalBalBFwd, 2) . '</th>
+				//       <th scope="col" style="text-align:center;">' . number_format($totalBalBFwd, 2) . '</th>
 				//   </tr>';
 				// }
 				// $credits = floatval($credits) + floatval($totalBalBFwd);
 
 				$output .= '<tr>
-								<th colspan="2">TOTAL</th>
-								<th style="text-align:center;">' . number_format($debits, 2, '.', ',') . ' </th>
-								<th style="text-align:center;">' . number_format($credits, 2, '.', ',') . ' </th>
+								<th scope="col" colspan="2">TOTAL</th>
+								<th scope="col" style="text-align:center;">' . number_format($debits, 2, '.', ',') . ' </th>
+								<th scope="col" style="text-align:center;">' . number_format($credits, 2, '.', ',') . ' </th>
 								</tr>';
 				$output .= '</tfoot>
 						</table>';
@@ -5907,23 +5908,23 @@ break;
 				<body>';
 
 				$output .= '<div style="width:920px;padding:10px;margin-bottom:100px;">
-            <table class="bhealth-table bhealth-table-striped" style="width:100%;">
+            <table class="bhealth-table bhealth-table-striped bh-grid" style="width:100%;">' . htmlspecialchars($title) . '
               <thead>
                 <tr>
-                  <th colspan="3" style="text-align:center;">STATEMENT OF RECEIPTS AND PAYMENTS</th>
+                  <th scope="col" colspan="3" style="text-align:center;">STATEMENT OF RECEIPTS AND PAYMENTS</th>
                 </tr>
                 <tr>
-                  <th colspan="3" style="text-align:center;">PERIOD FROM ' . $d1 . ' TO ' . $d2 . ' </th>
+                  <th scope="col" colspan="3" style="text-align:center;">PERIOD FROM ' . $d1 . ' TO ' . $d2 . ' </th>
                 </tr>';
 				$output .= '<tr style="background-color:rgba(15, 17, 18, 0.71);color:#fff;">';
-				$output .= '<th colspan="2" style="text-align:left;">DESCRIPTION </th>
-                  	<th style="text-align:center;">AMOUNT</th>';
+				$output .= '<th scope="col" colspan="2" style="text-align:left;">DESCRIPTION </th>
+                  	<th scope="col" style="text-align:center;">AMOUNT</th>';
 				$output .= '</tr>';
 				$output .= '</thead>
 								<tbody>';
 
 				$output .= '<tr>
-                      <th colspan="3" style="text-align:left;">RECEIPTS</th>
+                      <th scope="row" colspan="3" style="text-align:left;">RECEIPTS</th>
                   </tr>';
 
 				$res = mysqli_query($db, "SELECT ledgerid,`name`,mainLedgerId FROM ledgers WHERE ledgerid!=1083 AND `type`='Income' ORDER BY ledgerid ASC ");
@@ -5958,15 +5959,15 @@ break;
 				}
 
 				$output .= '<tr>
-                      <th colspan="2" style="text-align:left;">TOTAL RECEIPTS</th>
-											<th style="text-align:center;">' . number_format(floatval($receipts['total']), 2, '.', ',') . '  </th>
+                      <th scope="row" colspan="2" style="text-align:left;">TOTAL RECEIPTS</th>
+											<th scope="row" style="text-align:center;">' . number_format(floatval($receipts['total']), 2, '.', ',') . '  </th>
                   </tr>';
 				$output .= '<tr>
                       <td colspan="3" style="height:18px;"></td>
                   </tr>';
 
 				$output .= '<tr>
-                      <th colspan="3" style="text-align:left;">PAYMENTS</th>
+                      <th scope="row" colspan="3" style="text-align:left;">PAYMENTS</th>
                   </tr>';
 
 				$res = mysqli_query($db, "SELECT ledgerid,`name`,mainLedgerId FROM ledgers WHERE `type`='Expense' ORDER BY ledgerid ASC ");
@@ -6001,8 +6002,8 @@ break;
 				}
 
 				$output .= '<tr>
-                      <th colspan="2" style="text-align:left;">TOTAL PAYMENTS</th>
-											<th style="text-align:center;">' . number_format(floatval($payments['total']), 2, '.', ',') . '  </th>
+                      <th scope="row" colspan="2" style="text-align:left;">TOTAL PAYMENTS</th>
+											<th scope="row" style="text-align:center;">' . number_format(floatval($payments['total']), 2, '.', ',') . '  </th>
                   </tr>';
 
 				$output .= '<tr>
@@ -6015,8 +6016,8 @@ break;
 				$surplus_deficit = floatval($receipts['total']) - floatval($payments['total']);
 
 				$output .= '<tr>
-											<th colspan="2" style="text-align:left;">SURPLUS / DEFICIT</th>
-											<th style="text-align:center;">' . number_format(floatval($surplus_deficit), 2, '.', ',') . ' </th>
+											<th scope="col" colspan="2" style="text-align:left;">SURPLUS / DEFICIT</th>
+											<th scope="col" style="text-align:center;">' . number_format(floatval($surplus_deficit), 2, '.', ',') . ' </th>
 								 </tr>';
 				$output .= '</tfoot>
 						</table>';
@@ -6196,22 +6197,22 @@ break;
             </div>
           </div>
           <div style="width:1100px;margin-bottom:50px;">
-            <table class="bhealth-table bhealth-table-striped" style="width:100%;">
+            <table class="bhealth-table bhealth-table-striped bh-grid" style="width:100%;">' . htmlspecialchars($title) . '
               <thead>
                 <tr style="background-color:rgb(60, 59, 59);color:#fff;">
-                  <th colspan="2" style="text-align:left;">DESCRIPTION</th>
-                  <th style="text-align:center;"> AMOUNT</th>
-                  <th style="text-align:center;display:none;"></th>
+                  <th scope="col" colspan="2" style="text-align:left;">DESCRIPTION</th>
+                  <th scope="col" style="text-align:center;"> AMOUNT</th>
+                  <th scope="col" style="text-align:center;display:none;"></th>
                 </tr>
               </thead>
                 <tbody>';
 				$output .= '<tr>
-                      <th colspan="2" style="text-align:left;">FINANCIAL ASSETS</th>
+                      <th scope="row" colspan="2" style="text-align:left;">FINANCIAL ASSETS</th>
                       <td style="text-align:center;"></td>
                       <td style="text-align:center;display:none;"></td>
                   </tr>';
 				$output .= '<tr>
-                      <th colspan="2" style="text-align:left;">Cash and Cash Equivalents</th>
+                      <th scope="row" colspan="2" style="text-align:left;">Cash and Cash Equivalents</th>
                       <td style="text-align:center;"></td>
                       <td style="text-align:center;display:none;"></td>
                   </tr>';
@@ -6227,14 +6228,14 @@ break;
                   </tr>';
 				$total_cash = floatval($cash) + floatval($bank);
 				$output .= '<tr>
-                      <th colspan="2" style="text-align:left;">Total Cash and Cash Equivalents</th>
-                      <th style="text-align:center;">' . number_format($total_cash, 2) . '</th>
-                      <th style="text-align:center;display:none;"></th>
+                      <th scope="row" colspan="2" style="text-align:left;">Total Cash and Cash Equivalents</th>
+                      <th scope="row" style="text-align:center;">' . number_format($total_cash, 2) . '</th>
+                      <th scope="row" style="text-align:center;display:none;"></th>
                   </tr>';
 				$receivables_bal = floatval(array_sum($receivables['tdr'])) - floatval(array_sum($receivables['tcr']));
 				$cash_bal = floatval($cash) + floatval($bank) + floatval($receivables_bal);
 				$output .= '<tr style="height:26px;">
-                      <th colspan="2" style="text-align:left;"></th>
+                      <th scope="row" colspan="2" style="text-align:left;"></th>
                       <td style="text-align:center;"></td>
                       <td style="text-align:center;display:none;"></td>
                   </tr>';
@@ -6245,17 +6246,17 @@ break;
                       <td style="text-align:center;display:none;"></td>
                   </tr>';
 				$output .= '<tr>
-                      <th colspan="2" style="text-align:left;">TOTAL FINANCIAL ASSETS</th>
-                      <th style="text-align:center;">' . number_format($cash_bal, 2) . '</th>
-                      <th style="text-align:center;display:none;"></th>
+                      <th scope="row" colspan="2" style="text-align:left;">TOTAL FINANCIAL ASSETS</th>
+                      <th scope="row" style="text-align:center;">' . number_format($cash_bal, 2) . '</th>
+                      <th scope="row" style="text-align:center;display:none;"></th>
                   </tr>';
 				$output .= '<tr style="height:26px;">
-                      <th colspan="2" style="text-align:left;"></th>
+                      <th scope="row" colspan="2" style="text-align:left;"></th>
                       <td style="text-align:center;"></td>
                       <td style="text-align:center;display:none;"></td>
                   </tr>';
 				$output .= '<tr>
-                      <th colspan="2" style="text-align:left;">FINANCIAL LIABILITIES</th>
+                      <th scope="row" colspan="2" style="text-align:left;">FINANCIAL LIABILITIES</th>
                       <td style="text-align:left;"></td>
                       <td style="text-align:center;display:none;"></td>
                   </tr>';
@@ -6293,13 +6294,13 @@ break;
 				}
 
 				$output .= '<tr>
-                      <th colspan="2" style="text-align:left;">NET FINANCIAL ASSETS</th>
-                      <th style="text-align:center;">' . number_format($net_assets, 2) . '</th>
+                      <th scope="row" colspan="2" style="text-align:left;">NET FINANCIAL ASSETS</th>
+                      <th scope="row" style="text-align:center;">' . number_format($net_assets, 2) . '</th>
                       <td style="text-align:center;display:none;"></td>
                   </tr>';
 
 				$output .= '<tr style="height:26px;">
-                        <th colspan="2" style="text-align:left;"></th>
+                        <th scope="row" colspan="2" style="text-align:left;"></th>
                         <td style="text-align:center;"></td>
                         <td style="text-align:center;display:none;"></td>
                     </tr>';
@@ -6387,26 +6388,26 @@ break;
 				$surplus = floatval($net_assets) - abs(floatval($totalBalBFwd));
 
 				$output .= '<tr>
-                        <th colspan="2" style="text-align:left;"> Balance brought forward </th>
-                        <th style="text-align:center;">' . number_format(floatval($totalBalBFwd), 2, '.', ',') . '</th>
-                        <th style="text-align:center;display:none;"></th>
+                        <th scope="row" colspan="2" style="text-align:left;"> Balance brought forward </th>
+                        <th scope="row" style="text-align:center;">' . number_format(floatval($totalBalBFwd), 2, '.', ',') . '</th>
+                        <th scope="row" style="text-align:center;display:none;"></th>
                     </tr>';
 				$output .= '<tr>
-                        <th colspan="2" style="text-align:left;">Period Surplus / Deficit</th>';
-				$output .= '<th style="text-align:center;">' . number_format(floatval($surplus), 2, '.', ',') . '</th>';
-				$output .= '<th style="text-align:center;display:none;"></th>
+                        <th scope="row" colspan="2" style="text-align:left;">Period Surplus / Deficit</th>';
+				$output .= '<th scope="row" style="text-align:center;">' . number_format(floatval($surplus), 2, '.', ',') . '</th>';
+				$output .= '<th scope="row" style="text-align:center;display:none;"></th>
                     </tr>';
 				$output .= '<tr style="height:26px;">
-                      <th colspan="2" style="text-align:left;"></th>
+                      <th scope="row" colspan="2" style="text-align:left;"></th>
                       <td style="text-align:center;"></td>
                       <td style="text-align:center;display:none;"></td>
                   </tr>';
 				$output .= '</tbody>
               <tfoot>
                   <tr>
-                      <th style="text-align:left;" colspan="2">NET FINANCIAL POSITION</th>';
-				$output .= '<th style="text-align:center;">' . number_format(floatval($net_assets), 2, '.', ',') . '</th>';
-				$output .= '<th style="text-align:center;display:none;"></th>
+                      <th scope="col" style="text-align:left;" colspan="2">NET FINANCIAL POSITION</th>';
+				$output .= '<th scope="col" style="text-align:center;">' . number_format(floatval($net_assets), 2, '.', ',') . '</th>';
+				$output .= '<th scope="col" style="text-align:center;display:none;"></th>
                   </tr>              
               </tfoot>
             </table>
@@ -6448,16 +6449,16 @@ $fname=strtolower($date).'_inpatients_list';
 
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-6"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-   		<td  style="width:10%;">Pat ID</td>
-        <td  style="width:25%;">Name</td>
-         <td  style="width:15%;">Adm. Date</td>
-          <td  style="width:15%;">Ward Type</td>
-        <td  style="width:15%;">Bed No</td>
-        <td  style="width:19%;">Doctor</td>
-    </tr>
+   		<th scope="col"  style="width:10%;">Pat ID</th>
+        <th scope="col"  style="width:25%;">Name</th>
+         <th scope="col"  style="width:15%;">Adm. Date</th>
+          <th scope="col"  style="width:15%;">Ward Type</th>
+        <th scope="col"  style="width:15%;">Bed No</th>
+        <th scope="col"  style="width:19%;">Doctor</th>
+    </tr></thead><tbody>
     
 
 <?php
@@ -6742,16 +6743,16 @@ $fname='patients_list';
 
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-7"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-   		<td  style="width:10%;">Pat ID</td>
-        <td  style="width:25%;">Name</td>
-        <td  style="width:15%;">Gender</td>
-         <td  style="width:15%;">Age</td>
-       <td  style="width:15%;">Date of Creation</td>
-        <td  style="width:19%;">Phone No</td>
-    </tr>    
+   		<th scope="col"  style="width:10%;">Pat ID</th>
+        <th scope="col"  style="width:25%;">Name</th>
+        <th scope="col"  style="width:15%;">Gender</th>
+         <th scope="col"  style="width:15%;">Age</th>
+       <th scope="col"  style="width:15%;">Date of Creation</th>
+        <th scope="col"  style="width:19%;">Phone No</th>
+    </tr></thead><tbody>    
 <?php
 
 	if($d1==0){
@@ -6830,16 +6831,16 @@ $fname='patients_list';
 
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-8"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-   		<td  style="width:10%;">Pat ID</td>
-        <td  style="width:25%;">Name</td>
-        <td  style="width:15%;">Gender</td>
-         <td  style="width:15%;">Age</td>
-       <td  style="width:15%;">Date of Creation</td>
-        <td  style="width:19%;">Phone No</td>
-    </tr>    
+   		<th scope="col"  style="width:10%;">Pat ID</th>
+        <th scope="col"  style="width:25%;">Name</th>
+        <th scope="col"  style="width:15%;">Gender</th>
+         <th scope="col"  style="width:15%;">Age</th>
+       <th scope="col"  style="width:15%;">Date of Creation</th>
+        <th scope="col"  style="width:19%;">Phone No</th>
+    </tr></thead><tbody>    
 <?php
 
 	if($d1==0){
@@ -6916,28 +6917,28 @@ $name=$_GET['name'];
 <div style="clear:both; margin-bottom:10px"></div>
 
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-9"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:auto; height:20px;color:#fff; background:#333; padding:0">
    		
-   		<td  style="width:4%">Date</td>
-   		<td  style="width:4%">Cons.ID</td>
-   		<td  style="width:4%">Pat ID</td>
-        <td  style="width:10%">Patient Name</td>
-         <td  style="width:4%">Temp</td>
-        <td  style="width:4%">BP</td>
-         <td  style="width:4%">Weight</td>
-         <td  style="width:4%">P/R</td>
-          <td  style="width:4%">B/R</td>
-         <td  style="width:7%">History</td>
-         <td  style="width:7%">Diagnosis</td>
-         <td  style="width:8%">Lab</td>
-         <td  style="width:7%">Nutr.</td>
-          <td  style="width:7%">Counselling.</td>
-        <td  style="width:10%">Prescription</td>
+   		<th scope="col"  style="width:4%">Date</th>
+   		<th scope="col"  style="width:4%">Cons.ID</th>
+   		<th scope="col"  style="width:4%">Pat ID</th>
+        <th scope="col"  style="width:10%">Patient Name</th>
+         <th scope="col"  style="width:4%">Temp</th>
+        <th scope="col"  style="width:4%">BP</th>
+         <th scope="col"  style="width:4%">Weight</th>
+         <th scope="col"  style="width:4%">P/R</th>
+          <th scope="col"  style="width:4%">B/R</th>
+         <th scope="col"  style="width:7%">History</th>
+         <th scope="col"  style="width:7%">Diagnosis</th>
+         <th scope="col"  style="width:8%">Lab</th>
+         <th scope="col"  style="width:7%">Nutr.</th>
+          <th scope="col"  style="width:7%">Counselling.</th>
+        <th scope="col"  style="width:10%">Prescription</th>
 
 
-    </tr>    
+    </tr></thead><tbody>    
 <?php
 
 
@@ -8429,15 +8430,15 @@ echo 'Dept:'.$rcptno.'<br/>Section:'.$section.'<br/>Category:All';
 <div style="clear:both; margin-bottom:10px" ></div>
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-10"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-   		<td  style="width:40%;">Item Name</td>
-        <td  style="width:12%;">Pack Size</td>
-        <td  style="width:12%;">Unit</td>
-       <td  style="width:12%;">Part</td>
-        <td  style="width:23%;">Total</td>
-    </tr>
+   		<th scope="col"  style="width:40%;">Item Name</th>
+        <th scope="col"  style="width:12%;">Pack Size</th>
+        <th scope="col"  style="width:12%;">Unit</th>
+       <th scope="col"  style="width:12%;">Part</th>
+        <th scope="col"  style="width:23%;">Total</th>
+    </tr></thead><tbody>
 
 <?php
 if($rcptno=='PROCUREMENT'){$x='Bal';}else {$x=$rcptno;}	
@@ -8521,15 +8522,15 @@ echo 'Dept:'.$rcptno.'<br/>Section:'.$section.'<br/>Category:All';
 
 
 
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-11"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-   		<td  style="width:16%;">Category</td>
-        <td  style="width:32%;">Item Name</td>
-        <td  style="width:16%;">Pack Size</td>
-       <td  style="width:18%;">Unit</td>
-        <td  style="width:18%;">Part</td>
-    </tr>
+   		<th scope="col"  style="width:16%;">Category</th>
+        <th scope="col"  style="width:32%;">Item Name</th>
+        <th scope="col"  style="width:16%;">Pack Size</th>
+       <th scope="col"  style="width:18%;">Unit</th>
+        <th scope="col"  style="width:18%;">Part</th>
+    </tr></thead><tbody>
 
 <?php
 if($rcptno=='PROCUREMENT'){$x='Bal';}else {$x=$rcptno;}	
@@ -9305,20 +9306,20 @@ $d2=$d2.$time2;
 
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right;margin:-40px 10px 0 0;"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div> 
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-12"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-	<td  style="width:10%;">Date</td>
-	<td  style="width:6%;">Patient Id</td>
-	<td  style="width:17%;">Patient Name</td>
-	<td  style="width:6%;">Pay Mode</td>
-	<td  style="width:10%;">Company</td>
-	<td  style="width:10%;">Rcpt/InvNo</td>
-	<td  style="width:10%;">Amount</td>
-	<td  style="width:10%;">Time</td>
-	<td  style="width:10%;">Department</td>
-	<td  style="width:8%;">User Id</td>
-    </tr>
+	<th scope="col"  style="width:10%;">Date</th>
+	<th scope="col"  style="width:6%;">Patient Id</th>
+	<th scope="col"  style="width:17%;">Patient Name</th>
+	<th scope="col"  style="width:6%;">Pay Mode</th>
+	<th scope="col"  style="width:10%;">Company</th>
+	<th scope="col"  style="width:10%;">Rcpt/InvNo</th>
+	<th scope="col"  style="width:10%;">Amount</th>
+	<th scope="col"  style="width:10%;">Time</th>
+	<th scope="col"  style="width:10%;">Department</th>
+	<th scope="col"  style="width:8%;">User Id</th>
+    </tr></thead><tbody>
     
 
 <?php
@@ -9552,23 +9553,23 @@ if(isset($_GET['d2'])){
 
 
 
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-13"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:auto; height:20px;color:#fff; background:#333; padding:0">
    		
-   		<td  style="width:120px">Date</td>
-   		<td  style="width:80px">Pat Id</td>
-   		<td  style="width:200px">Pat Name</td>
-        <td  style="width:100px">Pay Mode</td>
-         <td  style="width:100px">Doctor</td>
-       	 <td  style="width:200px">Diagnosis</td>
-         <td  style="width:100px">Diagnosis Code</td>
-         <td  style="width:100px">Adm Date</td>
-          <td  style="width:100px">Discharge Date</td>
-         <td  style="width:100px">Other Details</td>
+   		<th scope="col"  style="width:120px">Date</th>
+   		<th scope="col"  style="width:80px">Pat Id</th>
+   		<th scope="col"  style="width:200px">Pat Name</th>
+        <th scope="col"  style="width:100px">Pay Mode</th>
+         <th scope="col"  style="width:100px">Doctor</th>
+       	 <th scope="col"  style="width:200px">Diagnosis</th>
+         <th scope="col"  style="width:100px">Diagnosis Code</th>
+         <th scope="col"  style="width:100px">Adm Date</th>
+          <th scope="col"  style="width:100px">Discharge Date</th>
+         <th scope="col"  style="width:100px">Other Details</th>
          
 
-    </tr> 
+    </tr></thead><tbody> 
 
 <?php
 	if($code==1){
@@ -9658,20 +9659,20 @@ if(isset($_GET['d2'])){
 
 
 
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-14"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-   		<td  style="width:8%;">Date</td>
-        <td  style="width:7%;">Patient Id</td>
-        <td  style="width:10%;">Patient Name</td>
-         <td  style="width:10%;">Age</td>
-         <td  style="width:7%;">Gender</td>
-       <td  style="width:15%;">History</td>
-        <!-- <td  style="width:10%;">Diagnosis Category</td> -->
-        <td  style="width:15%;">Diagnosis Details</td>
-        <td  style="width:8%;">Department</td>
-        <td  style="width:11%;">Type</td>
-    </tr>
+   		<th scope="col"  style="width:8%;">Date</th>
+        <th scope="col"  style="width:7%;">Patient Id</th>
+        <th scope="col"  style="width:10%;">Patient Name</th>
+         <th scope="col"  style="width:10%;">Age</th>
+         <th scope="col"  style="width:7%;">Gender</th>
+       <th scope="col"  style="width:15%;">History</th>
+        <!-- <th scope="col"  style="width:10%;">Diagnosis Category</th> -->
+        <th scope="col"  style="width:15%;">Diagnosis Details</th>
+        <th scope="col"  style="width:8%;">Department</th>
+        <th scope="col"  style="width:11%;">Type</th>
+    </tr></thead><tbody>
     
 
 <?php
@@ -9850,20 +9851,20 @@ if(isset($_GET['d2'])){
 
 
 
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-15"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-        <td  style="width:6%;">I/P No.</td>
-        <td  style="width:6%;">Adm. No.</td>
-        <td  style="width:7%;">PatientNo</td>
-        <td  style="width:20%;">Patient Name</td>
-       	<td  style="width:15%;">Age</td>
-       	<td  style="width:6%;">Genger</td>
-         <td  style="width:20%;">Diagnosis Category</td>
-      <td  style="width:10%;">Adm. Date</td>
-        <td  style="width:10%;">Discharge Date</td>
-       	<td  style="width:15%;">Ward</td>
-        </tr>
+        <th scope="col"  style="width:6%;">I/P No.</th>
+        <th scope="col"  style="width:6%;">Adm. No.</th>
+        <th scope="col"  style="width:7%;">PatientNo</th>
+        <th scope="col"  style="width:20%;">Patient Name</th>
+       	<th scope="col"  style="width:15%;">Age</th>
+       	<th scope="col"  style="width:6%;">Genger</th>
+         <th scope="col"  style="width:20%;">Diagnosis Category</th>
+      <th scope="col"  style="width:10%;">Adm. Date</th>
+        <th scope="col"  style="width:10%;">Discharge Date</th>
+       	<th scope="col"  style="width:15%;">Ward</th>
+        </tr></thead><tbody>
     
 
 <?php
@@ -10387,20 +10388,20 @@ $fname=strtolower($name).'_invoices_report';
 <div style="clear:both; margin-bottom:10px"></div>
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-16"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-		<td  style="width:10%;">Date</td>
-		<td  style="width:10%;">Patient Id</td>
-		<td  style="width:17%;">Patient Name</td>
-		<td  style="width:6%;">Pay Mode</td>
-		<td  style="width:10%;">Company</td>
-		<td  style="width:10%;">Rcpt/Invoice No</td>
-		<td  style="width:10%;">Amount</td>
-		<td  style="width:10%;">Time</td>
-		<td  style="width:10%;">Department</td>
-		<td  style="width:8%;">User Id</td>
-    </tr>
+		<th scope="col"  style="width:10%;">Date</th>
+		<th scope="col"  style="width:10%;">Patient Id</th>
+		<th scope="col"  style="width:17%;">Patient Name</th>
+		<th scope="col"  style="width:6%;">Pay Mode</th>
+		<th scope="col"  style="width:10%;">Company</th>
+		<th scope="col"  style="width:10%;">Rcpt/Invoice No</th>
+		<th scope="col"  style="width:10%;">Amount</th>
+		<th scope="col"  style="width:10%;">Time</th>
+		<th scope="col"  style="width:10%;">Department</th>
+		<th scope="col"  style="width:8%;">User Id</th>
+    </tr></thead><tbody>
 
 <?php
 // echo $d1; echo "</br>";
@@ -11829,7 +11830,7 @@ $d1=preg_replace('~/~', '', $d1); $d2=preg_replace('~/~', '', $d2);
 <div style="clear:both; border-bottom:1px dashed #333; margin-bottom:10px"></div>
 
 
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
+<table id="datatable-17"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
 <tbody>
 <tr style="width:100%; height:20px;color:#fff; background:#fff; padding:0">
 		<td  style="width:2%;">No.</td>
@@ -11925,28 +11926,28 @@ $fname='patients_list';
 
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-18"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-   		<td  style="width:2%;">No.</td>
-   		<td  style="width:4%;">Patient No.</td>
-        <td  style="width:10%;">Patient Name</td>
-        <td  style="width:3%;">Age</td>
-        <td  style="width:5%;">Gender (M/F)</td>
-        <td  style="width:5%;">Mobile No.</td>
-        <td  style="width:5%;">Location / Village</td>
-        <td  style="width:4%;">Temp.</td>
-        <td  style="width:6%;">BP Reading (Systolic / Diastolic)</td>
-        <td  style="width:4%;">Weight</td>
-        <td  style="width:3%;">Resp. Rate</td>
-        <td  style="width:3%;">Pulse. Rate</td>
-        <td  style="width:3%;">R.B.S</td>
-        <td  style="width:20%;">Prescription</td>
-        <td  style="width:5%;">New / Re-Attendance</td>
-        <td  style="width:5%;">New Screening this Year?</td>
-        <td  style="width:5%;">Known Hypertensive (Yes/No)</td>
-        <td  style="width:5%;">Taking Medicine (Yes/No)</td>
-    </tr>   
+   		<th scope="col"  style="width:2%;">No.</th>
+   		<th scope="col"  style="width:4%;">Patient No.</th>
+        <th scope="col"  style="width:10%;">Patient Name</th>
+        <th scope="col"  style="width:3%;">Age</th>
+        <th scope="col"  style="width:5%;">Gender (M/F)</th>
+        <th scope="col"  style="width:5%;">Mobile No.</th>
+        <th scope="col"  style="width:5%;">Location / Village</th>
+        <th scope="col"  style="width:4%;">Temp.</th>
+        <th scope="col"  style="width:6%;">BP Reading (Systolic / Diastolic)</th>
+        <th scope="col"  style="width:4%;">Weight</th>
+        <th scope="col"  style="width:3%;">Resp. Rate</th>
+        <th scope="col"  style="width:3%;">Pulse. Rate</th>
+        <th scope="col"  style="width:3%;">R.B.S</th>
+        <th scope="col"  style="width:20%;">Prescription</th>
+        <th scope="col"  style="width:5%;">New / Re-Attendance</th>
+        <th scope="col"  style="width:5%;">New Screening this Year?</th>
+        <th scope="col"  style="width:5%;">Known Hypertensive (Yes/No)</th>
+        <th scope="col"  style="width:5%;">Taking Medicine (Yes/No)</th>
+    </tr></thead><tbody>   
 
 <?php
 
@@ -12162,28 +12163,28 @@ $fname='patients_list';
 
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-19"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-   		<td  style="width:2%;">No.</td>
-   		<td  style="width:4%;">Patient No.</td>
-        <td  style="width:10%;">Patient Name</td>
-        <td  style="width:3%;">Age</td>
-        <td  style="width:5%;">Gender (M/F)</td>
-        <td  style="width:5%;">Mobile No.</td>
-        <td  style="width:5%;">Location / Village</td>
-        <td  style="width:4%;">Temp.</td>
-        <td  style="width:6%;">BP Reading (Systolic / Diastolic)</td>
-        <td  style="width:4%;">Weight</td>
-        <td  style="width:3%;">Resp. Rate</td>
-        <td  style="width:3%;">Pulse. Rate</td>
-        <td  style="width:3%;">R.B.S</td>
-        <td  style="width:20%;">Prescription</td>
-        <td  style="width:5%;">New / Re-Attendance</td>
-        <td  style="width:5%;">New Screening this Year?</td>
-        <td  style="width:5%;">Known Hypertensive (Yes/No)</td>
-        <td  style="width:5%;">Taking Medicine (Yes/No)</td>
-    </tr>    
+   		<th scope="col"  style="width:2%;">No.</th>
+   		<th scope="col"  style="width:4%;">Patient No.</th>
+        <th scope="col"  style="width:10%;">Patient Name</th>
+        <th scope="col"  style="width:3%;">Age</th>
+        <th scope="col"  style="width:5%;">Gender (M/F)</th>
+        <th scope="col"  style="width:5%;">Mobile No.</th>
+        <th scope="col"  style="width:5%;">Location / Village</th>
+        <th scope="col"  style="width:4%;">Temp.</th>
+        <th scope="col"  style="width:6%;">BP Reading (Systolic / Diastolic)</th>
+        <th scope="col"  style="width:4%;">Weight</th>
+        <th scope="col"  style="width:3%;">Resp. Rate</th>
+        <th scope="col"  style="width:3%;">Pulse. Rate</th>
+        <th scope="col"  style="width:3%;">R.B.S</th>
+        <th scope="col"  style="width:20%;">Prescription</th>
+        <th scope="col"  style="width:5%;">New / Re-Attendance</th>
+        <th scope="col"  style="width:5%;">New Screening this Year?</th>
+        <th scope="col"  style="width:5%;">Known Hypertensive (Yes/No)</th>
+        <th scope="col"  style="width:5%;">Taking Medicine (Yes/No)</th>
+    </tr></thead><tbody>    
 <?php
 
 	if($d1==0){
@@ -12329,20 +12330,20 @@ $d2=$d2.$time2;
 
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-20"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-   		<td  style="width:10%;">Date</td>
-        <td  style="width:6%;">Patient Id</td>
-        <td  style="width:17%;">Patient Name</td>
-        <td  style="width:6%;">Pay Mode</td>
-         <td  style="width:14%;">Company</td>
-         <td  style="width:10%;">Rcpt/Invoice No</td>
-       <td  style="width:10%;">Amount</td>
-        <td  style="width:10%;">Time</td>
-         <td  style="width:10%;">Department</td>
-        <td  style="width:8%;">User Id</td>
-    </tr>
+   		<th scope="col"  style="width:10%;">Date</th>
+        <th scope="col"  style="width:6%;">Patient Id</th>
+        <th scope="col"  style="width:17%;">Patient Name</th>
+        <th scope="col"  style="width:6%;">Pay Mode</th>
+         <th scope="col"  style="width:14%;">Company</th>
+         <th scope="col"  style="width:10%;">Rcpt/Invoice No</th>
+       <th scope="col"  style="width:10%;">Amount</th>
+        <th scope="col"  style="width:10%;">Time</th>
+         <th scope="col"  style="width:10%;">Department</th>
+        <th scope="col"  style="width:8%;">User Id</th>
+    </tr></thead><tbody>
     
 
 <?php
@@ -12453,20 +12454,20 @@ $d2=$d2.$time2;
 
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-21"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-   		<td  style="width:10%;">Date</td>
-        <td  style="width:6%;">Patient Id</td>
-        <td  style="width:17%;">Patient Name</td>
-        <td  style="width:6%;">Pay Mode</td>
-         <td  style="width:14%;">Company</td>
-         <td  style="width:10%;">Rcpt/Invoice No</td>
-       <td  style="width:10%;">Amount</td>
-        <td  style="width:10%;">Time</td>
-         <td  style="width:10%;">Department</td>
-        <td  style="width:8%;">User Id</td>
-    </tr>
+   		<th scope="col"  style="width:10%;">Date</th>
+        <th scope="col"  style="width:6%;">Patient Id</th>
+        <th scope="col"  style="width:17%;">Patient Name</th>
+        <th scope="col"  style="width:6%;">Pay Mode</th>
+         <th scope="col"  style="width:14%;">Company</th>
+         <th scope="col"  style="width:10%;">Rcpt/Invoice No</th>
+       <th scope="col"  style="width:10%;">Amount</th>
+        <th scope="col"  style="width:10%;">Time</th>
+         <th scope="col"  style="width:10%;">Department</th>
+        <th scope="col"  style="width:8%;">User Id</th>
+    </tr></thead><tbody>
     
 
 <?php
@@ -12585,20 +12586,20 @@ $d2=$d2.$time2;
 
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-22"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-   		<td  style="width:10%;">Date</td>
-        <td  style="width:6%;">Patient Id</td>
-        <td  style="width:17%;">Patient Name</td>
-        <td  style="width:6%;">Pay Mode</td>
-         <td  style="width:14%;">Company</td>
-         <td  style="width:10%;">Rcpt/Invoice No</td>
-         <td  style="width:10%;">Amount</td>
-        <td  style="width:10%;">Time</td>
-         <td  style="width:10%;">Department</td>
-        <td  style="width:8%;">User Id</td>
-    </tr>
+   		<th scope="col"  style="width:10%;">Date</th>
+        <th scope="col"  style="width:6%;">Patient Id</th>
+        <th scope="col"  style="width:17%;">Patient Name</th>
+        <th scope="col"  style="width:6%;">Pay Mode</th>
+         <th scope="col"  style="width:14%;">Company</th>
+         <th scope="col"  style="width:10%;">Rcpt/Invoice No</th>
+         <th scope="col"  style="width:10%;">Amount</th>
+        <th scope="col"  style="width:10%;">Time</th>
+         <th scope="col"  style="width:10%;">Department</th>
+        <th scope="col"  style="width:8%;">User Id</th>
+    </tr></thead><tbody>
     
 
 <?php
@@ -12696,22 +12697,22 @@ $fname='general_Over18_clinic_list';
 
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-23"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-	<td  style="width:5%;">#</td>
-	<td  style="width:5%;">Last Date Seen</td>
-	<td  style="width:7%;">Re-Attend</td>
-	<td  style="width:5%;">Patient No</td>
-	<td  style="width:18%;">Patient Name</td>
-	<td  style="width:6%;">Age</td>
-	<td  style="width:5%;">Temperature</td>
-	<td  style="width:5%;">BP</td>
-	<td  style="width:5%;">Weight</td>
-	<td  style="width:5%;">Resp Rate</td>
-	<td  style="width:13%;">Diagnosis Details</td>
-	<td  style="width:15%;">Treatment</td>
-    </tr>    
+	<th scope="col"  style="width:5%;">#</th>
+	<th scope="col"  style="width:5%;">Last Date Seen</th>
+	<th scope="col"  style="width:7%;">Re-Attend</th>
+	<th scope="col"  style="width:5%;">Patient No</th>
+	<th scope="col"  style="width:18%;">Patient Name</th>
+	<th scope="col"  style="width:6%;">Age</th>
+	<th scope="col"  style="width:5%;">Temperature</th>
+	<th scope="col"  style="width:5%;">BP</th>
+	<th scope="col"  style="width:5%;">Weight</th>
+	<th scope="col"  style="width:5%;">Resp Rate</th>
+	<th scope="col"  style="width:13%;">Diagnosis Details</th>
+	<th scope="col"  style="width:15%;">Treatment</th>
+    </tr></thead><tbody>    
 <?php //echo $d1; echo $d2;
 	  if($d1==0){
 	  	$result =mysqli_query($db, "SELECT * FROM geteighteen_and_over where age>=18 ORDER BY Id"); // where age>=18 
@@ -12798,22 +12799,22 @@ $fname='general_OPD_clinic_list';
 
 <p><a download="<?php echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-24"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-        <td  style="width:3%;">#</td>
-        <td  style="width:7%;">Last Date Seen</td>
-        <td  style="width:7%;">Re-Attend</td>
-   		<td  style="width:5%;">Patient No</td>
-        <td  style="width:13%;">Patient Name</td>
-        <td  style="width:5%;">Temperature</td>
-         <td  style="width:5%;">BP</td>
-       <td  style="width:5%;">Weight</td>
-        <td  style="width:5%;">Resp Rate</td>
-        <td  style="width:5%;">PulseRate</td>
-        <td  style="width:20%;">Diagnosis Details</td>
-        <td  style="width:12%;">Department</td>
-    </tr>    
+        <th scope="col"  style="width:3%;">#</th>
+        <th scope="col"  style="width:7%;">Last Date Seen</th>
+        <th scope="col"  style="width:7%;">Re-Attend</th>
+   		<th scope="col"  style="width:5%;">Patient No</th>
+        <th scope="col"  style="width:13%;">Patient Name</th>
+        <th scope="col"  style="width:5%;">Temperature</th>
+         <th scope="col"  style="width:5%;">BP</th>
+       <th scope="col"  style="width:5%;">Weight</th>
+        <th scope="col"  style="width:5%;">Resp Rate</th>
+        <th scope="col"  style="width:5%;">PulseRate</th>
+        <th scope="col"  style="width:20%;">Diagnosis Details</th>
+        <th scope="col"  style="width:12%;">Department</th>
+    </tr></thead><tbody>    
 <?php
 
 	if($d1==0){
@@ -12899,24 +12900,24 @@ $fname='general_Over18_clinic_list';
 
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-25"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-        <td  style="width:3%;">#</td>
-        <td  style="width:5%;">Last Date Seen</td>
-        <td  style="width:5%;">Re-Attend</td>
-   		<td  style="width:5%;">Patient No</td>
-        <td  style="width:15%;">Patient Name</td>
-        <td  style="width:3%;">Age</td>
-        <td  style="width:5%;">Temperature</td>
-        <td  style="width:5%;">BP</td>
-        <td  style="width:5%;">Weight</td>
-        <td  style="width:5%;">Resp Rate</td>
-   		<td  style="width:5%;">Gender</td>
-        <td  style="width:5%;">Clinic</td>
-        <td  style="width:10%;">Diagnosis Details</td>
-        <td  style="width:23%;">Treatment</td>
-    </tr>    
+        <th scope="col"  style="width:3%;">#</th>
+        <th scope="col"  style="width:5%;">Last Date Seen</th>
+        <th scope="col"  style="width:5%;">Re-Attend</th>
+   		<th scope="col"  style="width:5%;">Patient No</th>
+        <th scope="col"  style="width:15%;">Patient Name</th>
+        <th scope="col"  style="width:3%;">Age</th>
+        <th scope="col"  style="width:5%;">Temperature</th>
+        <th scope="col"  style="width:5%;">BP</th>
+        <th scope="col"  style="width:5%;">Weight</th>
+        <th scope="col"  style="width:5%;">Resp Rate</th>
+   		<th scope="col"  style="width:5%;">Gender</th>
+        <th scope="col"  style="width:5%;">Clinic</th>
+        <th scope="col"  style="width:10%;">Diagnosis Details</th>
+        <th scope="col"  style="width:23%;">Treatment</th>
+    </tr></thead><tbody>    
 <?php //echo $d1; echo $d2;
 
 $dept3=array(array());
@@ -13161,24 +13162,24 @@ $fname='general_Over18_clinic_list';
 
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-26"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-<td  style="width:3%;">#</td>
-<td  style="width:5%;">Last Date Seen</td>
-<td  style="width:5%;">Re-Attend</td>
-<td  style="width:5%;">Patient No</td>
-<td  style="width:15%;">Patient Name</td>
-<td  style="width:3%;">Age</td>
-<td  style="width:5%;">Temperature</td>
-<td  style="width:5%;">BP</td>
-<td  style="width:5%;">Weight</td>
-<td  style="width:5%;">Resp Rate</td>
-<td  style="width:5%;">Gender</td>
-<td  style="width:5%;">Clinic</td>
-<td  style="width:10%;">Diagnosis Details</td>
-<td  style="width:23%;">Treatment</td>
-    </tr>    
+<th scope="col"  style="width:3%;">#</th>
+<th scope="col"  style="width:5%;">Last Date Seen</th>
+<th scope="col"  style="width:5%;">Re-Attend</th>
+<th scope="col"  style="width:5%;">Patient No</th>
+<th scope="col"  style="width:15%;">Patient Name</th>
+<th scope="col"  style="width:3%;">Age</th>
+<th scope="col"  style="width:5%;">Temperature</th>
+<th scope="col"  style="width:5%;">BP</th>
+<th scope="col"  style="width:5%;">Weight</th>
+<th scope="col"  style="width:5%;">Resp Rate</th>
+<th scope="col"  style="width:5%;">Gender</th>
+<th scope="col"  style="width:5%;">Clinic</th>
+<th scope="col"  style="width:10%;">Diagnosis Details</th>
+<th scope="col"  style="width:23%;">Treatment</th>
+    </tr></thead><tbody>    
 <?php //echo $d1; echo $d2;
 
 $dept3=array(array());
@@ -13565,15 +13566,15 @@ echo 'Dept:'.$rcptno.'<br/>Section:'.$section.'<br/>Category:All';
 <div style="clear:both; margin-bottom:10px" ></div>
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-27"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-   		<td  style="width:40%;">Item Name</td>
-        <td  style="width:12%;">Pack Size</td>
-        <td  style="width:12%;">Unit</td>
-       <td  style="width:12%;">Part</td>
-        <td  style="width:23%;">Total</td>
-    </tr>
+   		<th scope="col"  style="width:40%;">Item Name</th>
+        <th scope="col"  style="width:12%;">Pack Size</th>
+        <th scope="col"  style="width:12%;">Unit</th>
+       <th scope="col"  style="width:12%;">Part</th>
+        <th scope="col"  style="width:23%;">Total</th>
+    </tr></thead><tbody>
 
 <?php //if($rcptno=='PROCUREMENT'){$x='Bal';}else {$x=$rcptno;}	
 if($rcptno=='ADMINISTRATION'){$x='Bal';}else {$x=$rcptno;}	
@@ -13657,15 +13658,15 @@ $fname=strtolower($rcptno).'_asset_sheet';
 
 
 
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-28"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-   		<td  style="width:22%;">Category</td>
-        <td  style="width:16%;">Asset ID</td>
-        <td  style="width:32%;">Name</td>
-       <td  style="width:18%;">Location</td>
-        <td  style="width:12%;">Available</td>
-    </tr>
+   		<th scope="col"  style="width:22%;">Category</th>
+        <th scope="col"  style="width:16%;">Asset ID</th>
+        <th scope="col"  style="width:32%;">Name</th>
+       <th scope="col"  style="width:18%;">Location</th>
+        <th scope="col"  style="width:12%;">Available</th>
+    </tr></thead><tbody>
 
 <?php
 if($rcptno=='All'){
@@ -14000,17 +14001,17 @@ $d2=$d2.$time2;
 
 
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table class="bh-grid" data-bh-thead="first" id="datatable-29"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-	<td  style="width:10%;">Date</td>
-	<td  style="width:17%;">Particulars</td>
-	<td  style="width:10%;">Pay Mode</td>
-	<td  style="width:17%;">Company</td>
-	<td  style="width:10%;">Rcpt/Invoice No</td>
-	<td  style="width:10%;">Amount</td>
-	<td  style="width:8%;">User Name</td>
-    </tr>
+	<th scope="col"  style="width:10%;">Date</th>
+	<th scope="col"  style="width:17%;">Particulars</th>
+	<th scope="col"  style="width:10%;">Pay Mode</th>
+	<th scope="col"  style="width:17%;">Company</th>
+	<th scope="col"  style="width:10%;">Rcpt/Invoice No</th>
+	<th scope="col"  style="width:10%;">Amount</th>
+	<th scope="col"  style="width:8%;">User Name</th>
+    </tr></thead><tbody>
     
 
 <?php
@@ -14418,23 +14419,23 @@ break;
 					<body>';
 
 				$output .= '<div style="width:100%;padding:10px;">
-				<table class="bhealth-table bhealth-table-striped" style="width:100%;">
+				<table class="bhealth-table bhealth-table-striped bh-grid" style="width:100%;">' . htmlspecialchars($title) . '
 				  <thead>
 					<tr>
-					  <th colspan="4" style="text-align:center;">TRIAL BALANCE</th>
+					  <th scope="col" colspan="4" style="text-align:center;">TRIAL BALANCE</th>
 					</tr>
 					<tr>
-					  <th colspan="4" style="text-align:center;">PERIOD FROM ' . $d1 . ' TO ' . $d2 . ' </th>
+					  <th scope="col" colspan="4" style="text-align:center;">PERIOD FROM ' . $d1 . ' TO ' . $d2 . ' </th>
 					</tr>';
 				$output .= '<tr style="background-color:rgba(15, 17, 18, 0.71);color:#fff;">';
-				$output .= '<th colspan="2" style="text-align:left;">DESCRIPTION </th>
-					  <th style="text-align:center;">DEBIT</th>
-					  <th style="text-align:center;">CREDIT</th>';
+				$output .= '<th scope="col" colspan="2" style="text-align:left;">DESCRIPTION </th>
+					  <th scope="col" style="text-align:center;">DEBIT</th>
+					  <th scope="col" style="text-align:center;">CREDIT</th>';
 				$output .= '</tr>';
 				$output .= '</thead>
 									<tbody>';
 				$output .= '<tr>
-								<th colspan="4" style="text-align:left;">CASH BALANCES</th>
+								<th scope="row" colspan="4" style="text-align:left;">CASH BALANCES</th>
 							</tr>';
 				$cash = floatval($cash) + floatval($cash_bal_bfwd);
 				$output .= '<tr>
@@ -14443,7 +14444,7 @@ break;
 						  <td style="text-align:center;"> </td>
 					  </tr>';
 				$output .= '<tr>
-												<th colspan="4" style="text-align:left;">BANK BALANCES</th>
+												<th scope="row" colspan="4" style="text-align:left;">BANK BALANCES</th>
 										</tr>';
 
 				for ($i = 0; $i < count($bank_meta); $i++) {
@@ -14467,7 +14468,7 @@ break;
 				//               </tr>';
 
 				$output .= '<tr>
-												<th colspan="4" style="text-align:left;">RECEIVABLES</th>
+												<th scope="row" colspan="4" style="text-align:left;">RECEIVABLES</th>
 										</tr>';
 
 				for ($i = 0; $i < count($receivables_meta); $i++) {
@@ -14493,10 +14494,10 @@ break;
 
 
 				$output .= '<tr>
-						  <th colspan="4" style="height:22px;"></th>
+						  <th scope="row" colspan="4" style="height:22px;"></th>
 					  </tr>';
 				$output .= '<tr>
-						  <th colspan="4" style="text-align:left;">EXPENSES</th>
+						  <th scope="row" colspan="4" style="text-align:left;">EXPENSES</th>
 					  </tr>';
 
 				$expenses_bal = floatval(array_sum($expenses['tdr'])) - floatval(array_sum($expenses['tcr']));
@@ -14514,7 +14515,7 @@ break;
 						  <td style="text-align:center;">' . number_format($account_payables_bal, 2) . '</td>
 					  </tr>';
 				$output .= '<tr>
-						  <th colspan="4" style="text-align:left;">RECEIPTS</th>
+						  <th scope="row" colspan="4" style="text-align:left;">RECEIPTS</th>
 					  </tr>';
 
 				$insurance_receipts_bal = floatval(array_sum($insurancereceipts['tcr'])) - floatval(array_sum($insurancereceipts['tdr']));
@@ -14539,23 +14540,23 @@ break;
 				$totalBalBFwd = floatval($cash_bal_bfwd) + floatval($bank_bal_bfwd) + floatval($receivables_bal_bfwd) - floatval($account_payables_bal_bfwd);
 
 				$output .= '<tr>
-				<th colspan="4" style="height:22px;"> </th>
+				<th scope="col" colspan="4" style="height:22px;"> </th>
 			</tr>';
 
 				if ($totalBalBFwd < 0) {
 					$output .= '<tr>
-						  <th colspan="2" style="text-align:left;"> Balance b/fwd ' . $startdate_words . ' </th>
+						  <th scope="col" colspan="2" style="text-align:left;"> Balance b/fwd ' . $startdate_words . ' </th>
 						  <td style="text-align:center;"> </td>
-						  <th style="text-align:center;">(' . number_format(abs($totalBalBFwd), 2) . ')</th>
+						  <th scope="col" style="text-align:center;">(' . number_format(abs($totalBalBFwd), 2) . ')</th>
 					  </tr>';
 				} else {
 					// $output .= '<tr>
-					// 	  <th colspan="2" style="text-align:left;">Balance b/fwd ' . $startdate_words . ' </th>
+					// 	  <th scope="col" colspan="2" style="text-align:left;">Balance b/fwd ' . $startdate_words . ' </th>
 					// 	  <td class="text-center"> </td>
-					// 	  <th style="text-align:center;">' . number_format($totalBalBFwd, 2) . '</th>
+					// 	  <th scope="col" style="text-align:center;">' . number_format($totalBalBFwd, 2) . '</th>
 					//   </tr>';
 					$output .= '<tr>
-					  <th colspan="4" style="text-align:left;">Balance b/fwd ' . $startdate_words . ' </th>
+					  <th scope="col" colspan="4" style="text-align:left;">Balance b/fwd ' . $startdate_words . ' </th>
 				  </tr>';
 
 					$output .= '<tr>
@@ -14582,9 +14583,9 @@ break;
 				$credits = floatval($credits) + floatval($totalBalBFwd);
 
 				$output .= '<tr>
-								<th colspan="2">TOTAL</th>
-								<th style="text-align:center;">' . number_format($debits, 2, '.', ',') . ' </th>
-								<th style="text-align:center;">' . number_format($credits, 2, '.', ',') . ' </th>
+								<th scope="col" colspan="2">TOTAL</th>
+								<th scope="col" style="text-align:center;">' . number_format($debits, 2, '.', ',') . ' </th>
+								<th scope="col" style="text-align:center;">' . number_format($credits, 2, '.', ',') . ' </th>
 			
 							</tr>';
 				$output .= '</tfoot>

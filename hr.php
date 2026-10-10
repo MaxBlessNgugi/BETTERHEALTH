@@ -17,7 +17,6 @@ else{echo"<script>window.location.href = \"index.php\";</script>";exit;}
 <script src="js/help.js"></script>
 <script src="js/ajax.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
-<script type="text/javascript" src="js/jquery.txt"></script>
 <script type="text/javascript" src="js/auth.js"></script>
 <script src="assets/vendor/ui/jquery.ui.position.js"></script>
 <link rel="stylesheet" type="text/css" href="assets/vendor/jquery.confirm/jquery.confirm.css" />

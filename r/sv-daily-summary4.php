@@ -22,31 +22,19 @@ $email=stripslashes($row['Email']);
 $logo=stripslashes($row['Logo']);
 
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="../css/tokens.css" />
-<link rel="stylesheet" href="../css/components.css" />
-<title>Better Health Stock Daily Summary Reports</title>
-<link id="favicon" href="../images/fav.png" rel="icon" type="image/png"/>
-<script type="text/javascript" src="../js/jquery.js"></script>
-<link type="text/css" rel="stylesheet" href="../css/feedback.css">
-<script type="text/javascript" src="../js/bh-feedback.js"></script>
-<script src="../js/functions.js"></script>
-<script type="text/javascript" src="../js/connectcode-javascript-code39.js"></script>
-<script src="../js/excellentexport.js"></script>
-
-
-<style>
-@font-face { font-family: Merchant; src: url('../fonts/Merchant.TTF'); } 
-body,p{
-font-family: Merchant; font-size:18px; font-weight:normal; text-transform:uppercase
-}
-</style>
-
-</head>
+<?php require_once __DIR__ . '/../includes/render.php'; echo bh_head(array(
+  'title' => 'Better Health Stock Daily Summary Reports',
+  'base' => '../',
+  'extra' => array(
+    '<style>',
+    '@font-face { font-family: Merchant; src: url(\'../fonts/Merchant.TTF\'); }',
+    'body,p{',
+    'font-family: Merchant; font-size:18px; font-weight:normal; text-transform:uppercase',
+    '}',
+    '</style>',
+    '<script type="text/javascript" src="../js/bh-grid.js"></script>'
+  )
+)); ?>
 
 <body>
 	<a class="bh-skip" href="#datatable">Skip to main content</a>
@@ -77,23 +65,23 @@ echo $d2=preg_replace('~/~', '', $d2);
 
 ?>
 <?php 
-echo '<table id="datatable"  style="width:100%;text-align:center;font-size:14px; font-weight:bold;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif; padding:0;"  tabindex="-1">';
-echo '<tbody>';
+echo '<table id="datatable" class="bh-grid" data-bh-thead="first"  style="width:100%;text-align:center;font-size:14px; font-weight:bold;font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif; padding:0;"  tabindex="-1"><caption>Better Health Stock Daily Summary Reports</caption>';
+echo '<thead>';
 echo ' <tr style="width:100%; height:20px;color:#fff; background:#2c3e50; padding:0;text-transform:;">';
 
 ?>
-	    	<td  style="width:3%;">#</td>
-	    	<td  style="width:10%;">stdate</td>
-	        <td  style="width:20%;">Item Name</td>
-	        <td  style="width:10%;">PREV QTY</td>  
-	        <td  style="width:10%;">QTY ADDED</td>  
-	        <td  style="width:10%;">QTY REMOVED</td>
-	        <td  style="width:10%;">QTY BAL</td>
-	        <td  style="width:20%;">DESCRIPTION</td> 
-	        <td  style="width:10%;">USER</td>
+	    	<th scope="col"  style="width:3%;">#</th>
+	    	<th scope="col"  style="width:10%;">stdate</th>
+	        <th scope="col"  style="width:20%;">Item Name</th>
+	        <th scope="col"  style="width:10%;">PREV QTY</th>  
+	        <th scope="col"  style="width:10%;">QTY ADDED</th>  
+	        <th scope="col"  style="width:10%;">QTY REMOVED</th>
+	        <th scope="col"  style="width:10%;">QTY BAL</th>
+	        <th scope="col"  style="width:20%;">DESCRIPTION</th> 
+	        <th scope="col"  style="width:10%;">USER</th>
 
 <?php 
-      echo '</tr>';
+      echo '</tr></thead><tbody>';
 
     #$dis='PURCHASES';
 	if($d1==0){

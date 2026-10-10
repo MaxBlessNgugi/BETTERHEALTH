@@ -78,16 +78,16 @@ switch ($SRC_ID) {
         $output .= '<table id="bank_recontbl" class="bhealth-table"> 
                   <thead>
                     <tr style="background-color:#444;color:#fff;">
-                        <th style="width:4%;">No. </th>
-                        <th style="width:8%;">DATE </th>
-                        <th style="width:25%;">NARRATION </th>
-                        <th style="width:12%;">REF NO </th>
-                        <th style="width:10%;">OPENING BAL </th>
-                        <th style="width:10%;">WITHDRAW </th>
-                        <th style="width:10%;">DEPOSIT </th>
-                        <th style="width:12%;">BALANCE </th>
-                        <th style="width:5%;text-align:center;"></th>
-                        <th style="width:10%;">RECON_NOTE</th>
+                        <th scope="col" style="width:4%;">No. </th>
+                        <th scope="col" style="width:8%;">DATE </th>
+                        <th scope="col" style="width:25%;">NARRATION </th>
+                        <th scope="col" style="width:12%;">REF NO </th>
+                        <th scope="col" style="width:10%;">OPENING BAL </th>
+                        <th scope="col" style="width:10%;">WITHDRAW </th>
+                        <th scope="col" style="width:10%;">DEPOSIT </th>
+                        <th scope="col" style="width:12%;">BALANCE </th>
+                        <th scope="col" style="width:5%;text-align:center;"></th>
+                        <th scope="col" style="width:10%;">RECON_NOTE</th>
                   </tr>
                 </thead>
                 <tbody>';
@@ -162,7 +162,7 @@ switch ($SRC_ID) {
                 }
             }
             $transBal = (floatval($OpeningBal) + floatval($total_deposits)) - floatval($total_withdraws);
-            $output .= '<tr><th colspan="6" style="text-align:right;">PERIOD CLOSING BALANCE </th> <th colspan="2" style="font-size:14px;font-weight:bold;text-align:right;">' . number_format($transBal, 2, '.', ',') . ' </th>  <th> </th> <th colspan="2"> </th> </tr>';
+            $output .= '<tr><th scope="row" colspan="6" style="text-align:right;">PERIOD CLOSING BALANCE </th> <th scope="row" colspan="2" style="font-size:14px;font-weight:bold;text-align:right;">' . number_format($transBal, 2, '.', ',') . ' </th>  <thscope="row"> </th> <th scope="row" colspan="2"> </th> </tr>';
         } else {
             $output .= '<tr><td colspan="10" style="text-align:center;">No transactions found.</td></tr>';
         }
@@ -205,11 +205,11 @@ switch ($SRC_ID) {
         $output .= '<table id="confirmedrecontbl" class="bhealth-table"> 
                             <thead>
                                 <tr style="color:#000;background-color:rgba(109, 240, 146, 0.93);">
-                                    <th colspan="5" style="font-size:12px;">CONFIRMED TRANSACTIONS </th>
-                                    <th>WITHDRAW</th>
-                                    <th>DEPOSIT</th>
-                                    <th>BALANCE</th>
-                                    <th>RECON_NOTE</th>
+                                    <th scope="col" colspan="5" style="font-size:12px;">CONFIRMED TRANSACTIONS </th>
+                                    <thscope="col">WITHDRAW</th>
+                                    <thscope="col">DEPOSIT</th>
+                                    <thscope="col">BALANCE</th>
+                                    <thscope="col">RECON_NOTE</th>
 
                                 </tr>
                             </thead>
@@ -218,11 +218,11 @@ switch ($SRC_ID) {
         $output .= '</tbody> 
                                 <tfoot>
                                     <tr style="font-size:12px;">
-                                        <th colspan="5">TOTAL </th>
-                                        <th id="confirmedrecontblwithdrawtotal">0.00 </th>
-                                        <th id="confirmedrecontbldepositbaltotal">0.00 </th>
-                                        <th id="confirmedrecontblbaltotal"> </th>
-                                        <th> </th>
+                                        <th scope="col" colspan="5">TOTAL </th>
+                                        <th scope="col" id="confirmedrecontblwithdrawtotal">0.00 </th>
+                                        <th scope="col" id="confirmedrecontbldepositbaltotal">0.00 </th>
+                                        <th scope="col" id="confirmedrecontblbaltotal"> </th>
+                                        <thscope="col"> </th>
                                     </tr>
                                 </tfoot>
                         </table>';
@@ -233,11 +233,11 @@ switch ($SRC_ID) {
         $output .= '<table id="unconfirmedrecontbl" class="bhealth-table"> 
                             <thead>
                                 <tr style="font-size:12px;color:#fff;background-color:rgba(247, 105, 105, 0.93);">
-                                    <th colspan="5">UNCONFIRMED TRANSACTIONS </th>
-                                    <th>WITHDRAW</th>
-                                    <th>DEPOSIT</th>
-                                    <th>BALANCE</th>
-                                    <th>RECON_NOTE</th>
+                                    <th scope="col" colspan="5">UNCONFIRMED TRANSACTIONS </th>
+                                    <thscope="col">WITHDRAW</th>
+                                    <thscope="col">DEPOSIT</th>
+                                    <thscope="col">BALANCE</th>
+                                    <thscope="col">RECON_NOTE</th>
                                 </tr>
                             </thead>
                             <tbody>';
@@ -247,11 +247,11 @@ switch ($SRC_ID) {
         $output .= '</tbody> 
                                 <tfoot>
                                     <tr style="font-size:12px;">
-                                        <th colspan="5">TOTAL </th>
-                                        <th id="unconfirmedrecontblwithdrawtotal">0.00 </th>
-                                        <th id="unconfirmedrecontbldepositbaltotal">0.00 </th>
-                                        <th id="unconfirmedrecontblbaltotal"> </th>
-                                        <th> </th>
+                                        <th scope="col" colspan="5">TOTAL </th>
+                                        <th scope="col" id="unconfirmedrecontblwithdrawtotal">0.00 </th>
+                                        <th scope="col" id="unconfirmedrecontbldepositbaltotal">0.00 </th>
+                                        <th scope="col" id="unconfirmedrecontblbaltotal"> </th>
+                                        <thscope="col"> </th>
                                     </tr>
                                 </tfoot>
                         </table>';
@@ -262,38 +262,38 @@ switch ($SRC_ID) {
         $output .= '<table id="reconsummarytbl" class="bhealth-table" style="width:500px;background-color:#ededed;"> 
                             <thead>
                                 <tr style="font-size:14px;color:#000;">
-                                    <th style="border-top:none;border-left:none;padding:8px;">SUMMARY </th>
-                                    <th style="border-top:none;border-left:none;padding:8px;display:;">DEPOSIT </th>
-                                    <th style="border-top:none;border-left:none;padding:8px;display:;">WITHDRAW </th>
-                                    <th style="border-top:none;border-left:none;padding:8px;display:;">BALANCE </th>
+                                    <th scope="col" style="border-top:none;border-left:none;padding:8px;">SUMMARY </th>
+                                    <th scope="col" style="border-top:none;border-left:none;padding:8px;display:;">DEPOSIT </th>
+                                    <th scope="col" style="border-top:none;border-left:none;padding:8px;display:;">WITHDRAW </th>
+                                    <th scope="col" style="border-top:none;border-left:none;padding:8px;display:;">BALANCE </th>
 
                                 </tr>
                             </thead>
                             <tbody>';
         $output .= '<tr style="font-size:12px;">
-                                        <th style="width:40%;color:#000;border-top:none;border-left:none;padding:8px;">CONFIRMED </th>
-                                        <th style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="rconsumryconfirmeddeposittotal"> </th>
-                                        <th style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="rconsumryconfirmedwithdrwtotal"> </th>
-                                        <th style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="reconsummarytblconfirmedtotal"> </th>
+                                        <th scope="row" style="width:40%;color:#000;border-top:none;border-left:none;padding:8px;">CONFIRMED </th>
+                                        <th scope="row" style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="rconsumryconfirmeddeposittotal"> </th>
+                                        <th scope="row" style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="rconsumryconfirmedwithdrwtotal"> </th>
+                                        <th scope="row" style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="reconsummarytblconfirmedtotal"> </th>
                                     </tr>';
         $output .= '<tr style="font-size:12px;">
-                                        <th style="width:40%;color:#000;border-top:none;border-left:none;padding:8px;">UNCONFIRMED </th>
-                                        <th style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="rconsumryunconfirmeddeposittotal"> </th>
-                                        <th style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="rconsumryunconfirmedwithdrwtotal"> </th>
-                                        <th style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="reconsummarytblunconfirmedtotal"> </th>
+                                        <th scope="row" style="width:40%;color:#000;border-top:none;border-left:none;padding:8px;">UNCONFIRMED </th>
+                                        <th scope="row" style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="rconsumryunconfirmeddeposittotal"> </th>
+                                        <th scope="row" style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="rconsumryunconfirmedwithdrwtotal"> </th>
+                                        <th scope="row" style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="reconsummarytblunconfirmedtotal"> </th>
                                     </tr>';
         $output .= '<tr style="font-size:12px;display:none;">
-                                        <th style="width:40%;color:#000;border-top:none;border-left:none;padding:8px;">BANK BALANCE </th>
-                                        <th style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="rconsumrybankbaldeposittotal"> </th>
-                                        <th style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="rconsumrybankbalwithdrwtotal"> </th>
-                                        <th style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="reconsumrytblbankbaltotal"> </th>
+                                        <th scope="row" style="width:40%;color:#000;border-top:none;border-left:none;padding:8px;">BANK BALANCE </th>
+                                        <th scope="row" style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="rconsumrybankbaldeposittotal"> </th>
+                                        <th scope="row" style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="rconsumrybankbalwithdrwtotal"> </th>
+                                        <th scope="row" style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="reconsumrytblbankbaltotal"> </th>
                                     </tr>';
 
         $output .= '<tr style="font-size:12px;display:none;">
-                                        <th style="width:40%;color:#000;border-top:none;border-left:none;padding:8px;">DIFFERENCE </th>
-                                        <th style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="rconbankbal_unconfirmeddeposittotal_diff"> </th>
-                                        <th style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="rconbankbal_unconfirmedwithdrwtotal_diff"> </th>
-                                        <th style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="reconbankbalunconfirmedtotal_diff"> </th>
+                                        <th scope="row" style="width:40%;color:#000;border-top:none;border-left:none;padding:8px;">DIFFERENCE </th>
+                                        <th scope="row" style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="rconbankbal_unconfirmeddeposittotal_diff"> </th>
+                                        <th scope="row" style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="rconbankbal_unconfirmedwithdrwtotal_diff"> </th>
+                                        <th scope="row" style="width:20%;color:#000;border-top:none;border-left:none;padding:8px;display:;" id="reconbankbalunconfirmedtotal_diff"> </th>
                                     </tr>';
 
 
@@ -415,7 +415,7 @@ switch ($SRC_ID) {
                         }
                     }
                     $transBal = (floatval($OpeningBal) + floatval($total_deposits)) - floatval($total_withdraws);
-                    $output .= '<tr><th colspan="6" style="text-align:right;">PERIOD CLOSING BALANCE </th> <th colspan="2" style="font-size:14px;font-weight:bold;text-align:right;">' . number_format($transBal, 2, '.', ',') . ' </th>  <th colspan="2"> </th> </tr>';
+                    $output .= '<tr><th scope="col" colspan="6" style="text-align:right;">PERIOD CLOSING BALANCE </th> <th scope="col" colspan="2" style="font-size:14px;font-weight:bold;text-align:right;">' . number_format($transBal, 2, '.', ',') . ' </th>  <th scope="col" colspan="2"> </th> </tr>';
                 } else {
                     $output .= '<tr> <td colspan="10" style="text-align:center;">No transactions found for selected period and bank. </td> </tr>';
                 }

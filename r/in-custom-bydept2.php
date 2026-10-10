@@ -28,31 +28,18 @@ $email=stripslashes($row['Email']);
 $logo=stripslashes($row['Logo']);
 
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="../css/tokens.css" />
-<link rel="stylesheet" href="../css/components.css" />
-<title>Better Health Custom Departmental Patients Report</title>
-<link id="favicon" href="../images/fav.png" rel="icon" type="image/png"/>
-<script type="text/javascript" src="../js/jquery.js"></script>
-<link type="text/css" rel="stylesheet" href="../css/feedback.css">
-<script type="text/javascript" src="../js/bh-feedback.js"></script>
-<script src="../js/functions.js"></script>
-<script type="text/javascript" src="../js/connectcode-javascript-code39.js"></script>
-<script src="../js/excellentexport.js"></script>
-
-
-<style>
-@font-face { font-family: Merchant; src: url('../fonts/Merchant.TTF'); } 
-body,p{
-font-family: Merchant; font-size:12px; font-weight:bold; text-transform:uppercase;line-height: 1.0;letter-spacing: 1px;
-}
-</style>
-
-</head>
+<?php require_once __DIR__ . '/../includes/render.php'; echo bh_head(array(
+  'title' => 'Better Health Custom Departmental Patients Report',
+  'base' => '../',
+  'extra' => array(
+    '<style>',
+    '@font-face { font-family: Merchant; src: url(\'../fonts/Merchant.TTF\'); }',
+    'body,p{',
+    'font-family: Merchant; font-size:12px; font-weight:bold; text-transform:uppercase;line-height: 1.0;letter-spacing: 1px;',
+    '}',
+    '</style>'
+  )
+)); ?>
 
 <body>
 	<a class="bh-skip" href="#datatable">Skip to main content</a>
@@ -92,7 +79,7 @@ echo "<p><a download='".$fname.".xls' href='data:application/vnd.ms-excel;base64
 <?php 
 // echo "<table id='datatable' style='width:100%;text-align:center;font-size:14px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0;' >";
 // echo "<tbody>";
-// echo '<table id="datatable" style="width:100%;text-align:center;font-size:14px; font-weight:bold;font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; padding:0;" >';
+// echo '<table id="datatable-2" style="width:100%;text-align:center;font-size:14px; font-weight:bold;font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; padding:0;" >';
 echo '<tbody>';
 echo '<tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
     			<td  style="width:10%;">Date</td>

@@ -163,7 +163,7 @@ switch($id){
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="content-type" content="text/plain; charset=UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -172,8 +172,6 @@ switch($id){
 <title><?php echo $title ?></title>
 <link id="favicon" href="images/fav.png" rel="icon" type="image/png"/>
 
-<!-- <script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/chart.js"></script> -->
 <script src="js/functions.js"></script>
 <!-- <link type="text/css" rel="stylesheet" href="css/jquery.custom.alerts.css">
 <script type="text/javascript" src="js/jquery.custom.alerts.js"></script> -->
@@ -196,10 +194,11 @@ p{font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif; font-size:12px
 .normal:hover,#normal:hover{background:#C0E4E7}
 .put_field{font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif; font-size:12px; text-align:center}
 </style>
+<script type="text/javascript" src="js/bh-grid.js"></script>
 </head>
 
 <body style="background:" id="body">
-	<a class="bh-skip" href="#bh-main">Skip to main content</a> 
+	<?php require_once __DIR__ . '/includes/render.php'; echo bh_skip_link('#bh-main'); ?> 
 
 <?php 
 switch($id){
@@ -2174,15 +2173,15 @@ $fname=strtolower($rcptno).'_stock_valuation';
 <div style="clear:both; margin-bottom:10px"></div>
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table id="datatable" class="bh-grid" data-bh-thead="first"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-   		<td  style="width:40%;">Item Name</td>
-        <td  style="width:12%;">Pack Size</td>
-        <td  style="width:12%;">Unit</td>
-       <td  style="width:12%;">Part</td>
-        <td  style="width:23%;">Total</td>
-    </tr>
+   		<th scope="col"  style="width:40%;">Item Name</th>
+        <th scope="col"  style="width:12%;">Pack Size</th>
+        <th scope="col"  style="width:12%;">Unit</th>
+       <th scope="col"  style="width:12%;">Part</th>
+        <th scope="col"  style="width:23%;">Total</th>
+    </tr></thead><tbody>
 <?php
 if($rcptno=='PROCUREMENT'){
 	$result =mysqli_query($db, "select * from items where Type='GOOD' and Bal>0 order by ItemName asc,Category asc");
@@ -2285,15 +2284,15 @@ echo $x;
 
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table id="datatable-2" class="bh-grid" data-bh-thead="first"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-   		<td  style="width:12%;">No.</td>
-        <td  style="width:12%;">Date</td>
-        <td  style="width:12%;">Patient Id</td>
-       <td  style="width:40%;">Patient Name</td>
-        <td  style="width:23%;">Dept</td>
-    </tr>
+   		<th scope="col"  style="width:12%;">No.</th>
+        <th scope="col"  style="width:12%;">Date</th>
+        <th scope="col"  style="width:12%;">Patient Id</th>
+       <th scope="col"  style="width:40%;">Patient Name</th>
+        <th scope="col"  style="width:23%;">Dept</th>
+    </tr></thead><tbody>
 
 
 <?php
@@ -2394,16 +2393,16 @@ echo $x;
 
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table id="datatable-3" class="bh-grid" data-bh-thead="first"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-   		<td  style="width:12%;">No.</td>
-        <td  style="width:12%;">Date</td>
-       <td  style="width:40%;">Patient Name</td>
-       <td  style="width:12%;">Department</td>
-       <td  style="width:12%;">Amount</td>
-       <td  style="width:12%;">Rcpt No.</td>
-    </tr>
+   		<th scope="col"  style="width:12%;">No.</th>
+        <th scope="col"  style="width:12%;">Date</th>
+       <th scope="col"  style="width:40%;">Patient Name</th>
+       <th scope="col"  style="width:12%;">Department</th>
+       <th scope="col"  style="width:12%;">Amount</th>
+       <th scope="col"  style="width:12%;">Rcpt No.</th>
+    </tr></thead><tbody>
 
 
 <?php
@@ -2508,16 +2507,16 @@ if(isset($_GET['d2'])){
 <div style="clear:both; margin-bottom:10px"></div>
 
 
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table id="datatable-4" class="bh-grid" data-bh-thead="first"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-   		<td  style="width:11%;">Date</td>
-        <td  style="width:15%;">Invoice No.</td>
-        <td  style="width:40%;">Details</td>
-        <td  style="width:10%;">Dr</td>
-        <td  style="width:10%;">Cr</td>
-        <td  style="width:14%;">Balance</td>
-    </tr>
+   		<th scope="col"  style="width:11%;">Date</th>
+        <th scope="col"  style="width:15%;">Invoice No.</th>
+        <th scope="col"  style="width:40%;">Details</th>
+        <th scope="col"  style="width:10%;">Dr</th>
+        <th scope="col"  style="width:10%;">Cr</th>
+        <th scope="col"  style="width:14%;">Balance</th>
+    </tr></thead><tbody>
 
 
 <?php
@@ -2974,16 +2973,16 @@ $fname=strtolower($date).'_pharmacy_dispenses';
 
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table id="datatable-5" class="bh-grid" data-bh-thead="first"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-   		<td  style="width:10%;">Date</td>
-        <td  style="width:19%;">Patient Name</td>
-        <td  style="width:25%;">Item Name</td>
-         <td  style="width:15%;">Qty</td>
-       <td  style="width:19%;">Total</td>
-        <td  style="width:10%;">User Id</td>
-    </tr>
+   		<th scope="col"  style="width:10%;">Date</th>
+        <th scope="col"  style="width:19%;">Patient Name</th>
+        <th scope="col"  style="width:25%;">Item Name</th>
+         <th scope="col"  style="width:15%;">Qty</th>
+       <th scope="col"  style="width:19%;">Total</th>
+        <th scope="col"  style="width:10%;">User Id</th>
+    </tr></thead><tbody>
     
 
 <?php
@@ -3153,14 +3152,14 @@ $fname=strtolower($name).'_lpo_summary';
 <?php $d1=preg_replace('~/~', '', $d1); $d2=preg_replace('~/~', '', $d2);?>
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table id="datatable-6" class="bh-grid" data-bh-thead="first"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-		<td  style="width:19%;">Date</td>
-   		<td  style="width:30%;">Supplier</td>
-        <td  style="width:30%;">LPO No</td>
-        <td  style="width:20%;">Amount</td>
-    </tr>
+		<th scope="col"  style="width:19%;">Date</th>
+   		<th scope="col"  style="width:30%;">Supplier</th>
+        <th scope="col"  style="width:30%;">LPO No</th>
+        <th scope="col"  style="width:20%;">Amount</th>
+    </tr></thead><tbody>
 
 <?php
 
@@ -3258,16 +3257,16 @@ $fname=strtolower($name).'_stock_transfer_summary';
 <?php $d1=preg_replace('~/~', '', $d1); $d2=preg_replace('~/~', '', $d2);?>
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table id="datatable-7" class="bh-grid" data-bh-thead="first"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-		<td  style="width:15%;">Date</td>
-   		<td  style="width:30%;">From~To</td>
-        <td  style="width:10%;">Transfer No</td>
-        <td  style="width:20%;">Amount</td>
-        <td  style="width:12%;">Requested</td>
-         <td  style="width:12%;">Issued</td>
-    </tr>
+		<th scope="col"  style="width:15%;">Date</th>
+   		<th scope="col"  style="width:30%;">From~To</th>
+        <th scope="col"  style="width:10%;">Transfer No</th>
+        <th scope="col"  style="width:20%;">Amount</th>
+        <th scope="col"  style="width:12%;">Requested</th>
+         <th scope="col"  style="width:12%;">Issued</th>
+    </tr></thead><tbody>
 
 <?php
 
@@ -3393,18 +3392,18 @@ WAIVER REPORTS
 
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table id="datatable-8" class="bh-grid" data-bh-thead="first"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-   		<td  style="width:8%;">Date</td>
-        <td  style="width:8%;">Waiver No</td>
-        <td  style="width:15%;">Patient Name</td>
-       	<td  style="width:10%;">Amount Charged</td>
-      	<td  style="width:10%;">Amount Paid</td>
-       	<td  style="width:10%;">Amount Waived</td>
-        <td  style="width:15%;">Diagnosis</td>
-        <td  style="width:23%;">Notes</td>
-    </tr>
+   		<th scope="col"  style="width:8%;">Date</th>
+        <th scope="col"  style="width:8%;">Waiver No</th>
+        <th scope="col"  style="width:15%;">Patient Name</th>
+       	<th scope="col"  style="width:10%;">Amount Charged</th>
+      	<th scope="col"  style="width:10%;">Amount Paid</th>
+       	<th scope="col"  style="width:10%;">Amount Waived</th>
+        <th scope="col"  style="width:15%;">Diagnosis</th>
+        <th scope="col"  style="width:23%;">Notes</th>
+    </tr></thead><tbody>
 
 
 <?php
@@ -3492,14 +3491,14 @@ $catname=stripslashes($rowa['name']);
 <?php $d1=preg_replace('~/~', '', $d1); $d2=preg_replace('~/~', '', $d2);?>
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table id="datatable-9" class="bh-grid" data-bh-thead="first"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-		<td  style="width:9%;">Date</td>
-   		<td  style="width:20%;">Patient Name</td>
-        <td  style="width:20%;">Category</td>
-        <td  style="width:50%;">Notes</td>
-    </tr>
+		<th scope="col"  style="width:9%;">Date</th>
+   		<th scope="col"  style="width:20%;">Patient Name</th>
+        <th scope="col"  style="width:20%;">Category</th>
+        <th scope="col"  style="width:50%;">Notes</th>
+    </tr></thead><tbody>
 
 <?php
 
@@ -3763,23 +3762,23 @@ $d1=preg_replace('~/~', '', $d1); $d2=preg_replace('~/~', '', $d2);
 
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table id="datatable-10" class="bh-grid" data-bh-thead="first"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-		<td  style="width:3%;">No.</td>
-		<td  style="width:7%;">Date</td>
-		<td  style="width:3%;">Lab No</td>
-   		<td  style="width:10%;">Patient Name</td>
-   		<td  style="width:5%;">Age</td>
-   		<td  style="width:7%;">Source</td>
-   		<td  style="width:7%;">Lab Section</td>
-   		<td  style="width:10%;">Lab Test</td>
-		<td  style="width:6%;">Sample</td>
-   		<td  style="width:5%;">Start Time</td>
-         <td  style="width:5%;">Finish Time</td>
-         <td  style="width:5%;">Result Type</td>
-        <td  style="width:8%;">Done By</td>
-    </tr>
+		<th scope="col"  style="width:3%;">No.</th>
+		<th scope="col"  style="width:7%;">Date</th>
+		<th scope="col"  style="width:3%;">Lab No</th>
+   		<th scope="col"  style="width:10%;">Patient Name</th>
+   		<th scope="col"  style="width:5%;">Age</th>
+   		<th scope="col"  style="width:7%;">Source</th>
+   		<th scope="col"  style="width:7%;">Lab Section</th>
+   		<th scope="col"  style="width:10%;">Lab Test</th>
+		<th scope="col"  style="width:6%;">Sample</th>
+   		<th scope="col"  style="width:5%;">Start Time</th>
+         <th scope="col"  style="width:5%;">Finish Time</th>
+         <th scope="col"  style="width:5%;">Result Type</th>
+        <th scope="col"  style="width:8%;">Done By</th>
+    </tr></thead><tbody>
 
 <?php
 	$a=1;$aa=$bb=0;
@@ -3970,19 +3969,19 @@ $d1=preg_replace('~/~', '', $d1); $d2=preg_replace('~/~', '', $d2);
 
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table id="datatable-11" class="bh-grid" data-bh-thead="first"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-		<td  style="width:5%;">No.</td>
-		<td  style="width:7%;">Date</td>
-		<td  style="width:8%;">Radiology No</td>
-   		<td  style="width:12%;">Patient Name</td>
-   		<td  style="width:15%;">Radiology Scan</td>
-		<td  style="width:28%;">Results</td>
-   		<td  style="width:7%;">Start Time</td>
-         <td  style="width:7%;">Finish Time</td>
-        <td  style="width:10%;">Done By</td>
-    </tr>
+		<th scope="col"  style="width:5%;">No.</th>
+		<th scope="col"  style="width:7%;">Date</th>
+		<th scope="col"  style="width:8%;">Radiology No</th>
+   		<th scope="col"  style="width:12%;">Patient Name</th>
+   		<th scope="col"  style="width:15%;">Radiology Scan</th>
+		<th scope="col"  style="width:28%;">Results</th>
+   		<th scope="col"  style="width:7%;">Start Time</th>
+         <th scope="col"  style="width:7%;">Finish Time</th>
+        <th scope="col"  style="width:10%;">Done By</th>
+    </tr></thead><tbody>
 
 <?php
 	$a=1;
@@ -4123,17 +4122,17 @@ $d1=preg_replace('~/~', '', $d1); $d2=preg_replace('~/~', '', $d2);
 
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table id="datatable-12" class="bh-grid" data-bh-thead="first"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-		<td  style="width:5%;">No.</td>
-		<td  style="width:10%;">Date</td>
-		<td  style="width:20%;">Patient Name</td>
-   		<td  style="width:40%;">Prescription</td>
-   		<td  style="width:7%;">Start Time</td>
-         <td  style="width:7%;">Finish Time</td>
-        <td  style="width:10%;">Done By</td>
-    </tr>
+		<th scope="col"  style="width:5%;">No.</th>
+		<th scope="col"  style="width:10%;">Date</th>
+		<th scope="col"  style="width:20%;">Patient Name</th>
+   		<th scope="col"  style="width:40%;">Prescription</th>
+   		<th scope="col"  style="width:7%;">Start Time</th>
+         <th scope="col"  style="width:7%;">Finish Time</th>
+        <th scope="col"  style="width:10%;">Done By</th>
+    </tr></thead><tbody>
 
 <?php
 	$a=1;
@@ -4272,18 +4271,18 @@ $d1=preg_replace('~/~', '', $d1); $d2=preg_replace('~/~', '', $d2);
 
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 <div style="clear:both; margin-bottom:10px" ></div>
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table id="datatable-13" class="bh-grid" data-bh-thead="first"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-		<td  style="width:5%;">No.</td>
-		<td  style="width:10%;">Date</td>
-		<td  style="width:15%;">Patient Name</td>
-		<td  style="width:15%;">Procedure</td>
-   		<td  style="width:20%;">Notes</td>
-   		<td  style="width:7%;">Start Time</td>
-         <td  style="width:7%;">Finish Time</td>
-        <td  style="width:10%;">Done By</td>
-    </tr>
+		<th scope="col"  style="width:5%;">No.</th>
+		<th scope="col"  style="width:10%;">Date</th>
+		<th scope="col"  style="width:15%;">Patient Name</th>
+		<th scope="col"  style="width:15%;">Procedure</th>
+   		<th scope="col"  style="width:20%;">Notes</th>
+   		<th scope="col"  style="width:7%;">Start Time</th>
+         <th scope="col"  style="width:7%;">Finish Time</th>
+        <th scope="col"  style="width:10%;">Done By</th>
+    </tr></thead><tbody>
 
 <?php
 	$a=1;
@@ -4850,18 +4849,18 @@ echo $x;
 
 <p><a download="<?php  echo $fname ?>.xls" href="data:application/vnd.ms-excel;base64,PGh0bWwgeG1sbnM6bz0idXJuOnNjaGVtYXMtbWljcm9zb2Z0LWNvbTpvZmZpY2U6b2ZmaWNlIiB4bWxuczp4PSJ1cm46c2NoZW1hcy1taWNyb3NvZnQtY29tOm9mZmljZTpleGNlbCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnL1RSL1JFQy1odG1sNDAiPjxoZWFkPjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04Ij48IS0tW2lmIGd0ZSBtc28gOV0+PHhtbD48eDpFeGNlbFdvcmtib29rPjx4OkV4Y2VsV29ya3NoZWV0cz48eDpFeGNlbFdvcmtzaGVldD48eDpOYW1lPnVuZGVmaW5lZDwveDpOYW1lPjx4OldvcmtzaGVldE9wdGlvbnM+PHg6RGlzcGxheUdyaWRsaW5lcy8+PC94OldvcmtzaGVldE9wdGlvbnM+PC94OkV4Y2VsV29ya3NoZWV0PjwveDpFeGNlbFdvcmtzaGVldHM+PC94OkV4Y2VsV29ya2Jvb2s+PC94bWw+PCFbZW5kaWZdLS0+PC9oZWFkPjxib2R5Pjx0YWJsZT4KICAgIDx0Ym9keT48dHI+CiAgICAgICAgPHRkPjEwMDwvdGQ+CiAgICAgICAgPHRkPjIwMDwvdGQ+CiAgICAgICAgPHRkPjMwMDwvdGQ+CiAgICA8L3RyPgogICAgPHRyPgogICAgICAgIDx0ZD40MDA8L3RkPgogICAgICAgIDx0ZD41MDA8L3RkPgogICAgICAgIDx0ZD42MDA8L3RkPgogICAgPC90cj4KPC90Ym9keT48L3RhYmxlPjwvYm9keT48L2h0bWw+" onClick="return ExcellentExport.excel(this, 'datatable', 'Sheet Name Here');"><img alt="Convert to Excel" src="images/excel.png" style="30px; height:30px; float:right; margin-right:10px"  title="Convert to Excel"/></a></p>
 
-<table id="datatable"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " >
-<tbody>
+<table id="datatable-14" class="bh-grid" data-bh-thead="first"  style="width:100%;text-align:center;font-size:11px; font-weight:bold;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; padding:0; " ><caption><?php echo isset($title) ? htmlspecialchars($title) : 'Report' ?></caption>
+<thead>
 <tr style="width:100%; height:20px;color:#fff; background:#333; padding:0">
-   		<td  style="width:7%;">No.</td>
-        <td  style="width:12%;">Adm Date</td>
-        <td  style="width:10%;">Patient Id</td>
-        <td  style="width:20%;">Patient Name</td>
-        <td  style="width:10%;">Days Stayed</td>
-        <td  style="width:10%;">Amount Charged</td>
-        <td  style="width:15%;">Ward</td>
-        <td  style="width:15%;">Date Discharged</td>
-    </tr>
+   		<th scope="col"  style="width:7%;">No.</th>
+        <th scope="col"  style="width:12%;">Adm Date</th>
+        <th scope="col"  style="width:10%;">Patient Id</th>
+        <th scope="col"  style="width:20%;">Patient Name</th>
+        <th scope="col"  style="width:10%;">Days Stayed</th>
+        <th scope="col"  style="width:10%;">Amount Charged</th>
+        <th scope="col"  style="width:15%;">Ward</th>
+        <th scope="col"  style="width:15%;">Date Discharged</th>
+    </tr></thead><tbody>
 
 
 <?php

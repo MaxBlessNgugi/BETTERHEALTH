@@ -107,8 +107,8 @@ function opdpatientsnewvisit_comparision_patient_reports($db,$d1,$d2){
 echo '<table id="datatable1" style="width:50%;float: left;text-align:center;font-size:14px; font-weight:bold;font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; padding:0;" >';
 #echo '<tbody>';
 echo '<tr>
-        <th></th>
-        <th colspan="6">NEWVISIT</th>
+        <thscope="row"></th>
+        <th scope="row" colspan="6">NEWVISIT</th>
       </tr>';
 echo '<tr style="width:50%; height:20px;color:#fff; background:#333; padding:0">
         <td style="width:15%;">MONTH</td>
@@ -161,8 +161,8 @@ function opdrevisit_comparision_patient_reports($db,$d1,$d2){
 echo '<table id="res254" style="width:50%;float: right;text-align:center;font-size:14px; font-weight:bold;font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; padding:0;" >';
 echo '<tbody>';
 echo '<tr>
-        <th></th>
-        <th colspan="5">REVISIT</th>
+        <thscope="row"></th>
+        <th scope="row" colspan="5">REVISIT</th>
       </tr>';
 echo '<tr style="width:50%; height:20px;color:#fff; background:#333; padding:0">
         <td colspan="2"><5</td>

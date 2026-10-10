@@ -17,7 +17,7 @@ $reg=$_GET['reg'];
 $id=$_GET['id'];?>
 <script src="js/functions.js"></script>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -32,9 +32,6 @@ $id=$_GET['id'];?>
 <link type="text/css" rel="stylesheet" href="css/blue.css" media="print" />
 
 <script src="assets/vendor/ui/jquery.ui.position.js"></script>
-<script type="text/javascript">
-		Cufon.replace('h1,h2');
-</script>
 <script>
 function doPrint(delay){
 	alert('');
@@ -45,7 +42,7 @@ function doPrint(delay){
 </script>
 </head>
 <body>
-	<a class="bh-skip" href="#bh-main">Skip to main content</a>
+	<?php require_once __DIR__ . '/includes/render.php'; echo bh_skip_link('#bh-main'); ?>
 	<div id="bh-main" tabindex="-1"></div>
 
 <?php

@@ -58,7 +58,7 @@ switch($id){
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -67,9 +67,7 @@ switch($id){
 <title><?php echo $title ?></title>
 <link id="favicon" href="images/fav.png" rel="icon" type="image/png"/>
  <script type="text/javascript" src="js/jquery.js"></script>
-<!--<script type="text/javascript" src="js/chart.js"></script> -->
 <script src="js/functions.js"></script>
-<!-- <link type="text/css" rel="stylesheet" href="css/jquery.custom.alerts.css">-->
 
 <link type="text/css" rel="stylesheet" href="css/feedback.css">
 <script type="text/javascript" src="js/bh-feedback.js"></script>
@@ -77,9 +75,8 @@ switch($id){
 <script type="text/javascript" src="js/connectcode-javascript-code39.js"></script>
 <script src="js/excellentexport.js"></script> 
 <script type="text/javascript" src="js/script.js"></script>
-<script type="text/javascript" src="js/jquery.txt"></script>
 <link rel="stylesheet" href="assets/vendor/ui/jquery.ui.all.css">
-<script src="js/jquery-1.8.2.js"></script>
+<script src="js/jquery.js"></script>
 <script src="assets/vendor/ui/jquery.ui.core.js"></script>
 <script src="assets/vendor/ui/jquery.ui.widget.js"></script>
 <script src="assets/vendor/ui/jquery.ui.datepicker.js"></script>
@@ -93,7 +90,7 @@ font-family: Merchant; font-size:14px; font-weight:bold; text-transform:uppercas
 </head>
 
 <body>
-	<a class="bh-skip" href="#bh-main">Skip to main content</a>
+	<?php require_once __DIR__ . '/includes/render.php'; echo bh_skip_link('#bh-main'); ?>
 	<div id="bh-main" tabindex="-1"></div>
 
 <?php 

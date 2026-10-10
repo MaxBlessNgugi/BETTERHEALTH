@@ -20,11 +20,9 @@ else{echo"<script>window.location.href = \"index.php\";</script>";exit;}
 <script src="js/ajax.js"></script>
 <script src="js/help.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
-<script type="text/javascript" src="js/jquery.txt"></script>
 <script type="text/javascript" src="js/auth.js"></script>
 <script src="assets/vendor/ui/jquery.ui.position.js"></script>
 <link rel="stylesheet" type="text/css" href="assets/vendor/jquery.confirm/jquery.confirm.css" />
-<!-- <script src="js/confirmscript.js"></script> -->
 <script src="assets/vendor/jquery.confirm/jquery.confirm.js"></script>
 <link rel="stylesheet" href="css/website.css" type="text/css" media="screen"/>
 <link rel="stylesheet" type="text/css" href="css/lightbox.css" />
@@ -34,7 +32,6 @@ else{echo"<script>window.location.href = \"index.php\";</script>";exit;}
 <script type="text/javascript" src="js/bh-feedback.js"></script>
 <script type="text/javascript" src="js/jquery.custom.alerts.js"></script>
 <script type="text/javascript" src="js/chart.js"></script>
-<!-- <script src="../code.jquery.com/jquery-latest.min.js" type="text/javascript"></script> -->
 
 
 <script>
