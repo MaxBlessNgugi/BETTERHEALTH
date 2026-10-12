@@ -1,4 +1,4 @@
-ÃÂÃÂ¯ÃÂÃÂ»ÃÂÃÂ¿<?php 
+<?php 
 require_once(__DIR__ . '/includes/db_fns.php');
 bh_authz_note('main', isset($_GET['id']) ? $_GET['id'] : (isset($_GET['ser']) ? $_GET['ser'] : ''));
 require_once('./r/fun.php');
@@ -232,13 +232,10 @@ if (isset($_SESSION['valid_user'])) {
 <script src="js/func.js"></script>
 <script type="text/javascript">
 
-ddsmoothmenu.init({
-	mainmenuid: "templatemo_menu", //menu DIV id
-	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
-	classname: 'ddsmoothmenu', //class added to menu's outer DIV
-	//customtheme: ["#1c5a80", "#18374a"],
-	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
-})
+/* ddsmoothmenu disabled on #templatemo_menu — the module rail is now a
+   left vertical nav handled by js/bh-shell.js + css/shell.css (Master Brief §3).
+   Footer menus still use the ddsmoothmenu class but no longer call init. */
+// ddsmoothmenu.init({ mainmenuid: "templatemo_menu", orientation: 'h', classname: 'ddsmoothmenu', contentsource: "markup" })
 
 </script> 
 <link type="text/css" rel="stylesheet" href="css/feedback.css">
@@ -480,7 +477,7 @@ var area1,area2,area3,area4,area5,area6,area7,area8,area9,area10,area11,area12,a
 <body id="body" onmousemove="reset_interval()" onclick="reset_interval()" onkeypress="reset_interval()" onscroll="reset_interval()">
 	<a class="bh-skip" href="#mainp">Skip to main content</a>
 
-<div id="templatemo_container"  class="site">
+<div id="templatemo_container" class="site is-subnav-hidden">
  <div id="header">
     	<div class="site" id="sitename_panel"><img alt="AppCo Systems" src="images/applogo.png" style="width:200px;height:50px" title="AppCo Systems"/></div>
       <div class="bh-topbar-search">
@@ -488,8 +485,9 @@ var area1,area2,area3,area4,area5,area6,area7,area8,area9,area10,area11,area12,a
         <input type="search" id="bh-globalsearch" name="bh-globalsearch" autocomplete="off" placeholder="Search modules, quick access, reports" aria-describedby="bh-search-status" />
         <span class="bh-search-count" id="bh-search-status" role="status" aria-live="polite"></span>
       </div>
-        
-<nav id="templatemo_menu" class="ddsmoothmenu" aria-label="Modules">
+  </div><!--end header-->
+
+<nav id="templatemo_menu" aria-label="Modules">
             <ul>
                
           	<li class="bh-nav-top"><a class="patients bh-nav-item" href="#" aria-haspopup="true" aria-expanded="false"><span class="bh-nav-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="3"/><path d="M2.5 16.5c0-3 2.4-4.6 5.5-4.6s5.5 1.6 5.5 4.6"/><path d="M14 6.5h4M16 4.5v4"/></svg></span><span class="bh-nav-text">Patients</span></a>
@@ -1268,9 +1266,7 @@ echo'</li>';
           <div class="cleaner"></div>  	
           
         </nav>
-        
 
-  </div><!--end header-->
   <div class="cleaner"></div> 
  <div id="sidep" style="overflow:hidden" title="">
 	<?php

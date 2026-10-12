@@ -1,10 +1,10 @@
 <?php
 require_once(__DIR__ . '/includes/db_fns.php');
-date_default_timezone_set('Africa/Nairobi'); 
+date_default_timezone_set('Africa/Nairobi');
 if(isset($_SESSION['valid_user'])){
 $old_user = $_SESSION['valid_user'];
-$resulta = mysqli_query($db, "DELETE from logintable where username='".$_SESSION['valid_user']."'");	
-$resultb = mysqli_query($db, "insert into log values('','".$_SESSION['valid_user']." logs out of system-COMPUTER IP ADDRESS:".$_SERVER['REMOTE_ADDR']."','".$_SESSION['valid_user']."','".date('YmdHi')."','".date('H:i')."','".date('d/m/Y')."','1')");	
+$resulta = mysqli_query($db, "DELETE from logintable where username='".$_SESSION['valid_user']."'");
+$resultb = mysqli_query($db, "insert into log values('','".$_SESSION['valid_user']." logs out of system-COMPUTER IP ADDRESS:".$_SERVER['REMOTE_ADDR']."','".$_SESSION['valid_user']."','".date('YmdHi')."','".date('H:i')."','".date('d/m/Y')."','1')");
 // store  to test if they *were* logged in
 unset($_SESSION['valid_user']);
 $result_dest = session_destroy();
@@ -12,34 +12,29 @@ $result_dest = session_destroy();
 				  if ($result_dest)  {
 					// if they were logged in and are now logged out
 					echo"<script>window.location.href = \"index.php\";</script>";exit;
-						} else {// they were logged in and could not be logged out
+						} else {// they were logged in but could not be logged out
 				  		echo"<script>window.location.href = \"index.php\";</script>";exit;
 				  		}
 		} else {// if they weren't logged in but came to this page somehow
 					echo"<script>window.location.href = \"index.php\";</script>";exit;
 		}
-	
+
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="css/tokens.css" />
 <link rel="stylesheet" href="css/components.css" />
+<link rel="stylesheet" href="css/feedback.css" />
 <title>Better Health User Authentication</title>
 <meta name="keywords" content="Better Health Hospital Management Information System" />
 <meta name="description" content="Better-Health Hospital Management Information System" />
-<link href="css/templatemo_styleadmin.css" rel="stylesheet" type="text/css" />
 <link id="favicon" href="images/fav.png" rel="icon" type="image/png"/>
-<link href="css/page.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="css/style2.css" />
 <script type='text/javascript' src='js/jquery.js'></script>
-<link type="text/css" rel="stylesheet" href="css/feedback.css">
-<link type="text/css" rel="stylesheet" href="css/jquery.custom.alerts.css">
 <script type="text/javascript" src="js/bh-feedback.js"></script>
-<script type="text/javascript" src="js/jquery.custom.alerts.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 $('#username').focus();
@@ -71,67 +66,62 @@ $(function () {
             }
         });
     });
+
+    /* Show / hide password (presentation only — no auth change) */
+    var toggle = document.getElementById('bh-pw-toggle');
+    var passwd = document.getElementById('passwd');
+    if (toggle && passwd) {
+        toggle.addEventListener('click', function () {
+            var showing = passwd.type === 'text';
+            passwd.type = showing ? 'password' : 'text';
+            toggle.setAttribute('aria-pressed', showing ? 'false' : 'true');
+            toggle.setAttribute('aria-label', showing ? 'Show password' : 'Hide password');
+        });
+    }
 });
-
-
 </script>
+</head>
+<body class="bh-login-body">
 
-</head>   
-<body id="bod">
-	<a class="bh-skip" href="#templatemo_main">Skip to main content</a>
-
-<div id="templatemo_wrapper">
-	<div id="templatemo_header">
-<div class="cleaner"></div>
-
-
-    		<div id="site_title"><img alt="Better Health Hospital Management Information System" src="images/wlogo.png" style="display:block; margin:0 auto; max-height:250px; max-width:100%; height:auto" title="Better Health Hospital Management Information System"/></div>
-<div class="cleaner_h10"></div>
-<p style="font-size:20px; text-align:center; color:#125d30;text-transform:uppercase;">Better Health Hospital Management Information System</p>
+<main class="bh-login" id="main">
+  <aside class="bh-login__brand" aria-label="Better Health HMIS">
+    <img class="bh-login__brand-logo" src="images/wlogo.png" alt="Better Health Hospital Management Information System" />
+    <div class="bh-login__brand-body">
+      <h1 class="bh-login__brand-title">Better Health<br />Hospital Management Information System</h1>
+      <p class="bh-login__brand-tag">Secure access for authorised staff only.</p>
     </div>
-    
-    <div id="templatemo_main" style="border:0" tabindex="-1">
-    
-    	
-          <div id="wrapper">
-          <div class="cleaner_h20"></div>
- 
-                        <div id="login" class="animate form">
-                            <form id="loginform" action="login.php" method="post" autocomplete="on"> 
-                 
-                                <p> 
-                                    <label for="username" class="uname">Username </label>
-                                    <input id="username" name="username" required type="text" style="text-transform:uppercase;" />
-                                </p>
-                                 <div class="cleaner_h20"></div>
-                                <p> 
-                                    <label for="passwd" class="youpasswd">Password </label>
-                                    <input id="passwd" name="passwd" required type="password"/> 
-                                </p>
-                             
-                                <p class="login button"> 
-                                 
-                                    <input type="submit" id="create" value="Login" />
-                                </p>
-                                   <div id="message" role="status" aria-live="polite" style="height:40px; width:40px; float:right; margin:10px"></div>
-                            </form>
-                        </div>
-                        <div class="cleaner h10"></div>
-<!-- <a onclick="window.open('http://www.appcosystems.com')" href="#" style="font-size:12px; margin-left:170px; color:#125d30; font-weight:bold">  &copy; APPCO SYSTEMS LTD</a> 
-<a onclick="window.open('http://www.betterhealthhmis.com')" href="#" style="font-size:12px; margin-left:140px; color:#125d30; font-weight:bold">  &copy; ABOUT BETTER HEALTH | USER GUIDE</a> -->
-     <a  onclick="window.open('http://www.betterhealth.co.ke')" style="display:block; text-align:center; font-size:15px; color:#125d30; font-weight:bold">  &copy; APPCO SYSTEMS LTD</a>
+    <p class="bh-login__brand-foot">&copy; <a href="#" onclick="window.open('http://www.betterhealth.co.ke'); return false;">APPCO SYSTEMS LTD</a></p>
+  </aside>
 
-              
-						
-                    </div>	
-      
-      
-           
-            </div><!-- END mainbox -->
-		</div> <!-- END of home -->
-        
+  <section class="bh-login__panel" aria-label="Sign in">
+    <div class="bh-login__card">
+      <h2 class="bh-login__heading">Sign in</h2>
+      <p class="bh-login__sub">Enter your username and password to continue.</p>
 
-</div> 
+      <form id="loginform" action="login.php" method="post" autocomplete="on" novalidate>
+        <p class="bh-field">
+          <label class="bh-label" for="username">Username <span class="bh-required" aria-hidden="true">*</span></label>
+          <input class="bh-input" id="username" name="username" required type="text" autocomplete="username" autocapitalize="characters" spellcheck="false" />
+        </p>
+        <p class="bh-field">
+          <label class="bh-label" for="passwd">Password <span class="bh-required" aria-hidden="true">*</span></label>
+          <span class="bh-pw-wrap">
+            <input class="bh-input" id="passwd" name="passwd" required type="password" autocomplete="current-password" />
+            <button type="button" class="bh-pw-toggle" id="bh-pw-toggle" aria-label="Show password" aria-pressed="false">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </span>
+        </p>
+        <p class="bh-field">
+          <button type="submit" class="bh-btn bh-btn--primary bh-btn--lg bh-btn--block" id="create">Login</button>
+        </p>
+        <div id="message" class="bh-login__message" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+</main>
 
 </body>
 </html>

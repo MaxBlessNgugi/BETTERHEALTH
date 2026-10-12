@@ -1,63 +1,128 @@
 /* ==========================================================================
-   BETTER-HEALTH HMIS — Design Tokens (Roadmap §4)
-   Single source of truth for colour, type, spacing, radius and elevation.
+   BETTER-HEALTH HMIS — Design Tokens (UI/UX Master Brief §4)
+   Single source of truth: Warm Navy & Sage palette, Inter + JetBrains Mono,
+   16px base, 8-point spacing, AA-verified semantic aliases.
    Loaded first on every page; see css/components.css for the component layer.
    ========================================================================== */
 
+/* --------------------------------------------------------------------------
+   Self-hosted fonts (no CDN). Variable files cover the full weight range.
+   -------------------------------------------------------------------------- */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/Inter-Variable.woff2") format("woff2");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url("../fonts/JetBrainsMono-Variable.woff2") format("woff2");
+}
+
 :root {
-  /* 4.1 Colour palette ---------------------------------------------------- */
-  --primary-50:  #F0FDFA;
-  --primary-500: #0D9488;
-  --primary-600: #0F766E;
-  --primary-700: #115E59;
-  --secondary-500: #0EA5E9;
-  --secondary-700: #0369A1;
-  --neutral-0:   #FFFFFF;
-  --neutral-50:  #F8FAFC;
-  --neutral-100: #E2E8F0;
-  --neutral-400: #94A3B8;
-  --neutral-500: #64748B;
-  --neutral-800: #1E293B;
-  --neutral-900: #0F172A;
-  --success-500: #10B981;
-  --success-700: #047857;
-  --warning-500: #F59E0B;
-  --warning-700: #B45309;
-  --error-500:   #EF4444;
-  --error-600:   #DC2626;
+  /* 4.1 Colour palette — Warm Navy & Sage ----------------------------------
+     Navy replaces the legacy teal #009488. Sage is the accent. Warm neutrals
+     replace the cool slate scale. Measured AA ratios recorded in contrast.cjs. */
+  --navy-50:  #EEF2F7;
+  --navy-100: #D5DEEA;
+  --navy-200: #AABCD4;
+  --navy-300: #7F9ABA;
+  --navy-400: #4E6E96;
+  --navy-500: #2C4A73;
+  --navy-600: #1E3A5F;   /* primary */
+  --navy-700: #16304F;
+  --navy-800: #10243C;
+  --navy-900: #0A1A2E;
+
+  --sage-50:  #EEF5F2;
+  --sage-100: #D7E8E1;
+  --sage-200: #B0D1C5;
+  --sage-300: #89B5A8;
+  --sage-400: #669A8B;
+  --sage-500: #4D7C6F;   /* accent */
+  --sage-600: #3F675C;
+  --sage-700: #325248;
+  --sage-800: #263E36;
+
+  --warm-0:   #FFFFFF;
+  --warm-50:  #FDFBF7;   /* application background */
+  --warm-100: #F5F1EA;
+  --warm-200: #E8E2D8;
+  --warm-300: #D4CCBF;
+  --warm-400: #A89F8F;
+  --warm-500: #7A7263;
+  --warm-600: #5A5346;
+  --warm-800: #3A352C;
+  --warm-900: #1F1C16;
+
+  --success-500: #2F7D5A;
+  --success-700: #236347;
+  --success-50:  #E8F5EE;
+  --warning-500: #B45309;
+  --warning-700: #92400E;
+  --warning-50:  #FEF3C7;
+  --error-500:   #C0392B;
+  --error-600:   #A93226;
+  --error-50:    #FDECEA;
+  --info-500:    #1E3A5F;
+  --info-50:     #EEF2F7;
 
   /* Semantic aliases (use these in component CSS) -------------------------
      Every alias below is verified WCAG 2.2 AA: >= 4.5:1 both as text on
-     --color-surface and as a background behind white text.  Measured ratios
-     are recorded in contrast.cjs output. */
-  --color-bg:          var(--neutral-50);
-  --color-surface:     var(--neutral-0);
-  --color-border:      var(--neutral-400);   /* dividers / decorative only (1.4.11 exempt) */
-  --color-border-control: var(--neutral-500);/* form-control boundary, 4.76:1 >= 3:1 */
-  --color-text:        var(--neutral-800);
-  --color-text-muted:  var(--neutral-500);
-  --color-heading:     var(--neutral-900);
-  --color-link:        var(--primary-600);
-  --color-action:      var(--primary-600);
-  --color-action-hover:var(--primary-700);
-  --color-info:        var(--secondary-700);
-  --color-success:     var(--success-700);
-  --color-warning:     var(--warning-700);
-  --color-danger:      var(--error-600);
+     --color-surface and as a background behind white text. */
+  --color-primary:      var(--navy-600);
+  --color-primary-hover:var(--navy-700);
+  --color-accent:       var(--sage-500);
+  --color-accent-hover: var(--sage-600);
+
+  --color-bg:           var(--warm-50);
+  --color-surface:      var(--warm-0);
+  --color-surface-alt:  var(--warm-100);
+  --color-border:       var(--warm-300);   /* dividers / decorative (1.4.11 exempt) */
+  --color-border-control: var(--warm-500); /* form-control boundary, >= 3:1 */
+  --color-text:         var(--warm-900);
+  --color-text-muted:   var(--warm-500);
+  --color-heading:      var(--navy-800);
+  --color-link:         var(--navy-600);
+  --color-action:       var(--navy-600);
+  --color-action-hover: var(--navy-700);
+  --color-action-text:  #FFFFFF;
+  --color-info:         var(--navy-600);
+  --color-success:      var(--success-700);
+  --color-warning:      var(--warning-700);
+  --color-danger:       var(--error-600);
+
+  /* Shell surfaces */
+  --shell-header-bg:    var(--navy-800);
+  --shell-header-text:  var(--warm-0);
+  --shell-rail-bg:      var(--navy-900);
+  --shell-rail-text:    var(--navy-100);
+  --shell-rail-active:  var(--navy-700);
+  --shell-rail-hover:   var(--navy-800);
+  --shell-subnav-bg:    var(--warm-0);
+  --shell-subnav-text:  var(--warm-900);
 
   /* 4.2 Typography -------------------------------------------------------- */
   --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Code", "Consolas", monospace;
   --text-xs:   12px;
   --text-sm:   13px;
-  --text-base: 15px;
-  --text-md:   16px;
-  --text-lg:   18px;
-  --text-xl:   20px;
-  --text-2xl:  24px;
+  --text-base: 16px;   /* brief §4.2: 16px base */
+  --text-md:   18px;
+  --text-lg:   20px;
+  --text-xl:   22px;
+  --text-2xl:  26px;
+  --text-3xl:  30px;
   --leading-body: 1.5;
+  --leading-tight:1.25;
   --weight-regular: 400;
   --weight-medium:  500;
   --weight-semibold:600;
+  --weight-bold:    700;
 
   /* 4.3 Spacing (8-point grid) -------------------------------------------- */
   --space-1: 4px;
@@ -71,29 +136,50 @@
   --space-12: 48px;
 
   /* Radius ---------------------------------------------------------------- */
-  --radius-sm: 6px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 14px;
+  --radius-full: 9999px;
 
   /* Elevation — soft, diffused, never coloured ---------------------------- */
-  --shadow-1: 0 1px 2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.10);
-  --shadow-2: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.06);
-  --shadow-3: 0 10px 15px -3px rgba(15, 23, 42, 0.10), 0 4px 6px -4px rgba(15, 23, 42, 0.06);
-  --shadow-4: 0 20px 25px -5px rgba(15, 23, 42, 0.12), 0 8px 10px -6px rgba(15, 23, 42, 0.08);
+  --shadow-1: 0 1px 2px rgba(10, 26, 46, 0.06), 0 1px 3px rgba(10, 26, 46, 0.08);
+  --shadow-2: 0 4px 6px -1px rgba(10, 26, 46, 0.08), 0 2px 4px -2px rgba(10, 26, 46, 0.06);
+  --shadow-3: 0 10px 15px -3px rgba(10, 26, 46, 0.10), 0 4px 6px -4px rgba(10, 26, 46, 0.06);
+  --shadow-4: 0 20px 25px -5px rgba(10, 26, 46, 0.12), 0 8px 10px -6px rgba(10, 26, 46, 0.08);
 
   /* Interaction ----------------------------------------------------------- */
-  --focus-ring: 2px solid var(--primary-600);
+  --focus-ring: 2px solid var(--navy-600);
   --focus-ring-offset: 2px;
+  --focus-ring-on-dark: 2px solid #AABCD4;
   --tap-target: 44px;
   --transition-fast: 120ms ease;
   --transition-base: 200ms ease;
+
+  /* Shell layout (brief §3) ----------------------------------------------- */
+  --shell-header-height: 56px;
+  --shell-rail-width: 240px;
+  --shell-rail-collapsed: 68px;
+  --shell-subnav-width: 280px;
+  --content-max-width: 1440px;
 }
 
-/* Global typography baseline (R-02 / §4.2) -------------------------------- */
+/* Global typography baseline (brief §4.2) --------------------------------- */
 html {
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+code, pre, .bh-mono {
+  font-family: var(--font-mono);
 }
 
 /* Visible keyboard focus everywhere (R-05) --------------------------------
@@ -105,12 +191,13 @@ html {
 }
 
 /* Never let a UA default ring disappear on dark surfaces */
-.dark-panel :focus-visible,
-#sidep :focus-visible,
-#mainp :focus-visible,
+.shell-header :focus-visible,
 #header :focus-visible,
-#bottomp :focus-visible {
-  outline-color: #5EEAD4 !important;
+.shell-rail :focus-visible,
+#templatemo_menu :focus-visible,
+#sidep :focus-visible,
+.dark-panel :focus-visible {
+  outline: var(--focus-ring-on-dark) !important;
 }
 
 /* Respect the user's motion preference ------------------------------------ */
@@ -156,12 +243,12 @@ html {
   top: 0;
   z-index: 10090;
   padding: 10px 16px;
-  background: var(--color-action, #0f766e);
+  background: var(--color-action);
   color: #fff !important;
-  font-size: var(--text-base, 15px);
-  font-weight: var(--weight-semibold, 600);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
   text-decoration: none;
-  border-radius: 0 0 var(--radius-md, 8px) 0;
+  border-radius: 0 0 var(--radius-md) 0;
   box-shadow: var(--shadow-3);
 }
 .bh-skip:focus,
@@ -173,7 +260,8 @@ html {
 
 /* Focus target for the skip link - must not draw a ring of its own. */
 #bh-main:focus,
-[bh-main]:focus { outline: none; }
+#mainp:focus,
+[main]:focus { outline: none; }
 
 /* Icon-only controls keep a 44px hit area (§4.3 tap-target). */
 /* Browser-native validation (R-06). :user-invalid only matches after the user
@@ -181,16 +269,16 @@ html {
 input:user-invalid,
 select:user-invalid,
 textarea:user-invalid {
-  border-color: var(--color-danger, #DC2626) !important;
-  box-shadow: 0 0 0 1px var(--color-danger, #DC2626);
+  border-color: var(--color-danger) !important;
+  box-shadow: 0 0 0 1px var(--color-danger);
 }
 input:user-valid,
 select:user-valid,
 textarea:user-valid {
-  border-color: var(--color-success, #047857);
+  border-color: var(--color-success);
 }
 
 .bh-icon-btn {
-  min-width: var(--tap-target, 44px);
-  min-height: var(--tap-target, 44px);
+  min-width: var(--tap-target);
+  min-height: var(--tap-target);
 }

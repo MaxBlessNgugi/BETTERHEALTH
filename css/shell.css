@@ -1,207 +1,654 @@
-/* ==========================================================================
-   BETTER-HEALTH HMIS — Application Shell (Roadmap R-10)
-   Loaded AFTER every other stylesheet so its rules win ties against the
-   legacy template sheets. Depends on css/tokens.css for all values.
-
-   Covers: semantic module navigation (replacing image sprites), global
-   search, collapsible quick-access sidebar, responsive + keyboard states.
+﻿/* ==========================================================================
+   BETTER-HEALTH HMIS — Application Shell (Master Brief §3)
+   Three-column layout: header 56px / left module rail 240-68px /
+   centre content / right sub-nav 280px. Loaded AFTER every other sheet.
+   Depends on css/tokens.css. No jQuery dependency.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   Top bar / header
+   Container grid
    -------------------------------------------------------------------------- */
-#header { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3, 12px); }
+html, body {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 
+#templatemo_container.site {
+  display: grid;
+  grid-template-columns: var(--shell-rail-width) minmax(0, 1fr) var(--shell-subnav-width);
+  grid-template-rows: var(--shell-header-height) minmax(0, 1fr) auto;
+  grid-template-areas:
+    "header  header  header"
+    "rail    main    subnav"
+    "footer  footer  footer";
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  border-radius: 0;
+}
+/* Grid children must stretch and never force a min-content track */
+#header,
+#templatemo_menu,
+#mainp,
+#bottomp,
+#bh-subnav {
+  min-width: 0;
+  max-width: none;
+  box-sizing: border-box;
+}
+#templatemo_container.site.is-rail-collapsed {
+  grid-template-columns: var(--shell-rail-collapsed) minmax(0, 1fr) var(--shell-subnav-width);
+}
+#templatemo_container.site.is-subnav-hidden {
+  grid-template-columns: var(--shell-rail-width) minmax(0, 1fr) 0;
+}
+#templatemo_container.site.is-rail-collapsed.is-subnav-hidden {
+  grid-template-columns: var(--shell-rail-collapsed) minmax(0, 1fr) 0;
+}
+
+.cleaner { clear: both; }
+
+/* --------------------------------------------------------------------------
+   Header — full width, 56px
+   -------------------------------------------------------------------------- */
+#header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3, 12px);
+  box-sizing: border-box;
+  height: var(--shell-header-height);
+  min-height: var(--shell-header-height);
+  max-height: var(--shell-header-height);
+  padding: 0 var(--space-4, 16px);
+  background: var(--shell-header-bg);
+  color: var(--shell-header-text);
+  border-radius: 0;
+  overflow: hidden;
+  z-index: 30;
+}
+#sitename_panel {
+  flex: 0 0 auto;
+  margin: 0;
+  min-height: 0;
+  width: auto;
+}
+#sitename_panel img {
+  display: block;
+  height: 36px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+}
 .bh-topbar-search {
   display: flex;
   align-items: center;
   gap: var(--space-2, 8px);
   flex: 1 1 220px;
-  min-width: 180px;
+  min-width: 160px;
   max-width: 420px;
 }
 .bh-topbar-search label {
   font-size: var(--text-sm, 13px);
   font-weight: var(--weight-medium, 500);
-  color: var(--color-text-muted, #64748B);
+  color: var(--navy-200);
   white-space: nowrap;
 }
 .bh-topbar-search input {
   flex: 1 1 auto;
   min-width: 120px;
-  min-height: var(--tap-target, 44px);
-  padding: 8px var(--space-3, 12px);
+  min-height: 36px;
+  padding: 6px var(--space-3, 12px);
   font-family: var(--font-sans, inherit);
-  font-size: var(--text-base, 15px);
-  color: var(--color-text, #1e293b);
-  background: var(--color-surface, #fff);
-  border: 1px solid var(--color-border-control, #64748b);
-  border-radius: var(--radius-md, 8px);
+  font-size: var(--text-sm, 13px);
+  color: var(--color-text);
+  background: var(--warm-0);
+  border: 1px solid var(--navy-400);
+  border-radius: var(--radius-md, 6px);
 }
 .bh-topbar-search input:focus {
-  border-color: var(--color-action, #0f766e);
-  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.20);
+  border-color: var(--sage-300);
+  box-shadow: 0 0 0 3px rgba(77, 124, 111, 0.28);
 }
 .bh-search-count {
   font-size: var(--text-xs, 12px);
-  color: var(--color-text-muted, #64748b);
+  color: var(--navy-200);
   white-space: nowrap;
 }
-.bh-search-count[data-state="empty"] { color: var(--color-danger, #dc2626); }
+.bh-search-count[data-state="empty"] { color: #F5B7B1; }
+
+/* Header rail-toggle button (controls left rail collapse) */
+.bh-rail-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2, 8px);
+  flex: 0 0 auto;
+  min-width: 36px;
+  min-height: 36px;
+  margin: 0;
+  padding: 0 var(--space-2, 8px);
+  font-family: var(--font-sans, inherit);
+  font-size: var(--text-sm, 13px);
+  font-weight: var(--weight-medium, 500);
+  color: var(--navy-100);
+  background: transparent;
+  border: 1px solid var(--navy-500);
+  border-radius: var(--radius-md, 6px);
+  cursor: pointer;
+}
+.bh-rail-toggle:hover { background: var(--navy-700); color: var(--warm-0); }
+.bh-rail-toggle:focus-visible { outline: var(--focus-ring-on-dark); outline-offset: 2px; }
+.bh-rail-toggle .bh-rail-label { white-space: nowrap; }
 
 /* --------------------------------------------------------------------------
-   Module navigation — replaces the 160x49 image sprites with text + icons.
-   Specificity ties #templatemo_menu ul li a.<sprite>; shell.css loads last.
+   Left module rail — was #templatemo_menu (ddsmoothmenu)
    -------------------------------------------------------------------------- */
+#templatemo_menu {
+  grid-area: rail;
+  float: none;
+  flex: none;
+  width: auto;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  margin: 0;
+  padding: var(--space-3, 12px) var(--space-2, 8px);
+  box-sizing: border-box;
+  background: var(--shell-rail-bg);
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 20;
+}
+#templatemo_menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* Top-level module list */
+#templatemo_menu > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+#templatemo_menu > ul > li.bh-nav-top {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+/* Module button */
 #templatemo_menu ul li a.bh-nav-item {
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  gap: var(--space-2, 8px);
-  min-height: var(--tap-target, 44px);
-  width: auto;
-  min-width: 148px;
+  justify-content: flex-start;
+  gap: var(--space-3, 12px);
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
   height: auto;
-  margin: 5px 4px 0 4px;
-  padding: 6px var(--space-3, 12px);
-  background: none;
+  margin: 0;
+  padding: 8px var(--space-3, 12px);
+  background: transparent;
   background-image: none;
-  color: var(--color-heading, #0f172a);
+  color: var(--shell-rail-text);
   font-family: var(--font-sans, inherit);
-  font-size: var(--text-base, 15px);
+  font-size: var(--text-sm, 13px);
   font-weight: var(--weight-medium, 500);
   line-height: 1.2;
   text-align: left;
   text-decoration: none;
   border: 1px solid transparent;
-  border-radius: var(--radius-md, 8px);
+  border-radius: var(--radius-md, 6px);
   cursor: pointer;
+  white-space: nowrap;
 }
-#templatemo_menu ul li a.bh-nav-item:hover,
-#templatemo_menu ul li a.bh-nav-item.selected {
-  background: var(--primary-50, #f0fdfa);
-  border-color: var(--primary-200, #ccfbf1);
-  color: var(--color-action, #0f766e);
+#templatemo_menu ul li a.bh-nav-item:hover {
+  background: var(--shell-rail-hover);
+  color: var(--warm-0);
+}
+#templatemo_menu ul li a.bh-nav-item[aria-expanded="true"],
+#templatemo_menu ul li a.bh-nav-item.is-active {
+  background: var(--shell-rail-active);
+  color: var(--warm-0);
+  border-color: var(--navy-500);
 }
 #templatemo_menu ul li a.bh-nav-item:focus-visible {
-  outline: var(--focus-ring, 2px solid #0f766e);
-  outline-offset: 2px;
+  outline: var(--focus-ring-on-dark);
+  outline-offset: -2px;
 }
-#templatemo_menu ul li a.bh-nav-item[aria-expanded="true"] {
-  background: var(--primary-100, #f0fdfa);
-  border-color: var(--primary-300, #99f6e4);
-  color: var(--color-action, #0f766e);
-}
-
 .bh-nav-icon { flex: 0 0 auto; display: inline-flex; color: currentColor; }
 .bh-nav-icon svg { display: block; width: 20px; height: 20px; }
-.bh-nav-text { flex: 1 1 auto; white-space: nowrap; }
-
-/* Keyboard-opened submenu (ddsmoothmenu only opens on hover) */
-#templatemo_menu ul li.is-open > ul {
-  display: block !important;
-  height: auto !important;
-  max-height: none;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-#templatemo_menu ul li.is-open > a.bh-nav-item {
-  background: var(--primary-100, #f0fdfa);
-  border-color: var(--primary-300, #99f6e4);
+.bh-nav-text {
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-/* Sub-menu links: make href-less onclick items look and focus like controls */
-#templatemo_menu ul ul a[onclick]:not([href]) { cursor: pointer; }
-#templatemo_menu ul ul a[onclick]:not([href]):focus-visible,
-#templatemo_menu ul ul a[tabindex]:focus-visible {
-  outline: var(--focus-ring, 2px solid #0f766e);
-  outline-offset: -2px;
-  background: var(--primary-50, #f0fdfa);
+/* Collapsed rail: icon only, tooltips via title/aria-label */
+#templatemo_container.site.is-rail-collapsed #templatemo_menu {
+  padding: var(--space-3, 12px) var(--space-1, 4px);
+}
+#templatemo_container.site.is-rail-collapsed #templatemo_menu ul li a.bh-nav-item {
+  justify-content: center;
+  padding: 8px;
+}
+#templatemo_container.site.is-rail-collapsed #templatemo_menu .bh-nav-text {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Legacy sprite backgrounds — never in the rail */
+#templatemo_menu ul li a.patients,
+#templatemo_menu ul li a.consultations,
+#templatemo_menu ul li a.finance,
+#templatemo_menu ul li a.inventory,
+#templatemo_menu ul li a.employees,
+#templatemo_menu ul li a.reports,
+#templatemo_menu ul li a.settings {
+  background-image: none !important;
+  width: auto;
+  height: auto;
+  min-width: 0;
+}
+
+/* Submenus are NOT rendered inline — they populate #bh-subnav via JS */
+#templatemo_menu > ul > li > ul {
+  display: none !important;
 }
 
 /* --------------------------------------------------------------------------
-   Quick-access sidebar — collapse rail (280 px open / 72 px closed)
+   Right sub-nav — populated by bh-shell.js from the active module's submenu
    -------------------------------------------------------------------------- */
-#sidep { transition: width var(--transition-base, 240ms ease); }
-#sidep.is-collapsed { width: 72px; max-width: 72px; }
-#sidep.is-collapsed > *:not(.bh-rail-toggle) { display: none; }
+#bh-subnav {
+  grid-area: subnav;
+  box-sizing: border-box;
+  width: var(--shell-subnav-width);
+  min-width: 0;
+  height: 100%;
+  background: var(--shell-subnav-bg);
+  border-left: 1px solid var(--color-border);
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 20;
+}
+#templatemo_container.site.is-subnav-hidden #bh-subnav {
+  display: none;
+}
 
-.bh-rail-toggle {
-  display: flex;
+.bh-subnav__head {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: var(--space-4, 16px) var(--space-4, 16px) var(--space-2, 8px);
+  background: var(--shell-subnav-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+.bh-subnav__close {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  min-width: 36px;
+  min-height: 36px;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2, 8px);
-  width: 100%;
-  min-height: var(--tap-target, 44px);
-  margin: 0 0 var(--space-2, 8px) 0;
-  padding: 0 var(--space-2, 8px);
-  font-family: var(--font-sans, inherit);
-  font-size: var(--text-sm, 13px);
-  font-weight: var(--weight-medium, 500);
-  color: var(--color-action, #0f766e);
-  background: var(--color-surface, #fff);
-  border: 1px solid var(--color-border-control, #64748b);
-  border-radius: var(--radius-md, 8px);
+  background: transparent;
+  border: 1px solid var(--color-border-control);
+  border-radius: var(--radius-md, 6px);
+  color: var(--color-text);
   cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
 }
-.bh-rail-toggle:hover { background: var(--primary-50, #f0fdfa); }
-.bh-rail-toggle:focus-visible { outline: var(--focus-ring, 2px solid #0f766e); outline-offset: 2px; }
-#sidep.is-collapsed .bh-rail-toggle .bh-rail-label { display: none; }
-
-/* --------------------------------------------------------------------------
-   Role-aware favourites (surfaced above the 104 report screens)
-   -------------------------------------------------------------------------- */
-.bh-favourites { margin: var(--space-3, 12px) 0; }
-.bh-favourites h3 {
+.bh-subnav__title {
   margin: 0 0 var(--space-2, 8px);
-  font-size: var(--text-sm, 13px);
+  font-size: var(--text-md, 18px);
   font-weight: var(--weight-semibold, 600);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #ffffff;
+  color: var(--color-heading);
+  line-height: var(--leading-tight, 1.25);
 }
-.bh-favourites ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
-.bh-favourites a,
-.bh-favourites button {
+.bh-subnav__filter {
   display: block;
   width: 100%;
   box-sizing: border-box;
-  min-height: var(--tap-target, 44px);
-  padding: 8px var(--space-3, 12px);
+  min-height: 36px;
+  padding: 6px var(--space-3, 12px);
   font-family: var(--font-sans, inherit);
   font-size: var(--text-sm, 13px);
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-control);
+  border-radius: var(--radius-md, 6px);
+}
+.bh-subnav__filter:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(77, 124, 111, 0.22);
+}
+.bh-subnav__status {
+  margin: var(--space-1, 4px) 0 0;
+  font-size: var(--text-xs, 12px);
+  color: var(--color-text-muted);
+  min-height: 1em;
+}
+
+.bh-subnav__body {
+  padding: var(--space-3, 12px) var(--space-3, 12px) var(--space-8, 32px);
+}
+.bh-subnav__group {
+  margin: 0 0 var(--space-4, 16px);
+}
+.bh-subnav__group-title {
+  margin: 0 0 var(--space-2, 8px);
+  padding: 0 var(--space-2, 8px);
+  font-size: var(--text-xs, 12px);
+  font-weight: var(--weight-semibold, 600);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.bh-subnav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.bh-subnav__list a,
+.bh-subnav__list button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 8px);
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 36px;
+  padding: 6px var(--space-3, 12px);
+  font-family: var(--font-sans, inherit);
+  font-size: var(--text-sm, 13px);
+  font-weight: var(--weight-medium, 500);
   text-align: left;
   text-decoration: none;
-  color: var(--color-text, #1e293b);
-  background: var(--color-surface, #fff);
-  border: 1px solid var(--color-border, #e2e8f0);
-  border-radius: var(--radius-md, 8px);
+  color: var(--shell-subnav-text);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md, 6px);
   cursor: pointer;
 }
-.bh-favourites a:hover,
-.bh-favourites button:hover { background: var(--primary-50, #f0fdfa); border-color: var(--primary-200, #ccfbf1); }
-.bh-favourites a:focus-visible,
-.bh-favourites button:focus-visible { outline: var(--focus-ring, 2px solid #0f766e); outline-offset: 2px; }
-#sidep.is-collapsed .bh-favourites { display: none; }
-
-/* Search-hit highlight (1.4.10 reflow — never hides content) */
-.bh-search-hit { background: var(--warning-100, #fef3c7); border-radius: 3px; }
+.bh-subnav__list a:hover,
+.bh-subnav__list button:hover {
+  background: var(--sage-50);
+  border-color: var(--sage-100);
+  color: var(--navy-700);
+}
+.bh-subnav__list a:focus-visible,
+.bh-subnav__list button:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: -1px;
+}
+.bh-subnav__list a[aria-current="page"],
+.bh-subnav__list a.is-current {
+  background: var(--sage-100);
+  border-color: var(--sage-200);
+  color: var(--navy-800);
+  font-weight: var(--weight-semibold, 600);
+}
+.bh-subnav__empty {
+  padding: var(--space-4, 16px);
+  font-size: var(--text-sm, 13px);
+  color: var(--color-text-muted);
+}
 
 /* --------------------------------------------------------------------------
-   Responsive shell
+   Centre content (#mainp)
    -------------------------------------------------------------------------- */
-@media (max-width: 1024px) {
-  #templatemo_menu ul li a.bh-nav-item { min-width: 0; }
+#mainp {
+  grid-area: main;
+  position: relative;
+  float: none;
+  box-sizing: border-box;
+  width: auto;
+  min-width: 0;
+  min-height: 481px;
+  margin: 0;
+  padding: var(--space-5, 20px);
+  background: var(--color-bg);
+  border-radius: 0;
+  overflow-x: auto;
 }
-@media (max-width: 768px) {
-  #header { flex-direction: column; align-items: stretch; }
-  .bh-topbar-search { max-width: none; }
-  #templatemo_menu ul { display: flex; flex-wrap: wrap; gap: 4px; }
-  #sidep, #sidep.is-collapsed { width: auto; max-width: none; float: none; }
-  #sidep.is-collapsed > *:not(.bh-rail-toggle) { display: block; }
+#mainp:focus { outline: none; }
+#mainp > * { max-width: var(--content-max-width); }
+
+/* --------------------------------------------------------------------------
+   Quick-access sidebar (#sidep) — parked off-canvas; favourites surface
+   in the sub-nav via JS. Keep DOM for permission-gated links.
+   -------------------------------------------------------------------------- */
+#sidep {
+  display: none;
+  position: static;
+  float: none;
+  width: auto;
+  max-width: none;
+  min-height: 0;
+  margin: 0;
+  background: transparent;
+  border-radius: 0;
 }
+#sidep.is-visible {
+  display: block;
+  grid-area: main;
+  position: absolute;
+  z-index: 40;
+  width: 280px;
+  max-width: 90vw;
+  max-height: 70vh;
+  overflow-y: auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg, 10px);
+  box-shadow: var(--shadow-4);
+  padding: var(--space-3, 12px);
+}
+#sidep.is-collapsed { width: auto; }
+#sidep.is-collapsed > *:not(.bh-rail-toggle) { display: none; }
+#sidep .bh-rail-toggle { display: none; }
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+#bottomp {
+  grid-area: footer;
+  position: relative;
+  float: none;
+  clear: none;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 48px;
+  height: auto;
+  margin: 0;
+  padding: 0 var(--space-4, 16px);
+  background: var(--navy-800);
+  color: var(--navy-100);
+  border-radius: 0;
+}
+#bottomp a { color: var(--sage-200); }
+#footer_menul, #footer_menuc, #footer_menur { float: none; flex: 1 1 auto; }
+
+/* --------------------------------------------------------------------------
+   Search-hit highlight
+   -------------------------------------------------------------------------- */
+.bh-search-hit { background: var(--warning-50); border-radius: 3px; }
+
+/* --------------------------------------------------------------------------
+   Responsive — brief §3 breakpoints
+   -------------------------------------------------------------------------- */
+/* 1024–1279: subnav 260px */
+@media (max-width: 1279px) {
+  #templatemo_container.site,
+  #templatemo_container.site:not(.is-rail-collapsed) {
+    grid-template-columns: var(--shell-rail-width) minmax(0, 1fr) 260px;
+  }
+  #templatemo_container.site.is-subnav-hidden,
+  #templatemo_container.site.is-rail-collapsed.is-subnav-hidden {
+    grid-template-columns: var(--shell-rail-width) minmax(0, 1fr) 0;
+  }
+  #bh-subnav { width: 260px; }
+}
+
+/* 900–1023: rail collapsed by default; subnav overlays */
+@media (max-width: 1023px) {
+  #templatemo_container.site,
+  #templatemo_container.site.is-rail-collapsed {
+    grid-template-columns: var(--shell-rail-collapsed) minmax(0, 1fr) 0;
+  }
+  /* Overlay: leave the grid flow so the 0-width column doesn't steal space */
+  #bh-subnav {
+    grid-area: auto;
+    position: fixed;
+    top: var(--shell-header-height);
+    right: 0;
+    bottom: 0;
+    width: 280px;
+    max-width: 85vw;
+    box-shadow: var(--shadow-4);
+    transform: translateX(100%);
+    transition: transform var(--transition-base, 200ms ease);
+  }
+  #templatemo_container.site:not(.is-subnav-hidden) #bh-subnav {
+    transform: translateX(0);
+  }
+  #templatemo_container.site.is-subnav-hidden #bh-subnav {
+    display: block;
+    transform: translateX(100%);
+  }
+  .bh-subnav__close { display: inline-flex; }
+}
+
+/* 768–899: rail becomes a horizontal strip under the header.
+   Use flex (not grid) so a fixed overlay subnav can never create an
+   implicit column and crush the header to min-content. */
+@media (max-width: 899px) {
+  #templatemo_container.site,
+  #templatemo_container.site.is-rail-collapsed,
+  #templatemo_container.site.is-subnav-hidden,
+  #templatemo_container.site.is-rail-collapsed.is-subnav-hidden {
+    display: flex !important;
+    flex-direction: column;
+    width: 100% !important;
+    max-width: none !important;
+    grid-template-columns: none !important;
+    grid-template-rows: none !important;
+    grid-template-areas: none !important;
+  }
+  #header {
+    order: 1;
+    flex: 0 0 auto;
+    width: 100% !important;
+    max-width: none !important;
+  }
+  #templatemo_menu {
+    order: 2;
+    flex: 0 0 auto;
+    width: 100% !important;
+    max-width: none !important;
+    height: auto;
+    max-height: 56px;
+    padding: var(--space-1, 4px) var(--space-2, 8px);
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-bottom: 1px solid var(--navy-700);
+  }
+  #mainp {
+    order: 3;
+    flex: 1 1 auto;
+    width: 100% !important;
+    max-width: none !important;
+    padding: var(--space-4, 16px);
+    overflow-x: auto;
+  }
+  #bottomp {
+    order: 4;
+    flex: 0 0 auto;
+    width: 100% !important;
+    max-width: none !important;
+  }
+  /* Drawer subnav — out of flex flow, pinned to viewport */
+  #bh-subnav {
+    order: 0;
+    position: fixed !important;
+    top: calc(var(--shell-header-height) + 56px);
+    right: 0;
+    bottom: 0;
+    left: auto;
+    width: min(320px, 92vw) !important;
+    max-width: 92vw !important;
+    height: auto !important;
+    z-index: 50;
+    box-shadow: var(--shadow-4);
+    transform: translateX(105%);
+    transition: transform var(--transition-base, 200ms ease);
+  }
+  #templatemo_container.site:not(.is-subnav-hidden) #bh-subnav {
+    transform: translateX(0);
+  }
+  #templatemo_container.site.is-subnav-hidden #bh-subnav {
+    display: block !important;
+    transform: translateX(105%);
+    visibility: hidden;
+    pointer-events: none;
+  }
+  #templatemo_menu > ul {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 4px;
+  }
+  #templatemo_menu ul li a.bh-nav-item {
+    min-height: 40px;
+    padding: 6px 10px;
+  }
+  #templatemo_container.site.is-rail-collapsed #templatemo_menu .bh-nav-text {
+    position: static !important;
+    width: auto; height: auto;
+    clip-path: none;
+    overflow: visible;
+  }
+  #templatemo_container.site.is-rail-collapsed #templatemo_menu ul li a.bh-nav-item {
+    justify-content: flex-start;
+    padding: 6px 10px;
+  }
+  #header { padding: 0 var(--space-3, 12px); }
+  .bh-topbar-search { display: none; }
+  .bh-rail-toggle .bh-rail-label { display: none; }
+  .bh-subnav__close { display: inline-flex; }
+}
+
+/* <768: drawer-style subnav, compact header */
+@media (max-width: 767px) {
+  #header { gap: var(--space-2, 8px); }
+  #sitename_panel img { max-width: 120px; height: 28px; }
+  .bh-topbar-search { min-width: 0; max-width: none; }
+  #bh-subnav { width: 100%; max-width: 100%; }
+  #mainp { padding: var(--space-3, 12px); }
+  #bottomp { flex-wrap: wrap; gap: var(--space-2, 8px); padding: var(--space-2, 8px) var(--space-3, 12px); }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  #sidep { transition: none !important; }
+  #bh-subnav { transition: none !important; }
 }
