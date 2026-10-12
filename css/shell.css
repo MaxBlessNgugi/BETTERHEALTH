@@ -652,3 +652,102 @@ html, body {
 @media (prefers-reduced-motion: reduce) {
   #bh-subnav { transition: none !important; }
 }
+
+/* --------------------------------------------------------------------------
+   Dashboard widgets (#mainp) — override legacy inline-styled <h5> headers
+   and panel chrome with Warm Navy & Sage. Presentation only; no PHP change.
+   -------------------------------------------------------------------------- */
+#mainp h5,
+#mainp .ui-widget-header {
+  margin: 0;
+  padding: 10px var(--space-4, 16px);
+  font-family: var(--font-sans, inherit);
+  font-size: var(--text-md, 18px);
+  font-weight: var(--weight-semibold, 600);
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: var(--navy-700);
+  background: var(--warm-100);
+  border: none;
+  border-bottom: 2px solid var(--sage-500);
+  border-radius: 0;
+  text-transform: uppercase;
+}
+#mainp .ui-tabs-nav {
+  background: var(--navy-700) !important;
+  border: none !important;
+}
+#mainp .ui-tabs-nav li a {
+  color: var(--warm-0) !important;
+}
+#mainp .ui-tabs-nav li.ui-tabs-active a,
+#mainp .ui-tabs-nav li.ui-state-active a {
+  color: var(--navy-800) !important;
+  background: var(--warm-0) !important;
+}
+#mainp a {
+  color: var(--color-link);
+}
+#mainp table,
+#mainp .bhealth-table {
+  font-family: var(--font-sans, inherit);
+}
+#mainp .ui-corner-all,
+#mainp .ui-corner-top,
+#mainp .ui-corner-bottom,
+#mainp .ui-corner-left,
+#mainp .ui-corner-right {
+  border-radius: var(--radius-sm, 4px);
+}
+
+/* Keep jQuery UI tabs below their section header, not over it */
+#mainp .ui-tabs {
+  position: relative !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+#mainp h5 + .ui-tabs,
+#mainp h5 + div .ui-tabs {
+  margin-top: 4px;
+}
+
+/* Footer session controls — navy/sage, no legacy teal */
+#bottomp .logout,
+#bottomp a.logout,
+#footer_menul a.logout {
+  display: inline-flex !important;
+  align-items: center;
+  gap: var(--space-2, 8px);
+  min-height: 36px;
+  padding: 6px 14px !important;
+  background: var(--navy-700) !important;
+  color: var(--warm-0) !important;
+  font-family: var(--font-sans, inherit);
+  font-size: var(--text-sm, 13px);
+  font-weight: var(--weight-medium, 500);
+  text-decoration: none !important;
+  border: 1px solid var(--navy-500);
+  border-radius: var(--radius-md, 6px);
+  background-image: none !important;
+  width: auto !important;
+  height: auto !important;
+}
+#bottomp .logout:hover,
+#footer_menul a.logout:hover {
+  background: var(--navy-600) !important;
+}
+#bottomp #datepickermain,
+#footer_menur .datepick {
+  background: var(--navy-700) !important;
+  color: var(--warm-0) !important;
+  border: 1px solid var(--navy-500);
+  border-radius: var(--radius-md, 6px);
+  min-height: 36px;
+  padding: 6px 12px;
+  font-family: var(--font-sans, inherit);
+}
+#bottomp #clock {
+  color: var(--navy-100);
+  font-family: var(--font-mono, monospace);
+  font-size: var(--text-sm, 13px);
+}
