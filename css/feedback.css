@@ -58,7 +58,7 @@
 .bh-toast--success { border-left-color: var(--color-success, #236347); }
 .bh-toast--error   { border-left-color: var(--color-danger,  #A93226); }
 .bh-toast--warning { border-left-color: var(--color-warning, #b45309); }
-.bh-toast--info    { border-left-color: var(--color-info,    #0369a1); }
+.bh-toast--info    { border-left-color: var(--color-info,    #1E3A5F); }
 
 .bh-toast__icon {
   flex: 0 0 auto;
@@ -76,7 +76,7 @@
 .bh-toast--success .bh-toast__icon { background: var(--color-success, #236347); }
 .bh-toast--error   .bh-toast__icon { background: var(--color-danger,  #A93226); }
 .bh-toast--warning .bh-toast__icon { background: var(--color-warning, #b45309); }
-.bh-toast--info    .bh-toast__icon { background: var(--color-info,    #0369a1); }
+.bh-toast--info    .bh-toast__icon { background: var(--color-info,    #1E3A5F); }
 
 .bh-toast__body { flex: 1 1 auto; min-width: 0; }
 
@@ -157,7 +157,7 @@
 .bh-banner--success { border-left-color: var(--color-success, #236347); }
 .bh-banner--error   { border-left-color: var(--color-danger,  #A93226); }
 .bh-banner--warning { border-left-color: var(--color-warning, #b45309); }
-.bh-banner--info    { border-left-color: var(--color-info,    #0369a1); }
+.bh-banner--info    { border-left-color: var(--color-info,    #1E3A5F); }
 .bh-banner__msg p { margin: 0 0 4px; }
 .bh-banner__msg p:last-child { margin-bottom: 0; }
 .bh-banner__close {

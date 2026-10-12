@@ -1,4 +1,4 @@
-
+﻿
 /** fonts used for the icons **/ 
 
 
@@ -139,7 +139,7 @@ input {
 	        transition: all 0.2s linear;
 }
 #wrapper p.button input:hover{
-	background:var(--color-info, #0369A1);
+	background:var(--color-info, #1E3A5F);
 }
 #wrapper p.button input:active,
 #wrapper p.button input:focus{

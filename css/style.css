@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 
 
@@ -17,7 +17,7 @@ input:focus.DatePicker{
 }
 .dp_cal{
 	background-color: #fff;
-	border: 1px solid #0070bf;
+	border: 1px solid #1E3A5F;
 	position: absolute;
 	width: 177px;
 	top: 24px;
@@ -58,7 +58,7 @@ input:focus.DatePicker{
 }
 .dp_cal td.dp_roll{
 	color: #000;
-	background:#0085B2;
+	background:#1E3A5F;
 }
 /* must have this for the IE6 select box hiding */
 .dp_hide{
