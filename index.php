@@ -82,6 +82,7 @@ $(function () {
 </script>
 </head>
 <body class="bh-login-body">
+<a class="bh-skip" href="#main">Skip to main content</a>
 
 <main class="bh-login" id="main">
   <aside class="bh-login__brand" aria-label="Better Health HMIS">

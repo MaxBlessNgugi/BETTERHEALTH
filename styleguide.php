@@ -13,7 +13,7 @@ $tokensPath = __DIR__ . '/css/tokens.css';
 $css = is_readable($tokensPath) ? file_get_contents($tokensPath) : '';
 
 /* ---- 1. palette ---------------------------------------------------------- */
-preg_match_all('/(--(?:primary|secondary|neutral|success|warning|error)-\d{2,3})\s*:\s*(#[0-9A-Fa-f]{3,8})\b/', $css, $m, PREG_SET_ORDER);
+preg_match_all('/(--(?:navy|sage|warm|primary|secondary|neutral|success|warning|error)-\d{1,3})\s*:\s*(#[0-9A-Fa-f]{3,8})\b/', $css, $m, PREG_SET_ORDER);
 $palette = [];
 foreach ($m as $row) {
     $palette[$row[1]] = strtoupper($row[2]);

@@ -431,7 +431,6 @@ html, body {
   border-radius: 0;
   overflow-x: auto;
 }
-#mainp:focus { outline: none; }
 #mainp > * { max-width: var(--content-max-width); }
 
 /* --------------------------------------------------------------------------
@@ -677,13 +676,27 @@ html, body {
   background: var(--navy-700) !important;
   border: none !important;
 }
-#mainp .ui-tabs-nav li a {
+#mainp .ui-tabs-nav li a,
+#mainp .ui-tabs-nav li .ui-tabs-anchor,
+#mainp .ui-tabs-nav li.ui-state-default a,
+#mainp .ui-tabs-nav li.ui-state-default .ui-tabs-anchor {
+  color: var(--warm-0) !important;
+  background: transparent !important;
+  border: 1px solid var(--navy-500) !important;
+}
+#mainp .ui-tabs-nav li.ui-state-hover,
+#mainp .ui-tabs-nav li.ui-state-hover a,
+#mainp .ui-tabs-nav li.ui-state-hover .ui-tabs-anchor,
+#mainp .ui-tabs-nav li a:hover {
+  background: var(--navy-600) !important;
   color: var(--warm-0) !important;
 }
 #mainp .ui-tabs-nav li.ui-tabs-active a,
-#mainp .ui-tabs-nav li.ui-state-active a {
+#mainp .ui-tabs-nav li.ui-state-active a,
+#mainp .ui-tabs-nav li.ui-state-active .ui-tabs-anchor {
   color: var(--navy-800) !important;
   background: var(--warm-0) !important;
+  border-color: var(--warm-0) !important;
 }
 #mainp a {
   color: var(--color-link);
@@ -703,24 +716,47 @@ html, body {
 /* Keep jQuery UI tabs below their section header, not over it */
 #mainp .ui-tabs {
   position: relative !important;
-  margin-top: 0 !important;
+  float: none !important;
+  clear: both;
+  display: block;
+  margin-top: 4px !important;
   padding-top: 0 !important;
+  width: auto !important;
+  max-width: 100%;
 }
-#mainp h5 + .ui-tabs,
-#mainp h5 + div .ui-tabs {
-  margin-top: 4px;
+#mainp h5 + div,
+#mainp h5 + .ui-tabs {
+  position: relative;
+  z-index: 1;
+  clear: both;
+}
+#mainp #encounters > div:first-child,
+#mainp #encounters > h5,
+#mainp h5 {
+  position: relative;
+  z-index: 2;
+  float: none !important;
+  width: auto !important;
+  height: auto !important;
 }
 
-/* Footer session controls — navy/sage, no legacy teal */
+/* Footer session controls — navy/sage. Logout/calendar use background-image
+   sprites with no text node, so restore a visible label via ::after and keep
+   a solid navy plate under the sprite. */
 #bottomp .logout,
 #bottomp a.logout,
 #footer_menul a.logout {
+  position: relative;
   display: inline-flex !important;
   align-items: center;
   gap: var(--space-2, 8px);
   min-height: 36px;
-  padding: 6px 14px !important;
-  background: var(--navy-700) !important;
+  min-width: 120px;
+  padding: 6px 14px 6px 40px !important;
+  background-color: var(--navy-700) !important;
+  background-repeat: no-repeat !important;
+  background-position: 6px center !important;
+  background-size: 24px 24px !important;
   color: var(--warm-0) !important;
   font-family: var(--font-sans, inherit);
   font-size: var(--text-sm, 13px);
@@ -728,23 +764,35 @@ html, body {
   text-decoration: none !important;
   border: 1px solid var(--navy-500);
   border-radius: var(--radius-md, 6px);
-  background-image: none !important;
   width: auto !important;
   height: auto !important;
 }
+#bottomp .logout::after,
+#footer_menul a.logout::after {
+  content: "Logout";
+}
 #bottomp .logout:hover,
 #footer_menul a.logout:hover {
-  background: var(--navy-600) !important;
+  background-color: var(--navy-600) !important;
 }
+/* Inputs ignore ::after; label is injected by bh-shell.js as .value */
 #bottomp #datepickermain,
 #footer_menur .datepick {
-  background: var(--navy-700) !important;
+  background-color: var(--navy-700) !important;
+  background-image: none !important;
   color: var(--warm-0) !important;
   border: 1px solid var(--navy-500);
   border-radius: var(--radius-md, 6px);
   min-height: 36px;
+  min-width: 120px;
   padding: 6px 12px;
   font-family: var(--font-sans, inherit);
+  font-size: var(--text-sm, 13px) !important;
+  cursor: pointer;
+}
+#bottomp #datepickermain:hover,
+#footer_menur .datepick:hover {
+  background-color: var(--navy-600) !important;
 }
 #bottomp #clock {
   color: var(--navy-100);

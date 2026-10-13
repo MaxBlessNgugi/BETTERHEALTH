@@ -498,11 +498,23 @@
     });
   }
 
+  /* ---------- footer calendar label ------------------------------------- */
+  /* #datepickermain is an <input type="button"> with font-size:0 and no text.
+     Pseudo-elements do not render on inputs, so set .value instead. */
+  function wireCalendarLabel() {
+    var dp = document.getElementById("datepickermain");
+    if (dp && !dp.value) {
+      dp.value = " Calendar";
+      dp.setAttribute("aria-label", "Open calendar");
+    }
+  }
+
   function init() {
     wireRailToggle();
     wireModuleMenu();
     wireSearch();
     wireSidebar();
+    wireCalendarLabel();
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
