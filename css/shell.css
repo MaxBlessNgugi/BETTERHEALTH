@@ -646,6 +646,25 @@ html, body {
   #bh-subnav { width: 100%; max-width: 100%; }
   #mainp { padding: var(--space-3, 12px); }
   #bottomp { flex-wrap: wrap; gap: var(--space-2, 8px); padding: var(--space-2, 8px) var(--space-3, 12px); }
+  /* Legacy dashboard widgets carry inline width:501px / float:left.
+     Force them to the viewport width so the page never scrolls sideways. */
+  #mainp > div,
+  #mainp > div > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    float: none !important;
+    box-sizing: border-box;
+  }
+  #mainp #encounters,
+  #mainp #todayev,
+  #mainp #results,
+  #mainp #tabs {
+    width: 100% !important;
+    max-width: 100% !important;
+    float: none !important;
+    box-sizing: border-box;
+  }
+  #mainp #tabs canvas { max-width: 100%; height: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {
