@@ -163,6 +163,8 @@ html, body {
   padding: var(--space-3, 12px) var(--space-2, 8px);
   box-sizing: border-box;
   background: var(--shell-rail-bg);
+  display: flex;
+  flex-direction: column;
   overflow-x: hidden;
   overflow-y: auto;
   z-index: 20;
@@ -172,11 +174,20 @@ html, body {
   margin: 0;
   padding: 0;
 }
-/* Top-level module list */
+/* Top-level module list — scrolls; logout is pinned below it */
 #templatemo_menu > ul {
   display: flex;
+  flex: 1 0 auto;
   flex-direction: column;
   gap: 2px;
+}
+.bh-rail-foot {
+  flex: 0 0 auto;
+  position: sticky;
+  bottom: 0;
+  margin-top: var(--space-3, 12px);
+  padding-top: var(--space-3, 12px);
+  border-top: 1px solid var(--navy-700);
 }
 #templatemo_menu > ul > li.bh-nav-top {
   position: relative;
@@ -759,62 +770,80 @@ html, body {
   height: auto !important;
 }
 
-/* Footer session controls — navy/sage. Icons are inline SVG data-URIs (log-out
-   and calendar line icons); logout also keeps a visible label via ::after. */
-#bottomp .logout,
-#bottomp a.logout,
-#footer_menul a.logout {
+/* Session controls — logout pinned in the left rail foot, calendar in the
+   header beside Quick. Icons are inline SVG data-URIs (log-out, calendar). */
+.bh-rail-foot .logout,
+.bh-rail-foot a.logout {
   position: relative;
   display: inline-flex !important;
   align-items: center;
   gap: var(--space-2, 8px);
-  min-height: 36px;
-  min-width: 120px;
-  padding: 6px 14px 6px 40px !important;
-  background-color: var(--navy-700) !important;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23FDFBF7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m16 17 5-5-5-5'/%3E%3Cpath d='M21 12H9'/%3E%3Cpath d='M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4'/%3E%3C/svg%3E") !important;
+  box-sizing: border-box;
+  min-height: 40px;
+  width: 100%;
+  padding: 8px 10px 8px 36px !important;
+  background-color: transparent !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23D5DEEA' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m16 17 5-5-5-5'/%3E%3Cpath d='M21 12H9'/%3E%3Cpath d='M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4'/%3E%3C/svg%3E") !important;
   background-repeat: no-repeat !important;
-  background-position: 6px center !important;
-  background-size: 24px 24px !important;
-  color: var(--warm-0) !important;
+  background-position: 10px center !important;
+  background-size: 20px 20px !important;
+  color: var(--navy-100) !important;
   font-family: var(--font-sans, inherit);
   font-size: var(--text-sm, 13px);
   font-weight: var(--weight-medium, 500);
   text-decoration: none !important;
-  border: 1px solid var(--navy-500);
+  border: 1px solid transparent;
   border-radius: var(--radius-md, 6px);
-  width: auto !important;
   height: auto !important;
+  margin: 0 !important;
 }
-#bottomp .logout::after,
-#footer_menul a.logout::after {
+.bh-rail-foot .logout::after,
+.bh-rail-foot a.logout::after {
   content: "Logout";
 }
-#bottomp .logout:hover,
-#footer_menul a.logout:hover {
-  background-color: var(--navy-600) !important;
-}
-/* Inputs ignore ::after; label is injected by bh-shell.js as .value */
-#bottomp #datepickermain,
-#footer_menur .datepick {
+.bh-rail-foot .logout:hover,
+.bh-rail-foot a.logout:hover {
   background-color: var(--navy-700) !important;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23FDFBF7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11 13h1v4'/%3E%3Cpath d='M16 2v3'/%3E%3Cpath d='M3 9h18'/%3E%3Cpath d='M8 2v3'/%3E%3Crect x='3' y='3' width='18' height='18' rx='2'/%3E%3C/svg%3E") !important;
-  background-repeat: no-repeat !important;
-  background-position: 8px center !important;
-  background-size: 20px 20px !important;
   color: var(--warm-0) !important;
+  border-color: var(--navy-500);
+}
+/* Collapsed rail: icon only, centred */
+#templatemo_container.site.is-rail-collapsed .bh-rail-foot .logout,
+#templatemo_container.site.is-rail-collapsed .bh-rail-foot a.logout {
+  justify-content: center;
+  padding: 8px !important;
+  background-position: center !important;
+}
+#templatemo_container.site.is-rail-collapsed .bh-rail-foot .logout::after,
+#templatemo_container.site.is-rail-collapsed .bh-rail-foot a.logout::after {
+  display: none;
+}
+/* Calendar lives in the header beside Quick */
+#header #datepickermain,
+#header .datepick {
+  background-color: transparent !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23D5DEEA' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11 13h1v4'/%3E%3Cpath d='M16 2v3'/%3E%3Cpath d='M3 9h18'/%3E%3Cpath d='M8 2v3'/%3E%3Crect x='3' y='3' width='18' height='18' rx='2'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: 10px center !important;
+  background-size: 20px 20px !important;
+  color: var(--navy-100) !important;
   border: 1px solid var(--navy-500);
   border-radius: var(--radius-md, 6px);
   min-height: 36px;
-  min-width: 120px;
-  padding: 6px 12px 6px 34px;
+  min-width: 0;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 6px 12px 6px 36px;
   font-family: var(--font-sans, inherit);
   font-size: var(--text-sm, 13px) !important;
   cursor: pointer;
+  flex: 0 0 auto;
 }
-#bottomp #datepickermain:hover,
-#footer_menur .datepick:hover {
-  background-color: var(--navy-600) !important;
+#header #datepickermain:hover,
+#header .datepick:hover {
+  background-color: var(--navy-700) !important;
+  color: var(--warm-0) !important;
 }
 #bottomp #clock {
   color: var(--navy-100);

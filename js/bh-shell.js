@@ -499,18 +499,39 @@
     });
   }
 
+  /* ---------- parked session controls ----------------------------------- */
+  /* Logout moves to the bottom of the left module rail; the calendar input
+     moves into the header beside the Quick button. Same DOM nodes, so the
+     onclick=logout() handler and the jQuery UI datepicker stay attached. */
+  function placeSessionControls() {
+    var logout = document.querySelector("#footer_menul a.logout, #bottomp a.logout");
+    var menu = document.getElementById("templatemo_menu");
+    if (logout && menu && !menu.querySelector(".bh-rail-foot")) {
+      var foot = document.createElement("div");
+      foot.className = "bh-rail-foot";
+      foot.appendChild(logout);
+      menu.appendChild(foot);
+    }
+    var dp = document.getElementById("datepickermain");
+    var header = document.getElementById("header");
+    if (dp && header && dp.parentNode !== header) {
+      header.appendChild(dp);
+    }
+  }
+
   /* ---------- footer calendar label ------------------------------------- */
-  /* #datepickermain is an <input type="button"> with font-size:0 and no text.
-     Pseudo-elements do not render on inputs, so set .value instead. */
+  /* #datepickermain is an <input type="button">; pseudo-elements do not
+     render on inputs, so set .value instead. */
   function wireCalendarLabel() {
     var dp = document.getElementById("datepickermain");
     if (dp && !dp.value) {
-      dp.value = " Calendar";
+      dp.value = "Calendar";
       dp.setAttribute("aria-label", "Open calendar");
     }
   }
 
   function init() {
+    placeSessionControls();
     wireRailToggle();
     wireModuleMenu();
     wireSearch();
