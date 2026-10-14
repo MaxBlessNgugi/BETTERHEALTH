@@ -72,8 +72,9 @@
     btn.setAttribute("aria-controls", "templatemo_menu");
     btn.innerHTML =
       '<span class="bh-nav-icon" aria-hidden="true">' +
-      '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" ' +
-      'stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h14M3 10h14M3 15h14"/></svg></span>' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
+      'stroke-linecap="round" stroke-linejoin="round">' +
+      '<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg></span>' +
       '<span class="bh-rail-label">Modules</span>';
     header.insertBefore(btn, header.firstChild);
 
